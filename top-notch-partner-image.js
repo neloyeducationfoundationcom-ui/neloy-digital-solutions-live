@@ -1,0 +1,1 @@
+export default "data:image/webp;base64,UklGRqwIAABXRUJQVlA4IKAI...";
