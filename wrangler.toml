@@ -1,4 +1,4 @@
-name = "neloy-digital-solutions-live"
+name = "neloy-digital-solutions"
 main = "dinesh-visible-wrapper.js"
 compatibility_date = "2026-09-09"
-# two-page-site-with-security-and-visible-dinesh
+# deploy to the existing public Neloy Digital Solutions Worker
