@@ -1,4 +1,5 @@
 import currentWorker from "./two-page-motion-wrapper.js";
+import legacySponsorWorker from "./final-wrapper.js";
 
 const BLOCKED_PATHS = [
   "/.env", "/.git", "/.git/config", "/wp-admin", "/wp-login.php", "/xmlrpc.php",
@@ -40,7 +41,7 @@ function secureHeaders(headers, url, contentType) {
   }
 
   if ((contentType || "").includes("text/html")) {
-    h.set("Cache-Control", url.pathname.startsWith("/admin") ? "no-store" : "no-store");
+    h.set("Cache-Control", "no-store");
   }
   return h;
 }
@@ -54,6 +55,39 @@ function reject(status, message) {
       "x-content-type-options": "nosniff"
     }
   });
+}
+
+async function getTopNotchLogo(request, env, ctx) {
+  try {
+    const u = new URL(request.url);
+    u.pathname = "/";
+    u.search = "";
+    const r = await legacySponsorWorker.fetch(new Request(u.toString(), {
+      method: "GET",
+      headers: request.headers
+    }), env, ctx);
+    const type = r.headers.get("content-type") || "";
+    if (!type.includes("text/html")) return "";
+    const html = await r.text();
+    const m = html.match(/<img[^>]+src="([^"]+)"[^>]+alt="Top Notch Assignment logo"/i);
+    return m ? m[1] : "";
+  } catch {
+    return "";
+  }
+}
+
+function applyPublicSiteChanges(html, sponsorLogo) {
+  // Hide only the public Admin Leads link. The /admin page itself still works.
+  html = html.replace(/<a\b[^>]*href=["']\/admin\/?["'][^>]*>[\s\S]*?<\/a>/gi, "");
+  html = html.replace(/\s*Admin Leads\s*/gi, "");
+
+  // Restore the real Top Notch Assignments sponsor logo in the sponsorship card.
+  if (sponsorLogo) {
+    const logoBlock = `<div class="partnerLogo" style="background:#fff;padding:8px;overflow:hidden"><img src="${sponsorLogo}" alt="Top Notch Assignments logo" style="width:100%;height:100%;object-fit:contain;display:block;border-radius:16px"></div>`;
+    html = html.replace(/<div class="partnerLogo">[\s\S]*?<\/div>/i, logoBlock);
+  }
+
+  return html;
 }
 
 export default {
@@ -81,6 +115,16 @@ export default {
     const response = await currentWorker.fetch(request, env, ctx);
     const contentType = response.headers.get("content-type") || "";
     const headers = secureHeaders(response.headers, url, contentType);
+
+    if (method === "GET" && contentType.includes("text/html") && !url.pathname.startsWith("/admin")) {
+      const html = await response.text();
+      const sponsorLogo = await getTopNotchLogo(request, env, ctx);
+      return new Response(applyPublicSiteChanges(html, sponsorLogo), {
+        status: response.status,
+        statusText: response.statusText,
+        headers
+      });
+    }
 
     return new Response(response.body, {
       status: response.status,
