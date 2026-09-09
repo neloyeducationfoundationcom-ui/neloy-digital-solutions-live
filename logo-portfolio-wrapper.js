@@ -61,26 +61,86 @@ function restoreRatings(html){
   return html;
 }
 
+function seoConfig(pathname,origin){
+  const portfolio=pathname==="/showcase"||pathname==="/showcase/"||pathname==="/portfolio"||pathname==="/portfolio/";
+  return portfolio?{
+    title:"Logo Design, Web Design & Digital Portfolio | Neloy Digital Solutions",
+    description:"Explore selected logo design, branding, web design and digital projects by Neloy Digital Solutions for businesses and entrepreneurs.",
+    canonical:origin+"/showcase"
+  }:{
+    title:"Neloy Digital Solutions | Logo Design, Web Design, Automation & Digital Services",
+    description:"Neloy Digital Solutions provides professional logo design, web design, video editing, social media creative, coding, CRM and AI automation services for businesses.",
+    canonical:origin+"/"
+  };
+}
+
+function addSeo(html,url,env){
+  if(html.includes('id="neloy-seo-meta"'))return html;
+  const cfg=seoConfig(url.pathname,url.origin);
+  html=html.replace(/<title>[\s\S]*?<\/title>/i,`<title>${cfg.title}</title>`);
+  if(/<meta\s+name=["']description["'][^>]*>/i.test(html)){
+    html=html.replace(/<meta\s+name=["']description["'][^>]*>/i,`<meta name="description" content="${cfg.description}">`);
+  }
+  const schema=JSON.stringify({
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"Neloy Digital Solutions",
+    "url":url.origin,
+    "description":"Professional logo design, web design, video editing, social media creative, coding, CRM and AI automation services.",
+    "areaServed":"Worldwide",
+    "serviceType":["Logo Design","Brand Identity","Web Design","Video Editing","Social Media Design","Coding","CRM Software","AI Automation"]
+  }).replace(/</g,"\\u003c");
+  const meta=`<meta id="neloy-seo-meta" name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="${cfg.canonical}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Neloy Digital Solutions">
+<meta property="og:title" content="${cfg.title}">
+<meta property="og:description" content="${cfg.description}">
+<meta property="og:url" content="${cfg.canonical}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${cfg.title}">
+<meta name="twitter:description" content="${cfg.description}">
+<script type="application/ld+json">${schema}</script>`;
+  let pixel="";
+  const pixelId=env&&env.META_PIXEL_ID?String(env.META_PIXEL_ID).replace(/[^0-9]/g,""):"";
+  if(pixelId){
+    pixel=`<script id="meta-pixel">!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${pixelId}');fbq('track','PageView');</script><noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1"></noscript>`;
+  }
+  return html.replace('</head>',meta+pixel+'</head>');
+}
+
+function robots(origin){
+  return `User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`;
+}
+
+function sitemap(origin){
+  const urls=[origin+"/",origin+"/showcase"];
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u=>`<url><loc>${u}</loc><changefreq>weekly</changefreq><priority>${u.endsWith('/showcase')?'0.8':'1.0'}</priority></url>`).join('')}</urlset>`;
+}
+
 export default{
   async fetch(request,env,ctx){
-    const response=await currentWorker.fetch(request,env,ctx);
     const url=new URL(request.url);
+    if(request.method==="GET"&&url.pathname==="/robots.txt")return new Response(robots(url.origin),{headers:{"content-type":"text/plain; charset=utf-8","cache-control":"public, max-age=3600"}});
+    if(request.method==="GET"&&url.pathname==="/sitemap.xml")return new Response(sitemap(url.origin),{headers:{"content-type":"application/xml; charset=utf-8","cache-control":"public, max-age=3600"}});
+
+    const response=await currentWorker.fetch(request,env,ctx);
     const type=response.headers.get("content-type")||"";
 
     if(request.method==="GET"&&type.includes("text/html")&&url.pathname==="/"){
-      const html=await response.text();
+      const html=addSeo(restoreRatings(await response.text()),url,env);
       const headers=new Headers(response.headers);
       headers.set("content-type","text/html; charset=utf-8");
       headers.set("cache-control","no-store");
-      return new Response(restoreRatings(html),{status:response.status,statusText:response.statusText,headers});
+      return new Response(html,{status:response.status,statusText:response.statusText,headers});
     }
 
     if(request.method==="GET"&&type.includes("text/html")&&(url.pathname==="/showcase"||url.pathname==="/showcase/"||url.pathname==="/portfolio"||url.pathname==="/portfolio/")){
-      const html=await response.text();
+      const html=addSeo(restoreRatings(addLogoProjects(await response.text())),url,env);
       const headers=new Headers(response.headers);
       headers.set("content-type","text/html; charset=utf-8");
       headers.set("cache-control","no-store");
-      return new Response(restoreRatings(addLogoProjects(html)),{status:response.status,statusText:response.statusText,headers});
+      return new Response(html,{status:response.status,statusText:response.statusText,headers});
     }
     return response;
   }
