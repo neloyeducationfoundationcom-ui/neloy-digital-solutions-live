@@ -4,6 +4,8 @@ const MOBILE_CSS = `
 <style id="mobile-fixes">
 html,body{max-width:100%;overflow-x:hidden}
 img,video,iframe{max-width:100%;height:auto}
+#mobileWhatsappDirect{position:fixed;right:14px;bottom:82px;z-index:999999;width:58px;height:58px;border-radius:50%;display:flex!important;align-items:center;justify-content:center;background:#25D366;color:#fff;text-decoration:none;font-size:28px;font-weight:900;box-shadow:0 10px 28px rgba(0,0,0,.35);border:2px solid rgba(255,255,255,.25)}
+@media(min-width:881px){#mobileWhatsappDirect{display:none!important}}
 @media(max-width:880px){
   .wrap{width:min(100% - 24px,1140px)}
   .nav{height:auto;min-height:68px;padding:10px 0;align-items:flex-start}
@@ -13,7 +15,7 @@ img,video,iframe{max-width:100%;height:auto}
   h1{font-size:clamp(38px,12vw,56px);line-height:1.03}.lead{font-size:17px}.actions{gap:10px}.actions .btn{flex:1 1 100%;width:100%}
   section{padding:52px 0}.grid{grid-template-columns:1fr}.card,.workCard,.testCard{padding:19px}.sectionHead{margin-bottom:20px}
   .contactGrid{grid-template-columns:1fr;gap:22px}.two{grid-template-columns:1fr}form{padding:18px}.contactBox{padding:18px}
-  .chat{right:8px;left:8px;bottom:82px;width:auto;height:min(72vh,560px)}.chatBtn,.waFloat{right:14px;width:54px;height:54px}.waFloat{bottom:80px;display:grid!important}.chatBtn{bottom:16px}
+  .chat{right:8px;left:8px;bottom:82px;width:auto;height:min(72vh,560px)}.chatBtn{right:14px;width:54px;height:54px;bottom:16px}
   #partners .card{grid-template-columns:1fr!important;text-align:center!important;gap:18px!important;padding:20px!important}#partners .card img{width:min(180px,70vw)!important;height:auto!important}
   .testCard img,.testimonialPhoto{max-width:120px!important}
 }
@@ -40,6 +42,9 @@ export default {
         html = html.replace('<a class="waFloat" id="waFloat"', `<a class="waFloat show" id="waFloat" href="${waHref}"`);
         html = html.replace('<a class="btn waBtn waContact" id="heroWhatsApp"', `<a class="btn waBtn waContact show" id="heroWhatsApp" href="${waHref}"`);
         html = html.replace('<a class="btn waBtn waContact" id="contactWhatsApp"', `<a class="btn waBtn waContact show" id="contactWhatsApp" href="${waHref}"`);
+        if (!html.includes('id="mobileWhatsappDirect"')) {
+          html = html.replace('</body>', `<a id="mobileWhatsappDirect" href="${waHref}" target="_blank" rel="noopener" aria-label="WhatsApp Neloy Digital Solutions">WA</a></body>`);
+        }
         const out = html.includes("</head>") ? html.replace("</head>", MOBILE_CSS + "</head>") : html;
         const headers = new Headers(response.headers);
         headers.set("content-type", "text/html; charset=utf-8");
