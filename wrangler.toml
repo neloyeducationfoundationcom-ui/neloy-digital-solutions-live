@@ -2,3 +2,8 @@ name = "neloy-digital-solutions"
 main = "web-design-project-wrapper.js"
 compatibility_date = "2026-09-09"
 # deploy to the existing public Neloy Digital Solutions Worker
+
+[[d1_databases]]
+binding = "DB"
+database_name = "neloy-leads"
+database_id = "c0b600e8-9b58-497c-ab2a-deeb74ae6576"
