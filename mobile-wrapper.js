@@ -13,7 +13,7 @@ img,video,iframe{max-width:100%;height:auto}
   h1{font-size:clamp(38px,12vw,56px);line-height:1.03}.lead{font-size:17px}.actions{gap:10px}.actions .btn{flex:1 1 100%;width:100%}
   section{padding:52px 0}.grid{grid-template-columns:1fr}.card,.workCard,.testCard{padding:19px}.sectionHead{margin-bottom:20px}
   .contactGrid{grid-template-columns:1fr;gap:22px}.two{grid-template-columns:1fr}form{padding:18px}.contactBox{padding:18px}
-  .chat{right:8px;left:8px;bottom:82px;width:auto;height:min(72vh,560px)}.chatBtn,.waFloat{right:14px;width:54px;height:54px}.waFloat{bottom:80px}.chatBtn{bottom:16px}
+  .chat{right:8px;left:8px;bottom:82px;width:auto;height:min(72vh,560px)}.chatBtn,.waFloat{right:14px;width:54px;height:54px}.waFloat{bottom:80px;display:grid!important}.chatBtn{bottom:16px}
   #partners .card{grid-template-columns:1fr!important;text-align:center!important;gap:18px!important;padding:20px!important}#partners .card img{width:min(180px,70vw)!important;height:auto!important}
   .testCard img,.testimonialPhoto{max-width:120px!important}
 }
@@ -34,7 +34,12 @@ export default {
     if (request.method === "GET" && url.pathname === "/") {
       const type = response.headers.get("content-type") || "";
       if (type.includes("text/html")) {
-        const html = await response.text();
+        let html = await response.text();
+        const wa = String(env?.whatsapp || "60183946761").replace(/\D/g, "");
+        const waHref = `https://wa.me/${wa}?text=${encodeURIComponent("Hello Neloy Digital Solutions, I would like to discuss a project.")}`;
+        html = html.replace('<a class="waFloat" id="waFloat"', `<a class="waFloat show" id="waFloat" href="${waHref}"`);
+        html = html.replace('<a class="btn waBtn waContact" id="heroWhatsApp"', `<a class="btn waBtn waContact show" id="heroWhatsApp" href="${waHref}"`);
+        html = html.replace('<a class="btn waBtn waContact" id="contactWhatsApp"', `<a class="btn waBtn waContact show" id="contactWhatsApp" href="${waHref}"`);
         const out = html.includes("</head>") ? html.replace("</head>", MOBILE_CSS + "</head>") : html;
         const headers = new Headers(response.headers);
         headers.set("content-type", "text/html; charset=utf-8");
