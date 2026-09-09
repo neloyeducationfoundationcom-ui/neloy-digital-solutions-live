@@ -1,5 +1,6 @@
 import currentWorker from "./two-page-motion-wrapper.js";
 import legacySponsorWorker from "./final-wrapper.js";
+import dineshWorker from "./dinesh-testimonial-wrapper.js";
 
 const BLOCKED_PATHS = [
   "/.env", "/.git", "/.git/config", "/wp-admin", "/wp-login.php", "/xmlrpc.php",
@@ -93,7 +94,54 @@ async function getTopNotchLogo(request, env, ctx) {
   }
 }
 
-function applyPublicSiteChanges(html, sponsorLogo) {
+async function getDineshAssets(request, env, ctx) {
+  try {
+    const u = new URL(request.url);
+    u.pathname = "/";
+    u.search = "";
+    const r = await dineshWorker.fetch(new Request(u.toString(), {
+      method: "GET",
+      headers: request.headers
+    }), env, ctx);
+    const type = r.headers.get("content-type") || "";
+    if (!type.includes("text/html")) return {card:"", style:""};
+    const source = await r.text();
+
+    let style = "";
+    const styleStart = source.indexOf('<style id="dinesh-testimonial-style">');
+    if (styleStart !== -1) {
+      const styleEnd = source.indexOf('</style>', styleStart);
+      if (styleEnd !== -1) style = source.slice(styleStart, styleEnd + 8);
+    }
+
+    let card = "";
+    const sectionStart = source.indexOf('<section id="testimonials"');
+    const cardStart = source.indexOf('<div class="dineshReview"', sectionStart);
+    if (cardStart !== -1) {
+      const sectionEnd = source.indexOf('</section>', cardStart);
+      if (sectionEnd !== -1) card = source.slice(cardStart, sectionEnd).trim();
+    }
+    return {card, style};
+  } catch {
+    return {card:"", style:""};
+  }
+}
+
+function injectDinesh(html, assets) {
+  if (!assets || !assets.card || html.includes('class="dineshReview"')) return html;
+  const sectionStart = html.indexOf('<section id="testimonials"');
+  if (sectionStart === -1) return html;
+  const sectionEnd = html.indexOf('</section>', sectionStart);
+  if (sectionEnd === -1) return html;
+  html = html.slice(0, sectionEnd) + assets.card + html.slice(sectionEnd);
+  if (assets.style && !html.includes('id="dinesh-testimonial-style"') && html.includes('</head>')) {
+    html = html.replace('</head>', assets.style + '</head>');
+  }
+  html = html.replace(/2 client testimonials\s*•\s*10 stars displayed/gi, '3 client testimonials • 15 stars displayed');
+  return html;
+}
+
+function applyPublicSiteChanges(html, sponsorLogo, dineshAssets) {
   // Hide only the public Admin Leads link. The /admin page itself still works.
   html = html.replace(/<a\b[^>]*href=["']\/admin\/?["'][^>]*>[\s\S]*?<\/a>/gi, "");
   html = html.replace(/\s*Admin Leads\s*/gi, "");
@@ -106,6 +154,9 @@ function applyPublicSiteChanges(html, sponsorLogo) {
     const logoBlock = `<div class="partnerLogo" style="background:#fff;padding:8px;overflow:hidden"><img src="${sponsorLogo}" alt="Top Notch Assignments logo" style="width:100%;height:100%;object-fit:contain;display:block;border-radius:16px"></div>`;
     html = html.replace(/<div class="partnerLogo">[\s\S]*?<\/div>/i, logoBlock);
   }
+
+  // Force Dinesh's testimonial into the testimonial section if an earlier wrapper misses it.
+  html = injectDinesh(html, dineshAssets);
 
   // Add About Me / Founder section to the Home page only.
   if (html.includes('id="contact"') && !html.includes('id="about-founder"')) {
@@ -169,8 +220,11 @@ export default {
 
     if (method === "GET" && contentType.includes("text/html") && !url.pathname.startsWith("/admin")) {
       const html = await response.text();
-      const sponsorLogo = await getTopNotchLogo(request, env, ctx);
-      return new Response(applyPublicSiteChanges(html, sponsorLogo), {
+      const [sponsorLogo, dineshAssets] = await Promise.all([
+        getTopNotchLogo(request, env, ctx),
+        getDineshAssets(request, env, ctx)
+      ]);
+      return new Response(applyPublicSiteChanges(html, sponsorLogo, dineshAssets), {
         status: response.status,
         statusText: response.statusText,
         headers
