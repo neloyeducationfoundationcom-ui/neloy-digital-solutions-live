@@ -18,6 +18,13 @@ const STYLE=`<style id="logo-portfolio-style">
 @media(max-width:760px){#logo-design-projects{padding-top:52px}#logo-design-projects .logo-project-grid{grid-template-columns:1fr;gap:18px}#logo-design-projects .logo-project-image{height:280px;padding:16px}}
 </style>`;
 
+const REVIEW_STYLE=`<style id="testimonial-rating-restore-style">
+.reviewStars{display:flex;align-items:center;gap:9px;margin:8px 0 14px;flex-wrap:wrap}
+.reviewStars .stars{font-size:23px;line-height:1;letter-spacing:2px;color:#F4B400;text-shadow:0 2px 8px rgba(244,180,0,.18)}
+.reviewStars .ratingText{font-size:13px;font-weight:900;color:#496A89;background:#F3FAFF;border:1px solid #C9E8F7;border-radius:999px;padding:5px 9px}
+@media(max-width:700px){.reviewStars .stars{font-size:21px}.reviewStars{margin-top:6px}}
+</style>`;
+
 const BASE="https://raw.githubusercontent.com/neloyeducationfoundationcom-ui/neloy-digital-solutions-live/main/assets/logo-projects/";
 const PROJECTS=[
   ["simplicity-in-advertising.jpg","Simplicity in Advertising"],
@@ -39,11 +46,35 @@ function addLogoProjects(html){
   return html;
 }
 
+function restoreRatings(html){
+  if(!html.includes('reviewStars')){
+    html=html.replace(
+      '<small>Owner of NDUB BRAND</small></div></div><p class="quote">',
+      '<small>Owner of NDUB BRAND</small></div></div><div class="reviewStars" aria-label="5 out of 5 stars"><span class="stars">★★★★★</span><span class="ratingText">5.0 out of 5</span></div><p class="quote">'
+    );
+    html=html.replace(
+      '<small>Owner of Simplicity Advertising</small></div></div><p class="quote">',
+      '<small>Owner of Simplicity Advertising</small></div></div><div class="reviewStars" aria-label="5 out of 5 stars"><span class="stars">★★★★★</span><span class="ratingText">5.0 out of 5</span></div><p class="quote">'
+    );
+  }
+  if(!html.includes('id="testimonial-rating-restore-style"'))html=html.replace('</head>',REVIEW_STYLE+'</head>');
+  return html;
+}
+
 export default{
   async fetch(request,env,ctx){
     const response=await currentWorker.fetch(request,env,ctx);
     const url=new URL(request.url);
     const type=response.headers.get("content-type")||"";
+
+    if(request.method==="GET"&&type.includes("text/html")&&url.pathname==="/"){
+      const html=await response.text();
+      const headers=new Headers(response.headers);
+      headers.set("content-type","text/html; charset=utf-8");
+      headers.set("cache-control","no-store");
+      return new Response(restoreRatings(html),{status:response.status,statusText:response.statusText,headers});
+    }
+
     if(request.method==="GET"&&type.includes("text/html")&&(url.pathname==="/showcase"||url.pathname==="/showcase/"||url.pathname==="/portfolio"||url.pathname==="/portfolio/")){
       const html=await response.text();
       const headers=new Headers(response.headers);
