@@ -80,7 +80,7 @@ export default{
       const headers=new Headers(response.headers);
       headers.set("content-type","text/html; charset=utf-8");
       headers.set("cache-control","no-store");
-      return new Response(addLogoProjects(html),{status:response.status,statusText:response.statusText,headers});
+      return new Response(restoreRatings(addLogoProjects(html)),{status:response.status,statusText:response.statusText,headers});
     }
     return response;
   }
