@@ -1,4 +1,4 @@
 name = "neloy-digital-solutions-live"
-main = "website-route-wrapper.js"
+main = "testimonial-stars-wrapper.js"
 compatibility_date = "2026-09-09"
-# neloy-public-site-with-website-route
+# neloy-public-site-with-testimonial-stars
