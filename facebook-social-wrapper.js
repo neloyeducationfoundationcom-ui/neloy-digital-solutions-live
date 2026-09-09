@@ -11,6 +11,13 @@ const SOCIAL_STYLE = `<style id="facebook-social-style">
 #neloy-linkedin-link{display:inline-flex;align-items:center;gap:9px;margin:12px 0 0 8px;padding:9px 13px;border-radius:999px;background:#0a66c2;color:#fff;text-decoration:none;font-weight:800;font-size:14px;box-shadow:0 8px 20px rgba(10,102,194,.22)}
 #neloy-linkedin-link:hover{filter:brightness(.96)}
 #neloy-linkedin-link .linkedin-icon{font-family:Arial,sans-serif;font-weight:900}
+/* Keep social labels legible despite global theme text overrides. */
+html body #neloy-facebook-link,html body #neloy-linkedin-link{font-size:16px!important;line-height:1.4!important;font-weight:700!important;padding:11px 16px!important;color:#fff!important;text-shadow:none!important}
+html body #neloy-facebook-link{background:#0866cc!important}
+html body #neloy-linkedin-link{background:#0a66c2!important}
+html body #neloy-facebook-link span,html body #neloy-linkedin-link span{color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important;font-size:16px!important;font-weight:700!important;text-shadow:none!important}
+html body #neloy-facebook-link .fb-icon{color:#0866cc!important;-webkit-text-fill-color:#0866cc!important;background:#fff!important}
+html body #neloy-facebook-link:focus-visible,html body #neloy-linkedin-link:focus-visible{outline:3px solid #102a56;outline-offset:3px}
 </style>`;
 
 function addFacebookSocial(html){
