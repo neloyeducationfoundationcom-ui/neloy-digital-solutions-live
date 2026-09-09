@@ -39,6 +39,22 @@ function addDinesh(html){
   return html;
 }
 
+
+function addVolusiaProject(html) {
+  if (html.includes('id="volusia-info-project"')) return html;
+  const card = `<article class="workCard" id="volusia-info-project"><div class="workBody"><span class="tag">Web Design</span><h3>Volusia Info</h3><p class="projectIntro">A local information website featuring business guides, services, events and lifestyle articles for Volusia County, Florida.</p><a class="showcaseLink" href="https://volusiainfo.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Volusia Info website (opens in a new tab)">Visit Website ↗</a></div></article>`;
+  const workStart = html.indexOf('<section id="work"');
+  if (workStart === -1) return html;
+  const workEnd = html.indexOf('</section>', workStart);
+  if (workEnd === -1) return html;
+  const section = html.slice(workStart, workEnd);
+  if (!section.includes('<div class="workGrid">')) return html;
+  const updated = section.replace('<div class="workGrid">', '<div class="workGrid">' + card);
+  html = html.slice(0, workStart) + updated + html.slice(workEnd);
+  const style = `<style id="volusia-project-style">#work #volusia-info-project{margin-bottom:24px!important}#work #volusia-info-project .tag{font-size:14px!important}#work #volusia-info-project .showcaseLink{font-size:16px}#work #volusia-info-project .showcaseLink:focus-visible{outline:3px solid #0A2A5A;outline-offset:4px}</style>`;
+  return html.replace('</head>', style + '</head>');
+}
+
 export default {
   async fetch(request, env, ctx){
     const response = await currentWorker.fetch(request, env, ctx);
@@ -50,7 +66,7 @@ export default {
       const headers = new Headers(response.headers);
       headers.set("content-type", "text/html; charset=utf-8");
       headers.set("cache-control", "no-store");
-      return new Response(addDinesh(html), {status:response.status, statusText:response.statusText, headers});
+      return new Response(addVolusiaProject(addDinesh(html)), {status:response.status, statusText:response.statusText, headers});
     }
 
     return response;
