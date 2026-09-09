@@ -1,4 +1,4 @@
-import currentWorker from "./website-route-wrapper.js";
+import currentWorker from "./dinesh-testimonial-wrapper.js";
 
 const STAR_STYLE = `
 <style id="testimonial-star-style">
@@ -12,7 +12,7 @@ const STAR_STYLE = `
 function addStars(html){
   html = html.replace(
     '<span class="eyebrow">Testimonials</span><h2>What clients say</h2>',
-    '<span class="eyebrow">Testimonials</span><h2>What clients say</h2><div class="testimonialSummary">2 client testimonials • 10 stars displayed</div>'
+    '<span class="eyebrow">Testimonials</span><h2>What clients say</h2><div class="testimonialSummary">3 client testimonials • 15 stars displayed</div>'
   );
 
   html = html.replace(
