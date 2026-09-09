@@ -1,4 +1,4 @@
 name = "neloy-digital-solutions"
-main = "dinesh-visible-wrapper.js"
+main = "logo-portfolio-wrapper.js"
 compatibility_date = "2026-09-09"
 # deploy to the existing public Neloy Digital Solutions Worker
