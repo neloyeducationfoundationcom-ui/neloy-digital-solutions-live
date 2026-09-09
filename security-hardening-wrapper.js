@@ -90,6 +90,30 @@ function applyPublicSiteChanges(html, sponsorLogo) {
     html = html.replace(/<div class="partnerLogo">[\s\S]*?<\/div>/i, logoBlock);
   }
 
+  // Add Milford's Mochas as a Shopify web design portfolio project on Page 2.
+  if (!html.includes('milfordsmochas.com') && html.includes('<div class="workGrid">')) {
+    const milfordCard = `<article class="workCard" style="overflow:hidden">
+      <div class="projectVisual" style="height:230px;padding:20px;background:linear-gradient(135deg,#3b1f16 0%,#8a4d2f 48%,#d99b58 100%);display:flex;align-items:center;justify-content:center">
+        <div style="width:100%;max-width:390px;background:#fff;border-radius:16px;box-shadow:0 18px 45px rgba(0,0,0,.24);overflow:hidden;border:1px solid rgba(255,255,255,.45)">
+          <div style="height:28px;background:#f5efe9;display:flex;align-items:center;gap:6px;padding:0 10px"><span style="width:7px;height:7px;border-radius:50%;background:#ef6b5f"></span><span style="width:7px;height:7px;border-radius:50%;background:#f2bf4f"></span><span style="width:7px;height:7px;border-radius:50%;background:#62c26b"></span><span style="margin-left:8px;font-size:9px;color:#765b4f;font-weight:800">milfordsmochas.com</span></div>
+          <div style="padding:20px 18px 22px;background:linear-gradient(180deg,#fffaf5,#f5e8da);text-align:center">
+            <div style="font-size:11px;letter-spacing:.12em;font-weight:1000;color:#8a4d2f">SHOPIFY E-COMMERCE</div>
+            <div style="font-size:28px;line-height:1.05;font-weight:1000;color:#3b1f16;margin:8px 0 5px">Milford's Mochas</div>
+            <div style="font-size:12px;color:#7c6559">Caffeinated cookies • Product shop • Online checkout</div>
+            <div style="display:flex;justify-content:center;gap:8px;margin-top:14px"><span style="padding:6px 9px;border-radius:999px;background:#fff;border:1px solid #ddc4b2;font-size:9px;font-weight:900;color:#8a4d2f">SHOP</span><span style="padding:6px 9px;border-radius:999px;background:#fff;border:1px solid #ddc4b2;font-size:9px;font-weight:900;color:#8a4d2f">MOBILE</span><span style="padding:6px 9px;border-radius:999px;background:#fff;border:1px solid #ddc4b2;font-size:9px;font-weight:900;color:#8a4d2f">CHECKOUT</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="workBody">
+        <span class="tag">Shopify Web Design</span>
+        <h3>Milford's Mochas</h3>
+        <p>Shopify e-commerce website for a caffeinated cookie brand, featuring product shopping, brand content, cart and checkout functionality, and a mobile-friendly customer experience.</p>
+        <a href="https://www.milfordsmochas.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;margin-top:16px;padding:10px 14px;border-radius:11px;background:linear-gradient(135deg,#075DFF,#12DFF3);color:#fff;text-decoration:none;font-weight:900;font-size:13px">View Live Website →</a>
+      </div>
+    </article>`;
+    html = html.replace('<div class="workGrid">', '<div class="workGrid">' + milfordCard);
+  }
+
   return html;
 }
 
