@@ -1,4 +1,4 @@
-import currentWorker from "./testimonial-stars-wrapper.js";
+import currentWorker from "./dinesh-testimonial-wrapper.js";
 
 const MOTION_STYLE = `
 <style id="two-page-motion-style">
