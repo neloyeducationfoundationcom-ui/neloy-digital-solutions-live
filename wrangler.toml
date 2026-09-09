@@ -1,4 +1,4 @@
 name = "neloy-digital-solutions-live"
-main = "brand-logo-theme-wrapper.js"
+main = "website-route-wrapper.js"
 compatibility_date = "2026-09-09"
-# neloy-blue-cyan-brand-logo-theme
+# neloy-public-site-with-website-route
