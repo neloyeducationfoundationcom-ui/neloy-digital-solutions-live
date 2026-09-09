@@ -81,6 +81,11 @@ function applyPublicSiteChanges(html, sponsorLogo) {
   html = html.replace(/<a\b[^>]*href=["']\/admin\/?["'][^>]*>[\s\S]*?<\/a>/gi, "");
   html = html.replace(/\s*Admin Leads\s*/gi, "");
 
+  // Remove the Top Notch office-location sentence from the public website.
+  html = html.replace(/<p\b[^>]*>[\s\S]*?Top Notch Assignments?[^<]*offices based in[^<]*U\.?K\.?[^<]*Malaysia[^<]*Bangladesh[^<]*<\/p>/gi, "");
+  html = html.replace(/Top Notch Assignments? operates with offices based in the U\.?K\.?,?\s*Malaysia\s*(?:,?\s*and|\s*&amp;|\s*&)\s*Bangladesh\.?/gi, "");
+  html = html.replace(/Official sponsor partner with offices based in the U\.?K\.?,?\s*Malaysia\s*(?:,?\s*and|\s*&amp;|\s*&)\s*Bangladesh\.?/gi, "");
+
   // Restore the real Top Notch Assignments sponsor logo in the sponsorship card.
   if (sponsorLogo) {
     const logoBlock = `<div class="partnerLogo" style="background:#fff;padding:8px;overflow:hidden"><img src="${sponsorLogo}" alt="Top Notch Assignments logo" style="width:100%;height:100%;object-fit:contain;display:block;border-radius:16px"></div>`;
