@@ -18,8 +18,25 @@ async function getPhoto(request, env, ctx){
     const r = await dineshWorker.fetch(new Request(u.toString(), {method:"GET", headers:request.headers}), env, ctx);
     if(!(r.headers.get("content-type")||"").includes("text/html")) return "";
     const html = await r.text();
-    const m = html.match(/<img[^>]+class=["']dineshPhoto["'][^>]+src=["']([^"']+)["']/i) || html.match(/<img[^>]+src=["']([^"']+)["'][^>]+alt=["']Dinesh De Silva["']/i);
-    return m ? m[1] : "";
+
+    // First try the exact Dinesh image markup.
+    let m = html.match(/<img[^>]*class=["']dineshPhoto["'][^>]*src=["']([^"']+)["'][^>]*>/i)
+      || html.match(/<img[^>]*src=["']([^"']+)["'][^>]*alt=["']Dinesh De Silva["'][^>]*>/i)
+      || html.match(/<img[^>]*alt=["']Dinesh De Silva["'][^>]*src=["']([^"']+)["'][^>]*>/i);
+    if(m && m[1]) return m[1];
+
+    // Robust fallback: find the embedded data image nearest to Dinesh's name.
+    const nameIndex = html.indexOf("Dinesh De Silva");
+    if(nameIndex !== -1){
+      const before = html.slice(Math.max(0, nameIndex - 30000), nameIndex);
+      const dataIndex = Math.max(before.lastIndexOf("data:image/jpeg;base64,"), before.lastIndexOf("data:image/png;base64,"), before.lastIndexOf("data:image/webp;base64,"));
+      if(dataIndex !== -1){
+        const candidate = before.slice(dataIndex).match(/^data:image\/(?:jpeg|png|webp);base64,[A-Za-z0-9+/=]+/i);
+        if(candidate) return candidate[0];
+      }
+    }
+
+    return "";
   }catch{return "";}
 }
 
