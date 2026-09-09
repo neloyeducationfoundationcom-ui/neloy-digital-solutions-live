@@ -12,30 +12,35 @@ const STYLE = `<style id="dinesh-visible-style">
 @media(max-width:760px){#dinesh-testimonial-fixed{grid-template-columns:1fr;padding:20px}#dinesh-testimonial-fixed img{width:140px;height:140px}}
 </style>`;
 
-async function getPhoto(request, env, ctx){
+function allDataImages(html){
+  return html.match(/data:image\/(?:jpeg|jpg|png|webp);base64,[A-Za-z0-9+/=]+/gi) || [];
+}
+
+async function getPhoto(request, env, ctx, existingHtml){
   try{
     const u = new URL(request.url); u.pathname = "/"; u.search = "";
     const r = await dineshWorker.fetch(new Request(u.toString(), {method:"GET", headers:request.headers}), env, ctx);
     if(!(r.headers.get("content-type")||"").includes("text/html")) return "";
-    const html = await r.text();
+    const source = await r.text();
 
-    // First try the exact Dinesh image markup.
-    let m = html.match(/<img[^>]*class=["']dineshPhoto["'][^>]*src=["']([^"']+)["'][^>]*>/i)
-      || html.match(/<img[^>]*src=["']([^"']+)["'][^>]*alt=["']Dinesh De Silva["'][^>]*>/i)
-      || html.match(/<img[^>]*alt=["']Dinesh De Silva["'][^>]*src=["']([^"']+)["'][^>]*>/i);
+    // Exact Dinesh markup first.
+    let m = source.match(/<img[^>]*class=["']dineshPhoto["'][^>]*src=["']([^"']+)["'][^>]*>/i)
+      || source.match(/<img[^>]*src=["']([^"']+)["'][^>]*alt=["']Dinesh De Silva["'][^>]*>/i)
+      || source.match(/<img[^>]*alt=["']Dinesh De Silva["'][^>]*src=["']([^"']+)["'][^>]*>/i);
     if(m && m[1]) return m[1];
 
-    // Robust fallback: find the embedded data image nearest to Dinesh's name.
-    const nameIndex = html.indexOf("Dinesh De Silva");
-    if(nameIndex !== -1){
-      const before = html.slice(Math.max(0, nameIndex - 30000), nameIndex);
-      const dataIndex = Math.max(before.lastIndexOf("data:image/jpeg;base64,"), before.lastIndexOf("data:image/png;base64,"), before.lastIndexOf("data:image/webp;base64,"));
-      if(dataIndex !== -1){
-        const candidate = before.slice(dataIndex).match(/^data:image\/(?:jpeg|png|webp);base64,[A-Za-z0-9+/=]+/i);
-        if(candidate) return candidate[0];
-      }
+    // Compare embedded images from the Dinesh source against images already on the live showcase.
+    // The extra image is Dinesh's photo.
+    const sourceImages = allDataImages(source);
+    const existingImages = new Set(allDataImages(existingHtml || ""));
+    const unique = sourceImages.filter(img => !existingImages.has(img));
+    if(unique.length){
+      unique.sort((a,b)=>b.length-a.length);
+      return unique[0];
     }
 
+    // Final fallback: Dinesh is appended after the original testimonials, so use the last embedded image.
+    if(sourceImages.length) return sourceImages[sourceImages.length - 1];
     return "";
   }catch{return "";}
 }
@@ -61,7 +66,7 @@ export default {
     const type = response.headers.get("content-type") || "";
     if(request.method === "GET" && type.includes("text/html") && (url.pathname === "/showcase" || url.pathname === "/showcase/" || url.pathname === "/portfolio" || url.pathname === "/portfolio/")){
       const html = await response.text();
-      const photo = await getPhoto(request, env, ctx);
+      const photo = await getPhoto(request, env, ctx, html);
       const headers = new Headers(response.headers);
       headers.set("content-type", "text/html; charset=utf-8");
       headers.set("cache-control", "no-store");
