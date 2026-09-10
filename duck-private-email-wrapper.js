@@ -1,7 +1,7 @@
 import currentWorker from "./web-design-project-wrapper.js";
 
-const DUCK_ADDRESS = "neloydigitalsolutions@duck.com";
-const DUCK_USERNAME = "neloydigitalsolutions";
+const DUCK_ADDRESS = "infodigitalsolutionsneloy@duck.com";
+const DUCK_USERNAME = "infodigitalsolutionsneloy";
 const FORWARDING_GMAIL = "info.digitalsolutions.neloy@gmail.com";
 const WRONG_GMAIL = "info.digitalsolitions.neloy@gmail.com";
 
