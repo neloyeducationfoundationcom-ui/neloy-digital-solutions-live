@@ -1,4 +1,4 @@
-import currentWorker from "./security-hardening-wrapper.js";
+import currentWorker from "./lead-cors-wrapper.js";
 
 const SERVICE_CARDS = [
   `<article class="card"><div class="icon">FLY</div><h3>Flyer Design</h3><p>Professional promotional flyers designed for businesses, events, campaigns and social media.</p></article>`,
