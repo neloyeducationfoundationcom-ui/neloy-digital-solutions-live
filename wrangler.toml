@@ -1,5 +1,5 @@
 name = "neloy-digital-solutions-live"
-main = "services-refresh-wrapper.js"
+main = "reels-showcase-wrapper.js"
 compatibility_date = "2026-09-09"
 # deploy to the existing public Neloy Digital Solutions Worker
 
@@ -7,3 +7,6 @@ compatibility_date = "2026-09-09"
 binding = "DB"
 database_name = "neloy-leads"
 database_id = "c0b600e8-9b58-497c-ab2a-deeb74ae6576"
+
+[assets]
+directory = "./public"
