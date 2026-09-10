@@ -8,6 +8,21 @@ const CORS_HEADERS = {
   "Vary": "Origin"
 };
 
+const PAYMENT_STYLE = `<style id="payment-methods-style">
+.paymentMethods{padding:46px 0 34px;background:linear-gradient(180deg,#f7fcff,#edf8ff);border-top:1px solid #c9e8f7}
+.paymentMethods .payHead{text-align:center;margin-bottom:22px}.paymentMethods .payHead span{display:block;color:#075DFF;font-size:11px;font-weight:1000;letter-spacing:.14em;text-transform:uppercase}.paymentMethods .payHead h3{margin:6px 0 0;color:#0A2A5A;font-size:26px}
+.paymentLogoGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.paymentLogo{min-height:92px;background:#fff;border:1px solid #c9e8f7;border-radius:18px;display:flex;align-items:center;justify-content:center;padding:16px;box-shadow:0 10px 26px rgba(7,93,255,.06);transition:transform .22s ease,box-shadow .22s ease}.paymentLogo:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(7,93,255,.11)}
+.paypalLogo{font-size:29px;font-weight:1000;font-style:italic;letter-spacing:-2px;color:#003087}.paypalLogo .pp2{color:#009cde}
+.wiseLogo{font-size:31px;font-weight:1000;color:#163300;letter-spacing:-1px}.wiseLogo:before{content:"➜";display:inline-block;margin-right:6px;color:#9FE870;transform:skewX(-12deg)}
+.bkashLogo{font-size:29px;font-weight:1000;color:#e2136e;letter-spacing:-1px}.bkashLogo .bird{font-size:23px;margin-left:6px}
+.touchLogo{background:linear-gradient(135deg,#0057b8,#0b87ef);color:#fff;border-radius:13px;padding:10px 13px;line-height:.92;text-align:center;font-weight:1000;font-style:italic;font-size:21px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.7)}.touchLogo small{display:block;color:#ffe300;font-size:13px;margin-top:6px;letter-spacing:.02em}
+.chaseLogo{display:flex;align-items:center;gap:10px;color:#062452;font-family:Georgia,serif;font-weight:700;font-size:18px;line-height:1.05}.chaseMark{width:38px;height:38px;border:9px solid #1261b8;transform:rotate(45deg);border-radius:5px;flex:0 0 auto}.chaseLogo small{display:block;font-family:Inter,system-ui,sans-serif;font-size:10px;color:#55718d;margin-top:5px;letter-spacing:.05em;text-transform:uppercase}
+.paymentNote{text-align:center;color:#73879b;font-size:11px;margin:15px 0 0}
+@media(max-width:900px){.paymentLogoGrid{grid-template-columns:repeat(3,1fr)}}@media(max-width:620px){.paymentLogoGrid{grid-template-columns:repeat(2,1fr)}.paymentLogo:last-child{grid-column:1/-1}.paymentMethods{padding:38px 0 28px}}
+</style>`;
+
+const PAYMENT_SECTION = `<section class="paymentMethods" aria-label="Payment methods"><div class="wrap"><div class="payHead"><span>Payment Options</span><h3>Flexible ways to pay</h3></div><div class="paymentLogoGrid"><div class="paymentLogo" title="PayPal"><div class="paypalLogo">Pay<span class="pp2">Pal</span></div></div><div class="paymentLogo" title="Wise"><div class="wiseLogo">wise</div></div><div class="paymentLogo" title="bKash"><div class="bkashLogo">bKash <span class="bird">◆</span></div></div><div class="paymentLogo" title="Touch 'n Go eWallet"><div class="touchLogo">Touch 'n Go<small>eWallet</small></div></div><div class="paymentLogo" title="JPMorgan Chase & Co. bank transfer"><div class="chaseLogo"><span class="chaseMark"></span><span>JPMorgan<br>Chase &amp; Co.<small>Bank Transfer</small></span></div></div></div><p class="paymentNote">Payment method logos are shown for payment identification only.</p></div></section>`;
+
 function withLeadCors(response) {
   const headers = new Headers(response.headers);
   for (const [key, value] of Object.entries(CORS_HEADERS)) headers.set(key, value);
@@ -18,6 +33,19 @@ function withLeadCors(response) {
     statusText: response.statusText,
     headers
   });
+}
+
+function addPaymentMethods(html) {
+  if (html.includes('class="paymentMethods"')) return html;
+  if (html.includes('</head>') && !html.includes('id="payment-methods-style"')) {
+    html = html.replace('</head>', PAYMENT_STYLE + '</head>');
+  }
+  if (html.includes('<footer')) {
+    html = html.replace('<footer', PAYMENT_SECTION + '<footer');
+  } else if (html.includes('</body>')) {
+    html = html.replace('</body>', PAYMENT_SECTION + '</body>');
+  }
+  return html;
 }
 
 export default {
@@ -50,6 +78,18 @@ export default {
       return withLeadCors(response);
     }
 
-    return currentWorker.fetch(request, env, ctx);
+    const response = await currentWorker.fetch(request, env, ctx);
+    const type = response.headers.get("content-type") || "";
+    const isHome = method === "GET" && (url.pathname === "/" || url.pathname === "/website" || url.pathname === "/website/");
+
+    if (isHome && type.includes("text/html")) {
+      const html = addPaymentMethods(await response.text());
+      const headers = new Headers(response.headers);
+      headers.set("content-type", "text/html; charset=utf-8");
+      headers.set("cache-control", "no-store");
+      return new Response(html, {status: response.status, statusText: response.statusText, headers});
+    }
+
+    return response;
   }
 };
