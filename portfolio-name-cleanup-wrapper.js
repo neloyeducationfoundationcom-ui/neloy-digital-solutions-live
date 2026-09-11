@@ -3,15 +3,19 @@ import EL_PATRON_IMAGE from "./el-patron-marketing-image.js";
 
 const EL_PATRON_STYLE = `
 <style id="el-patron-testimonial-style">
-#el-patron-marketing-testimonial{margin-top:22px!important;display:grid!important;grid-template-columns:180px 1fr!important;gap:24px!important;align-items:center!important;background:#fff!important;border:1px solid #C9E8F7!important;border-radius:24px!important;padding:24px!important;box-shadow:0 16px 38px rgba(7,93,255,.09)!important;opacity:1!important;visibility:visible!important;transform:none!important}
-#el-patron-marketing-testimonial .elPatronLogoWrap{width:160px;height:160px;border-radius:20px;border:4px solid #fff;box-shadow:0 12px 28px rgba(10,42,90,.16);background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#el-patron-marketing-testimonial{margin-top:22px!important;display:grid!important;grid-template-columns:180px minmax(0,1fr)!important;gap:24px!important;align-items:center!important;width:100%!important;box-sizing:border-box!important;background:#fff!important;border:1px solid #C9E8F7!important;border-radius:24px!important;padding:24px!important;box-shadow:0 16px 38px rgba(7,93,255,.09)!important;opacity:1!important;visibility:visible!important;transform:none!important}
+#el-patron-marketing-testimonial .elPatronLogoWrap{width:160px!important;height:160px!important;border-radius:20px!important;border:4px solid #fff!important;box-shadow:0 12px 28px rgba(10,42,90,.16)!important;background:#fff!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden!important;justify-self:center!important}
 #el-patron-marketing-testimonial img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center center!important;margin:0!important;padding:6px!important;background:#fff!important;transform:none!important}
 #el-patron-marketing-testimonial .stars{font-size:25px!important;letter-spacing:3px!important;color:#F4B400!important;font-weight:900!important;line-height:1!important}
 #el-patron-marketing-testimonial .score{display:inline-block!important;margin-left:10px!important;padding:6px 10px!important;border-radius:999px!important;background:#F3FAFF!important;border:1px solid #C9E8F7!important;color:#075DFF!important;font-size:13px!important;font-weight:900!important}
 #el-patron-marketing-testimonial .quote{margin:14px 0 0!important;color:#496A89!important;font-size:16px!important;line-height:1.7!important;font-style:italic!important}
 #el-patron-marketing-testimonial .name{margin-top:15px!important;color:#0A2A5A!important;font-size:20px!important;font-weight:1000!important}
 #el-patron-marketing-testimonial .role{display:block!important;margin-top:2px!important;color:#6B86A0!important;font-size:13px!important;font-weight:800!important}
-@media(max-width:760px){#el-patron-marketing-testimonial{grid-template-columns:1fr!important;padding:20px!important}#el-patron-marketing-testimonial .elPatronLogoWrap{width:140px;height:140px}}
+@media(max-width:760px){
+  #el-patron-marketing-testimonial{grid-template-columns:1fr!important;padding:20px!important;gap:18px!important}
+  #el-patron-marketing-testimonial .elPatronLogoWrap{width:140px!important;height:140px!important;margin:0 auto!important;justify-self:center!important;align-self:center!important}
+  #el-patron-marketing-testimonial>div:nth-child(2){min-width:0!important;width:100%!important}
+}
 </style>`;
 
 const EL_PATRON_CARD = `<div id="el-patron-marketing-testimonial">
