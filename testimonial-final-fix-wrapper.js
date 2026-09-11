@@ -2,7 +2,7 @@ import currentWorker from "./logo-position-fix-wrapper.js";
 import EL_PATRON_IMAGE from "./el-patron-marketing-image.js";
 
 const STYLE = `<style id="el-patron-final-style">
-#el-patron-marketing-testimonial{display:grid!important;grid-template-columns:180px minmax(0,1fr)!important;gap:24px!important;align-items:center!important;width:100%!important;box-sizing:border-box!important;margin:22px 0 0!important;padding:24px!important;background:#fff!important;border:1px solid #c9e8f7!important;border-radius:24px!important;box-shadow:0 16px 38px rgba(7,93,255,.09)!important;visibility:visible!important;opacity:1!important;transform:none!important}
+#el-patron-marketing-testimonial{display:grid!important;grid-template-columns:180px minmax(0,1fr)!important;gap:24px!important;align-items:center!important;width:100%!important;box-sizing:border-box!important;margin:22px 0 0!important;padding:24px!important;background:#fff!important;border:1px solid #c9e8f7!important;border-radius:24px!important;box-shadow:0 16px 38px rgba(7,93,255,.09)!important;visibility:visible!important;opacity:1!important;transform:none!important;grid-column:1/-1!important}
 #el-patron-marketing-testimonial .elPatronLogoWrap{width:160px!important;height:160px!important;display:flex!important;align-items:center!important;justify-content:center!important;justify-self:center!important;margin:0!important;padding:0!important;background:#fff!important;border:4px solid #fff!important;border-radius:20px!important;overflow:hidden!important;box-shadow:0 12px 28px rgba(10,42,90,.16)!important}
 #el-patron-marketing-testimonial .elPatronLogoWrap img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center center!important;margin:0!important;padding:6px!important;transform:none!important;background:#fff!important}
 #el-patron-marketing-testimonial .stars{font-size:25px!important;letter-spacing:3px!important;color:#f4b400!important;font-weight:900!important;line-height:1!important}
@@ -10,6 +10,7 @@ const STYLE = `<style id="el-patron-final-style">
 #el-patron-marketing-testimonial .quote{margin:14px 0 0!important;color:#496a89!important;font-size:16px!important;line-height:1.7!important;font-style:italic!important}
 #el-patron-marketing-testimonial .name{margin-top:15px!important;color:#0a2a5a!important;font-size:20px!important;font-weight:1000!important}
 #el-patron-marketing-testimonial .role{display:block!important;margin-top:2px!important;color:#6b86a0!important;font-size:13px!important;font-weight:800!important}
+#testimonials #dinesh-testimonial-fixed{grid-column:1/-1!important;width:100%!important;box-sizing:border-box!important}
 @media(max-width:760px){
   #el-patron-marketing-testimonial{grid-template-columns:1fr!important;gap:18px!important;padding:20px!important}
   #el-patron-marketing-testimonial .elPatronLogoWrap{width:140px!important;height:140px!important;margin:0 auto!important;justify-self:center!important;align-self:center!important}
@@ -30,34 +31,32 @@ const SCRIPT = `<script id="el-patron-live-insert-script">
 (function(){
   const card = ${JSON.stringify(CARD)};
 
-  function placeCard(){
+  function placeTestimonials(){
+    const section = document.getElementById('testimonials');
+    if(!section) return false;
+
+    const grid = section.querySelector('.testGrid') || section.querySelector('.container,.wrap') || section;
+    const dinesh = document.getElementById('dinesh-testimonial-fixed');
     const existing = document.getElementById('el-patron-marketing-testimonial');
+
     if(existing) existing.remove();
 
-    const dinesh = document.getElementById('dinesh-testimonial-fixed');
     if(dinesh){
+      if(!section.contains(dinesh)) grid.appendChild(dinesh);
       dinesh.insertAdjacentHTML('afterend', card);
-      return true;
+    } else {
+      grid.insertAdjacentHTML('beforeend', card);
     }
 
-    const headings = Array.from(document.querySelectorAll('h1,h2,h3,h4'));
-    const numbersHeading = headings.find(el => /Neloy Digital Solutions in Numbers/i.test(el.textContent || ''));
-    if(numbersHeading){
-      const section = numbersHeading.closest('section') || numbersHeading.parentElement;
-      if(section){
-        section.insertAdjacentHTML('beforebegin', card);
-        return true;
-      }
-    }
-    return false;
+    return true;
   }
 
   function run(){
-    if(placeCard()) return;
+    if(placeTestimonials()) return;
     let tries = 0;
     const timer = setInterval(function(){
       tries += 1;
-      if(placeCard() || tries >= 20) clearInterval(timer);
+      if(placeTestimonials() || tries >= 24) clearInterval(timer);
     }, 250);
   }
 
