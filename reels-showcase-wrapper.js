@@ -1,6 +1,7 @@
 import currentWorker from "./services-refresh-wrapper.js";
 
 const META_PIXEL_ID = "1085898767133253";
+const PODCAST_FILE_ID = "1ARZNb6WR52SsPTpgrLlifjL6mH4MUrLH";
 
 const META_PIXEL_HEAD = `<!-- Meta Pixel Code -->
 <script id="meta-pixel-base-code">
@@ -52,7 +53,10 @@ const podcastCard = `<article class="workCard" id="podcast-video-editing-project
 <p class="projectIntro">A real podcast editing showcase featuring clean cuts, captions, pacing, branded presentation and social-media-ready delivery.</p>
 <div style="max-width:760px;margin:22px auto 16px;padding:12px 12px 25px;background:linear-gradient(145deg,#102743,#06162d);border-radius:22px 22px 14px 14px;box-shadow:0 22px 55px rgba(6,22,45,.28);border:1px solid #2c4b70">
   <div style="position:relative;aspect-ratio:16/9;background:#000;border:2px solid #203b5c;border-radius:11px;overflow:hidden">
-    <iframe src="https://drive.google.com/file/d/1ARZNb6WR52SsPTpgrLlifjL6mH4MUrLH/preview" title="Neloy Digital Solutions podcast video editing portfolio" loading="lazy" allow="autoplay; fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#000"></iframe>
+    <video controls playsinline preload="metadata" poster="" aria-label="Neloy Digital Solutions podcast video editing portfolio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000">
+      <source src="/portfolio/podcast-video.mp4" type="video/mp4">
+      Your browser does not support embedded video.
+    </video>
   </div>
   <div style="width:35%;height:7px;background:linear-gradient(90deg,#75879b,#dbe5ee,#75879b);border-radius:0 0 14px 14px;margin:12px auto -18px"></div>
 </div>
@@ -69,6 +73,41 @@ const card = `<article class="workCard" id="short-video-editing-project">
 <p class="projectIntro">A branded social media reel for Neloy Digital Solutions, featuring motion graphics, a custom blue-and-cyan frame and audio.</p>
 <video controls playsinline preload="metadata" aria-label="Neloy Digital Solutions short video editing showcase" style="display:block;width:100%;max-width:380px;max-height:75vh;aspect-ratio:9/16;object-fit:contain;margin:20px auto;background:#06162d;border-radius:12px"><source src="/showcase-media/neloy-short-video.mp4" type="video/mp4">Your browser does not support embedded video. <a href="/showcase-media/neloy-short-video.mp4">Watch the video</a>.</video>
 </div></article>`;
+
+async function podcastVideoResponse(request) {
+  const sourceUrl = `https://drive.usercontent.google.com/download?id=${PODCAST_FILE_ID}&export=download&confirm=t`;
+  const headers = new Headers();
+  const range = request.headers.get("range");
+  if (range) headers.set("range", range);
+  headers.set("user-agent", "Mozilla/5.0");
+
+  const upstream = await fetch(sourceUrl, {
+    method: "GET",
+    headers,
+    redirect: "follow"
+  });
+
+  if (!upstream.ok && upstream.status !== 206) {
+    return new Response("Video temporarily unavailable", {
+      status: 502,
+      headers: {"content-type":"text/plain; charset=utf-8","cache-control":"no-store"}
+    });
+  }
+
+  const out = new Headers(upstream.headers);
+  out.set("content-type", "video/mp4");
+  out.set("cache-control", "public, max-age=3600");
+  out.set("accept-ranges", "bytes");
+  out.delete("content-disposition");
+  out.delete("set-cookie");
+  out.set("x-content-type-options", "nosniff");
+
+  return new Response(upstream.body, {
+    status: upstream.status,
+    statusText: upstream.statusText,
+    headers: out
+  });
+}
 
 export function addReel(html) {
   if (html.includes('id="short-video-editing-project"')) return html;
@@ -123,14 +162,19 @@ function allowMetaPixel(headers) {
   let next = addCspSource(csp, 'script-src', 'https://connect.facebook.net');
   next = addCspSource(next, 'connect-src', 'https://www.facebook.com');
   next = addCspSource(next, 'connect-src', 'https://connect.facebook.net');
-  next = addCspSource(next, 'frame-src', 'https://drive.google.com');
   headers.set('content-security-policy', next);
 }
 
 export default {
   async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    const path = url.pathname;
+
+    if (request.method === "GET" && path === "/portfolio/podcast-video.mp4") {
+      return podcastVideoResponse(request);
+    }
+
     const response = await currentWorker.fetch(request, env, ctx);
-    const path = new URL(request.url).pathname;
     const type = response.headers.get("content-type") || "";
 
     if (request.method !== "GET" || !response.ok || !type.includes("text/html")) return response;
