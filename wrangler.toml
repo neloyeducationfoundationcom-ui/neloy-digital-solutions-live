@@ -1,5 +1,5 @@
 name = "neloy-digital-solutions-live"
-main = "testimonial-final-fix-wrapper.js"
+main = "testimonial-page-wrapper.js"
 compatibility_date = "2026-09-09"
 # deploy to the existing public Neloy Digital Solutions Worker
 
