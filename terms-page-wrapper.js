@@ -5,8 +5,8 @@ const TERMS_HTML = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Terms, Conditions, and Agreement | Neloy Digital Solutions</title>
-<meta name="description" content="Terms, conditions, and agreement for Neloy Digital Solutions projects.">
+<title>Terms Condition and Agreement | Neloy Digital Solutions</title>
+<meta name="description" content="Terms condition and agreement for Neloy Digital Solutions projects.">
 <style>
 :root{--blue:#1477ff;--blue2:#0b5fd7;--cyan:#29dfff;--navy:#082a52;--text:#16324f;--muted:#60758c;--line:#d7e8fb;--soft:#f4f9ff;--white:#ffffff}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#ffffff 0%,#f4f9ff 42%,#eaf5ff 100%);color:var(--text);line-height:1.65}.wrap{width:min(920px,calc(100% - 32px));margin:auto}.top{position:sticky;top:0;z-index:20;background:#ffffffee;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);box-shadow:0 8px 24px #0b5fd70d}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:11px;color:var(--navy);text-decoration:none}.mark{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-size:25px;font-weight:1000;box-shadow:0 9px 25px #1477ff38}.brand strong{display:block}.brand small{display:block;color:#1477ff;letter-spacing:.14em;font-size:9px}.back{color:#0b5fd7;text-decoration:none;border:1px solid #b9d8fb;background:#f8fbff;border-radius:10px;padding:9px 13px;font-weight:800}.back:hover{background:#eaf5ff}.hero{padding:58px 0 25px;background:radial-gradient(circle at 85% 10%,#dff7ff 0,transparent 32%)}.eyebrow{display:inline-block;color:#0b5fd7;border:1px solid #b7d7ff;background:#eef7ff;padding:7px 10px;border-radius:999px;font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(36px,6vw,58px);line-height:1.05;letter-spacing:-.035em;margin:16px 0;color:#082a52}.lead{font-size:18px;color:var(--muted)}.terms{padding:18px 0 72px}.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,36px);box-shadow:0 24px 70px #0b5fd717}.term{padding:8px 0 24px;border-bottom:1px solid #e2eefb}.term:last-of-type{border-bottom:0}.term h2{font-size:23px;margin:12px 0 8px;color:#0b5fd7}.term p{margin:8px 0;color:#284866}.term ul{color:#284866;margin:10px 0 0;padding-left:22px}.term strong{color:#082a52}.highlight{margin:26px 0 0;padding:18px;border:1px solid #a9d2ff;background:linear-gradient(135deg,#eef7ff,#ffffff);border-radius:14px;color:#183d63}.highlight strong{color:#0b5fd7}footer{padding:28px 0;background:#082a52;border-top:1px solid #0b5fd7;color:#dcecff}footer strong{color:#fff}footer a{color:#7cecff;text-decoration:none}@media(max-width:620px){.nav{align-items:flex-start;padding:12px 0}.brand strong{font-size:14px}.brand small{font-size:8px}.back{font-size:13px;padding:8px 10px}h1{font-size:38px}}
@@ -15,7 +15,7 @@ const TERMS_HTML = `<!doctype html>
 <body>
 <header class="top"><div class="wrap nav"><a class="brand" href="/"><span class="mark">N</span><span><strong>NELOY DIGITAL SOLUTIONS</strong><small>IDEAS • AUTOMATION • GROWTH</small></span></a><a class="back" href="/">← Back to Home</a></div></header>
 <main>
-<section class="hero"><div class="wrap"><span class="eyebrow">Client Policy</span><h1>Terms, Conditions, and Agreement</h1><p class="lead">By confirming a project with Neloy Digital Solutions, the client agrees to the following terms.</p></div></section>
+<section class="hero"><div class="wrap"><span class="eyebrow">Client Policy</span><h1>Terms Condition and Agreement</h1><p class="lead">By confirming a project with Neloy Digital Solutions, the client agrees to the following terms.</p></div></section>
 <section class="terms"><div class="wrap"><div class="card">
 <div class="term"><h2>1. Advance Payment</h2><p>A <strong>60% advance payment</strong> of the total agreed project fee is required before any work begins.</p><p>Work will start only after the advance payment has been received and the project requirements have been confirmed by the client.</p></div>
 <div class="term"><h2>2. Final Payment</h2><p>The remaining <strong>40% payment</strong> must be paid after the agreed work has been completed and before the final files, website, design, source files, or other completed deliverables are fully handed over to the client.</p></div>
@@ -33,7 +33,7 @@ const TERMS_HTML = `<!doctype html>
 
 function addTermsFooterLink(html) {
   if (html.includes('href="/terms"') || html.includes("href='/terms'")) return html;
-  const link = `<div style="margin-top:10px"><a href="/terms" style="color:#bfeaff;text-decoration:none;font-weight:750">Terms, Conditions, and Agreement</a></div>`;
+  const link = `<div style="margin-top:10px"><a href="/terms" style="color:#bfeaff;text-decoration:none;font-weight:750">Terms Condition and Agreement</a></div>`;
   if (html.includes('</footer>')) return html.replace('</footer>', link + '</footer>');
   return html;
 }
