@@ -19,6 +19,32 @@ fbq('track', 'PageView');
 
 const META_PIXEL_NOSCRIPT = `<noscript id="meta-pixel-noscript"><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1" alt=""></noscript>`;
 
+const META_LEAD_TRACKER = `<script id="meta-lead-tracker">
+(function(){
+  if(window.__ndsMetaLeadTrackingInstalled)return;
+  window.__ndsMetaLeadTrackingInstalled=true;
+  const originalFetch=window.fetch;
+  if(typeof originalFetch!=="function")return;
+
+  window.fetch=async function(input,init){
+    const response=await originalFetch.apply(this,arguments);
+    try{
+      const method=String((init&&init.method)||(input&&input.method)||"GET").toUpperCase();
+      let rawUrl="";
+      if(typeof input==="string")rawUrl=input;
+      else if(typeof URL!=="undefined"&&input instanceof URL)rawUrl=input.href;
+      else if(input&&input.url)rawUrl=input.url;
+      const target=new URL(rawUrl,window.location.href);
+
+      if(response.ok&&method==="POST"&&target.origin===window.location.origin&&target.pathname==="/api/leads"){
+        if(typeof window.fbq==="function")window.fbq("track","Lead");
+      }
+    }catch(_){ }
+    return response;
+  };
+})();
+</script>`;
+
 const card = `<article class="workCard" id="short-video-editing-project">
 <div class="workBody"><span class="tag">Video Editing · Reels</span><h3>Short Video Editing</h3>
 <p class="projectIntro">A branded social media reel for Neloy Digital Solutions, featuring motion graphics, a custom blue-and-cyan frame and audio.</p>
@@ -31,16 +57,22 @@ export function addReel(html) {
 }
 
 function addMetaPixel(html) {
-  if (html.includes('id="meta-pixel-base-code"') || html.includes(`fbq('init', '${META_PIXEL_ID}')`)) return html;
+  const hasPixel = html.includes('id="meta-pixel-base-code"') || html.includes(`fbq('init', '${META_PIXEL_ID}')`) || html.includes(`fbq('init','${META_PIXEL_ID}')`);
 
-  if (html.includes('</head>')) {
+  if (!hasPixel && html.includes('</head>')) {
     html = html.replace('</head>', META_PIXEL_HEAD + '\n</head>');
   }
 
-  if (html.includes('<body')) {
-    html = html.replace(/<body([^>]*)>/i, `<body$1>\n${META_PIXEL_NOSCRIPT}`);
-  } else if (html.includes('</body>')) {
-    html = html.replace('</body>', META_PIXEL_NOSCRIPT + '\n</body>');
+  if (!hasPixel && !html.includes('id="meta-pixel-noscript"')) {
+    if (html.includes('<body')) {
+      html = html.replace(/<body([^>]*)>/i, `<body$1>\n${META_PIXEL_NOSCRIPT}`);
+    } else if (html.includes('</body>')) {
+      html = html.replace('</body>', META_PIXEL_NOSCRIPT + '\n</body>');
+    }
+  }
+
+  if (!html.includes('id="meta-lead-tracker"') && html.includes('</head>')) {
+    html = html.replace('</head>', META_LEAD_TRACKER + '\n</head>');
   }
 
   return html;
