@@ -9,12 +9,15 @@ const SERVICE_CARDS = [
 ];
 
 
-const BUSINESS_STATS = `<section class="neloy-business-stats" aria-label="Neloy Digital Solutions in numbers"><div class="wrap"><dl class="neloy-stats-grid"><div><dt>Projects Completed</dt><dd>100+</dd></div><div><dt>Years Experience</dt><dd>10+</dd></div><div><dt>Happy Clients</dt><dd>40+</dd></div><div><dt>Team Members</dt><dd>10+</dd></div><div><dt>Reviews</dt><dd class="neloy-review-count">15 out of 15</dd></div></dl></div></section>`;
+const BUSINESS_STATS = `<section id="business-results" class="neloy-business-stats" aria-label="Neloy Digital Solutions in numbers"><div class="wrap"><h2 class="neloy-stats-title">Neloy Digital Solutions in Numbers</h2><dl class="neloy-stats-grid"><div><dt>Projects Completed</dt><dd>100+</dd></div><div><dt>Years Experience</dt><dd>10+</dd></div><div><dt>Happy Clients</dt><dd>40+</dd></div><div><dt>Team Members</dt><dd>10+</dd></div><div><dt>Reviews</dt><dd class="neloy-review-count">15 out of 15</dd></div></dl></div></section>`;
 const BUSINESS_STATS_STYLE = `<style id="neloy-business-stats-style">
-.neloy-business-stats{padding:36px 0;background:#edf8ff;border-block:1px solid #c5e6fa}
+#business-results{display:block!important;visibility:visible!important;opacity:1!important;transform:none!important;position:relative;padding:24px 0;background:#edf8ff;border-block:1px solid #c5e6fa;scroll-margin-top:110px}
+#business-results .wrap{width:calc(100% - 32px);max-width:1160px;margin-inline:auto;box-sizing:border-box}
+#business-results .neloy-stats-title{margin:0 0 18px;text-align:center;font-size:clamp(18px,2.3vw,26px);line-height:1.35;color:#10376b!important}
+#business-results *{box-sizing:border-box}
 .neloy-stats-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin:0}
-.neloy-stats-grid>div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:26px 12px;background:#fff;border:1px solid #c5e6fa;border-radius:18px;text-align:center}
-.neloy-stats-grid dt{color:#173b61!important;font-size:15px;font-weight:600;line-height:1.5}
+.neloy-stats-grid>div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-width:0;padding:22px 12px;background:#fff;border:1px solid #c5e6fa;border-radius:18px;text-align:center}
+.neloy-stats-grid dt{color:#173b61!important;font-size:16px;font-weight:600;line-height:1.5}
 .neloy-stats-grid dd{order:-1;margin:0;color:#0866ca!important;font-size:clamp(28px,3vw,40px);font-weight:800;line-height:1.15}
 .neloy-stats-grid dd.neloy-review-count{font-size:clamp(22px,2vw,28px)}
 @media(max-width:800px){.neloy-stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.neloy-stats-grid>div:last-child{grid-column:1/-1}}
@@ -45,7 +48,7 @@ function refreshServices(html) {
 
   html = html.replace(/<b>7\+<\/b><span>Core services<\/span>/i, '<b>10+</b><span>Core services</span>');
   if (!html.includes('class="neloy-business-stats"')) {
-    html = html.replace('<section id="services"', BUSINESS_STATS + '\n<section id="services"');
+    html = html.replace(/(<main\b[^>]*>)/i, '$1' + BUSINESS_STATS);
     html = html.replace('</head>', BUSINESS_STATS_STYLE + '</head>');
   }
   return html;
