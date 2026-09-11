@@ -78,6 +78,14 @@ function addMetaPixel(html) {
   return html;
 }
 
+function updateCopyrightYear(html) {
+  return html
+    .replace(/©\s*2012\s*[-–—]\s*2026/gi, '© 2013 - 2026')
+    .replace(/&copy;\s*2012\s*[-–—]\s*2026/gi, '&copy; 2013 - 2026')
+    .replace(/©\s*2012/gi, '© 2013')
+    .replace(/&copy;\s*2012/gi, '&copy; 2013');
+}
+
 function addCspSource(csp, directive, source) {
   const re = new RegExp(`(${directive}[^;]*)`, 'i');
   if (!re.test(csp)) return `${csp}; ${directive} ${source}`;
@@ -106,7 +114,10 @@ export default {
     if (["/showcase", "/showcase/"].includes(path)) html = addReel(html);
 
     const isPublicPage = !path.startsWith('/admin');
-    if (isPublicPage) html = addMetaPixel(html);
+    if (isPublicPage) {
+      html = addMetaPixel(html);
+      html = updateCopyrightYear(html);
+    }
 
     const headers = new Headers(response.headers);
     headers.delete("content-length");
