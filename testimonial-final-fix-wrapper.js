@@ -26,47 +26,51 @@ const CARD = `<div id="el-patron-marketing-testimonial">
   </div>
 </div>`;
 
-function findMatchingElementEnd(html, startIndex, tagName) {
-  const re = new RegExp(`<\\/?${tagName}\\b[^>]*>`, 'ig');
-  re.lastIndex = startIndex;
-  let depth = 0;
-  let opened = false;
-  let match;
-  while ((match = re.exec(html))) {
-    const closing = match[0].startsWith('</');
-    if (!closing) {
-      depth += 1;
-      opened = true;
-    } else if (opened) {
-      depth -= 1;
-      if (depth === 0) return re.lastIndex;
+const SCRIPT = `<script id="el-patron-live-insert-script">
+(function(){
+  const card = ${JSON.stringify(CARD)};
+
+  function placeCard(){
+    const existing = document.getElementById('el-patron-marketing-testimonial');
+    if(existing) existing.remove();
+
+    const dinesh = document.getElementById('dinesh-testimonial-fixed');
+    if(dinesh){
+      dinesh.insertAdjacentHTML('afterend', card);
+      return true;
     }
+
+    const headings = Array.from(document.querySelectorAll('h1,h2,h3,h4'));
+    const numbersHeading = headings.find(el => /Neloy Digital Solutions in Numbers/i.test(el.textContent || ''));
+    if(numbersHeading){
+      const section = numbersHeading.closest('section') || numbersHeading.parentElement;
+      if(section){
+        section.insertAdjacentHTML('beforebegin', card);
+        return true;
+      }
+    }
+    return false;
   }
-  return -1;
-}
 
-function removeOldElPatron(html) {
-  const m = html.match(/<(div|article)\\b[^>]*id=["']el-patron-marketing-testimonial["'][^>]*>/i);
-  if (!m || m.index == null) return html;
-  const tag = m[1].toLowerCase();
-  const end = findMatchingElementEnd(html, m.index, tag);
-  if (end === -1) return html;
-  return html.slice(0, m.index) + html.slice(end);
-}
+  function run(){
+    if(placeCard()) return;
+    let tries = 0;
+    const timer = setInterval(function(){
+      tries += 1;
+      if(placeCard() || tries >= 20) clearInterval(timer);
+    }, 250);
+  }
 
-function insertAfterDinesh(html) {
-  const marker = /<div\\b[^>]*id=["']dinesh-testimonial-fixed["'][^>]*>/i.exec(html);
-  if (!marker || marker.index == null) return html;
-  const end = findMatchingElementEnd(html, marker.index, 'div');
-  if (end === -1) return html;
-  return html.slice(0, end) + CARD + html.slice(end);
-}
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, {once:true});
+  else run();
+})();
+</script>`;
 
 function updateReviewTotals(html) {
   return html
-    .replace(/15\\s*out\\s*of\\s*15/gi, '20 out of 20')
-    .replace(/3\\s*client\\s*testimonials\\s*[•·|\\-]\\s*15\\s*stars\\s*displayed/gi, '4 client testimonials • 20 stars displayed')
-    .replace(/15\\s*stars\\s*displayed/gi, '20 stars displayed');
+    .replace(/15\s*out\s*of\s*15/gi, '20 out of 20')
+    .replace(/3\s*client\s*testimonials\s*[•·|\-]\s*15\s*stars\s*displayed/gi, '4 client testimonials • 20 stars displayed')
+    .replace(/15\s*stars\s*displayed/gi, '20 stars displayed');
 }
 
 export default {
@@ -79,19 +83,19 @@ export default {
       return response;
     }
 
-    let html = await response.text();
-    html = removeOldElPatron(html);
-    html = insertAfterDinesh(html);
-    html = updateReviewTotals(html);
+    let html = updateReviewTotals(await response.text());
 
-    if (html.includes('id="el-patron-marketing-testimonial"') && !html.includes('id="el-patron-final-style"') && html.includes('</head>')) {
+    if (!html.includes('id="el-patron-final-style"') && html.includes('</head>')) {
       html = html.replace('</head>', STYLE + '</head>');
+    }
+    if (!html.includes('id="el-patron-live-insert-script"')) {
+      html = html.includes('</body>') ? html.replace('</body>', SCRIPT + '</body>') : html + SCRIPT;
     }
 
     const headers = new Headers(response.headers);
     headers.delete('content-length');
     headers.delete('etag');
-    headers.set('cache-control', 'no-store');
+    headers.set('cache-control', 'no-store, no-cache, must-revalidate');
 
     return new Response(html, {
       status: response.status,
