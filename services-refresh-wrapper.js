@@ -61,6 +61,15 @@ function addBusinessStats(html) {
   return html.replace('</head>', BUSINESS_STATS_STYLE + '</head>');
 }
 
+
+function addCopyright(html) {
+  if (html.includes('id="neloy-copyright"')) return html;
+  const line = '<div id="neloy-copyright" style="padding:20px 16px;text-align:center;color:#10376b;background:#edf8ff;font-size:16px;line-height:1.6">© 2012 - 2026<br><strong>Neloy Digital Solutions</strong></div>';
+  const payments = /(<section\b[^>]*class=["'][^"']*\bpaymentMethods\b[^"']*["'][^>]*>[\s\S]*?<\/section>)/i;
+  if (payments.test(html)) return html.replace(payments, match => match + line);
+  return html.replace('</footer>', line + '</footer>');
+}
+
 export default {
   async fetch(request, env, ctx) {
     const response = await currentWorker.fetch(request, env, ctx);
@@ -68,7 +77,7 @@ export default {
     const type = response.headers.get("content-type") || "";
 
     if (request.method === "GET" && type.includes("text/html") && !url.pathname.startsWith("/admin")) {
-      const html = addBusinessStats(refreshServices(await response.text()));
+      const html = addCopyright(addBusinessStats(refreshServices(await response.text())));
       const headers = new Headers(response.headers);
       headers.set("content-type", "text/html; charset=utf-8");
       headers.set("cache-control", "no-store");
