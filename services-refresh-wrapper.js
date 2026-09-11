@@ -47,11 +47,17 @@ function refreshServices(html) {
   html = html.replace('<option>AI Automation</option>', '<option>Template Design</option><option>UX Design</option><option>AI-Friendly Automation Bots</option>');
 
   html = html.replace(/<b>7\+<\/b><span>Core services<\/span>/i, '<b>10+</b><span>Core services</span>');
-  if (!html.includes('class="neloy-business-stats"')) {
-    html = html.replace(/(<main\b[^>]*>)/i, '$1' + BUSINESS_STATS);
-    html = html.replace('</head>', BUSINESS_STATS_STYLE + '</head>');
-  }
   return html;
+}
+
+
+function addBusinessStats(html) {
+  const paymentSection = /<section\b[^>]*class=["'][^"']*\bpaymentMethods\b[^"']*["'][^>]*>/i;
+  if (html.includes('id="business-results"')) return html;
+  const placement = paymentSection.test(html) ? paymentSection : /<footer\b[^>]*>/i;
+  if (!placement.test(html)) return html;
+  html = html.replace(placement, match => BUSINESS_STATS + match);
+  return html.replace('</head>', BUSINESS_STATS_STYLE + '</head>');
 }
 
 export default {
@@ -61,7 +67,7 @@ export default {
     const type = response.headers.get("content-type") || "";
 
     if (request.method === "GET" && type.includes("text/html") && !url.pathname.startsWith("/admin")) {
-      const html = refreshServices(await response.text());
+      const html = addBusinessStats(refreshServices(await response.text()));
       const headers = new Headers(response.headers);
       headers.set("content-type", "text/html; charset=utf-8");
       headers.set("cache-control", "no-store");
