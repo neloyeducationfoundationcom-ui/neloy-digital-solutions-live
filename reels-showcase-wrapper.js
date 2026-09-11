@@ -45,6 +45,25 @@ const META_LEAD_TRACKER = `<script id="meta-lead-tracker">
 })();
 </script>`;
 
+const podcastCard = `<article class="workCard" id="podcast-video-editing-project">
+<div class="workBody">
+<span class="tag">Video Editing · Podcast</span>
+<h3>Podcast Video Editing Portfolio</h3>
+<p class="projectIntro">A real podcast editing showcase featuring clean cuts, captions, pacing, branded presentation and social-media-ready delivery.</p>
+<div style="max-width:760px;margin:22px auto 16px;padding:12px 12px 25px;background:linear-gradient(145deg,#102743,#06162d);border-radius:22px 22px 14px 14px;box-shadow:0 22px 55px rgba(6,22,45,.28);border:1px solid #2c4b70">
+  <div style="position:relative;aspect-ratio:16/9;background:#000;border:2px solid #203b5c;border-radius:11px;overflow:hidden">
+    <iframe src="https://drive.google.com/file/d/1ARZNb6WR52SsPTpgrLlifjL6mH4MUrLH/preview" title="Neloy Digital Solutions podcast video editing portfolio" loading="lazy" allow="autoplay; fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#000"></iframe>
+  </div>
+  <div style="width:35%;height:7px;background:linear-gradient(90deg,#75879b,#dbe5ee,#75879b);border-radius:0 0 14px 14px;margin:12px auto -18px"></div>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:14px 0 6px">
+  <a href="https://drive.google.com/file/d/1ARZNb6WR52SsPTpgrLlifjL6mH4MUrLH/view?usp=sharing" target="_blank" rel="noopener" style="text-decoration:none;padding:8px 11px;border-radius:999px;background:#EAF8FF;border:1px solid #B6E3F5;color:#075DFF;font-size:11px;font-weight:900">I Am the Brand</a>
+  <a href="https://drive.google.com/file/d/12KIhGdH-C0w8lBtGzBMyNI0BoE41cOr5/view?usp=sharing" target="_blank" rel="noopener" style="text-decoration:none;padding:8px 11px;border-radius:999px;background:#EAF8FF;border:1px solid #B6E3F5;color:#075DFF;font-size:11px;font-weight:900">Creating Trends</a>
+  <a href="https://drive.google.com/file/d/1SAvHpKKqbBYvVH4BhBMLHmJf1GWxjx-1/view?usp=sharing" target="_blank" rel="noopener" style="text-decoration:none;padding:8px 11px;border-radius:999px;background:#EAF8FF;border:1px solid #B6E3F5;color:#075DFF;font-size:11px;font-weight:900">El Patron Release</a>
+</div>
+<p class="projectResult" style="margin-top:14px"><strong>Portfolio focus:</strong> Podcast editing, captions, pacing, branded framing and short-form social presentation.</p>
+</div></article>`;
+
 const card = `<article class="workCard" id="short-video-editing-project">
 <div class="workBody"><span class="tag">Video Editing · Reels</span><h3>Short Video Editing</h3>
 <p class="projectIntro">A branded social media reel for Neloy Digital Solutions, featuring motion graphics, a custom blue-and-cyan frame and audio.</p>
@@ -54,6 +73,11 @@ const card = `<article class="workCard" id="short-video-editing-project">
 export function addReel(html) {
   if (html.includes('id="short-video-editing-project"')) return html;
   return html.replace(/(<section\b[^>]*\bid="work"[^>]*>[\s\S]*?<div class="workGrid">)/, '$1' + card);
+}
+
+export function addPodcast(html) {
+  if (html.includes('id="podcast-video-editing-project"')) return html;
+  return html.replace(/(<section\b[^>]*\bid="work"[^>]*>[\s\S]*?<div class="workGrid">)/, '$1' + podcastCard);
 }
 
 function addMetaPixel(html) {
@@ -99,6 +123,7 @@ function allowMetaPixel(headers) {
   let next = addCspSource(csp, 'script-src', 'https://connect.facebook.net');
   next = addCspSource(next, 'connect-src', 'https://www.facebook.com');
   next = addCspSource(next, 'connect-src', 'https://connect.facebook.net');
+  next = addCspSource(next, 'frame-src', 'https://drive.google.com');
   headers.set('content-security-policy', next);
 }
 
@@ -111,7 +136,10 @@ export default {
     if (request.method !== "GET" || !response.ok || !type.includes("text/html")) return response;
 
     let html = await response.text();
-    if (["/showcase", "/showcase/"].includes(path)) html = addReel(html);
+    if (["/showcase", "/showcase/"].includes(path)) {
+      html = addReel(html);
+      html = addPodcast(html);
+    }
 
     const isPublicPage = !path.startsWith('/admin');
     if (isPublicPage) {
