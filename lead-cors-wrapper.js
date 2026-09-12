@@ -23,6 +23,8 @@ const PAYMENT_STYLE = `<style id="payment-methods-style">
 
 const PAYMENT_SECTION = `<section class="paymentMethods" aria-label="Payment methods"><div class="wrap"><div class="payHead"><span>Payment Options</span><h3>Flexible ways to pay</h3></div><div class="paymentLogoGrid"><div class="paymentLogo" title="PayPal"><div class="paypalLogo">Pay<span class="pp2">Pal</span></div></div><div class="paymentLogo" title="Wise"><div class="wiseLogo">wise</div></div><div class="paymentLogo" title="bKash"><div class="bkashLogo">bKash <span class="bird">◆</span></div></div><div class="paymentLogo" title="Touch 'n Go eWallet"><div class="touchLogo">Touch 'n Go<small>eWallet</small></div></div><div class="paymentLogo" title="JPMorgan Chase & Co. bank transfer"><div class="chaseLogo"><span class="chaseMark"></span><span>JPMorgan<br>Chase &amp; Co.<small>Bank Transfer</small></span></div></div></div><p class="paymentNote">Payment method logos are shown for payment identification only.</p></div></section>`;
 
+const AI_BOT_FIX = `<style id="ai-bot-click-fix-style">#aiBtn{pointer-events:auto!important;touch-action:manipulation!important;z-index:2147483000!important}.chat.open{z-index:2147483001!important}</style><script id="ai-bot-click-fix">(()=>{function bind(){const b=document.getElementById('aiBtn'),c=document.getElementById('chat'),x=document.getElementById('closeChat');if(!b||!c)return;b.type='button';b.style.pointerEvents='auto';b.style.cursor='pointer';if(!b.dataset.aiFallbackBound){b.dataset.aiFallbackBound='1';b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();c.classList.add('open');c.setAttribute('aria-hidden','false');const i=document.getElementById('chatInput');if(i)setTimeout(()=>i.focus(),0);},true);}if(x&&!x.dataset.aiFallbackBound){x.dataset.aiFallbackBound='1';x.type='button';x.addEventListener('click',e=>{e.preventDefault();c.classList.remove('open');c.setAttribute('aria-hidden','true');},true);}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind,{once:true});else bind();setTimeout(bind,500);})();</script>`;
+
 function withLeadCors(response) {
   const headers = new Headers(response.headers);
   for (const [key, value] of Object.entries(CORS_HEADERS)) headers.set(key, value);
@@ -46,6 +48,12 @@ function addPaymentMethods(html) {
     html = html.replace('</body>', PAYMENT_SECTION + '</body>');
   }
   return html;
+}
+
+function addAiBotFix(html) {
+  if (!html.includes('id="aiBtn"') || html.includes('id="ai-bot-click-fix"')) return html;
+  if (html.includes('</body>')) return html.replace('</body>', AI_BOT_FIX + '</body>');
+  return html + AI_BOT_FIX;
 }
 
 export default {
@@ -81,9 +89,12 @@ export default {
     const response = await currentWorker.fetch(request, env, ctx);
     const type = response.headers.get("content-type") || "";
     const isHome = method === "GET" && (url.pathname === "/" || url.pathname === "/website" || url.pathname === "/website/");
+    const isPublicHtml = method === "GET" && type.includes("text/html") && !url.pathname.startsWith("/admin");
 
-    if (isHome && type.includes("text/html")) {
-      const html = addPaymentMethods(await response.text());
+    if (isPublicHtml) {
+      let html = await response.text();
+      if (isHome) html = addPaymentMethods(html);
+      html = addAiBotFix(html);
       const headers = new Headers(response.headers);
       headers.set("content-type", "text/html; charset=utf-8");
       headers.set("cache-control", "no-store");
