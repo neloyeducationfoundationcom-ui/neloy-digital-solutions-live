@@ -37,7 +37,7 @@ const VIDEO_SECTION = `<section id="nds-feature-video" aria-label="Neloy Digital
     <h2>See how we bring your project to life</h2>
     <p>Learn how Neloy Digital Solutions works with your requirements and budget across graphic design, video editing and website design.</p>
     <button class="ndsVideoThumb" id="nds-video-open" type="button" aria-label="Play Neloy Digital Solutions project process video">
-      <img src="/showcase-media/neloy-project-process-thumbnail.jpg?v=2" alt="Neloy Digital Solutions project process video thumbnail" loading="eager">
+      <img src="/showcase-media/neloy-project-process-thumbnail.jpg?v=3" alt="Neloy Digital Solutions project process video thumbnail" loading="eager">
       <span class="ndsPlay" aria-hidden="true"></span>
       <span class="ndsWatch">▶ Watch the video</span>
     </button>
@@ -47,8 +47,8 @@ const VIDEO_SECTION = `<section id="nds-feature-video" aria-label="Neloy Digital
 const VIDEO_MODAL = `<div id="nds-video-modal" role="dialog" aria-modal="true" aria-label="Neloy Digital Solutions video">
   <div class="ndsModalInner">
     <button class="ndsClose" id="nds-video-close" type="button" aria-label="Close video">×</button>
-    <video id="nds-project-video" controls playsinline preload="metadata" poster="/showcase-media/neloy-project-process-thumbnail.jpg?v=2">
-      <source src="/showcase-media/neloy-project-process.mp4?v=2" type="video/mp4">
+    <video id="nds-project-video" controls playsinline preload="metadata" poster="/showcase-media/neloy-project-process-thumbnail.jpg?v=3">
+      <source src="/showcase-media/neloy-project-process.mp4?v=3" type="video/mp4">
     </video>
   </div>
 </div>`;
