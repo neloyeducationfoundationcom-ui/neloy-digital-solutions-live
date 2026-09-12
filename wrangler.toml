@@ -1,5 +1,5 @@
 name = "neloy-digital-solutions-live"
-main = "social-community-wrapper.js"
+main = "home-video-wrapper.js"
 compatibility_date = "2026-09-09"
 # deploy to the existing public Neloy Digital Solutions Worker
 
@@ -10,3 +10,4 @@ database_id = "c0b600e8-9b58-497c-ab2a-deeb74ae6576"
 
 [assets]
 directory = "./public"
+binding = "ASSETS"
