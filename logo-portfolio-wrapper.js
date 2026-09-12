@@ -26,7 +26,9 @@ const REVIEW_STYLE=`<style id="testimonial-rating-restore-style">
 </style>`;
 
 const BASE="https://raw.githubusercontent.com/neloyeducationfoundationcom-ui/neloy-digital-solutions-live/main/assets/logo-projects/";
+const MAJORITY_URL="https://raw.githubusercontent.com/neloyeducationfoundationcom-ui/neloy-digital-solutions-live/main/assets/majority-media.webp";
 const PROJECTS=[
+  [MAJORITY_URL,"Majority Media"],
   ["simplicity-in-advertising.jpg","Simplicity in Advertising"],
   ["solid-landscape-design.jpg","SOLID Landscape Design"],
   ["njr-cabinets.jpg","NJR Cabinets"],
@@ -39,7 +41,7 @@ function addLogoProjects(html){
   if(s===-1)return html;
   const e=html.indexOf('</section>',s);
   if(e===-1)return html;
-  const cards=PROJECTS.map(([file,title])=>`<article class="logo-project-card"><a class="logo-project-image" href="${BASE}${file}" target="_blank" rel="noopener noreferrer" aria-label="Open ${title} logo project"><img src="${BASE}${file}?v=2" alt="${title} logo design project" loading="lazy" decoding="async"></a><div class="logo-project-meta"><span>Logo Design</span><h3>${title}</h3></div></article>`).join('');
+  const cards=PROJECTS.map(([file,title])=>{const src=file.startsWith('http')?file:BASE+file;return `<article class="logo-project-card"><a class="logo-project-image" href="${src}" target="_blank" rel="noopener noreferrer" aria-label="Open ${title} logo project"><img src="${src}?v=3" alt="${title} logo design project" loading="lazy" decoding="async"></a><div class="logo-project-meta"><span>Logo Design</span><h3>${title}</h3></div></article>`}).join('');
   const section=`<section id="logo-design-projects"><div class="container"><div class="logo-project-heading"><span class="eyebrow">Selected Client Work</span><h2>Logo Design Projects</h2><p>A selection of logo and brand identity projects created for clients.</p></div><div class="logo-project-grid">${cards}</div></div></section>`;
   html=html.slice(0,e+10)+section+html.slice(e+10);
   if(!html.includes('id="logo-portfolio-style"'))html=html.replace('</head>',STYLE+'</head>');
