@@ -10,7 +10,7 @@ const STYLE=`<style id="logo-portfolio-style">
 #logo-design-projects .logo-project-card{overflow:hidden;background:#fff;border:1px solid #D9ECF8;border-radius:22px;box-shadow:0 14px 34px rgba(10,42,90,.08);transition:transform .2s ease,box-shadow .2s ease}
 #logo-design-projects .logo-project-card:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(10,42,90,.12)}
 #logo-design-projects .logo-project-image{display:flex;width:100%;height:340px;align-items:center;justify-content:center;background:#fff;padding:22px;box-sizing:border-box;text-decoration:none}
-#logo-design-projects .logo-project-image img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;background:#fff;border-radius:12px}
+#logo-design-projects .logo-project-image img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;background:#fff;border-radius:12px;image-rendering:auto;filter:none}
 #logo-design-projects .logo-project-meta{padding:18px 20px 22px;border-top:1px solid #EDF5FA}
 #logo-design-projects .logo-project-meta span{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#075DFF}
 #logo-design-projects .logo-project-meta h3{margin:7px 0 0;color:#0A2A5A;font-size:21px;line-height:1.25}
@@ -27,11 +27,11 @@ const REVIEW_STYLE=`<style id="testimonial-rating-restore-style">
 
 const BASE="https://raw.githubusercontent.com/neloyeducationfoundationcom-ui/neloy-digital-solutions-live/main/assets/logo-projects/";
 const MAJORITY_URL="https://raw.githubusercontent.com/neloyeducationfoundationcom-ui/neloy-digital-solutions-live/main/assets/majority-media.webp";
+const NJR_URL="https://raw.githubusercontent.com/neloyeducationfoundationcom-ui/neloy-digital-solutions-live/main/assets/logo-projects/njr-cabinets-clear.svg";
 const PROJECTS=[
   [MAJORITY_URL,"Majority Media"],
   ["simplicity-in-advertising.jpg","Simplicity in Advertising"],
-  ["solid-landscape-design.jpg","SOLID Landscape Design"],
-  ["njr-cabinets.jpg","NJR Cabinets"],
+  [NJR_URL,"NJR Cabinets"],
   ["womens-club-menifee.jpg","Women’s Club of Menifee"]
 ];
 
@@ -41,7 +41,7 @@ function addLogoProjects(html){
   if(s===-1)return html;
   const e=html.indexOf('</section>',s);
   if(e===-1)return html;
-  const cards=PROJECTS.map(([file,title])=>{const src=file.startsWith('http')?file:BASE+file;return `<article class="logo-project-card"><a class="logo-project-image" href="${src}" target="_blank" rel="noopener noreferrer" aria-label="Open ${title} logo project"><img src="${src}?v=3" alt="${title} logo design project" loading="lazy" decoding="async"></a><div class="logo-project-meta"><span>Logo Design</span><h3>${title}</h3></div></article>`}).join('');
+  const cards=PROJECTS.map(([file,title])=>{const src=file.startsWith('http')?file:BASE+file;return `<article class="logo-project-card"><a class="logo-project-image" href="${src}" target="_blank" rel="noopener noreferrer" aria-label="Open ${title} logo project"><img src="${src}?v=5" alt="${title} logo design project" loading="lazy" decoding="async"></a><div class="logo-project-meta"><span>Logo Design</span><h3>${title}</h3></div></article>`}).join('');
   const section=`<section id="logo-design-projects"><div class="container"><div class="logo-project-heading"><span class="eyebrow">Selected Client Work</span><h2>Logo Design Projects</h2><p>A selection of logo and brand identity projects created for clients.</p></div><div class="logo-project-grid">${cards}</div></div></section>`;
   html=html.slice(0,e+10)+section+html.slice(e+10);
   if(!html.includes('id="logo-portfolio-style"'))html=html.replace('</head>',STYLE+'</head>');
