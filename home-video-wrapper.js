@@ -1,11 +1,14 @@
 import currentWorker from "./social-community-wrapper.js";
 
 const VIDEO_PARTS = [
-  "/showcase-media/project-process-parts/part-00",
-  "/showcase-media/project-process-parts/part-01",
-  "/showcase-media/project-process-parts/part-02",
-  "/showcase-media/project-process-parts/part-03",
-  "/showcase-media/project-process-parts/part-04"
+  "/showcase-media/project-process-restored-parts/part-00",
+  "/showcase-media/project-process-restored-parts/part-01",
+  "/showcase-media/project-process-restored-parts/part-02",
+  "/showcase-media/project-process-restored-parts/part-03",
+  "/showcase-media/project-process-restored-parts/part-04",
+  "/showcase-media/project-process-restored-parts/part-05",
+  "/showcase-media/project-process-restored-parts/part-06",
+  "/showcase-media/project-process-restored-parts/part-07"
 ];
 
 const VIDEO_STYLE = `<style id="nds-home-video-style">
