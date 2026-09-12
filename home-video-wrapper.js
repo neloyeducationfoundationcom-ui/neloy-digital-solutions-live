@@ -23,12 +23,18 @@ const VIDEO_STYLE = `<style id="nds-home-video-style">
 #nds-feature-video .ndsPlay{position:absolute;z-index:2;left:50%;top:50%;width:82px;height:58px;transform:translate(-50%,-50%);display:grid;place-items:center;border-radius:17px;background:#ff0000;box-shadow:0 10px 32px rgba(0,0,0,.35)}
 #nds-feature-video .ndsPlay:before{content:"";margin-left:5px;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:20px solid #fff}
 #nds-feature-video .ndsWatch{position:absolute;z-index:2;left:22px;bottom:18px;color:#fff;font-size:16px;font-weight:900}
+#nds-feature-video .ndsProcess{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:min(900px,100%);margin:22px auto 0;text-align:left}
+#nds-feature-video .ndsProcessCard{padding:20px;border:1px solid #d8e8f2;border-radius:18px;background:#f8fcff;box-shadow:0 9px 24px rgba(8,55,96,.07)}
+#nds-feature-video .ndsProcessCard strong{display:block;margin-bottom:7px;color:#0a2a5a;font-size:17px}
+#nds-feature-video .ndsProcessCard span{display:block;color:#60758c;font-size:15px;line-height:1.55}
+#nds-feature-video .ndsBudget{width:min(900px,100%);margin:22px auto 0;padding:16px 20px;border-radius:16px;background:#0a2a5a;color:#fff;font-size:16px;line-height:1.55}
+#nds-feature-video .ndsCta{display:inline-block;margin-top:20px;padding:14px 22px;border-radius:12px;background:#075dff;color:#fff;text-decoration:none;font-weight:900}
 #nds-video-modal{position:fixed;z-index:9999;inset:0;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(0,10,22,.92)}
 #nds-video-modal.open{display:flex}
 #nds-video-modal .ndsModalInner{position:relative;width:min(1000px,100%)}
 #nds-video-modal video{display:block;width:100%;max-height:82vh;border-radius:18px;background:#000}
 #nds-video-modal .ndsClose{position:absolute;right:-8px;top:-48px;width:40px;height:40px;border:1px solid rgba(255,255,255,.5);border-radius:50%;background:#102a42;color:#fff;font-size:28px;line-height:1;cursor:pointer}
-@media(max-width:620px){#nds-feature-video{padding:42px 0}#nds-feature-video .ndsPlay{width:66px;height:47px;border-radius:14px}#nds-feature-video .ndsWatch{left:14px;bottom:12px;font-size:13px}}
+@media(max-width:720px){#nds-feature-video{padding:42px 0}#nds-feature-video .ndsPlay{width:66px;height:47px;border-radius:14px}#nds-feature-video .ndsWatch{left:14px;bottom:12px;font-size:13px}#nds-feature-video .ndsProcess{grid-template-columns:1fr}#nds-feature-video .ndsProcessCard{padding:17px}}
 </style>`;
 
 const VIDEO_SECTION = `<section id="nds-feature-video" aria-label="Neloy Digital Solutions introduction video">
@@ -41,6 +47,13 @@ const VIDEO_SECTION = `<section id="nds-feature-video" aria-label="Neloy Digital
       <span class="ndsPlay" aria-hidden="true"></span>
       <span class="ndsWatch">▶ Watch the video</span>
     </button>
+    <div class="ndsBudget"><strong>First, we listen to your project requirements and budget.</strong> Then we prepare the right project structure for you.</div>
+    <div class="ndsProcess" aria-label="Our project process">
+      <div class="ndsProcessCard"><strong>Graphic Design</strong><span>We prepare five different design concepts. After you choose the preferred concept, we provide the final design in the required file formats.</span></div>
+      <div class="ndsProcessCard"><strong>Video Editing</strong><span>We first create a short demo using a few seconds of your project. Once you approve the demo, we complete the video in that accepted style.</span></div>
+      <div class="ndsProcessCard"><strong>Website Design</strong><span>We plan and build the website according to your requirements, business goals and agreed project scope.</span></div>
+    </div>
+    <a class="ndsCta" href="#contact">Have a project in mind? Message Neloy Digital Solutions and let’s create something great.</a>
   </div>
 </section>`;
 
