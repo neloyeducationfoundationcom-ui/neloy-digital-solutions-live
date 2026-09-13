@@ -1,5 +1,4 @@
 import currentWorker from "./duck-private-email-wrapper.js";
-import GRAPHIC_PORTFOLIO_IMAGE from "./graphic-portfolio-image.js";
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -10,113 +9,52 @@ const CORS_HEADERS = {
 };
 
 const PAYMENT_STYLE = `<style id="payment-methods-style">
-.paymentMethods{padding:46px 0 34px;background:linear-gradient(180deg,#f7fcff,#edf8ff);border-top:1px solid #c9e8f7}
-.paymentMethods .payHead{text-align:center;margin-bottom:22px}.paymentMethods .payHead span{display:block;color:#075DFF;font-size:11px;font-weight:1000;letter-spacing:.14em;text-transform:uppercase}.paymentMethods .payHead h3{margin:6px 0 0;color:#0A2A5A;font-size:26px}
-.paymentLogoGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.paymentLogo{min-height:92px;background:#fff;border:1px solid #c9e8f7;border-radius:18px;display:flex;align-items:center;justify-content:center;padding:16px;box-shadow:0 10px 26px rgba(7,93,255,.06);transition:transform .22s ease,box-shadow .22s ease}.paymentLogo:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(7,93,255,.11)}
-.paypalLogo{font-size:29px;font-weight:1000;font-style:italic;letter-spacing:-2px;color:#003087}.paypalLogo .pp2{color:#009cde}
-.wiseLogo{font-size:31px;font-weight:1000;color:#163300;letter-spacing:-1px}.wiseLogo:before{content:"➜";display:inline-block;margin-right:6px;color:#9FE870;transform:skewX(-12deg)}
-.bkashLogo{font-size:29px;font-weight:1000;color:#e2136e;letter-spacing:-1px}.bkashLogo .bird{font-size:23px;margin-left:6px}
-.touchLogo{background:linear-gradient(135deg,#0057b8,#0b87ef);color:#fff;border-radius:13px;padding:10px 13px;line-height:.92;text-align:center;font-weight:1000;font-style:italic;font-size:21px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.7)}.touchLogo small{display:block;color:#ffe300;font-size:13px;margin-top:6px;letter-spacing:.02em}
-.chaseLogo{display:flex;align-items:center;gap:10px;color:#062452;font-family:Georgia,serif;font-weight:700;font-size:18px;line-height:1.05}.chaseMark{width:38px;height:38px;border:9px solid #1261b8;transform:rotate(45deg);border-radius:5px;flex:0 0 auto}.chaseLogo small{display:block;font-family:Inter,system-ui,sans-serif;font-size:10px;color:#55718d;margin-top:5px;letter-spacing:.05em;text-transform:uppercase}
-.paymentNote{text-align:center;color:#73879b;font-size:11px;margin:15px 0 0}
-@media(max-width:900px){.paymentLogoGrid{grid-template-columns:repeat(3,1fr)}}@media(max-width:620px){.paymentLogoGrid{grid-template-columns:repeat(2,1fr)}.paymentLogo:last-child{grid-column:1/-1}.paymentMethods{padding:38px 0 28px}}
+.paymentMethods{padding:46px 0 34px;background:linear-gradient(180deg,#f7fcff,#edf8ff);border-top:1px solid #c9e8f7}.paymentMethods .payHead{text-align:center;margin-bottom:22px}.paymentMethods .payHead span{display:block;color:#075DFF;font-size:11px;font-weight:1000;letter-spacing:.14em;text-transform:uppercase}.paymentMethods .payHead h3{margin:6px 0 0;color:#0A2A5A;font-size:26px}.paymentLogoGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.paymentLogo{min-height:92px;background:#fff;border:1px solid #c9e8f7;border-radius:18px;display:flex;align-items:center;justify-content:center;padding:16px;box-shadow:0 10px 26px rgba(7,93,255,.06)}.paypalLogo{font-size:29px;font-weight:1000;font-style:italic;color:#003087}.paypalLogo .pp2{color:#009cde}.wiseLogo{font-size:31px;font-weight:1000;color:#163300}.bkashLogo{font-size:29px;font-weight:1000;color:#e2136e}.touchLogo{background:linear-gradient(135deg,#0057b8,#0b87ef);color:#fff;border-radius:13px;padding:10px 13px;font-weight:1000}.chaseLogo{display:flex;align-items:center;gap:10px;color:#062452;font-weight:700;font-size:18px}.chaseMark{width:38px;height:38px;border:9px solid #1261b8;transform:rotate(45deg);border-radius:5px}.paymentNote{text-align:center;color:#73879b;font-size:11px;margin:15px 0 0}@media(max-width:900px){.paymentLogoGrid{grid-template-columns:repeat(3,1fr)}}@media(max-width:620px){.paymentLogoGrid{grid-template-columns:repeat(2,1fr)}}
 </style>`;
 
-const PAYMENT_SECTION = `<section class="paymentMethods" aria-label="Payment methods"><div class="wrap"><div class="payHead"><span>Payment Options</span><h3>Flexible ways to pay</h3></div><div class="paymentLogoGrid"><div class="paymentLogo" title="PayPal"><div class="paypalLogo">Pay<span class="pp2">Pal</span></div></div><div class="paymentLogo" title="Wise"><div class="wiseLogo">wise</div></div><div class="paymentLogo" title="bKash"><div class="bkashLogo">bKash <span class="bird">◆</span></div></div><div class="paymentLogo" title="Touch 'n Go eWallet"><div class="touchLogo">Touch 'n Go<small>eWallet</small></div></div><div class="paymentLogo" title="JPMorgan Chase & Co. bank transfer"><div class="chaseLogo"><span class="chaseMark"></span><span>JPMorgan<br>Chase &amp; Co.<small>Bank Transfer</small></span></div></div></div><p class="paymentNote">Payment method logos are shown for payment identification only.</p></div></section>`;
+const PAYMENT_SECTION = `<section class="paymentMethods" aria-label="Payment methods"><div class="wrap"><div class="payHead"><span>Payment Options</span><h3>Flexible ways to pay</h3></div><div class="paymentLogoGrid"><div class="paymentLogo"><div class="paypalLogo">Pay<span class="pp2">Pal</span></div></div><div class="paymentLogo"><div class="wiseLogo">Wise</div></div><div class="paymentLogo"><div class="bkashLogo">bKash</div></div><div class="paymentLogo"><div class="touchLogo">Touch 'n Go<br><small>eWallet</small></div></div><div class="paymentLogo"><div class="chaseLogo"><span class="chaseMark"></span><span>JPMorgan<br>Chase &amp; Co.</span></div></div></div><p class="paymentNote">Payment method logos are shown for payment identification only.</p></div></section>`;
 
-const GRAPHIC_PORTFOLIO_STYLE = `<style id="graphic-design-portfolio-style">
-#graphic-design-portfolio{padding:64px 0;background:linear-gradient(180deg,#07182d,#0a2340);color:#fff!important}
-#graphic-design-portfolio .graphicPortfolioWrap{width:min(1180px,calc(100% - 28px));margin:auto;text-align:center}
-#graphic-design-portfolio .graphicPortfolioEyebrow{display:block;color:#12dff3;font-size:12px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px}
-#graphic-design-portfolio h2{margin:0 0 10px;font-size:clamp(34px,5vw,58px);line-height:1;color:#fff!important}
-#graphic-design-portfolio p{margin:0 auto 26px;max-width:760px;color:#c7d8e8!important;font-size:16px}
-#graphic-design-portfolio .graphicPortfolioImage{display:block;width:100%;max-width:1100px;height:auto;margin:0 auto;border-radius:24px;box-shadow:0 28px 70px rgba(0,0,0,.32);border:1px solid rgba(18,223,243,.35);background:#07182d}
-@media(max-width:700px){#graphic-design-portfolio{padding:44px 0}#graphic-design-portfolio .graphicPortfolioImage{border-radius:16px}}
+const PORTFOLIO_STYLE = `<style id="graphic-carousel-style">
+#graphic-design-portfolio{padding:64px 0 58px;background:radial-gradient(circle at 0 15%,rgba(7,93,255,.24),transparent 20%),radial-gradient(circle at 100% 20%,rgba(18,223,243,.18),transparent 20%),linear-gradient(180deg,#06172a,#0a223d);color:#fff!important;overflow:hidden}
+#graphic-design-portfolio *{box-sizing:border-box}
+#graphic-design-portfolio .gpWrap{width:min(1240px,calc(100% - 28px));margin:auto}
+#graphic-design-portfolio .gpHead{text-align:center;margin-bottom:26px}
+#graphic-design-portfolio .gpEyebrow{display:block;color:#12dff3;font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+#graphic-design-portfolio h2{margin:0;color:#fff!important;font-size:clamp(34px,5vw,58px);line-height:1}
+#graphic-design-portfolio .gpIntro{margin:12px auto 0;max-width:760px;color:#c8d9e9!important;font-size:16px;line-height:1.6}
+#graphic-design-portfolio .gpViewport{position:relative}
+#graphic-design-portfolio .gpTrack{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 2px 16px;scroll-behavior:smooth}
+#graphic-design-portfolio .gpTrack::-webkit-scrollbar{display:none}
+#graphic-design-portfolio .gpCard{flex:0 0 calc(25% - 14px);min-width:265px;scroll-snap-align:start;background:linear-gradient(180deg,#0b2948,#07192c);border:1px solid rgba(18,223,243,.45);border-radius:22px;overflow:hidden;box-shadow:0 20px 45px rgba(0,0,0,.22)}
+#graphic-design-portfolio .gpVisual{height:260px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+#graphic-design-portfolio .gpVisual img{width:100%;height:100%;object-fit:cover;display:block}
+#graphic-design-portfolio .gpNum{position:absolute;top:12px;left:12px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#06172a;border:2px solid #12dff3;color:#fff;font-weight:900;z-index:2}
+#graphic-design-portfolio .flyerMock{width:100%;height:100%;padding:22px;background:linear-gradient(135deg,#fff 0 52%,#0a49a7 52% 100%);color:#07182d;display:flex;flex-direction:column;justify-content:center;text-align:left}
+#graphic-design-portfolio .flyerMock b{font-size:28px;line-height:1}.flyerMock strong{font-size:34px;color:#099ee8}.flyerMock small{margin-top:10px;font-size:13px}.flyerMock .checks{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:12px;font-weight:800}.flyerMock .checks span:before{content:'✓ ';color:#00a8e8}
+#graphic-design-portfolio .gpBody{padding:18px 18px 20px;text-align:left}
+#graphic-design-portfolio .gpBody h3{margin:0 0 5px;color:#fff!important;font-size:25px}.gpAccent{color:#12dff3}.gpSub{font-size:11px;font-weight:900;letter-spacing:.14em;color:#d7e7f4;text-transform:uppercase}.gpTags{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}.gpTags span{border:1px solid #12dff3;border-radius:999px;padding:5px 8px;font-size:11px;color:#e9fbff}.gpBody p{margin:0;color:#c7d8e8!important;font-size:13px;line-height:1.5}.gpBtn{display:inline-block;margin-top:15px;padding:10px 16px;border-radius:999px;background:linear-gradient(90deg,#12dff3,#075dff);color:#fff!important;text-decoration:none;font-weight:900;font-size:12px;letter-spacing:.08em}.gpArrow{position:absolute;top:43%;transform:translateY(-50%);width:44px;height:44px;border:1px solid #12dff3;border-radius:50%;background:#07182d;color:#fff;font-size:24px;cursor:pointer;z-index:3}.gpPrev{left:-20px}.gpNext{right:-20px}.gpDots{text-align:center;margin-top:8px;color:#7f93a8;letter-spacing:7px}.gpDots .on{color:#12dff3}.gpBenefits{margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center}.gpBenefits div{color:#e5f4ff;font-size:13px;font-weight:800}.gpBenefits b{color:#12dff3;margin-right:6px}
+@media(max-width:980px){#graphic-design-portfolio .gpCard{flex-basis:calc(50% - 9px)}.gpBenefits{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){#graphic-design-portfolio{padding:46px 0}.gpArrow{display:none!important}#graphic-design-portfolio .gpCard{flex-basis:86%}.gpBenefits{grid-template-columns:1fr}.gpVisual{height:240px}}
 </style>`;
 
-const GRAPHIC_PORTFOLIO_SECTION = `<section id="graphic-design-portfolio" aria-label="Graphic Design Portfolio"><div class="graphicPortfolioWrap"><span class="graphicPortfolioEyebrow">Selected Client Work</span><h2>Graphic Design Portfolio</h2><p>Carousel-style portfolio showcase featuring NJR Cabinets, flyer design, logo design and Majority Academy.</p><img class="graphicPortfolioImage" src="/graphic-portfolio-showcase.webp?v=2" alt="Neloy Digital Solutions Graphic Design Portfolio featuring NJR Cabinets, flyer design, logo design and Majority Academy" loading="eager" decoding="async"></div></section>`;
+const NJR="https://raw.githubusercontent.com/neloyeducationfoundationcom-ui/neloy-digital-solutions-live/main/assets/logo-projects/njr-cabinets-clear.svg";
+const SIMPLICITY="https://raw.githubusercontent.com/neloyeducationfoundationcom-ui/neloy-digital-solutions-live/main/assets/logo-projects/simplicity-in-advertising.jpg";
+const MAJORITY="https://raw.githubusercontent.com/neloyeducationfoundationcom-ui/neloy-digital-solutions-live/main/assets/majority-media.webp";
 
-const AI_BOT_FIX = `<style id="ai-bot-click-fix-style">#aiBtn{pointer-events:auto!important;touch-action:manipulation!important;z-index:2147483000!important}.chat.open{z-index:2147483001!important}</style><script id="ai-bot-click-fix">(()=>{function bind(){const b=document.getElementById('aiBtn'),c=document.getElementById('chat'),x=document.getElementById('closeChat');if(!b||!c)return;b.type='button';b.style.pointerEvents='auto';b.style.cursor='pointer';if(!b.dataset.aiFallbackBound){b.dataset.aiFallbackBound='1';b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();c.classList.add('open');c.setAttribute('aria-hidden','false');const i=document.getElementById('chatInput');if(i)setTimeout(()=>i.focus(),0);},true);}if(x&&!x.dataset.aiFallbackBound){x.dataset.aiFallbackBound='1';x.type='button';x.addEventListener('click',e=>{e.preventDefault();c.classList.remove('open');c.setAttribute('aria-hidden','true');},true);}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind,{once:true});else bind();setTimeout(bind,500);})();</script>`;
+const PORTFOLIO_SECTION = `<section id="graphic-design-portfolio"><div class="gpWrap"><div class="gpHead"><span class="gpEyebrow">Selected Client Work</span><h2>Graphic Design Portfolio</h2><p class="gpIntro">Carousel-style portfolio showcase featuring NJR Cabinets, flyer design, logo design and Majority Academy.</p></div><div class="gpViewport"><button class="gpArrow gpPrev" type="button" aria-label="Previous projects">‹</button><div class="gpTrack" id="gpTrack">
+<article class="gpCard"><div class="gpVisual"><span class="gpNum">01</span><img src="${NJR}" alt="NJR Cabinets portfolio"></div><div class="gpBody"><h3><span class="gpAccent">NJR</span> Cabinets</h3><div class="gpSub">Website & Branding</div><div class="gpTags"><span>Web Design</span><span>Branding</span><span>Logo Design</span></div><p>A modern visual identity and project presentation for NJR Cabinets.</p><a class="gpBtn" href="#contact">VIEW PROJECT →</a></div></article>
+<article class="gpCard"><div class="gpVisual"><span class="gpNum">02</span><div class="flyerMock"><b>PACK & SHIP</b><strong>SERVICES</strong><small>Professional promotional flyer design</small><div class="checks"><span>Printing</span><span>FedEx</span><span>USPS</span><span>Postal Services</span></div></div></div><div class="gpBody"><h3>Flyer <span class="gpAccent">Design</span></h3><div class="gpSub">Print & Digital Design</div><div class="gpTags"><span>Flyer Design</span><span>Print Design</span><span>Marketing</span></div><p>Creative, clear and business-focused promotional flyer work.</p><a class="gpBtn" href="#contact">VIEW PROJECT →</a></div></article>
+<article class="gpCard"><div class="gpVisual"><span class="gpNum">03</span><img src="${SIMPLICITY}" alt="Simplicity in Advertising logo design"></div><div class="gpBody"><h3>Logo <span class="gpAccent">Design</span></h3><div class="gpSub">Branding Projects</div><div class="gpTags"><span>Logo Design</span><span>Brand Identity</span><span>Creative</span></div><p>Logo concepts designed to help businesses look distinctive and memorable.</p><a class="gpBtn" href="#contact">VIEW PROJECT →</a></div></article>
+<article class="gpCard"><div class="gpVisual"><span class="gpNum">04</span><img src="${MAJORITY}" alt="Majority Academy portfolio"></div><div class="gpBody"><h3>Majority <span class="gpAccent">Academy</span></h3><div class="gpSub">Logo & Portfolio</div><div class="gpTags"><span>Logo Design</span><span>Branding</span><span>Education</span></div><p>Education-focused branding and portfolio presentation for Majority Academy.</p><a class="gpBtn" href="#contact">VIEW PROJECT →</a></div></article>
+</div><button class="gpArrow gpNext" type="button" aria-label="Next projects">›</button></div><div class="gpDots"><span class="on">●</span>● ● ●</div><div class="gpBenefits"><div><b>✓</b>Creative Designs</div><div><b>✓</b>Branding & Identity</div><div><b>✓</b>Professional Presentation</div><div><b>✓</b>Client-Focused Work</div></div></div></section>`;
 
-function graphicPortfolioImageResponse(){
-  const comma = GRAPHIC_PORTFOLIO_IMAGE.indexOf(',');
-  const b64 = comma >= 0 ? GRAPHIC_PORTFOLIO_IMAGE.slice(comma + 1) : GRAPHIC_PORTFOLIO_IMAGE;
-  const binary = atob(b64);
-  const bytes = new Uint8Array(binary.length);
-  for(let i=0;i<binary.length;i++) bytes[i] = binary.charCodeAt(i);
-  return new Response(bytes,{headers:{"content-type":"image/webp","cache-control":"public, max-age=86400","x-content-type-options":"nosniff"}});
-}
+const PORTFOLIO_SCRIPT = `<script id="graphic-carousel-script">(()=>{const t=document.getElementById('gpTrack');if(!t)return;const p=document.querySelector('.gpPrev'),n=document.querySelector('.gpNext');const step=()=>Math.max(280,t.clientWidth*.82);p&&p.addEventListener('click',()=>t.scrollBy({left:-step(),behavior:'smooth'}));n&&n.addEventListener('click',()=>t.scrollBy({left:step(),behavior:'smooth'}));})();</script>`;
 
-function withLeadCors(response) {
-  const headers = new Headers(response.headers);
-  for (const [key, value] of Object.entries(CORS_HEADERS)) headers.set(key, value);
-  headers.set("Cross-Origin-Resource-Policy", "cross-origin");
-  headers.set("Cache-Control", "no-store");
-  return new Response(response.body, {status: response.status,statusText: response.statusText,headers});
-}
+const AI_BOT_FIX = `<style id="ai-bot-click-fix-style">#aiBtn{pointer-events:auto!important;touch-action:manipulation!important;z-index:2147483000!important}.chat.open{z-index:2147483001!important}</style><script id="ai-bot-click-fix">(()=>{function bind(){const b=document.getElementById('aiBtn'),c=document.getElementById('chat'),x=document.getElementById('closeChat');if(!b||!c)return;b.type='button';b.style.pointerEvents='auto';b.style.cursor='pointer';if(!b.dataset.aiFallbackBound){b.dataset.aiFallbackBound='1';b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();c.classList.add('open');c.setAttribute('aria-hidden','false');},true);}if(x&&!x.dataset.aiFallbackBound){x.dataset.aiFallbackBound='1';x.type='button';x.addEventListener('click',e=>{e.preventDefault();c.classList.remove('open');c.setAttribute('aria-hidden','true');},true);}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind,{once:true});else bind();})();</script>`;
 
-function addPaymentMethods(html) {
-  if (html.includes('class="paymentMethods"')) return html;
-  if (html.includes('</head>') && !html.includes('id="payment-methods-style"')) html = html.replace('</head>', PAYMENT_STYLE + '</head>');
-  if (html.includes('<footer')) html = html.replace('<footer', PAYMENT_SECTION + '<footer');
-  else if (html.includes('</body>')) html = html.replace('</body>', PAYMENT_SECTION + '</body>');
-  return html;
-}
+function withLeadCors(response){const headers=new Headers(response.headers);for(const [k,v] of Object.entries(CORS_HEADERS))headers.set(k,v);headers.set("Cross-Origin-Resource-Policy","cross-origin");headers.set("Cache-Control","no-store");return new Response(response.body,{status:response.status,statusText:response.statusText,headers});}
+function addPaymentMethods(html){if(html.includes('class="paymentMethods"'))return html;if(html.includes('</head>')&&!html.includes('id="payment-methods-style"'))html=html.replace('</head>',PAYMENT_STYLE+'</head>');if(html.includes('<footer'))html=html.replace('<footer',PAYMENT_SECTION+'<footer');else if(html.includes('</body>'))html=html.replace('</body>',PAYMENT_SECTION+'</body>');return html;}
+function replacePortfolio(html){if(!html.includes('id="graphic-carousel-style"')&&html.includes('</head>'))html=html.replace('</head>',PORTFOLIO_STYLE+'</head>');html=html.replace(/<section\s+id=["']graphic-design-portfolio["'][\s\S]*?<\/section>/i,'');html=html.replace(/<section\s+id=["']logo-design-projects["'][\s\S]*?<\/section>/i,'');const work=html.match(/<section\s+id=["']work["'][\s\S]*?<\/section>/i);if(work)html=html.replace(work[0],work[0]+PORTFOLIO_SECTION);else if(html.includes('<footer'))html=html.replace('<footer',PORTFOLIO_SECTION+'<footer');if(!html.includes('id="graphic-carousel-script"')&&html.includes('</body>'))html=html.replace('</body>',PORTFOLIO_SCRIPT+'</body>');return html;}
+function addAiBotFix(html){if(!html.includes('id="aiBtn"')||html.includes('id="ai-bot-click-fix"'))return html;if(html.includes('</body>'))return html.replace('</body>',AI_BOT_FIX+'</body>');return html+AI_BOT_FIX;}
 
-function replaceOldPortfolio(html) {
-  if (!html.includes('id="graphic-design-portfolio-style"') && html.includes('</head>')) html = html.replace('</head>', GRAPHIC_PORTFOLIO_STYLE + '</head>');
-  const oldLogoSection = /<section\s+id=["']logo-design-projects["'][\s\S]*?<\/section>/i;
-  if (oldLogoSection.test(html)) return html.replace(oldLogoSection, GRAPHIC_PORTFOLIO_SECTION);
-  if (html.includes('id="graphic-design-portfolio"')) return html;
-  const workSection = /<section\s+id=["']work["'][\s\S]*?<\/section>/i;
-  const match = html.match(workSection);
-  if (match) return html.replace(match[0], match[0] + GRAPHIC_PORTFOLIO_SECTION);
-  if (html.includes('<footer')) return html.replace('<footer', GRAPHIC_PORTFOLIO_SECTION + '<footer');
-  return html;
-}
-
-function addAiBotFix(html) {
-  if (!html.includes('id="aiBtn"') || html.includes('id="ai-bot-click-fix"')) return html;
-  if (html.includes('</body>')) return html.replace('</body>', AI_BOT_FIX + '</body>');
-  return html + AI_BOT_FIX;
-}
-
-export default {
-  async fetch(request, env, ctx) {
-    const url = new URL(request.url);
-    const method = request.method.toUpperCase();
-
-    if(method === "GET" && url.pathname === "/graphic-portfolio-showcase.webp") return graphicPortfolioImageResponse();
-
-    const isLeadEndpoint = url.pathname === "/api/leads";
-    if (isLeadEndpoint && method === "OPTIONS") return new Response(null, { status: 204, headers: CORS_HEADERS });
-
-    if (isLeadEndpoint && method === "POST") {
-      const headers = new Headers(request.headers);
-      headers.delete("origin");
-      const body = await request.arrayBuffer();
-      const forwarded = new Request(request.url, {method: "POST",headers,body});
-      const response = await currentWorker.fetch(forwarded, env, ctx);
-      return withLeadCors(response);
-    }
-
-    const response = await currentWorker.fetch(request, env, ctx);
-    const type = response.headers.get("content-type") || "";
-    const isHome = method === "GET" && (url.pathname === "/" || url.pathname === "/website" || url.pathname === "/website/");
-    const isShowcase = method === "GET" && (url.pathname === "/showcase" || url.pathname === "/showcase/" || url.pathname === "/portfolio" || url.pathname === "/portfolio/");
-    const isPublicHtml = method === "GET" && type.includes("text/html") && !url.pathname.startsWith("/admin");
-
-    if (isPublicHtml) {
-      let html = await response.text();
-      if (isHome) html = addPaymentMethods(html);
-      if (isShowcase) html = replaceOldPortfolio(html);
-      html = addAiBotFix(html);
-      const headers = new Headers(response.headers);
-      headers.set("content-type", "text/html; charset=utf-8");
-      headers.set("cache-control", "no-store");
-      return new Response(html, {status: response.status,statusText: response.statusText,headers});
-    }
-
-    return response;
-  }
-};
+export default{async fetch(request,env,ctx){const url=new URL(request.url);const method=request.method.toUpperCase();const isLead=url.pathname==="/api/leads";if(isLead&&method==="OPTIONS")return new Response(null,{status:204,headers:CORS_HEADERS});if(isLead&&method==="POST"){const headers=new Headers(request.headers);headers.delete("origin");const body=await request.arrayBuffer();const response=await currentWorker.fetch(new Request(request.url,{method:"POST",headers,body}),env,ctx);return withLeadCors(response);}const response=await currentWorker.fetch(request,env,ctx);const type=response.headers.get("content-type")||"";const isHome=method==="GET"&&(url.pathname==="/"||url.pathname==="/website"||url.pathname==="/website/");const isShowcase=method==="GET"&&(url.pathname==="/showcase"||url.pathname==="/showcase/"||url.pathname==="/portfolio"||url.pathname==="/portfolio/");const isPublicHtml=method==="GET"&&type.includes("text/html")&&!url.pathname.startsWith("/admin");if(isPublicHtml){let html=await response.text();if(isHome)html=addPaymentMethods(html);if(isShowcase)html=replacePortfolio(html);html=addAiBotFix(html);const headers=new Headers(response.headers);headers.set("content-type","text/html; charset=utf-8");headers.set("cache-control","no-store");return new Response(html,{status:response.status,statusText:response.statusText,headers});}return response;}};
