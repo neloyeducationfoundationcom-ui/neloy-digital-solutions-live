@@ -2,12 +2,12 @@ import currentWorker from "./team-page-wrapper.js";
 import termsWorker from "./terms-page-wrapper.js";
 
 const FOOTER_STYLE = `<style id="nds-bottom-center-links-style">
-#nds-bottom-center-links{width:100%;display:flex;align-items:center;justify-content:center;gap:18px;margin-top:14px;padding-top:12px;text-align:center;flex-wrap:wrap}
-#nds-bottom-center-links a{color:#bfeaff!important;text-decoration:none!important;font-size:13px!important;font-weight:800!important;line-height:1.35!important}
-#nds-bottom-center-links a:hover{text-decoration:underline!important}
+#nds-bottom-center-links{width:100%;display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px;padding-top:14px;text-align:center;flex-wrap:wrap}
+#nds-bottom-center-links a{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:38px!important;padding:9px 14px!important;border-radius:999px!important;background:#ffffff!important;border:1px solid #7cecff!important;color:#075dff!important;text-decoration:none!important;font-size:13px!important;font-weight:900!important;line-height:1.2!important;box-shadow:0 5px 16px rgba(0,0,0,.16)!important}
+#nds-bottom-center-links a:hover{background:#eaf8ff!important;color:#082a52!important}
 @media(max-width:620px){
-  #nds-bottom-center-links{gap:8px 14px;margin-top:12px;padding-top:10px}
-  #nds-bottom-center-links a{font-size:12px!important}
+  #nds-bottom-center-links{gap:9px;margin-top:13px;padding-top:11px;flex-wrap:wrap}
+  #nds-bottom-center-links a{font-size:12px!important;padding:9px 12px!important;min-height:36px!important}
 }
 </style>`;
 
