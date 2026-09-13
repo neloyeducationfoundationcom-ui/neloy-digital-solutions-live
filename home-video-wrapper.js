@@ -1,4 +1,5 @@
 import currentWorker from "./social-community-wrapper.js";
+import legacyProjectWorker from "./project-wrapper.js";
 
 const VIDEO_PARTS = [
   "/showcase-media/project-process-restored-parts/part-00",
@@ -95,6 +96,30 @@ function addHomeVideo(html,path){
   return html;
 }
 
+function extractMajorityImage(html){
+  const m=html.match(/<img[^>]+src="([^"]+)"[^>]+alt="Majority Academy logo design project"/i);
+  return m&&m[1]?m[1]:"";
+}
+
+async function getMajorityImage(request,env,ctx){
+  try{
+    const u=new URL(request.url);u.pathname="/";u.search="";
+    const r=await legacyProjectWorker.fetch(new Request(u.toString(),{method:"GET",headers:request.headers}),env,ctx);
+    const type=r.headers.get("content-type")||"";
+    if(!type.includes("text/html"))return "";
+    return extractMajorityImage(await r.text());
+  }catch(_){return "";}
+}
+
+function fixMajorityPortfolio(html,src){
+  if(!src||!html.includes("Majority Academy"))return html;
+  html=html.replace(/https:\/\/raw\.githubusercontent\.com\/neloyeducationfoundationcom-ui\/neloy-digital-solutions-live\/main\/assets\/majority-media\.webp(?:\?[^"']*)?/gi,src);
+  if(!html.includes('id="majority-portfolio-image-fix"')&&html.includes('</head>')){
+    html=html.replace('</head>',`<style id="majority-portfolio-image-fix">#graphic-design-portfolio img[alt="Majority Academy portfolio"]{object-fit:contain!important;background:#fff!important;padding:10px!important}</style></head>`);
+  }
+  return html;
+}
+
 export default{
   async fetch(request,env,ctx){
     const url=new URL(request.url);
@@ -112,7 +137,8 @@ export default{
     const response=await currentWorker.fetch(request,env,ctx);
     const type=response.headers.get('content-type')||'';
     if(request.method!=='GET'||!response.ok||!type.includes('text/html')||url.pathname.startsWith('/admin'))return response;
-    const html=addHomeVideo(await response.text(),url.pathname);
+    let html=addHomeVideo(await response.text(),url.pathname);
+    if(html.includes('Majority Academy'))html=fixMajorityPortfolio(html,await getMajorityImage(request,env,ctx));
     const headers=new Headers(response.headers);
     headers.delete('content-length');
     headers.delete('etag');
