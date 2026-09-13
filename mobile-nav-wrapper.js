@@ -21,6 +21,7 @@ function addBottomLinks(html){
   html=html.replace(/<nav\b[^>]*id=["']nds-center-links["'][\s\S]*?<\/nav>/gi,'');
   html=html.replace(/<style\b[^>]*id=["']nds-center-links-style["'][\s\S]*?<\/style>/gi,'');
   html=html.replace(/<div\b[^>]*id=["']nds-team-footer-link["'][\s\S]*?<\/div>/gi,'');
+  html=html.replace(/<div\b[^>]*id=["']nds-social-footer-links["'][\s\S]*?<\/div>/gi,'');
   html=html.replace(/<div[^>]*>\s*<a[^>]+href=["']\/terms["'][^>]*>Terms Condition and Agreement<\/a>\s*<\/div>/gi,'');
 
   if(!html.includes('id="nds-bottom-center-links-style"') && html.includes('</head>')) html=html.replace('</head>',FOOTER_STYLE+'</head>');
