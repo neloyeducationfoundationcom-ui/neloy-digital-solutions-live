@@ -6,6 +6,10 @@ const FOOTER_STYLE = `<style id="nds-bottom-center-links-style">
 #nds-bottom-center-links a{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:38px!important;padding:9px 14px!important;border-radius:999px!important;background:#ffffff!important;border:1px solid #7cecff!important;color:#075dff!important;text-decoration:none!important;font-size:13px!important;font-weight:900!important;line-height:1.2!important;box-shadow:0 5px 16px rgba(0,0,0,.16)!important}
 #nds-bottom-center-links a:hover{background:#eaf8ff!important;color:#082a52!important}
 @media(max-width:620px){
+  footer .wrap{width:100%!important;max-width:none!important;margin:0 auto!important;padding-left:16px!important;padding-right:16px!important;text-align:center!important;box-sizing:border-box!important}
+  footer .foot{width:100%!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;gap:10px!important}
+  footer strong{display:block!important;width:100%!important;text-align:center!important;margin:0 auto!important}
+  footer .footLinks{width:100%!important;justify-content:center!important;align-items:center!important;text-align:center!important}
   #nds-bottom-center-links{gap:9px;margin-top:13px;padding-top:11px;flex-wrap:wrap}
   #nds-bottom-center-links a{font-size:12px!important;padding:9px 12px!important;min-height:36px!important}
 }
