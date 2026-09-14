@@ -31,11 +31,8 @@ function updateMeta(html, meta) {
   html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${meta.title}</title>`);
 
   const descriptionTag = `<meta name="description" content="${escapeAttr(meta.description)}">`;
-  if (/<meta\s+name=["']description["'][^>]*>/i.test(html)) {
-    html = html.replace(/<meta\s+name=["']description["'][^>]*>/i, descriptionTag);
-  } else {
-    html = html.replace(/<\/head>/i, `${descriptionTag}\n</head>`);
-  }
+  html = html.replace(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*>/ig, "");
+  html = html.replace(/<\/head>/i, `${descriptionTag}\n</head>`);
 
   return html;
 }
