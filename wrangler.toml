@@ -1,5 +1,5 @@
 name = "neloy-digital-solutions-live"
-main = "seo-aeo-offer-wrapper.js"
+main = "strict-security-wrapper.js"
 compatibility_date = "2026-09-09"
 # deploy to the existing public Neloy Digital Solutions Worker
 
