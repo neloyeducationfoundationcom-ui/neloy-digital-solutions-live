@@ -1,5 +1,5 @@
 name = "neloy-digital-solutions-live"
-main = "seo-meta-cleanup-wrapper.js"
+main = "web-portfolio-aeo-wrapper.js"
 compatibility_date = "2026-09-09"
 # deploy to the existing public Neloy Digital Solutions Worker
 
