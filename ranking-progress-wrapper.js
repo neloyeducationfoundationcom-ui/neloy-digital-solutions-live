@@ -55,26 +55,27 @@ function serveVideo(request){
 }
 
 const STYLE = `<style id="nds-ranking-progress-style">
-#nds-ranking-progress{padding:64px 20px;background:linear-gradient(180deg,#f7fbff 0%,#fff 100%);font-family:inherit;color:#102a43}
+#nds-ranking-progress{padding:72px 20px;background:linear-gradient(180deg,#eef7ff 0%,#fff 100%);font-family:inherit;color:#102a43;border-top:1px solid #d9ecff;border-bottom:1px solid #d9ecff}
 #nds-ranking-progress *{box-sizing:border-box}
-#nds-ranking-progress .rpWrap{width:min(1060px,100%);margin:0 auto}
-#nds-ranking-progress .rpHead{text-align:center;max-width:820px;margin:0 auto 30px}
-#nds-ranking-progress .rpEyebrow{display:inline-block;color:#075DFF;font-size:12px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;margin-bottom:9px}
-#nds-ranking-progress h2{margin:0 0 12px;color:#0A2A5A;font-size:clamp(28px,5vw,44px);line-height:1.1}
-#nds-ranking-progress .rpLead{margin:0;color:#5c7086;font-size:16px;line-height:1.75}
-#nds-ranking-progress .rpGrid{display:grid;grid-template-columns:minmax(230px,320px) 1fr;gap:34px;align-items:center}
-#nds-ranking-progress .rpVideo{background:#07182a;padding:10px;border-radius:22px;box-shadow:0 18px 48px rgba(8,55,96,.18);max-width:300px;margin:auto;width:100%}
+#nds-ranking-progress .rpWrap{width:min(1180px,100%);margin:0 auto}
+#nds-ranking-progress .rpHead{text-align:center;max-width:900px;margin:0 auto 36px}
+#nds-ranking-progress .rpEyebrow{display:inline-block;color:#075DFF;font-size:13px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;margin-bottom:10px}
+#nds-ranking-progress h2{margin:0 0 14px;color:#0A2A5A;font-size:clamp(32px,5vw,48px);line-height:1.08}
+#nds-ranking-progress .rpLead{margin:0;color:#506a82;font-size:17px;line-height:1.75}
+#nds-ranking-progress .rpGrid{display:grid;grid-template-columns:minmax(300px,390px) 1fr;gap:44px;align-items:center}
+#nds-ranking-progress .rpVideo{background:#07182a;padding:12px;border:2px solid #2a9dff;border-radius:24px;box-shadow:0 22px 58px rgba(8,55,96,.24);max-width:380px;margin:auto;width:100%}
+#nds-ranking-progress .rpVideoLabel{text-align:center;color:#fff;font-size:14px;font-weight:900;letter-spacing:.04em;padding:4px 6px 12px}
 #nds-ranking-progress video{display:block;width:100%;aspect-ratio:9/16;object-fit:contain;background:#061322;border-radius:14px}
 #nds-ranking-progress .rpCopy{padding:8px 0}
-#nds-ranking-progress .rpCopy h3{margin:0 0 12px;color:#0A2A5A;font-size:25px}
-#nds-ranking-progress .rpCopy p{margin:0 0 14px;color:#5c7086;line-height:1.75}
-#nds-ranking-progress .rpKeywords{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
-#nds-ranking-progress .rpKeywords span{padding:8px 11px;border-radius:999px;background:#eaf5ff;color:#075DFF;font-size:12px;font-weight:800}
-#nds-ranking-progress .rpLinks{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-#nds-ranking-progress .rpLinks a{display:inline-flex;padding:11px 16px;border-radius:10px;background:#075DFF;color:#fff;text-decoration:none;font-weight:900}
-#nds-ranking-progress .rpLinks a.alt{background:#fff;color:#075DFF;border:1px solid #b8dcf5}
-#nds-ranking-progress .rpNote{font-size:12px!important;color:#7a8da0!important;margin-top:15px!important}
-@media(max-width:760px){#nds-ranking-progress{padding:48px 18px}#nds-ranking-progress .rpGrid{grid-template-columns:1fr;gap:26px}#nds-ranking-progress .rpCopy{text-align:center}#nds-ranking-progress .rpKeywords,#nds-ranking-progress .rpLinks{justify-content:center}}
+#nds-ranking-progress .rpCopy h3{margin:0 0 14px;color:#0A2A5A;font-size:29px;line-height:1.2}
+#nds-ranking-progress .rpCopy p{margin:0 0 15px;color:#506a82;font-size:16px;line-height:1.78}
+#nds-ranking-progress .rpKeywords{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}
+#nds-ranking-progress .rpKeywords span{padding:9px 12px;border-radius:999px;background:#e4f2ff;color:#075DFF;font-size:13px;font-weight:900}
+#nds-ranking-progress .rpLinks{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+#nds-ranking-progress .rpLinks a{display:inline-flex;padding:12px 17px;border-radius:10px;background:#075DFF;color:#fff;text-decoration:none;font-weight:900}
+#nds-ranking-progress .rpLinks a.alt{background:#fff;color:#075DFF;border:1px solid #9fcff0}
+#nds-ranking-progress .rpNote{font-size:12px!important;color:#70869b!important;margin-top:16px!important}
+@media(max-width:760px){#nds-ranking-progress{padding:50px 18px}#nds-ranking-progress .rpGrid{grid-template-columns:1fr;gap:28px}#nds-ranking-progress .rpVideo{max-width:340px}#nds-ranking-progress .rpCopy{text-align:center}#nds-ranking-progress .rpKeywords,#nds-ranking-progress .rpLinks{justify-content:center}}
 </style>`;
 
 const SECTION = `<section id="nds-ranking-progress" aria-labelledby="nds-ranking-progress-title">
@@ -86,6 +87,7 @@ const SECTION = `<section id="nds-ranking-progress" aria-labelledby="nds-ranking
     </div>
     <div class="rpGrid">
       <div class="rpVideo">
+        <div class="rpVideoLabel">▶ PLAY RANKING VIDEO</div>
         <video controls playsinline preload="metadata" aria-label="${VIDEO_TITLE}">
           <source src="${VIDEO_PATH}" type="video/mp4">
           Your browser does not support embedded video.
@@ -98,7 +100,7 @@ const SECTION = `<section id="nds-ranking-progress" aria-labelledby="nds-ranking
         <div class="rpKeywords" aria-label="Neloy Digital Solutions service topics">
           <span>Neloy Digital Solutions</span><span>Web Design</span><span>Graphic Design</span><span>Video Editing</span><span>UI/UX Design</span><span>AI Automation</span><span>SEO</span><span>AEO</span>
         </div>
-        <div class="rpLinks"><a href="/showcase">View Our Portfolio</a><a class="alt" href="/video-editing">Video Editing</a><a class="alt" href="/logo-design">Logo Design</a></div>
+        <div class="rpLinks"><a href="${VIDEO_PATH}">Open Ranking Video</a><a href="/showcase">View Our Portfolio</a><a class="alt" href="/video-editing">Video Editing</a><a class="alt" href="/logo-design">Logo Design</a></div>
         <p class="rpNote">Search positions can change over time and may vary by location, device and search personalization. The video represents a ranking snapshot, not a guaranteed future position.</p>
       </div>
     </div>
