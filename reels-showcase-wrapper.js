@@ -180,7 +180,7 @@ export default {
     if (request.method !== "GET" || !response.ok || !type.includes("text/html")) return response;
 
     let html = await response.text();
-    if (["/showcase", "/showcase/"].includes(path)) {
+    if (["/showcase", "/showcase/", "/portfolio", "/portfolio/"].includes(path)) {
       html = addReel(html);
       html = addPodcast(html);
     }
