@@ -162,6 +162,74 @@ function enhanceMarketing(html,origin){
   return html;
 }
 
+
+const SHOWCASE_VIDEO_STYLE=`<style id="nds-showcase-video-style">
+#nds-showcase-video{padding:72px 0;background:linear-gradient(180deg,#071a35,#0a2a5a);color:#fff}
+#nds-showcase-video *{box-sizing:border-box}
+#nds-showcase-video .svWrap{width:min(1120px,calc(100% - 32px));margin:auto}
+#nds-showcase-video .svHead{text-align:center;max-width:820px;margin:0 auto 30px}
+#nds-showcase-video .svEyebrow{display:inline-block;color:#12DFF3;font-size:12px;font-weight:1000;letter-spacing:.14em;text-transform:uppercase}
+#nds-showcase-video h2{margin:10px 0 10px;color:#fff;font-size:clamp(34px,5vw,50px);line-height:1.06}
+#nds-showcase-video .svHead p{margin:0;color:#d7e9f7;font-size:16px;line-height:1.7}
+#nds-showcase-video .svGrid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+#nds-showcase-video .svCard{background:#fff;border:1px solid #bfe7f8;border-radius:24px;padding:22px;box-shadow:0 18px 44px rgba(0,0,0,.18)}
+#nds-showcase-video .svTag{display:inline-block;padding:6px 10px;border-radius:999px;background:#eaf8ff;color:#075DFF;font-size:11px;font-weight:1000;letter-spacing:.08em;text-transform:uppercase}
+#nds-showcase-video h3{margin:12px 0 8px;color:#0A2A5A;font-size:26px}
+#nds-showcase-video .svCard p{margin:0;color:#60758c;line-height:1.65}
+#nds-showcase-video .svPlayer{margin-top:18px;padding:10px;background:#06162d;border-radius:16px}
+#nds-showcase-video .svPlayer video{display:block;width:100%;background:#000;border-radius:10px}
+#nds-showcase-video .svReel video{max-height:560px;aspect-ratio:9/16;object-fit:contain}
+#nds-showcase-video .svPodcast video{aspect-ratio:16/9;object-fit:cover}
+#nds-showcase-video .svCta{text-align:center;margin-top:26px}
+#nds-showcase-video .svCta a{display:inline-flex;padding:12px 18px;border-radius:11px;background:#12DFF3;color:#062347!important;text-decoration:none;font-weight:1000}
+@media(max-width:820px){#nds-showcase-video .svGrid{grid-template-columns:1fr}}
+</style>`;
+
+const SHOWCASE_VIDEO_SECTION=`<section id="nds-showcase-video" aria-labelledby="nds-showcase-video-title">
+<div class="svWrap">
+  <div class="svHead">
+    <span class="svEyebrow">Video Editing Portfolio</span>
+    <h2 id="nds-showcase-video-title">Selected Video Editing Work</h2>
+    <p>Watch two video-editing examples from Neloy Digital Solutions, including short-form reel editing and podcast video editing.</p>
+  </div>
+  <div class="svGrid">
+    <article class="svCard svReel">
+      <span class="svTag">Video Editing · Reels</span>
+      <h3>Short Video Editing</h3>
+      <p>Branded short-form editing with motion graphics, pacing, audio and social-media-ready presentation.</p>
+      <div class="svPlayer"><video controls playsinline preload="metadata" aria-label="Neloy Digital Solutions short video editing portfolio"><source src="/showcase-media/neloy-short-video.mp4" type="video/mp4">Your browser does not support embedded video.</video></div>
+    </article>
+    <article class="svCard svPodcast">
+      <span class="svTag">Video Editing · Podcast</span>
+      <h3>Podcast Video Editing Portfolio</h3>
+      <p>Podcast editing focused on clean cuts, captions, pacing, branded framing and professional presentation.</p>
+      <div class="svPlayer"><video controls playsinline preload="metadata" aria-label="Neloy Digital Solutions podcast video editing portfolio"><source src="/portfolio/podcast-video.mp4" type="video/mp4">Your browser does not support embedded video.</video></div>
+    </article>
+  </div>
+  <div class="svCta"><a href="/video-editing">Explore Video Editing Services →</a></div>
+</div>
+</section>`;
+
+function addShowcaseVideos(html){
+  if(html.includes('id="nds-showcase-video"')) return html;
+  if(!html.includes('id="nds-showcase-video-style"') && /<\/head>/i.test(html)){
+    html=html.replace(/<\/head>/i,SHOWCASE_VIDEO_STYLE+'\n</head>');
+  }
+  const section=SHOWCASE_VIDEO_SECTION;
+  const markers=[
+    '<section id="nds-web-projects-2026"',
+    '<section class="partner"',
+    '<section id="testimonials"',
+    '<section class="testimonials"'
+  ];
+  for(const marker of markers){
+    const pos=html.indexOf(marker);
+    if(pos!==-1) return html.slice(0,pos)+section+'\n'+html.slice(pos);
+  }
+  if(/<\/main>/i.test(html)) return html.replace(/<\/main>/i,section+'\n</main>');
+  return html.replace(/<\/body>/i,section+'\n</body>');
+}
+
 function addHomeMarketingLink(html){
   if(html.includes('href="/digital-marketing"')) return html;
   const marker='<a class="alt" href="/website-design">Professional Web Design</a>';
@@ -202,7 +270,9 @@ export default{
 
     const type=(response.headers.get("content-type")||"").toLowerCase();
     if(request.method!=="GET"||!response.ok||!type.includes("text/html")||path.startsWith("/admin")) return response;
-    const html=(path==="/"||path==="")?addHomeMarketingLink(await response.text()):await response.text();
+    let html=await response.text();
+    if(path==="/"||path==="") html=addHomeMarketingLink(html);
+    if(path==="/showcase"||path==="/portfolio") html=addShowcaseVideos(html);
     const headers=new Headers(response.headers); headers.delete("content-length"); headers.delete("etag"); headers.set("cache-control","no-store");
     return new Response(html,{status:response.status,statusText:response.statusText,headers});
   }
