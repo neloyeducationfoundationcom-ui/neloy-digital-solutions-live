@@ -5,7 +5,7 @@ const INSTAGRAM_URL = "https://www.instagram.com/neloydigital.solutions/";
 const LINKEDIN_URL = "https://www.linkedin.com/company/neloy-digital-solutions/";
 const TIKTOK_URL = "https://www.tiktok.com/@neloydigital";
 
-const FALLBACK_COUNTS = { facebook: 15, instagram: 3, linkedin: null, tiktok: null };
+const FALLBACK_COUNTS = { facebook: 15, instagram: 7, linkedin: 3, tiktok: 4 };
 
 const STYLE = '<style id="nds-social-community-style">' +
 '#nds-social-community{padding:54px 0;background:linear-gradient(180deg,#f8fcff,#eef8ff);border-top:1px solid #d9ecf8;border-bottom:1px solid #d9ecf8}' +
@@ -53,7 +53,7 @@ const FOOTER_LINKS = '<div id="nds-social-footer-links">' +
 
 const LIVE_SCRIPT = '<script id="nds-social-live-count-script">(function(){' +
 'function label(n){return Number(n)===1?"1 follower":Number(n).toLocaleString()+" followers";}' +
-'async function refreshSocialCounts(){try{const r=await fetch("/api/social-stats?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const d=await r.json();["facebook","instagram","linkedin","tiktok"].forEach(function(k){const el=document.querySelector("[data-social-count=\""+k+"\"]");if(!el)return;const src=d.source&&d.source[k];if(src==="api"&&Number.isFinite(Number(d[k])))el.textContent=label(d[k]);else if((k==="facebook"||k==="instagram")&&Number.isFinite(Number(d[k])))el.textContent=label(d[k]);else el.textContent="Followers";});}catch(e){}}' +
+'async function refreshSocialCounts(){try{const r=await fetch("/api/social-stats?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const d=await r.json();["facebook","instagram","linkedin","tiktok"].forEach(function(k){const el=document.querySelector("[data-social-count=\""+k+"\"]");if(!el)return;if(Number.isFinite(Number(d[k])))el.textContent=label(d[k]);else el.textContent="Followers";});}catch(e){}}' +
 'if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){refreshSocialCounts();setInterval(refreshSocialCounts,300000);},{once:true});else{refreshSocialCounts();setInterval(refreshSocialCounts,300000);}' +
 '})();</script>';
 
