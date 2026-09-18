@@ -17,7 +17,7 @@ const MOTION_STYLE = `
 @keyframes heroInRight{from{opacity:0;transform:translateX(34px) scale(.96)}to{opacity:1;transform:none}}
 .heroPanel .bigCard{position:relative;overflow:hidden}.heroPanel .bigCard:after{content:"";position:absolute;inset:-60% auto -60% -35%;width:36%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.32),transparent);transform:rotate(16deg);animation:shineSweep 5.5s ease-in-out infinite}
 @keyframes shineSweep{0%,58%{left:-45%}80%,100%{left:120%}}
-.motionReveal{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.75,.2,1)}.motion-ready .motionReveal{opacity:0;transform:translateY(28px)}.motion-ready .motionReveal.inView{opacity:1;transform:none}
+.motionReveal{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.75,.2,1);opacity:1!important;transform:none!important}.motion-ready .motionReveal{opacity:1!important;transform:none!important}.motion-ready .motionReveal.inView{opacity:1!important;transform:none!important}
 .card,.workCard,.testCard,.partnerCard{transition:transform .28s ease,box-shadow .28s ease}.card:hover,.workCard:hover,.testCard:hover{transform:translateY(-7px)}
 #work .projectVisual img{transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .6s ease}#work .workCard:hover .projectVisual img{transform:scale(1.035);filter:saturate(1.08)}
 #testimonials .testCard{position:relative;overflow:hidden}#testimonials .testCard:before{content:"“";position:absolute;right:18px;top:-16px;font-size:110px;line-height:1;color:rgba(18,223,243,.09);font-family:Georgia,serif}
