@@ -54,7 +54,7 @@ const podcastCard = `<article class="workCard" id="podcast-video-editing-project
 <div style="max-width:760px;margin:22px auto 16px;padding:12px 12px 25px;background:linear-gradient(145deg,#102743,#06162d);border-radius:22px 22px 14px 14px;box-shadow:0 22px 55px rgba(6,22,45,.28);border:1px solid #2c4b70">
   <div style="position:relative;aspect-ratio:16/9;background:#000;border:2px solid #203b5c;border-radius:11px;overflow:hidden">
     <video controls playsinline preload="metadata" poster="" aria-label="Neloy Digital Solutions podcast video editing portfolio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000">
-      <source src="/portfolio/podcast-video.mp4" type="video/mp4">
+      <source src="/portfolio/podcast-video.mp4?v=2" type="video/mp4">
       Your browser does not support embedded video.
     </video>
   </div>
@@ -96,7 +96,7 @@ async function podcastVideoResponse(request) {
 
   const out = new Headers(upstream.headers);
   out.set("content-type", "video/mp4");
-  out.set("cache-control", "public, max-age=3600");
+  out.set("cache-control", "no-store");
   out.set("accept-ranges", "bytes");
   out.delete("content-disposition");
   out.delete("set-cookie");
