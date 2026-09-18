@@ -203,7 +203,7 @@ const SHOWCASE_VIDEO_SECTION=`<section id="nds-showcase-video" aria-labelledby="
       <span class="svTag">Video Editing · Podcast</span>
       <h3>Podcast Video Editing Portfolio</h3>
       <p>Podcast editing focused on clean cuts, captions, pacing, branded framing and professional presentation.</p>
-      <div class="svPlayer"><video controls playsinline preload="metadata" aria-label="Neloy Digital Solutions podcast video editing portfolio"><source src="/portfolio/podcast-video.mp4" type="video/mp4">Your browser does not support embedded video.</video></div>
+      <div class="svPlayer"><video controls playsinline preload="metadata" aria-label="Neloy Digital Solutions podcast video editing portfolio"><source src="/portfolio/podcast-video.mp4?v=2" type="video/mp4">Your browser does not support embedded video.</video></div>
     </article>
   </div>
   <div class="svCta"><a href="/video-editing">Explore Video Editing Services →</a></div>
