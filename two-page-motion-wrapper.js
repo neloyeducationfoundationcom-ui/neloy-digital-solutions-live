@@ -31,6 +31,7 @@ const MOTION_STYLE = `
 .showcaseBack{display:inline-flex;margin-top:24px;color:var(--fx-blue);font-weight:900;text-decoration:none}
 body.showcasePage #work,body.showcasePage #testimonials,body.showcasePage .partner{position:relative;z-index:1}
 body.showcasePage #work .sectionHead,body.showcasePage #testimonials .sectionHead{max-width:860px}
+body.showcasePage .motionReveal{opacity:1!important;transform:none!important}
 @media(max-width:760px){.showcaseTeaser .box{grid-template-columns:1fr;padding:20px}.showcaseLink{width:100%}.showcaseHero{padding:62px 0 42px}.showcaseHero h1{font-size:46px}#testimonials .testCard:nth-child(1),#testimonials .testCard:nth-child(2){animation:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.motion-ready .motionReveal{opacity:1!important;transform:none!important}}
 </style>`;
