@@ -49,12 +49,12 @@ const META_LEAD_TRACKER = `<script id="meta-lead-tracker">
 const podcastCard = `<article class="workCard" id="podcast-video-editing-project">
 <div class="workBody">
 <span class="tag">Video Editing · Podcast</span>
-<h3>Podcast Video Editing Portfolio</h3>
+<h3>Real Portfolio. Real Results.</h3>
 <p class="projectIntro">A real podcast editing showcase featuring clean cuts, captions, pacing, branded presentation and social-media-ready delivery.</p>
 <div style="max-width:760px;margin:22px auto 16px;padding:12px 12px 25px;background:linear-gradient(145deg,#102743,#06162d);border-radius:22px 22px 14px 14px;box-shadow:0 22px 55px rgba(6,22,45,.28);border:1px solid #2c4b70">
   <div style="position:relative;aspect-ratio:16/9;background:#000;border:2px solid #203b5c;border-radius:11px;overflow:hidden">
     <video controls playsinline preload="metadata" poster="" aria-label="Neloy Digital Solutions podcast video editing portfolio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000">
-      <source src="/portfolio/podcast-video.mp4?v=2" type="video/mp4">
+      <source src="/showcase-media/neloy-real-portfolio-laptop-60s.mp4?v=1" type="video/mp4">
       Your browser does not support embedded video.
     </video>
   </div>
@@ -69,9 +69,9 @@ const podcastCard = `<article class="workCard" id="podcast-video-editing-project
 </div></article>`;
 
 const card = `<article class="workCard" id="short-video-editing-project">
-<div class="workBody"><span class="tag">Video Editing · Reels</span><h3>Short Video Editing</h3>
+<div class="workBody"><span class="tag">Video Editing · Reels</span><h3>Approved Branded Laptop Video</h3>
 <p class="projectIntro">A branded social media reel for Neloy Digital Solutions, featuring motion graphics, a custom blue-and-cyan frame and audio.</p>
-<video controls playsinline preload="metadata" aria-label="Neloy Digital Solutions short video editing showcase" style="display:block;width:100%;max-width:380px;max-height:75vh;aspect-ratio:9/16;object-fit:contain;margin:20px auto;background:#06162d;border-radius:12px"><source src="/showcase-media/neloy-short-video.mp4" type="video/mp4">Your browser does not support embedded video. <a href="/showcase-media/neloy-short-video.mp4">Watch the video</a>.</video>
+<video controls playsinline preload="metadata" aria-label="Neloy Digital Solutions short video editing showcase" style="display:block;width:100%;max-width:380px;max-height:75vh;aspect-ratio:9/16;object-fit:contain;margin:20px auto;background:#06162d;border-radius:12px"><source src="/showcase-media/neloy-approved-laptop-podcast.mp4?v=1" type="video/mp4">Your browser does not support embedded video. <a href="/showcase-media/neloy-approved-laptop-podcast.mp4?v=1">Watch the video</a>.</video>
 </div></article>`;
 
 async function podcastVideoResponse(request) {
@@ -170,7 +170,7 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    if (request.method === "GET" && path === "/portfolio/podcast-video.mp4") {
+    if (request.method === "GET" && path === "/showcase-media/neloy-real-portfolio-laptop-60s.mp4?v=1") {
       return podcastVideoResponse(request);
     }
 
