@@ -5,7 +5,7 @@ const INSTAGRAM_URL = "https://www.instagram.com/neloydigital.solutions/";
 const LINKEDIN_URL = "https://www.linkedin.com/company/neloy-digital-solutions/";
 const TIKTOK_URL = "https://www.tiktok.com/@neloydigital";
 
-const FALLBACK_COUNTS = { facebook: 15, instagram: 3, linkedin: 1 };
+const FALLBACK_COUNTS = { facebook: 15, instagram: 3, linkedin: null, tiktok: null };
 
 const STYLE = '<style id="nds-social-community-style">' +
 '#nds-social-community{padding:54px 0;background:linear-gradient(180deg,#f8fcff,#eef8ff);border-top:1px solid #d9ecf8;border-bottom:1px solid #d9ecf8}' +
@@ -25,8 +25,6 @@ const STYLE = '<style id="nds-social-community-style">' +
 '#nds-social-community .handle{margin-top:4px;color:#6b86a0;font-size:13px;font-weight:800;word-break:break-word}' +
 '#nds-social-community .followerCount{margin-top:12px;display:inline-flex;align-items:center;justify-content:center;padding:8px 13px;border-radius:999px;background:#eef7ff;border:1px solid #c9e8f7;color:#0a2a5a;font-size:14px;font-weight:1000}' +
 '#nds-social-community .visit{margin-top:12px;padding:8px 12px;border-radius:999px;background:#f3faff;border:1px solid #c9e8f7;color:#075dff;font-size:12px;font-weight:900}' +
-'#nds-social-community .tiktokLive{width:min(720px,100%);margin:28px auto 0;padding:18px;border:1px solid #c9e8f7;border-radius:22px;background:#fff;box-shadow:0 12px 30px rgba(7,93,255,.08)}' +
-'#nds-social-community .tiktokLiveLabel{display:block;margin-bottom:12px;color:#0a2a5a;font-size:14px;font-weight:1000}' +
 '#nds-social-footer-links{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}' +
 '#nds-social-footer-links a{display:inline-flex;align-items:center;justify-content:center;padding:8px 11px;border-radius:999px;background:#0a2a5a;color:#fff!important;text-decoration:none;font-size:12px;font-weight:900}' +
 '@media(max-width:980px){#nds-social-community .socialGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}' +
@@ -41,12 +39,9 @@ const SECTION = '<section id="nds-social-community" aria-label="Neloy Digital So
 '<div class="socialGrid">' +
 '<a class="socialCard facebook" href="' + FACEBOOK_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions Facebook"><span class="socialIcon">f</span><span class="platform">Facebook</span><span class="handle">Neloy Digital Solutions</span><span class="followerCount" data-social-count="facebook">15 followers</span><span class="visit">View profile</span></a>' +
 '<a class="socialCard instagram" href="' + INSTAGRAM_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions Instagram"><span class="socialIcon">◎</span><span class="platform">Instagram</span><span class="handle">@neloydigital.solutions</span><span class="followerCount" data-social-count="instagram">3 followers</span><span class="visit">View profile</span></a>' +
-'<a class="socialCard linkedin" href="' + LINKEDIN_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions LinkedIn"><span class="socialIcon">in</span><span class="platform">LinkedIn</span><span class="handle">Neloy Digital Solutions</span><span class="followerCount" data-social-count="linkedin">1 follower</span><span class="visit">View profile</span></a>' +
-'<a class="socialCard tiktok" href="' + TIKTOK_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions TikTok"><span class="socialIcon">♪</span><span class="platform">TikTok</span><span class="handle">@neloydigital</span><span class="followerCount">Live followers via TikTok</span><span class="visit">View profile</span></a>' +
+'<a class="socialCard linkedin" href="' + LINKEDIN_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions LinkedIn"><span class="socialIcon">in</span><span class="platform">LinkedIn</span><span class="handle">Neloy Digital Solutions</span><span class="followerCount" data-social-count="linkedin">Followers</span><span class="visit">View profile</span></a>' +
+'<a class="socialCard tiktok" href="' + TIKTOK_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions TikTok"><span class="socialIcon">♪</span><span class="platform">TikTok</span><span class="handle">@neloydigital</span><span class="followerCount" data-social-count="tiktok">Followers</span><span class="visit">View profile</span></a>' +
 '</div>' +
-'<div class="tiktokLive"><span class="tiktokLiveLabel">TikTok live profile & follower count</span>' +
-'<blockquote class="tiktok-embed" cite="' + TIKTOK_URL + '" data-unique-id="neloydigital" data-embed-type="creator" style="max-width:720px;min-width:288px;margin:0 auto"><section><a target="_blank" rel="noopener noreferrer" href="' + TIKTOK_URL + '?refer=creator_embed">@neloydigital</a></section></blockquote>' +
-'<script async src="https://www.tiktok.com/embed.js"></script></div>' +
 '</div></section>';
 
 const FOOTER_LINKS = '<div id="nds-social-footer-links">' +
@@ -58,8 +53,8 @@ const FOOTER_LINKS = '<div id="nds-social-footer-links">' +
 
 const LIVE_SCRIPT = '<script id="nds-social-live-count-script">(function(){' +
 'function label(n){return Number(n)===1?"1 follower":Number(n).toLocaleString()+" followers";}' +
-'async function refreshSocialCounts(){try{const r=await fetch("/api/social-stats",{cache:"no-store"});if(!r.ok)return;const d=await r.json();["facebook","instagram","linkedin"].forEach(function(k){const el=document.querySelector("[data-social-count=\""+k+"\"]");if(el&&Number.isFinite(Number(d[k])))el.textContent=label(d[k]);});}catch(e){}}' +
-'if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",refreshSocialCounts,{once:true});else refreshSocialCounts();' +
+'async function refreshSocialCounts(){try{const r=await fetch("/api/social-stats?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const d=await r.json();["facebook","instagram","linkedin","tiktok"].forEach(function(k){const el=document.querySelector("[data-social-count=\""+k+"\"]");if(!el)return;const src=d.source&&d.source[k];if(src==="api"&&Number.isFinite(Number(d[k])))el.textContent=label(d[k]);else if((k==="facebook"||k==="instagram")&&Number.isFinite(Number(d[k])))el.textContent=label(d[k]);else el.textContent="Followers";});}catch(e){}}' +
+'if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){refreshSocialCounts();setInterval(refreshSocialCounts,300000);},{once:true});else{refreshSocialCounts();setInterval(refreshSocialCounts,300000);}' +
 '})();</script>';
 
 function json(data,status=200){
@@ -114,35 +109,37 @@ async function fetchLinkedInCount(env){
   }catch(e){return undefined;}
 }
 
+async function fetchTikTokCount(env){
+  const token=env.TIKTOK_ACCESS_TOKEN;
+  if(!token) return undefined;
+  try{
+    const res=await fetch("https://open.tiktokapis.com/v2/user/info/?fields=follower_count",{
+      headers:{"Authorization":"Bearer "+token}
+    });
+    if(!res.ok) return undefined;
+    const data=await res.json();
+    const count=Number(data && data.data && data.data.user && data.data.user.follower_count);
+    return Number.isFinite(count)?count:undefined;
+  }catch(e){return undefined;}
+}
+
 async function socialStats(env){
-  const results=await Promise.all([fetchMetaCounts(env),fetchLinkedInCount(env)]);
+  const results=await Promise.all([fetchMetaCounts(env),fetchLinkedInCount(env),fetchTikTokCount(env)]);
   const meta=results[0];
   const linkedin=results[1];
+  const tiktok=results[2];
   return {
     facebook:Number.isFinite(meta.facebook)?meta.facebook:FALLBACK_COUNTS.facebook,
     instagram:Number.isFinite(meta.instagram)?meta.instagram:FALLBACK_COUNTS.instagram,
     linkedin:Number.isFinite(linkedin)?linkedin:FALLBACK_COUNTS.linkedin,
+    tiktok:Number.isFinite(tiktok)?tiktok:FALLBACK_COUNTS.tiktok,
     source:{
       facebook:Number.isFinite(meta.facebook)?"api":"fallback",
       instagram:Number.isFinite(meta.instagram)?"api":"fallback",
-      linkedin:Number.isFinite(linkedin)?"api":"fallback"
+      linkedin:Number.isFinite(linkedin)?"api":"fallback",
+      tiktok:Number.isFinite(tiktok)?"api":"fallback"
     }
   };
-}
-
-function addCspSource(csp,directive,source){
-  const re=new RegExp("("+directive+"[^;]*)","i");
-  if(!re.test(csp)) return csp+"; "+directive+" "+source;
-  return csp.replace(re,function(block){return block.includes(source)?block:block+" "+source;});
-}
-
-function allowTikTokEmbed(headers){
-  const csp=headers.get("content-security-policy");
-  if(!csp) return;
-  let next=addCspSource(csp,"script-src","https://www.tiktok.com");
-  next=addCspSource(next,"connect-src","https://www.tiktok.com");
-  next=addCspSource(next,"frame-src","https://www.tiktok.com");
-  headers.set("content-security-policy",next);
 }
 
 function addSocials(html,path){
@@ -176,7 +173,6 @@ export default{
     headers.delete("content-length");
     headers.delete("etag");
     headers.set("cache-control","no-store");
-    if(url.pathname==="/"||url.pathname==="") allowTikTokEmbed(headers);
     return new Response(html,{status:response.status,statusText:response.statusText,headers});
   }
 };
