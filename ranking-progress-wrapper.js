@@ -1,58 +1,9 @@
 import app from "./systeme-web-design-landing-wrapper.js";
 import rankingVideoBase64 from "./ranking-video-data.js";
 
-const VIDEO_PATH = "/showcase-media/neloy-ranking-progress.mp4";
-const VIDEO_TITLE = "Neloy Digital Solutions Keyword Ranking & UK Search Visibility Update";
-const VIDEO_DESCRIPTION = "A dated search visibility snapshot showing keyword ranking progress for Neloy Digital Solutions across digital services, including web design and graphic design related searches.";
-
-function videoBytes(){
-  const binary = atob(rankingVideoBase64);
-  const bytes = new Uint8Array(binary.length);
-  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-  return bytes;
-}
-
-function serveVideo(request){
-  const bytes = videoBytes();
-  const size = bytes.length;
-  const headers = new Headers({
-    "Content-Type":"video/mp4",
-    "Accept-Ranges":"bytes",
-    "Cache-Control":"public, max-age=31536000, immutable"
-  });
-
-  if (request.method === "HEAD") {
-    headers.set("Content-Length", String(size));
-    return new Response(null, {status:200, headers});
-  }
-
-  const range = request.headers.get("Range");
-  if (range) {
-    const match = /^bytes=(\d*)-(\d*)$/i.exec(range.trim());
-    if (match) {
-      let start = match[1] ? Number(match[1]) : 0;
-      let end = match[2] ? Number(match[2]) : size - 1;
-      if (!match[1] && match[2]) {
-        const suffix = Number(match[2]);
-        start = Math.max(0, size - suffix);
-        end = size - 1;
-      }
-      start = Math.max(0, start);
-      end = Math.min(size - 1, end);
-      if (start <= end) {
-        const body = bytes.slice(start, end + 1);
-        headers.set("Content-Range", `bytes ${start}-${end}/${size}`);
-        headers.set("Content-Length", String(body.length));
-        return new Response(body, {status:206, headers});
-      }
-    }
-    headers.set("Content-Range", `bytes */${size}`);
-    return new Response(null, {status:416, headers});
-  }
-
-  headers.set("Content-Length", String(size));
-  return new Response(bytes, {status:200, headers});
-}
+const VIDEO_PATH = "/showcase-media/neloy-ranking-motion-graphics.mp4";
+const VIDEO_TITLE = "Neloy Digital Solutions Ranking Motion Graphics Update";
+const VIDEO_DESCRIPTION = "A short motion graphics ranking update for Neloy Digital Solutions showing website and social visibility snapshots across key service searches.";
 
 const STYLE = `<style id="nds-ranking-progress-style">
 #nds-ranking-progress{padding:72px 20px;background:linear-gradient(180deg,#eef7ff 0%,#fff 100%);font-family:inherit;color:#102a43;border-top:1px solid #d9ecff;border-bottom:1px solid #d9ecff}
@@ -115,7 +66,7 @@ function addSchema(html, origin){
     name: VIDEO_TITLE,
     description: VIDEO_DESCRIPTION,
     uploadDate:"2026-09-17T00:00:00+06:00",
-    duration:"PT16S",
+    duration:"PT11S",
     contentUrl:`${origin}${VIDEO_PATH}`,
     url:`${origin}/#nds-ranking-progress`,
     publisher:{"@type":"Organization",name:"Neloy Digital Solutions",url:`${origin}/`},
