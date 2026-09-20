@@ -8,24 +8,43 @@ function addWhatsAppPrefill(html){
   const script = `<script id="nds-whatsapp-prefill">
 (() => {
   const msg = ${JSON.stringify(PREFILL)};
+  const selector = 'a[href*="wa.me/"],a[href*="api.whatsapp.com/send"],a[href*="whatsapp.com/send"]';
+
   function rewrite(){
-    document.querySelectorAll('a[href*="wa.me/"],a[href*="api.whatsapp.com/send"],a[href*="whatsapp.com/send"]').forEach(a => {
+    document.querySelectorAll(selector).forEach(a => {
       try{
         const u = new URL(a.href, location.href);
-        if(u.hostname === "wa.me"){
-          u.searchParams.set("text", msg);
-        }else{
-          u.searchParams.set("text", msg);
-        }
-        a.href = u.toString();
+        u.searchParams.set("text", msg);
+        const next = u.toString();
+        if(a.href !== next) a.href = next;
       }catch(_){}
     });
   }
+
+  let scheduled = false;
+  function scheduleRewrite(){
+    if(scheduled) return;
+    scheduled = true;
+    queueMicrotask(() => {
+      scheduled = false;
+      rewrite();
+    });
+  }
+
   rewrite();
+
   if(document.readyState === "loading"){
     document.addEventListener("DOMContentLoaded", rewrite, {once:true});
   }
-  new MutationObserver(rewrite).observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:["href"]});
+
+  // Only watch for newly inserted DOM nodes. Do not observe href changes:
+  // observing href while rewriting href creates a MutationObserver feedback loop
+  // that can make the page unresponsive.
+  new MutationObserver((mutations) => {
+    if(mutations.some(m => m.addedNodes && m.addedNodes.length)){
+      scheduleRewrite();
+    }
+  }).observe(document.documentElement,{subtree:true,childList:true});
 })();
 </script>`;
 
