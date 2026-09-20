@@ -91,58 +91,12 @@ async function socialStats(env){
   };
 }
 
-const LIVE_SCRIPT = `<script id="nds-social-sync-final">
-(function(){
-  function label(n){return Number(n)===1?"1 follower":Number(n).toLocaleString()+" followers";}
-  async function refresh(){
-    try{
-      const r=await fetch("/api/social-stats?t="+Date.now(),{cache:"no-store"});
-      if(!r.ok)return;
-      const d=await r.json();
-      ["facebook","instagram","linkedin","tiktok"].forEach(function(k){
-        const el=document.querySelector('[data-social-count="'+k+'"]');
-        if(el && Number.isFinite(Number(d[k]))) el.textContent=label(d[k]);
-      });
-    }catch(_){}
-  }
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",refresh,{once:true});
-  else refresh();
-  setInterval(refresh,300000);
-})();
-</script>`;
-
-function setFallbackLabels(html){
-  const values=FALLBACK_COUNTS;
-  for(const k of Object.keys(values)){
-    const re=new RegExp('(<span[^>]*data-social-count=["\\\']'+k+'["\\\'][^>]*>)[\\s\\S]*?(<\\/span>)','i');
-    html=html.replace(re,'$1'+values[k]+' followers$2');
-  }
-  return html;
-}
-
 export default{
   async fetch(request,env,ctx){
     const url=new URL(request.url);
     if(request.method==="GET" && url.pathname==="/api/social-stats"){
       return json(await socialStats(env));
     }
-
-    const response=await app.fetch(request,env,ctx);
-    const type=response.headers.get("content-type")||"";
-    if(request.method!=="GET" || !response.ok || !type.includes("text/html") || url.pathname.startsWith("/admin")){
-      return response;
-    }
-
-    let html=await response.text();
-    html=setFallbackLabels(html);
-    if(!html.includes('id="nds-social-sync-final"')){
-      html=html.includes("</body>")?html.replace("</body>",LIVE_SCRIPT+"</body>"):html+LIVE_SCRIPT;
-    }
-
-    const headers=new Headers(response.headers);
-    headers.delete("content-length");
-    headers.delete("etag");
-    headers.set("cache-control","no-store");
-    return new Response(html,{status:response.status,statusText:response.statusText,headers});
+    return app.fetch(request,env,ctx);
   }
 };
