@@ -18,7 +18,7 @@ const CTA = `
     <span class="ndsLandingEyebrow">Bangladesh Web Design</span>
     <h2 id="nds-systeme-landing-title">Planning a Business Website?</h2>
     <p>Tell Neloy Digital Solutions what you need, your goals and your budget. Use our dedicated Web Design Bangladesh consultation page to start your enquiry.</p>
-    <a href="${LANDING_PATH}">Get a Free Website Consultation</a>
+    <a href="${FUNNEL_URL}">Get a Free Website Consultation</a>
   </div>
 </section>`;
 
@@ -33,7 +33,7 @@ export default {
     const url = new URL(request.url);
 
     if (request.method === "GET" && (url.pathname === LANDING_PATH || url.pathname === `${LANDING_PATH}/`)) {
-      return Response.redirect(FUNNEL_URL, 302);
+      return Response.redirect(FUNNEL_URL, 301);
     }
 
     const response = await app.fetch(request, env, ctx);

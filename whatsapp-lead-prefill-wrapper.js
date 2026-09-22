@@ -2,6 +2,14 @@ import app from "./spam-shield-wrapper.js";
 
 const PREFILL = "Hello, I came from Neloy Digital Solutions website. My name is ___ and I need ___.";
 
+const FAVICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#075DFF"/><stop offset="1" stop-color="#12DFF3"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(#g)"/><text x="32" y="43" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="white">N</text></svg>`;
+const FAVICON_TAG = `<link id="nds-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,${encodeURIComponent(FAVICON_SVG)}">`;
+
+function addFavicon(html){
+  if(html.includes('id="nds-favicon"') || /<link\\b[^>]*\\brel=[\"'][^\"']*icon[^\"']*[\"'][^>]*>/i.test(html)) return html;
+  return /<\\/head>/i.test(html) ? html.replace(/<\\/head>/i, FAVICON_TAG+"\\n</head>") : FAVICON_TAG+html;
+}
+
 function addWhatsAppPrefill(html){
   if(html.includes('id="nds-whatsapp-prefill"')) return html;
 
@@ -58,7 +66,9 @@ export default{
     const url = new URL(request.url);
 
     if(request.method==="GET" && response.ok && type.includes("text/html") && !url.pathname.startsWith("/admin")){
-      const html = addWhatsAppPrefill(await response.text());
+      let html = await response.text();
+      html = addFavicon(html);
+      html = addWhatsAppPrefill(html);
       const headers = new Headers(response.headers);
       headers.delete("content-length");
       headers.delete("etag");
