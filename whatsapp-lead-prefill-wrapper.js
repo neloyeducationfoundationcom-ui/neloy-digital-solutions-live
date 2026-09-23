@@ -6,8 +6,19 @@ const FAVICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
 const FAVICON_TAG = `<link id="nds-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,${encodeURIComponent(FAVICON_SVG)}">`;
 
 function addFavicon(html){
-  if(html.includes('id="nds-favicon"') || /<link\\b[^>]*\\brel=[\"'][^\"']*icon[^\"']*[\"'][^>]*>/i.test(html)) return html;
-  return /<\\/head>/i.test(html) ? html.replace(/<\\/head>/i, FAVICON_TAG+"\\n</head>") : FAVICON_TAG+html;
+  const lower = html.toLowerCase();
+  if (
+    html.includes('id="nds-favicon"') ||
+    lower.includes('rel="icon"') ||
+    lower.includes("rel='icon'") ||
+    lower.includes('rel="shortcut icon"') ||
+    lower.includes("rel='shortcut icon'")
+  ) return html;
+
+  const headClose = lower.indexOf("</head>");
+  return headClose >= 0
+    ? html.slice(0, headClose) + FAVICON_TAG + "\n" + html.slice(headClose)
+    : FAVICON_TAG + html;
 }
 
 function addWhatsAppPrefill(html){
