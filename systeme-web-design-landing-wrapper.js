@@ -1,7 +1,5 @@
 import app from "./video-indexing-aeo-wrapper.js";
-
-const FUNNEL_URL = "https://info-digitalsolutions-neloy.systeme.io/6b5b820f";
-const LANDING_PATH = "/web-design-bangladesh";
+import { FUNNEL_URL, landingRedirect } from "./src/routing/redirects.js";
 
 const CTA = `
 <style id="nds-systeme-landing-cta-style">
@@ -32,9 +30,8 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
-    if (request.method === "GET" && (url.pathname === LANDING_PATH || url.pathname === `${LANDING_PATH}/`)) {
-      return Response.redirect(FUNNEL_URL, 301);
-    }
+    const redirect = landingRedirect(request, url);
+    if (redirect) return redirect;
 
     const response = await app.fetch(request, env, ctx);
 
