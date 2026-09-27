@@ -1,36 +1,6 @@
 import currentWorker from "./team-page-wrapper.js";
 import termsWorker from "./terms-page-wrapper.js";
-
-const FOOTER_STYLE = `<style id="nds-bottom-center-links-style">
-#nds-bottom-center-links{width:100%;display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px;padding-top:14px;text-align:center;flex-wrap:wrap}
-#nds-bottom-center-links a{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:38px!important;padding:9px 14px!important;border-radius:999px!important;background:#ffffff!important;border:1px solid #7cecff!important;color:#075dff!important;text-decoration:none!important;font-size:13px!important;font-weight:900!important;line-height:1.2!important;box-shadow:0 5px 16px rgba(0,0,0,.16)!important}
-#nds-bottom-center-links a:hover{background:#eaf8ff!important;color:#082a52!important}
-@media(max-width:620px){
-  footer .wrap{width:100%!important;max-width:none!important;margin:0 auto!important;padding-left:16px!important;padding-right:16px!important;text-align:center!important;box-sizing:border-box!important}
-  footer .foot{width:100%!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;gap:10px!important}
-  footer strong{display:block!important;width:100%!important;text-align:center!important;margin:0 auto!important}
-  footer .footLinks{width:100%!important;justify-content:center!important;align-items:center!important;text-align:center!important}
-  #nds-bottom-center-links{gap:9px;margin-top:13px;padding-top:11px;flex-wrap:wrap}
-  #nds-bottom-center-links a{font-size:12px!important;padding:9px 12px!important;min-height:36px!important}
-}
-</style>`;
-
-const BOTTOM_LINKS = `<div id="nds-bottom-center-links" aria-label="Website information links"><a href="/team">Team Members</a><a href="/terms">Terms &amp; Agreement</a></div>`;
-
-function addBottomLinks(html){
-  html=html.replace(/<nav\b[^>]*id=["']nds-center-links["'][\s\S]*?<\/nav>/gi,'');
-  html=html.replace(/<style\b[^>]*id=["']nds-center-links-style["'][\s\S]*?<\/style>/gi,'');
-  html=html.replace(/<div\b[^>]*id=["']nds-team-footer-link["'][\s\S]*?<\/div>/gi,'');
-  html=html.replace(/<div\b[^>]*id=["']nds-social-footer-links["'][\s\S]*?<\/div>/gi,'');
-  html=html.replace(/<div[^>]*>\s*<a[^>]+href=["']\/terms["'][^>]*>Terms Condition and Agreement<\/a>\s*<\/div>/gi,'');
-
-  if(!html.includes('id="nds-bottom-center-links-style"') && html.includes('</head>')) html=html.replace('</head>',FOOTER_STYLE+'</head>');
-  if(!html.includes('id="nds-bottom-center-links"')){
-    if(html.includes('</footer>')) html=html.replace('</footer>',BOTTOM_LINKS+'</footer>');
-    else if(html.includes('</body>')) html=html.replace('</body>',BOTTOM_LINKS+'</body>');
-  }
-  return html;
-}
+import { addBottomLinks } from "./src/navigation/footer-links.js";
 
 export default{
   async fetch(request,env,ctx){
