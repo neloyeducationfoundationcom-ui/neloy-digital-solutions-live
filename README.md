@@ -1,92 +1,9 @@
-# Neloy Digital Solutions — Brand Website Redesign
+# Neloy Digital Solutions website
 
-This package is built for the Cloudflare Worker named:
+This repository contains the existing Cloudflare Worker website named `neloy-digital-solutions-live`. Its entry point is `src/worker.js` (`wrangler.toml`); the entry delegates to the established wrapper pipeline. The public origin used by the architecture checks is `https://neloydigitalsolutions.com`.
 
-`neloy-digital-solutions`
+Read [the architecture map](docs/architecture-map.md) before changing routing, content, admin, leads, SEO, security, analytics, or assets. It records the active code path, extracted modules, legacy files, protected URLs, and verification scope. [The original production baseline](docs/architecture-baseline.md) records earlier observed behavior; the current 19-route verification also includes `/terms/`.
 
-## What is included
+`scripts/verify-public.mjs` provides read-only route checks. Local old-versus-new comparisons additionally compare complete Worker response headers and SHA-256 body hashes. A passing local comparison does not replace a separate post-deployment check against the live website.
 
-- Full branded homepage
-- Responsive header and hero
-- Six core service cards
-- Client Projects Completed / portfolio section
-- Project filters
-- Latest Social Updates / blog section
-- Automatic Facebook + Instagram feed endpoint
-- Cloudflare Worker API layer
-- Cloudflare Static Assets configuration
-- Mobile navigation
-- Branded footer
-
-## Important: your exact PNG logo
-
-The package includes a clean SVG brand fallback so the site works immediately.
-To use your exact existing PNG logo, replace:
-
-`public/assets/brand-logo.svg`
-
-with your PNG and then change both logo image paths in `public/index.html` to your PNG filename.
-
-Recommended filename:
-`public/assets/neloy-digital-solutions-logo.png`
-
-## Deploy to the SAME Cloudflare Worker URL
-
-If your GitHub repository is connected to the existing Cloudflare Worker:
-
-1. Replace the old website files with this package.
-2. Commit and push to the same repository.
-3. Keep the Worker/project name `neloy-digital-solutions`.
-4. Cloudflare should deploy the update to the same Worker project.
-
-Command-line deployment:
-`npm install`
-`npm run deploy`
-
-## Social-to-Blog automation
-
-The website calls `/api/social`.
-Your Cloudflare Worker securely calls the social platform API.
-Tokens never need to appear in browser JavaScript.
-
-### Facebook Page
-
-Add:
-- `META_PAGE_ID` — variable
-- `META_PAGE_ACCESS_TOKEN` — SECRET
-
-### Instagram Business/Creator
-
-Add:
-- `INSTAGRAM_USER_ID` — variable
-- `INSTAGRAM_ACCESS_TOKEN` — SECRET
-
-### API version
-
-`META_GRAPH_VERSION` is currently set in `wrangler.toml`.
-
-If Meta asks you to use a newer supported version, update that variable.
-
-## Cloudflare dashboard setup
-
-Go to:
-Workers & Pages → neloy-digital-solutions → Settings → Variables and Secrets
-
-Store access tokens as Secrets, not normal public variables.
-
-Do not commit tokens to GitHub.
-
-## Client Projects section
-
-Edit the three project cards in:
-`public/index.html`
-
-Replace the sample project title, description and visuals with your real completed work.
-Do not publish a client name, logo or private project screenshot unless you have permission.
-
-## Contact button
-
-The current CTA uses:
-`hello@example.com`
-
-Replace it with your real business contact email or a WhatsApp/Facebook URL before final launch.
+The Worker has a D1 binding named `DB` and an assets binding named `ASSETS`. Keep production lead records, the separate Neloy Private Agent, and the follower-sync system outside website architecture changes. Preserve indexed URLs, titles, descriptions, canonicals, structured data, internal links, indexing files, redirects, analytics, and Search Console verification when changing presentation.
