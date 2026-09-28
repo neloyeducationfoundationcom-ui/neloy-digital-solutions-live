@@ -9,7 +9,7 @@ const SERVICE_CARDS = [
 ];
 
 
-const BUSINESS_STATS = `<section id="business-results" class="neloy-business-stats" aria-label="Neloy Digital Solutions in numbers"><div class="wrap"><h2 class="neloy-stats-title">Neloy Digital Solutions in Numbers</h2><dl class="neloy-stats-grid"><div><dt>Projects Completed</dt><dd>100+</dd></div><div><dt>Years Experience</dt><dd>10+</dd></div><div><dt>Happy Clients</dt><dd>40+</dd></div><div><dt>Team Members</dt><dd>10+</dd></div><div><dt>Reviews</dt><dd class="neloy-review-count">15 out of 15<span class="neloy-review-stars" role="img" aria-label="5 stars">★★★★★</span></dd></div></dl></div></section>`;
+const BUSINESS_STATS = `<section id="business-results" class="neloy-business-stats" aria-label="Neloy Digital Solutions in numbers"><div class="wrap"><h2 class="neloy-stats-title">Neloy Digital Solutions in Numbers</h2><dl class="neloy-stats-grid"><div><dt>Projects Completed</dt><dd>100+</dd></div><div><dt>Years Experience</dt><dd>10+</dd></div><div><dt>Happy Clients</dt><dd>40+</dd></div><div><dt>Team Members</dt><dd>10+</dd></div><div><dt>Reviews</dt><dd class="neloy-review-count">20 out of 20<span class="neloy-review-stars" role="img" aria-label="5 stars">★★★★★</span></dd></div></dl></div></section>`;
 const BUSINESS_STATS_STYLE = `<style id="neloy-business-stats-style">
 #business-results{display:block!important;visibility:visible!important;opacity:1!important;transform:none!important;position:relative;padding:24px 0;background:#edf8ff;border-block:1px solid #c5e6fa;scroll-margin-top:110px}
 #business-results .wrap{width:calc(100% - 32px);max-width:1160px;margin-inline:auto;box-sizing:border-box}

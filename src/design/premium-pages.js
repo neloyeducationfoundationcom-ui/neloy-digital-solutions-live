@@ -24,6 +24,13 @@ body .nds-premium-showcase :where(#graphic-design-portfolio,#web-design-projects
 body .nds-premium-showcase :where(#graphic-design-portfolio,#nds-showcase-video){background:#f3f8ff!important}
 body .nds-premium-showcase :where(#web-design-projects,#nds-web-projects-2026,.testimonials){background:#fff!important}
 body .nds-premium-showcase .testimonials{padding-block:clamp(65px,7vw,100px)!important}
+body .nds-premium-showcase #graphic-design-portfolio .gpHead h2{color:#071a2f!important}
+body .nds-premium-showcase #graphic-design-portfolio .gpHead .gpIntro{color:#506780!important}
+body .nds-premium-showcase #graphic-design-portfolio .gpHead .gpEyebrow{color:#075bbb!important;font-size:clamp(13px,1.15vw,15px)!important;letter-spacing:.12em}
+body .nds-premium-showcase #graphic-design-portfolio .gpVisual img{object-fit:contain!important;object-position:center;background:#fff;padding:10px}
+body .nds-premium-showcase .showcaseHero .chips span{background:#e6f4ff!important;border-color:#71c9f0!important;color:#0a3973!important}
+body .nds-premium-showcase #graphic-design-portfolio .gpBenefits div{color:#173554!important}
+body .nds-premium-showcase #nds-showcase-video .svHead p{color:#506780!important}
 .nds-premium-team .team,.nds-premium-terms .terms,.nds-premium-privacy .policy{padding-block:clamp(54px,7vw,92px)!important;background:#f5f9ff!important}
 .nds-premium-team .team .grid{gap:20px!important}
 .nds-premium-terms .terms .card{padding:clamp(22px,4vw,50px)!important}
@@ -41,12 +48,24 @@ body :where(.footer,footer) :where(strong,h2,h3){color:#fff!important}
 body :where(.footer,footer) a{color:#a9eaff!important}
 body .nds-feedback-grid footer{background:transparent!important;border:0!important;color:#62758d!important}
 body .nds-feedback-grid footer strong{color:#0a2854!important}
+body .nds-client-feedback .nds-feedback-rating{margin:0 auto 25px;text-align:center;color:#0a2c55;font-size:clamp(15px,1.6vw,18px);font-weight:850}
+body .nds-client-feedback .nds-feedback-rating span{color:#087df3;letter-spacing:.08em;white-space:nowrap}
+body .nds-client-feedback .nds-feedback-more{display:table;margin:26px auto 0;padding:13px 22px;max-width:100%;border-radius:11px;background:linear-gradient(115deg,#076af8,#058dff);border:1px solid #1689f9;box-shadow:0 12px 26px rgba(0,103,240,.22);color:#fff!important;text-align:center;text-decoration:none;font-weight:800}
 /* Keep existing homepage copy visible while reducing the visual weight of older sections. */
 body .nds-premium-home :where(#nds-feature-video,.companyContent,.aboutFounder,#nds-client-offers,#nds-answer-section,#nds-creative-partner,#nds-ranking-progress,.paymentMethods,#nds-social-community){padding-block:clamp(34px,4vw,54px)!important}
 body .nds-premium-home :where(#nds-feature-video,.companyContent,.aboutFounder,#nds-client-offers,#nds-answer-section,#nds-creative-partner,#nds-ranking-progress) :where(.wrap,.offerWrap,.answerWrap,.cpWrap,.rpWrap){max-width:1120px!important}
 body .nds-premium-home :where(.companyContentGrid,.aboutFounderGrid,.cpGrid,.rpGrid){gap:clamp(16px,2.3vw,32px)!important}
 body .nds-premium-home :where(.companyContentVisual,.aboutFounderVisual,.cpVisual,.rpVideo){min-width:0;max-width:100%;overflow:hidden}
 body .nds-premium-home :where(.companyContentVisual,.aboutFounderVisual,.cpVisual,.rpVideo) :where(img,video){max-width:100%;height:auto}
+body .nds-premium-home .companyContentGrid{align-items:center!important}
+body .nds-premium-home .companyContentVisual{height:auto!important;min-height:0!important;align-self:center;justify-content:flex-start!important;gap:16px;padding:28px!important}
+body .nds-premium-home .companyContentGrid{align-items:start!important}
+body .nds-premium-home .companyContentVisual{align-self:start!important;min-height:0!important;justify-content:flex-start!important;gap:18px!important}
+body .nds-premium-home .companyContentVisual p{margin:0!important;max-width:42ch}
+body .nds-premium-home .companyContentArticle{align-self:start;border:1px solid #dce9f8!important;background:#fff!important;box-shadow:0 14px 35px rgba(11,43,86,.08)!important}
+body .nds-premium-home #nds-creative-partner .cpEyebrow{color:#086af6!important}
+body .nds-premium-home #nds-creative-partner #nds-creative-partner-title{color:#071a2f!important}
+body .nds-premium-home #nds-creative-partner .cpLead{color:#506780!important}
 body .nds-premium-home #nds-answer-section .answerWrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 20px}
 body .nds-premium-home #nds-answer-section .answerWrap>h2{grid-column:1/-1;margin-bottom:6px}
 body .nds-premium-home #nds-answer-section .answerItem{min-width:0;margin:0!important;padding:20px!important;border-radius:15px!important}
@@ -55,6 +74,7 @@ body .nds-premium-home #nds-insights{padding:26px 0 38px!important}
 body .nds-premium-home #nds-insights .nds-insights-inner{padding:23px 30px!important;box-shadow:none!important}
 body .nds-premium-home #nds-insights h2{font-size:clamp(1.6rem,2.4vw,2.1rem)!important;margin:5px 0 6px!important}
 body .nds-premium-home #nds-insights p{font-size:14px;line-height:1.55}
+body .nds-premium-home #nds-insights .nds-medium-profile{display:inline-flex;align-items:center;margin-top:16px;padding:10px 16px;border:1px solid #197ef4;border-radius:10px;background:#0875f5;color:#fff!important;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 9px 19px rgba(8,106,246,.17)}
 body .nds-concept-hero:before{opacity:.34!important;box-shadow:none!important}
 body .nds-concept-hero:after{display:none!important}
 body .nds-concept-halo{opacity:.12!important;filter:blur(60px)!important}

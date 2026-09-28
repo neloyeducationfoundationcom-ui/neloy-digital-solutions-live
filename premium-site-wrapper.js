@@ -42,7 +42,6 @@ export default {
     if (url.pathname.startsWith("/admin") || !(response.headers.get("content-type") || "").includes("text/html")) return response;
     let html = await response.text();
     if (path === "/") html = upgradeHomepage(html);
-    html = html.replace(/20 out of 20(?=<span class="neloy-review-stars"| reviews)/g, "15 out of 15");
     if (path === "/") html = html.replace('<main id="top">', '<main id="top" class="nds-premium-home">');
     if (path === "/website") html = html.replace('<main id="top">', '<main id="top" class="nds-premium-website">');
     if (path === "/showcase" || path === "/portfolio") html = html.replace('<main id="top">', '<main id="top" class="nds-premium-showcase">');
