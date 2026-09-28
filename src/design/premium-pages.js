@@ -84,6 +84,32 @@ body .nds-concept-copy,body .nds-concept-visual,body .nds-laptop{min-width:0;max
 body .nds-premium-explore-links{display:flex;justify-content:center;gap:9px 19px;flex-wrap:wrap;width:min(1100px,calc(100% - 30px));margin:19px auto 0;padding-top:18px;border-top:1px solid #315272}
 body .nds-premium-explore-links a{font-size:13px;line-height:1.5;text-decoration:none;color:#b3e6ff!important}
 body .nds-premium-explore-links a:hover{text-decoration:underline}
+/* Targeted desktop body-copy sizing; leave headings, controls, stats and quotes alone. */
+body .nds-premium-home .nds-work-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:850px;margin-inline:auto}
+@media(min-width:900px){
+body .nds-premium-home #nds-feature-video .ndsProcessCard span,
+body .nds-premium-home .services .card p,
+body .nds-premium-home .nds-work-type,
+body .nds-premium-home .nds-process-steps small,
+body .nds-premium-home :where(.companyContentArticle,.companyContentVisual) p,
+body .nds-premium-home .companyPoint span,
+body .nds-premium-home .aboutFounderCopy p,
+body .nds-premium-home .aboutFounderJourney .journeyItem span,
+body .nds-premium-home #nds-client-offers .offerCard p,
+body .nds-premium-home #nds-answer-section .answerItem p,
+body .nds-premium-home #nds-creative-partner .cpCopy p,
+body .nds-premium-home #nds-creative-partner .cpPoint,
+body .nds-premium-home #nds-creative-partner .cpMini,
+body .nds-premium-showcase #graphic-design-portfolio .gpBody p,
+body .nds-premium-showcase #graphic-design-portfolio .gpBenefits div,
+body .nds-premium-showcase .workCard p,
+body .nds-premium-showcase #web-design-projects :where(.web-project-heading p,.web-project-meta p),
+body .nds-premium-showcase #nds-web-projects-2026 :where(.wpIntro,.wpDesc,.wpQa p),
+body .nds-premium-showcase #nds-showcase-video :where(.svHead p,.svCard p),
+body .nds-service-page #nds-video-watch :where(.vwHead p,.vwMeta),
+body .nds-service-page #nds-video-portfolio :where(.vpHead p,.vpCard p){font-size:16px!important;line-height:1.68!important}
+body .nds-premium-home #nds-creative-partner .cpLead{font-size:17px!important;line-height:1.7!important}
+}
 @media(max-width:980px){body .nds-concept-layout{grid-template-columns:minmax(0,1fr)}body .nds-premium-home #nds-answer-section .answerWrap{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:620px){body .nds-concept-visual{overflow:visible}body .nds-mobile-device{right:1%!important;bottom:0!important}body .nds-premium-home #nds-insights .nds-insights-inner{padding:19px!important}body .nds-premium-home :where(.companyContent,.aboutFounder,#nds-client-offers,#nds-answer-section,#nds-creative-partner,#nds-ranking-progress){padding-block:36px!important}body .nds-premium-explore-links{gap:8px 14px}body .floatWa,body .floatAi{right:12px!important;width:52px!important;height:52px!important}body .floatWa{bottom:78px!important}body .floatAi{bottom:14px!important}body .chat{right:10px!important;left:10px!important;max-width:calc(100vw - 20px)!important}}
 @media(max-width:720px){body :where(.nds-service-page .spHero,#nds-marketing-page .mkHero,.nds-premium-showcase .showcaseHero,.nds-premium-website .hero,.nds-premium-team .hero,.nds-premium-terms .hero,.nds-premium-privacy .hero){padding-block:62px!important}body :where(.nds-service-page .spHero,#nds-marketing-page .mkHero,.nds-premium-showcase .showcaseHero,.nds-premium-website .hero,.nds-premium-team .hero,.nds-premium-terms .hero,.nds-premium-privacy .hero) h1{font-size:clamp(2.35rem,9vw,3.2rem)!important}.nds-premium-privacy .policy{padding-inline:16px!important}}
