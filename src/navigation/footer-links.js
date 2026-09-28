@@ -12,7 +12,7 @@ const FOOTER_STYLE = `<style id="nds-bottom-center-links-style">
 }
 </style>`;
 
-const BOTTOM_LINKS = `<div id="nds-bottom-center-links" aria-label="Website information links"><a href="/team">Team Members</a><a href="/terms">Terms &amp; Agreement</a></div>`;
+const BOTTOM_LINKS = `<div id="nds-bottom-center-links" aria-label="Website information links"><a href="/team">Team Members</a><a href="/terms">Terms &amp; Agreement</a><a href="/privacy">Privacy Policy</a></div>`;
 
 function addBottomLinks(html){
   html=html.replace(/<nav\b[^>]*id=["']nds-center-links["'][\s\S]*?<\/nav>/gi,'');
