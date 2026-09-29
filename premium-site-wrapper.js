@@ -6,6 +6,28 @@ import { upgradeHomepage } from "./src/design/homepage-concept.js";
 import { PREMIUM_PAGES_CSS } from "./src/design/premium-pages.js";
 import { hardenResponse } from "./src/security/response-headers.js";
 
+const GA4_ID = "G-KWCBEDVHST";
+const GA4_TAG = `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_ID}"></script>
+<script id="nds-ga4-tag">
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA4_ID}');
+</script>`;
+
+function addGa4(html) {
+  if (html.includes('id="nds-ga4-tag"')) return html;
+  return html.replace("</head>", GA4_TAG + "</head>");
+}
+
+function allowGa4(headers) {
+  const csp = headers.get("content-security-policy");
+  if (!csp) return;
+  headers.set("content-security-policy", csp
+    .replace(/(script-src[^;]*)/i, "$1 https://www.googletagmanager.com")
+    .replace(/(connect-src[^;]*)/i, "$1 https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com"));
+}
+
 const FOOTER_EXPLORE_LINKS = '<nav class="nds-premium-explore-links" aria-label="Explore Neloy services"><a href="/showcase">Showcase</a><a href="/website-design">Website Design</a><a href="/logo-design">Logo Design</a><a href="/social-media-design">Social Media Design</a><a href="/video-editing">Video Editing</a><a href="/digital-marketing">Digital Marketing</a></nav>';
 
 function addExploreLinks(html) {
@@ -20,9 +42,11 @@ export default {
     const path = url.pathname.replace(/\/$/, "") || "/";
 
     if (request.method === "GET" && path === "/privacy") {
-      const privacyHtml = addExploreLinks(privacyPage(url.origin).replace("<main>", '<main class="nds-premium-privacy">').replace("</head>", PREMIUM_PAGES_CSS + "</head>"));
+      const privacyHtml = addGa4(addExploreLinks(privacyPage(url.origin).replace("<main>", '<main class="nds-premium-privacy">').replace("</head>", PREMIUM_PAGES_CSS + "</head>")));
       const response = new Response(privacyHtml, {headers:{"content-type":"text/html; charset=utf-8","cache-control":"no-store"}});
-      return new Response(response.body, {status:200, headers:hardenResponse(response,url)});
+      const headers = hardenResponse(response,url);
+      allowGa4(headers);
+      return new Response(response.body, {status:200, headers});
     }
 
     const response = await currentWorker.fetch(request, env, ctx);
@@ -55,10 +79,11 @@ export default {
     if (!html.includes('id="nds-premium-theme"')) html = html.replace("</head>", PREMIUM_THEME + "</head>");
     if (!html.includes('id="nds-premium-concept"')) html = html.replace("</head>", PREMIUM_CONCEPT_CSS + "</head>");
     if (!html.includes('id="nds-premium-pages"')) html = html.replace("</head>", PREMIUM_PAGES_CSS + "</head>");
-    html = addExploreLinks(html);
+    html = addGa4(addExploreLinks(html));
     const headers = new Headers(response.headers);
     headers.delete("content-length");
     headers.delete("etag");
+    allowGa4(headers);
     return new Response(html, {status:response.status,statusText:response.statusText,headers});
   }
 };
