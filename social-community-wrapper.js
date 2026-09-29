@@ -153,7 +153,6 @@ function addSocials(html,path){
   }
 
   if(!html.includes('id="nds-social-footer-links"') && html.includes("</footer>")) html=html.replace("</footer>",FOOTER_LINKS+"</footer>");
-  if(!html.includes('id="nds-social-live-count-script"')) html=html.includes("</body>")?html.replace("</body>",LIVE_SCRIPT+"</body>"):html+LIVE_SCRIPT;
   return html;
 }
 
