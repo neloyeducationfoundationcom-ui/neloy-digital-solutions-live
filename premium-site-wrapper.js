@@ -1,4 +1,4 @@
-import currentWorker from "./whatsapp-lead-prefill-wrapper.js";
+import currentWorker from "./mahe-testimonial-wrapper.js";
 import { PREMIUM_THEME, PREMIUM_CONCEPT_CSS } from "./src/design/premium-theme.js";
 import { insightsSection } from "./src/insights/medium.js";
 import { privacyPage } from "./src/privacy/page.js";
