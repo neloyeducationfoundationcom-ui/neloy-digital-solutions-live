@@ -76,7 +76,7 @@ function projectCards(){
 }
 
 function clientFeature(){
-  return `<article id="bzd-labs-client-project" class="wpClientFeature" aria-labelledby="bzd-labs-client-title"><div class="wpClientHead"><span class="wpClientKicker">Client Project • Healthcare Website Design</span><h3 id="bzd-labs-client-title">BZD Labs Healthcare Website Design</h3></div><figure class="wpClientVisual"><img src="/assets/bzd-labs-healthcare-website-design.png" alt="BZD Labs healthcare website design PNG client project by Neloy Digital Solutions" loading="lazy" decoding="async"></figure></article>`;
+  return `<article id="bzd-labs-client-project" class="wpClientFeature" aria-labelledby="bzd-labs-client-title"><div class="wpClientHead"><span class="wpClientKicker">Client Project • Healthcare Website Design</span><h3 id="bzd-labs-client-title">BZD Labs Healthcare Website Design</h3></div><figure class="wpClientVisual"><img src="/assets/bzd-labs-healthcare-website-design.jpg" alt="BZD Labs healthcare website design PNG client project by Neloy Digital Solutions" loading="lazy" decoding="async"></figure></article>`;
 }
 
 function projectSection(){
