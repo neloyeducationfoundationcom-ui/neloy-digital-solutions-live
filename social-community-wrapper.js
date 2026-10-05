@@ -5,7 +5,8 @@ const INSTAGRAM_URL = "https://www.instagram.com/neloydigital.solutions/";
 const LINKEDIN_URL = "https://www.linkedin.com/company/neloy-digital-solutions/";
 const TIKTOK_URL = "https://www.tiktok.com/@neloydigital";
 
-const FALLBACK_COUNTS = { facebook: 17, instagram: 18, linkedin: 4, tiktok: 7 };\nconst FOLLOWER_SYNC_URL = "https://neloy-private-agent.info-digitalsolutions-neloy-b7a.workers.dev/public/social-followers";
+const FALLBACK_COUNTS = { facebook: 17, instagram: 18, linkedin: 4, tiktok: 7 };
+const FOLLOWER_SYNC_URL = "https://neloy-private-agent.info-digitalsolutions-neloy-b7a.workers.dev/public/social-followers";
 
 const STYLE = '<style id="nds-social-community-style">' +
 '#nds-social-community{padding:54px 0;background:linear-gradient(180deg,#f8fcff,#eef8ff);border-top:1px solid #d9ecf8;border-bottom:1px solid #d9ecf8}' +
@@ -165,6 +166,7 @@ function addSocials(html,path){
   }
 
   if(!html.includes('id="nds-social-footer-links"') && html.includes("</footer>")) html=html.replace("</footer>",FOOTER_LINKS+"</footer>");
+  if(!html.includes('id="nds-social-live-count-script"') && html.includes("</body>")) html=html.replace("</body>",LIVE_SCRIPT+"</body>");
   return html;
 }
 
