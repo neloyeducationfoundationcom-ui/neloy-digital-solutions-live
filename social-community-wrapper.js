@@ -5,7 +5,8 @@ const INSTAGRAM_URL = "https://www.instagram.com/neloydigital.solutions/";
 const LINKEDIN_URL = "https://www.linkedin.com/company/neloy-digital-solutions/";
 const TIKTOK_URL = "https://www.tiktok.com/@neloydigital";
 
-const FALLBACK_COUNTS = { facebook: 15, instagram: 7, linkedin: 3, tiktok: 4 };
+const FALLBACK_COUNTS = { facebook: 17, instagram: 18, linkedin: 4, tiktok: 7 };
+const FOLLOWER_SYNC_URL = "https://neloy-private-agent.info-digitalsolutions-neloy-b7a.workers.dev/public/social-followers";
 
 const STYLE = '<style id="nds-social-community-style">' +
 '#nds-social-community{padding:54px 0;background:linear-gradient(180deg,#f8fcff,#eef8ff);border-top:1px solid #d9ecf8;border-bottom:1px solid #d9ecf8}' +
@@ -37,10 +38,10 @@ const SECTION = '<section id="nds-social-community" aria-label="Neloy Digital So
 '<h2>Connect with Neloy Digital Solutions</h2>' +
 '<p class="socialIntro">Follow our latest creative work, video projects, design updates and digital solutions across our official social media profiles.</p>' +
 '<div class="socialGrid">' +
-'<a class="socialCard facebook" href="' + FACEBOOK_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions Facebook"><span class="socialIcon">f</span><span class="platform">Facebook</span><span class="handle">Neloy Digital Solutions</span><span class="followerCount" data-social-count="facebook">15 followers</span><span class="visit">View profile</span></a>' +
-'<a class="socialCard instagram" href="' + INSTAGRAM_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions Instagram"><span class="socialIcon">◎</span><span class="platform">Instagram</span><span class="handle">@neloydigital.solutions</span><span class="followerCount" data-social-count="instagram">3 followers</span><span class="visit">View profile</span></a>' +
-'<a class="socialCard linkedin" href="' + LINKEDIN_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions LinkedIn"><span class="socialIcon">in</span><span class="platform">LinkedIn</span><span class="handle">Neloy Digital Solutions</span><span class="followerCount" data-social-count="linkedin">Followers</span><span class="visit">View profile</span></a>' +
-'<a class="socialCard tiktok" href="' + TIKTOK_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions TikTok"><span class="socialIcon">♪</span><span class="platform">TikTok</span><span class="handle">@neloydigital</span><span class="followerCount" data-social-count="tiktok">Followers</span><span class="visit">View profile</span></a>' +
+'<a class="socialCard facebook" href="' + FACEBOOK_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions Facebook"><span class="socialIcon">f</span><span class="platform">Facebook</span><span class="handle">Neloy Digital Solutions</span><span class="followerCount" data-social-count="facebook">17 followers</span><span class="visit">View profile</span></a>' +
+'<a class="socialCard instagram" href="' + INSTAGRAM_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions Instagram"><span class="socialIcon">◎</span><span class="platform">Instagram</span><span class="handle">@neloydigital.solutions</span><span class="followerCount" data-social-count="instagram">18 followers</span><span class="visit">View profile</span></a>' +
+'<a class="socialCard linkedin" href="' + LINKEDIN_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions LinkedIn"><span class="socialIcon">in</span><span class="platform">LinkedIn</span><span class="handle">Neloy Digital Solutions</span><span class="followerCount" data-social-count="linkedin">4 followers</span><span class="visit">View profile</span></a>' +
+'<a class="socialCard tiktok" href="' + TIKTOK_URL + '" target="_blank" rel="noopener noreferrer" aria-label="Open Neloy Digital Solutions TikTok"><span class="socialIcon">♪</span><span class="platform">TikTok</span><span class="handle">@neloydigital</span><span class="followerCount" data-social-count="tiktok">7 followers</span><span class="visit">View profile</span></a>' +
 '</div>' +
 '</div></section>';
 
@@ -123,22 +124,34 @@ async function fetchTikTokCount(env){
   }catch(e){return undefined;}
 }
 
-async function socialStats(env){
-  const results=await Promise.all([fetchMetaCounts(env),fetchLinkedInCount(env),fetchTikTokCount(env)]);
-  const meta=results[0];
-  const linkedin=results[1];
-  const tiktok=results[2];
-  return {
-    facebook:Number.isFinite(meta.facebook)?meta.facebook:FALLBACK_COUNTS.facebook,
-    instagram:Number.isFinite(meta.instagram)?meta.instagram:FALLBACK_COUNTS.instagram,
-    linkedin:Number.isFinite(linkedin)?linkedin:FALLBACK_COUNTS.linkedin,
-    tiktok:Number.isFinite(tiktok)?tiktok:FALLBACK_COUNTS.tiktok,
-    source:{
-      facebook:Number.isFinite(meta.facebook)?"api":"fallback",
-      instagram:Number.isFinite(meta.instagram)?"api":"fallback",
-      linkedin:Number.isFinite(linkedin)?"api":"fallback",
-      tiktok:Number.isFinite(tiktok)?"api":"fallback"
+async function fetchPrivateAgentCounts(){
+  try{
+    const res=await fetch(FOLLOWER_SYNC_URL,{headers:{"accept":"application/json"},cf:{cacheTtl:300,cacheEverything:true}});
+    if(!res.ok) return undefined;
+    const data=await res.json();
+    const counts={};
+    for(const key of ["facebook","instagram","linkedin","tiktok"]){
+      const value=Number(data && data[key]);
+      if(Number.isInteger(value) && value>0) counts[key]=value;
     }
+    return Object.keys(counts).length?counts:undefined;
+  }catch(e){return undefined;}
+}
+
+async function socialStats(env){
+  const synced=await fetchPrivateAgentCounts();
+  return {
+    facebook:Number.isInteger(synced && synced.facebook)?synced.facebook:FALLBACK_COUNTS.facebook,
+    instagram:Number.isInteger(synced && synced.instagram)?synced.instagram:FALLBACK_COUNTS.instagram,
+    linkedin:Number.isInteger(synced && synced.linkedin)?synced.linkedin:FALLBACK_COUNTS.linkedin,
+    tiktok:Number.isInteger(synced && synced.tiktok)?synced.tiktok:FALLBACK_COUNTS.tiktok,
+    source:{
+      facebook:Number.isInteger(synced && synced.facebook)?"private-agent":"fallback",
+      instagram:Number.isInteger(synced && synced.instagram)?"private-agent":"fallback",
+      linkedin:Number.isInteger(synced && synced.linkedin)?"private-agent":"fallback",
+      tiktok:Number.isInteger(synced && synced.tiktok)?"private-agent":"fallback"
+    },
+    updated:synced && synced.updated ? synced.updated : undefined
   };
 }
 
@@ -153,6 +166,7 @@ function addSocials(html,path){
   }
 
   if(!html.includes('id="nds-social-footer-links"') && html.includes("</footer>")) html=html.replace("</footer>",FOOTER_LINKS+"</footer>");
+  if(!html.includes('id="nds-social-live-count-script"') && html.includes("</body>")) html=html.replace("</body>",LIVE_SCRIPT+"</body>");
   return html;
 }
 
