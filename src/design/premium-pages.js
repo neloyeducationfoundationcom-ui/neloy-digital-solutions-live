@@ -48,9 +48,6 @@ body :where(.footer,footer) :where(strong,h2,h3){color:#fff!important}
 body :where(.footer,footer) a{color:#a9eaff!important}
 body .nds-feedback-grid footer{background:transparent!important;border:0!important;color:#62758d!important}
 body .nds-feedback-grid footer strong{color:#0a2854!important}
-body .nds-client-feedback .nds-feedback-rating{margin:0 auto 25px;text-align:center;color:#0a2c55;font-size:clamp(15px,1.6vw,18px);font-weight:850}
-body .nds-client-feedback .nds-feedback-rating span{color:#087df3;letter-spacing:.08em;white-space:nowrap}
-body .nds-client-feedback .nds-feedback-more{display:table;margin:26px auto 0;padding:13px 22px;max-width:100%;border-radius:11px;background:linear-gradient(115deg,#076af8,#058dff);border:1px solid #1689f9;box-shadow:0 12px 26px rgba(0,103,240,.22);color:#fff!important;text-align:center;text-decoration:none;font-weight:800}
 /* Keep existing homepage copy visible while reducing the visual weight of older sections. */
 body .nds-premium-home :where(#nds-feature-video,.companyContent,.aboutFounder,#nds-client-offers,#nds-answer-section,#nds-creative-partner,#nds-ranking-progress,.paymentMethods,#nds-social-community){padding-block:clamp(34px,4vw,54px)!important}
 body .nds-premium-home :where(#nds-feature-video,.companyContent,.aboutFounder,#nds-client-offers,#nds-answer-section,#nds-creative-partner,#nds-ranking-progress) :where(.wrap,.offerWrap,.answerWrap,.cpWrap,.rpWrap){max-width:1120px!important}
