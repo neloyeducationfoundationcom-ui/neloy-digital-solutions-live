@@ -54,7 +54,7 @@ const FOOTER_LINKS = '<div id="nds-social-footer-links">' +
 
 const LIVE_SCRIPT = '<script id="nds-social-live-count-script">(function(){' +
 'function label(n){return Number(n)===1?"1 follower":Number(n).toLocaleString()+" followers";}' +
-'async function refreshSocialCounts(){try{const r=await fetch("/api/social-stats?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const d=await r.json();["facebook","instagram","linkedin","tiktok"].forEach(function(k){const el=document.querySelector("[data-social-count=\""+k+"\"]");if(!el)return;if(Number.isFinite(Number(d[k])))el.textContent=label(d[k]);else el.textContent="Followers";});}catch(e){}}' +
+'async function refreshSocialCounts(){try{const r=await fetch("/api/social-stats?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const d=await r.json();["facebook","instagram","linkedin","tiktok"].forEach(function(k){const el=document.querySelector("[data-social-count="+k+"]");if(!el)return;if(Number.isFinite(Number(d[k])))el.textContent=label(d[k]);else el.textContent="Followers";});}catch(e){}}' +
 'if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){refreshSocialCounts();setInterval(refreshSocialCounts,300000);},{once:true});else{refreshSocialCounts();setInterval(refreshSocialCounts,300000);}' +
 '})();</script>';
 
