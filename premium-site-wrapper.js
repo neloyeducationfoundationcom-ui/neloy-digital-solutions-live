@@ -3,6 +3,7 @@ import { PREMIUM_THEME, PREMIUM_CONCEPT_CSS } from "./src/design/premium-theme.j
 import { insightsSection } from "./src/insights/medium.js";
 import { privacyPage } from "./src/privacy/page.js";
 import { upgradeHomepage } from "./src/design/homepage-concept.js";
+import { upgradeShowcaseTestimonials } from "./src/design/showcase-testimonials.js";
 import { PREMIUM_PAGES_CSS } from "./src/design/premium-pages.js";
 import { hardenResponse } from "./src/security/response-headers.js";
 
@@ -69,6 +70,7 @@ export default {
     if (path === "/") html = html.replace('<main id="top">', '<main id="top" class="nds-premium-home">');
     if (path === "/website") html = html.replace('<main id="top">', '<main id="top" class="nds-premium-website">');
     if (path === "/showcase" || path === "/portfolio") html = html.replace('<main id="top">', '<main id="top" class="nds-premium-showcase">');
+    if (path === "/showcase") html = upgradeShowcaseTestimonials(html);
     if (path === "/team") html = html.replace("<main>", '<main class="nds-premium-team">');
     if (path === "/terms") html = html.replace("<main>", '<main class="nds-premium-terms">');
     if (path === "/" && !html.includes('id="nds-insights"')) {
@@ -87,3 +89,4 @@ export default {
     return new Response(html, {status:response.status,statusText:response.statusText,headers});
   }
 };
+
