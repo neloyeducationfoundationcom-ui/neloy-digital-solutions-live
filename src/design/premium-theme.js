@@ -143,6 +143,35 @@ body :where(.footer,footer):not(.nds-feedback-grid footer){background:#06182e!im
 @media(max-width:980px){body .nds-concept-layout{grid-template-columns:1fr;gap:28px}body .nds-concept-copy{max-width:740px}body .nds-concept-visual{width:min(600px,100%);margin:auto}body .nds-concept-hero h1{max-width:18ch}body #business-results .neloy-stats-grid{grid-template-columns:repeat(3,1fr)!important}body #business-results .neloy-stats-grid>div:nth-child(3){border-right:0!important}body .nds-process-steps{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){body .nds-concept-hero{padding:54px 0 80px!important}body .nds-concept-hero h1{font-size:clamp(2.55rem,10vw,3.65rem)!important;max-width:15ch}body .nds-concept-visual{min-height:250px;width:100%}body .nds-laptop{width:92%}body .nds-laptop-screen{border-width:6px;border-bottom-width:8px}body .nds-demo-nav{padding:7px 8px;font-size:6px}body .nds-demo-nav b span{font-size:12px}body .nds-demo-content strong{font-size:clamp(13px,4.5vw,24px)}body .nds-demo-content>span:first-child{font-size:6px}body .nds-mobile-device{right:0;bottom:0;width:24%;border-radius:17px;padding:4px}body .nds-mobile-screen{border-radius:12px}body #business-results{width:calc(100% - 28px);margin-top:-25px!important;padding:15px 12px!important}body #business-results .neloy-stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}body #business-results .neloy-stats-grid>div{border-right:0!important;border-bottom:1px solid #e4edf7!important}body #business-results .neloy-stats-grid>div:nth-child(odd){border-right:1px solid #e4edf7!important}body #business-results .neloy-stats-grid>div:last-child{grid-column:span 2;border:0!important}body .nds-selected-work,body .nds-client-feedback,body .nds-concept-process{padding:58px 0}body .nds-showcase-heading{align-items:flex-start;flex-direction:column}body .nds-work-grid,body .nds-feedback-grid{grid-template-columns:1fr}body .nds-process-steps{grid-template-columns:1fr 1fr;gap:20px 10px}body .nds-process-steps li{grid-template-columns:39px 1fr}body .nds-process-steps li>span{width:36px;height:36px}body .nds-concept-benefits{gap:9px 14px}}
 @media(prefers-reduced-motion:reduce){body .nds-concept-hero *{scroll-behavior:auto!important}}
+
+/* Homepage testimonial layout only. Keep existing headings, links and review text. */
+body .nds-client-feedback{padding:48px 0;background:#fff}
+body .nds-client-feedback .nds-center-heading{margin-bottom:24px!important}
+body .nds-client-feedback .nds-feedback-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start}
+body .nds-client-feedback .nds-feedback-card{position:relative;min-width:0;margin:0;padding:22px;border:1px solid #e3ebf6;border-radius:18px;background:#fff;box-shadow:0 10px 28px rgba(10,39,82,.06)}
+body .nds-client-feedback .nds-feedback-card footer{display:flex;flex-direction:row;align-items:center;gap:12px;padding:0!important;background:transparent!important;border:0!important}
+body .nds-client-feedback .nds-feedback-photo{flex:0 0 56px;width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid #e5f6fc}
+body .nds-client-feedback .nds-feedback-person{display:flex;flex-direction:column;gap:3px;min-width:0;padding-right:12px}
+body .nds-client-feedback .nds-feedback-person strong{color:#071a2f!important;font-size:15px;line-height:1.35}
+body .nds-client-feedback .nds-feedback-person>span{color:#61758e;font-size:12px;line-height:1.45}
+body .nds-client-feedback .nds-feedback-quote-icon{position:absolute;right:16px;top:14px;color:#086af6;font-family:Georgia,serif;font-size:34px;line-height:1;opacity:.55}
+body .nds-client-feedback .nds-feedback-rating{margin:16px 0 12px;color:#f4b400;font-size:18px;letter-spacing:2px;line-height:1}
+body .nds-client-feedback .nds-feedback-quote{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden;margin:0;min-height:6.6em;color:#1a3656;font-size:14px;line-height:1.65}
+body .nds-client-feedback .nds-feedback-quote.nds-feedback-expanded{display:block;overflow:visible;-webkit-line-clamp:unset}
+body .nds-client-feedback .nds-feedback-toggle{display:inline-flex;align-items:center;min-height:44px;margin:8px 0 0;padding:0;background:transparent;border:0;color:#086af6;font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+body .nds-client-feedback .nds-feedback-toggle:focus-visible,body .nds-client-feedback .nds-feedback-grid:focus-visible{outline:2px solid #086af6;outline-offset:4px}
+body .nds-client-feedback .nds-feedback-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+body .nds-client-feedback .nds-feedback-more{margin-top:20px}
+@media(max-width:760px){
+  body .nds-client-feedback{padding:36px 0}
+  body .nds-client-feedback .nds-feedback-grid{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;padding:4px 2px 18px;scroll-padding-inline:2px;scroll-behavior:auto}
+  body .nds-client-feedback .nds-feedback-card{flex:0 0 100%;scroll-snap-align:start;padding:20px;box-sizing:border-box}
+}
+@media print{
+  body .nds-client-feedback .nds-feedback-quote{display:block;overflow:visible;-webkit-line-clamp:unset}
+  body .nds-client-feedback .nds-feedback-toggle{display:none}
+  body .nds-client-feedback .nds-feedback-grid{display:block;overflow:visible}
+}
 </style>`;
 
 export { PREMIUM_THEME, PREMIUM_CONCEPT_CSS };
