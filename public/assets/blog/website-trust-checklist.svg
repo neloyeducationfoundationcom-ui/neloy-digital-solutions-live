@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">10 practical checks for a trustworthy business website</title>
+<desc id="desc">Original Neloy Digital Solutions checklist graphic covering identity, services, contact, mobile usability, readability, proof, security, consistency, calls to action and freshness.</desc>
+<rect width="1200" height="630" fill="#071b33"/>
+<circle cx="1090" cy="92" r="135" fill="#0b7fd3" opacity=".18"/>
+<circle cx="1010" cy="570" r="180" fill="#10c7d9" opacity=".08"/>
+<text x="64" y="64" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#66d8ff">NELOY DIGITAL SOLUTIONS • WEBSITE GUIDE</text>
+<text x="64" y="122" font-family="Arial,Helvetica,sans-serif" font-size="48" font-weight="800" fill="#ffffff">What Makes a Business Website</text>
+<text x="64" y="174" font-family="Arial,Helvetica,sans-serif" font-size="48" font-weight="800" fill="#ffffff">Look Trustworthy?</text>
+<text x="64" y="214" font-family="Arial,Helvetica,sans-serif" font-size="23" fill="#bcd3e8">10 practical checks for small businesses</text>
+
+<rect x="64" y="250" width="1072" height="310" rx="28" fill="#ffffff"/>
+<g font-family="Arial,Helvetica,sans-serif" font-size="21" fill="#102844">
+  <g transform="translate(94,292)"><circle cx="18" cy="0" r="18" fill="#0b7fd3"/><text x="18" y="7" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">1</text><text x="52" y="7" font-weight="700">Clear business identity</text></g>
+  <g transform="translate(94,344)"><circle cx="18" cy="0" r="18" fill="#0b7fd3"/><text x="18" y="7" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">2</text><text x="52" y="7" font-weight="700">Easy-to-understand services</text></g>
+  <g transform="translate(94,396)"><circle cx="18" cy="0" r="18" fill="#0b7fd3"/><text x="18" y="7" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">3</text><text x="52" y="7" font-weight="700">Visible contact details</text></g>
+  <g transform="translate(94,448)"><circle cx="18" cy="0" r="18" fill="#0b7fd3"/><text x="18" y="7" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">4</text><text x="52" y="7" font-weight="700">Good mobile experience</text></g>
+  <g transform="translate(94,500)"><circle cx="18" cy="0" r="18" fill="#0b7fd3"/><text x="18" y="7" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">5</text><text x="52" y="7" font-weight="700">Readable, focused design</text></g>
+
+  <g transform="translate(618,292)"><circle cx="18" cy="0" r="18" fill="#10a9c2"/><text x="18" y="7" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">6</text><text x="52" y="7" font-weight="700">Real proof of work</text></g>
+  <g transform="translate(618,344)"><circle cx="18" cy="0" r="18" fill="#10a9c2"/><text x="18" y="7" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">7</text><text x="52" y="7" font-weight="700">Secure &amp; transparent setup</text></g>
+  <g transform="translate(618,396)"><circle cx="18" cy="0" r="18" fill="#10a9c2"/><text x="18" y="7" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">8</text><text x="52" y="7" font-weight="700">Consistent branding</text></g>
+  <g transform="translate(618,448)"><circle cx="18" cy="0" r="18" fill="#10a9c2"/><text x="18" y="7" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">9</text><text x="52" y="7" font-weight="700">Clear next steps</text></g>
+  <g transform="translate(618,500)"><circle cx="18" cy="0" r="18" fill="#10a9c2"/><text x="18" y="7" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">10</text><text x="52" y="7" font-weight="700">Accurate, current information</text></g>
+</g>
+<text x="64" y="604" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#bcd3e8">neloydigitalsolutions.com/blog</text>
+</svg>
