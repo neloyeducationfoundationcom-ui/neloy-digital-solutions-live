@@ -10,6 +10,7 @@ import { hardenResponse } from "./src/security/response-headers.js";
 import { renderBlog, appendBlogSitemap } from "./src/blog/pages.js";
 
 const GA4_ID = "G-KWCBEDVHST";
+const ADSENSE_ACCOUNT_META = '<meta name="google-adsense-account" content="ca-pub-2614503198735373">';
 const GA4_TAG = `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_ID}"></script>
 <script id="nds-ga4-tag">
 window.dataLayer = window.dataLayer || [];
@@ -21,6 +22,11 @@ gtag('config', '${GA4_ID}');
 function addGa4(html) {
   if (html.includes('id="nds-ga4-tag"')) return html;
   return html.replace("</head>", GA4_TAG + "</head>");
+}
+
+function addAdSenseAccountMeta(html) {
+  if (html.includes('name="google-adsense-account"')) return html;
+  return html.replace("</head>", ADSENSE_ACCOUNT_META + "</head>");
 }
 
 function allowGa4(headers) {
@@ -62,11 +68,11 @@ export default {
       const page = renderBlog(path);
       if (page.status === 404) headers.set("x-robots-tag", "noindex, follow");
       allowGa4(headers);
-      return new Response(request.method === "HEAD" ? null : addGa4(page.html), {status:page.status, headers});
+      return new Response(request.method === "HEAD" ? null : addAdSenseAccountMeta(addGa4(page.html)), {status:page.status, headers});
     }
 
     if (request.method === "GET" && path === "/privacy") {
-      const privacyHtml = addGa4(addExploreLinks(privacyPage(url.origin).replace("<main>", '<main class="nds-premium-privacy">').replace("</head>", PREMIUM_PAGES_CSS + "</head>")));
+      const privacyHtml = addAdSenseAccountMeta(addGa4(addExploreLinks(privacyPage(url.origin).replace("<main>", '<main class="nds-premium-privacy">').replace("</head>", PREMIUM_PAGES_CSS + "</head>"))));
       const response = new Response(privacyHtml, {headers:{"content-type":"text/html; charset=utf-8","cache-control":"no-store"}});
       const headers = hardenResponse(response,url);
       allowGa4(headers);
@@ -110,7 +116,7 @@ export default {
         '$1$2<a class="nds-top-blog-link" href="https://neloydigitalsolutions.com/blog">View My Blog</a>$3');
       html = html.replace("</head>", '<style id="nds-top-blog-link-style">.top .navlinks a.nds-top-blog-link{display:inline-flex!important;align-items:center;white-space:nowrap}@media(max-width:980px){.top .nav{flex-wrap:wrap;gap:10px;padding-block:12px}.top .navlinks{margin-left:auto;gap:12px}}</style></head>');
     }
-    html = addGa4(addExploreLinks(html));
+    html = addAdSenseAccountMeta(addGa4(addExploreLinks(html)));
     const headers = new Headers(response.headers);
     headers.delete("content-length");
     headers.delete("etag");
