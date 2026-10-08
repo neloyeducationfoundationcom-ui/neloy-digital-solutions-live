@@ -7,6 +7,8 @@ import { upgradeShowcaseTestimonials } from "./src/design/showcase-testimonials.
 import { PREMIUM_PAGES_CSS } from "./src/design/premium-pages.js";
 import { hardenResponse } from "./src/security/response-headers.js";
 
+import { renderBlog, appendBlogSitemap } from "./src/blog/pages.js";
+
 const GA4_ID = "G-KWCBEDVHST";
 const GA4_TAG = `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_ID}"></script>
 <script id="nds-ga4-tag">
@@ -42,6 +44,27 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname.replace(/\/$/, "") || "/";
 
+    if (url.pathname === "/blog" || url.pathname.startsWith("/blog/")) {
+      if (!["GET", "HEAD"].includes(request.method)) {
+        return new Response("Method Not Allowed", {status:405, headers:{Allow:"GET, HEAD", "cache-control":"no-store"}});
+      }
+      // Reuse the established public response security policy without changing it.
+      const templateURL = new URL(request.url);
+      templateURL.pathname = "/website-design";
+      templateURL.search = "";
+      const template = await currentWorker.fetch(new Request(templateURL, {method:"GET", headers:request.headers}), env, ctx);
+      const headers = hardenResponse(template, url);
+      await template.body?.cancel();
+      headers.delete("content-length");
+      headers.delete("etag");
+      headers.set("content-type", "text/html; charset=utf-8");
+      headers.set("cache-control", "no-store");
+      const page = renderBlog(path);
+      if (page.status === 404) headers.set("x-robots-tag", "noindex, follow");
+      allowGa4(headers);
+      return new Response(request.method === "HEAD" ? null : addGa4(page.html), {status:page.status, headers});
+    }
+
     if (request.method === "GET" && path === "/privacy") {
       const privacyHtml = addGa4(addExploreLinks(privacyPage(url.origin).replace("<main>", '<main class="nds-premium-privacy">').replace("</head>", PREMIUM_PAGES_CSS + "</head>")));
       const response = new Response(privacyHtml, {headers:{"content-type":"text/html; charset=utf-8","cache-control":"no-store"}});
@@ -54,7 +77,7 @@ export default {
     if (request.method !== "GET" || !response.ok) return response;
 
     if (url.pathname === "/sitemap.xml" && (response.headers.get("content-type") || "").includes("xml")) {
-      const xml = await response.text();
+      const xml = appendBlogSitemap(await response.text());
       const location = `${url.origin}/privacy`;
       if (xml.includes(`<loc>${location}</loc>`)) return new Response(xml, response);
       const entry = `<url><loc>${location}</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>`;
