@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Website Project Preparation Checklist</title>
+<desc id="desc">Original Neloy Digital Solutions checklist covering goal, pages, content, branding, features and budget before starting a website project.</desc>
+<rect width="1200" height="630" fill="#071b33"/>
+<circle cx="1110" cy="70" r="180" fill="#0b7fd3" opacity=".16"/>
+<circle cx="80" cy="600" r="160" fill="#14c4d9" opacity=".07"/>
+<text x="70" y="68" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#66d8ff">NELOY DIGITAL SOLUTIONS • WEBSITE GUIDE</text>
+<text x="70" y="132" font-family="Arial,Helvetica,sans-serif" font-size="48" font-weight="800" fill="#ffffff">Website Project Preparation</text>
+<text x="70" y="185" font-family="Arial,Helvetica,sans-serif" font-size="48" font-weight="800" fill="#ffffff">Checklist</text>
+<text x="70" y="226" font-family="Arial,Helvetica,sans-serif" font-size="23" fill="#bcd3e8">What to prepare before design and development begin</text>
+<g font-family="Arial,Helvetica,sans-serif">
+  <g transform="translate(70,280)">
+    <rect width="320" height="112" rx="22" fill="#ffffff"/>
+    <circle cx="52" cy="56" r="29" fill="#0b7fd3"/>
+    <path d="M39 57l8 8 18-22" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="96" y="48" font-size="24" font-weight="800" fill="#102844">GOAL</text>
+    <text x="96" y="77" font-size="17" fill="#526a82">What must the site achieve?</text>
+  </g>
+  <g transform="translate(440,280)">
+    <rect width="320" height="112" rx="22" fill="#ffffff"/>
+    <circle cx="52" cy="56" r="29" fill="#0b7fd3"/>
+    <path d="M39 57l8 8 18-22" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="96" y="48" font-size="24" font-weight="800" fill="#102844">PAGES</text>
+    <text x="96" y="77" font-size="17" fill="#526a82">Which pages are really needed?</text>
+  </g>
+  <g transform="translate(810,280)">
+    <rect width="320" height="112" rx="22" fill="#ffffff"/>
+    <circle cx="52" cy="56" r="29" fill="#10a9c2"/>
+    <path d="M39 57l8 8 18-22" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="96" y="48" font-size="24" font-weight="800" fill="#102844">CONTENT</text>
+    <text x="96" y="77" font-size="17" fill="#526a82">Services, images and proof</text>
+  </g>
+  <g transform="translate(70,430)">
+    <rect width="320" height="112" rx="22" fill="#ffffff"/>
+    <circle cx="52" cy="56" r="29" fill="#10a9c2"/>
+    <path d="M39 57l8 8 18-22" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="96" y="48" font-size="24" font-weight="800" fill="#102844">BRANDING</text>
+    <text x="96" y="77" font-size="17" fill="#526a82">Logo, colours and assets</text>
+  </g>
+  <g transform="translate(440,430)">
+    <rect width="320" height="112" rx="22" fill="#ffffff"/>
+    <circle cx="52" cy="56" r="29" fill="#10a9c2"/>
+    <path d="M39 57l8 8 18-22" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="96" y="48" font-size="24" font-weight="800" fill="#102844">FEATURES</text>
+    <text x="96" y="77" font-size="17" fill="#526a82">Forms, booking and integrations</text>
+  </g>
+  <g transform="translate(810,430)">
+    <rect width="320" height="112" rx="22" fill="#ffffff"/>
+    <circle cx="52" cy="56" r="29" fill="#0b7fd3"/>
+    <path d="M39 57l8 8 18-22" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="96" y="48" font-size="24" font-weight="800" fill="#102844">BUDGET</text>
+    <text x="96" y="77" font-size="17" fill="#526a82">Priorities, scope and deadline</text>
+  </g>
+</g>
+<text x="70" y="602" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#bcd3e8">neloydigitalsolutions.com/blog</text>
+</svg>
