@@ -104,6 +104,12 @@ export default {
     if (!html.includes('id="nds-premium-theme"')) html = html.replace("</head>", PREMIUM_THEME + "</head>");
     if (!html.includes('id="nds-premium-concept"')) html = html.replace("</head>", PREMIUM_CONCEPT_CSS + "</head>");
     if (!html.includes('id="nds-premium-pages"')) html = html.replace("</head>", PREMIUM_PAGES_CSS + "</head>");
+    // Keep the blog discoverable in the existing top navigation, including mobile.
+    if (html.includes('class="navlinks"') && !html.includes('class="nds-top-blog-link"')) {
+      html = html.replace(/(<nav class="navlinks">)([\s\S]*?)(<a href="[^"]*" class="navCta">)/,
+        '$1$2<a class="nds-top-blog-link" href="https://neloydigitalsolutions.com/blog">View My Blog</a>$3');
+      html = html.replace("</head>", '<style id="nds-top-blog-link-style">.top .navlinks a.nds-top-blog-link{display:inline-flex!important;align-items:center;white-space:nowrap}@media(max-width:980px){.top .nav{flex-wrap:wrap;gap:10px;padding-block:12px}.top .navlinks{margin-left:auto;gap:12px}}</style></head>');
+    }
     html = addGa4(addExploreLinks(html));
     const headers = new Headers(response.headers);
     headers.delete("content-length");
