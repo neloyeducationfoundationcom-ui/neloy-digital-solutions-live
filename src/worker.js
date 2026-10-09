@@ -1,5 +1,7 @@
 // Keep the existing Worker pipeline intact while giving routing a stable entry.
-import currentWorker from "../premium-site-wrapper.js";
+import existingWorker from "../premium-site-wrapper.js";
+import { withChat } from "./chat/worker.js";
+const currentWorker = withChat(existingWorker);
 
 const CANONICAL_ORIGIN = "https://neloydigitalsolutions.com";
 
