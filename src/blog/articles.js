@@ -3,6 +3,30 @@ export const BLOG_ORIGIN = 'https://neloydigitalsolutions.com';
 export const PUBLISHER = 'Neloy Digital Solutions';
 export const articles = [
   {
+    title: 'Before posting more content, fix these 5 brand problems',
+    slug: 'fix-brand-problems-before-posting-more-content',
+    metaTitle: 'Before Posting More Content, Fix These 5 Brand Problems | Neloy Digital Solutions',
+    metaDescription: 'Before posting more social media content, check five common brand problems involving profile clarity, visual consistency, messaging, content purpose and performance.',
+    category: 'Branding',
+    published: true,
+    datePublished: '2026-10-09T16:29:00+06:00',
+    dateModified: '2026-10-09T16:29:00+06:00',
+    summary: 'Fix profile clarity, visual consistency, content purpose, messaging and performance review before increasing your social media output.',
+    image: {src:'/assets/blog/fix-brand-problems-before-posting-more-content.svg', alt:'Five brand problems to fix before posting more content: profile, visuals, purpose, message and performance', width:1200, height:630, caption:'A practical brand check before publishing more social media content.'},
+    serviceLinks: [{path:'/social-media-design', label:'Social media design services'}, {path:'/website-design', label:'Website design services'}, {path:'/logo-design', label:'Logo design services'}, {path:'/digital-marketing', label:'Digital marketing services'}],
+    relatedSlugs: ['keep-brand-consistent-website-social-media', 'what-makes-a-business-website-look-trustworthy', 'prepare-a-logo-design-brief'],
+    sections: [
+      {id:'introduction', title:'Why more content is not always the answer', body:`<p>Publishing more social media content does not automatically make a business look stronger.</p><p>If the basic brand presentation is inconsistent, posting more often can simply repeat the same problems across more platforms.</p><p>Before increasing your content output, check these five areas first.</p>`},
+      {id:'profile', title:'1. Your profile does not clearly explain what you do', body:`<p>Someone visiting your profile for the first time should quickly understand what your business does, who you help, your main services, how to contact you and where to find your website.</p><p>Avoid filling the bio with vague marketing phrases. Clear information is usually more useful than trying to sound impressive.</p><p>Your social profiles should also match the service information shown on your <a href="https://neloydigitalsolutions.com/website-design">Website Design</a> and other service pages.</p>`},
+      {id:'visuals', title:'2. Your visual style changes too much', body:`<p>Every post does not need to use the same template.</p><p>But if every design uses completely different colours, fonts, logo placement and image styles, the account can feel disconnected.</p><p>Create a simple visual system based on an approved logo, core brand colours, typography, spacing, icon style and image treatment.</p><p>A consistent system gives your <a href="https://neloydigitalsolutions.com/social-media-design">Social Media Design</a> more flexibility while still making the brand recognisable.</p>`},
+      {id:'purpose', title:'3. Your content has no clear purpose', body:`<p>Before creating a post, decide what it is supposed to achieve.</p><p>A post might be designed to educate, show previous work, answer a common question, explain a service, build trust or start a conversation.</p><p>Not every post needs to sell something. Useful content can help potential customers understand your business before they are ready to contact you.</p>`},
+      {id:'message', title:'4. Your message changes across platforms', body:`<p>Your website may describe your business one way while Facebook, Instagram and LinkedIn describe it differently.</p><p>Review your service names, business description, contact details, website URL and main message.</p><p>Customers should not have to work out whether different profiles belong to the same company.</p><p>Strong <a href="https://neloydigitalsolutions.com/logo-design">Logo Design</a> and visual branding help, but the wording and information need to stay consistent too.</p>`},
+      {id:'performance', title:'5. You are posting without reviewing what works', body:`<p>Posting more content without reviewing performance can waste time.</p><p>Look at which posts receive relevant profile visits, website clicks, enquiries, saves, shares and meaningful comments.</p><p>Do not judge every post only by likes. A post with fewer likes may still bring better visitors or enquiries.</p><p>Your wider <a href="https://neloydigitalsolutions.com/digital-marketing">Digital Marketing</a> strategy should connect content with an actual business goal.</p>`},
+      {id:'checklist', title:'A simple check before your next post', body:`<p>Before publishing, ask:</p><ul><li>Does this look like our brand?</li><li>Is the message clear?</li><li>Is the information accurate?</li><li>Does the post provide something useful?</li><li>Is there a sensible next step?</li></ul><p>If the answer is yes, the content has a stronger foundation.</p>`},
+      {id:'final-thought', title:'Final thought', body:`<p>More content is not always the solution.</p><p>Sometimes the better move is to fix the brand presentation first and then publish consistently.</p><p>A clear visual identity, accurate information and useful content can make every future post work harder for the business.</p>`}
+    ]
+  },
+  {
     title: 'How to keep your brand consistent across your website and social media',
     slug: 'keep-brand-consistent-website-social-media',
     metaTitle: 'How to Keep Your Brand Consistent Online | Neloy Digital Solutions',
