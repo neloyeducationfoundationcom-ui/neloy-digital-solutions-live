@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {DatabaseSync} from 'node:sqlite';
+import {alertSchema,alertStatement,flushAlerts} from '../src/chat/alerts.js';
+const sql=new DatabaseSync(':memory:');class S{constructor(q){this.q=q;this.args=[];}bind(...a){this.args=a;return this;}async run(){return sql.prepare(this.q).run(...this.args);}async first(){return sql.prepare(this.q).get(...this.args)||null;}async all(){return {results:sql.prepare(this.q).all(...this.args)};}}const db={prepare:q=>new S(q)};
+const e={id:crypto.randomUUID(),conversationId:crypto.randomUUID(),kind:'new_chat',name:'QA test',enquiry:'Website enquiry',createdAt:new Date().toISOString()};
+const failed={...e,id:crypto.randomUUID(),kind:'visitor_message',message:'Visitor message'};
+await alertSchema(db);await alertStatement(db,e).run();await alertStatement(db,e).run();assert.equal(sql.prepare('SELECT COUNT(*) AS n FROM nds_chat_alert_outbox').get().n,1);
+let calls=0;const website={DB:db,CHAT_ALERTS:{notify:async event=>{calls++;return {delivered:true};}}};await flushAlerts(website);assert.equal(calls,1);await flushAlerts(website);assert.equal(calls,1);
+await alertStatement(db,failed).run();website.CHAT_ALERTS.notify=async()=>{throw Error('service unavailable');};await flushAlerts(website);let row=sql.prepare('SELECT * FROM nds_chat_alert_outbox WHERE id=?').get(failed.id);assert.equal(row.state,'pending');assert.equal(row.attempts,1);assert.ok(row.next_attempt>Date.now());sql.prepare('UPDATE nds_chat_alert_outbox SET next_attempt=0 WHERE id=?').run(failed.id);website.CHAT_ALERTS.notify=async event=>({delivered:true});await flushAlerts(website);assert.equal(sql.prepare('SELECT state FROM nds_chat_alert_outbox WHERE id=?').get(failed.id).state,'delivered');
+console.log('PASS durable outbox, duplicate event suppression, delivery acknowledgement, failed-service recovery, retry delay and successful retry');
