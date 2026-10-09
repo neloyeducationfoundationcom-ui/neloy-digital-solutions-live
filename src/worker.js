@@ -1,3 +1,4 @@
+import { flushAlerts } from './chat/alerts.js';
 // Keep the existing Worker pipeline intact while giving routing a stable entry.
 import existingWorker from "../premium-site-wrapper.js";
 import { withChat } from "./chat/worker.js";
@@ -6,6 +7,7 @@ const currentWorker = withChat(existingWorker);
 const CANONICAL_ORIGIN = "https://neloydigitalsolutions.com";
 
 export default {
+  scheduled(event, env, ctx) {ctx.waitUntil(flushAlerts(env));},
   fetch(request, env, ctx) {
     const url = new URL(request.url);
     // Redirect only public GET/HEAD requests on this Worker's default hostname.

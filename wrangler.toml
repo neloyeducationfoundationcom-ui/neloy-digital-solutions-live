@@ -13,3 +13,12 @@ directory = "./public"
 binding = "ASSETS"
 
 # redeploy stable homepage entry
+
+# Email connection remains inside the separate private agent.
+[[services]]
+binding = "CHAT_ALERTS"
+service = "neloy-private-agent"
+entrypoint = "WebsiteChatAlerts"
+
+[triggers]
+crons = ["*/5 * * * *"]
