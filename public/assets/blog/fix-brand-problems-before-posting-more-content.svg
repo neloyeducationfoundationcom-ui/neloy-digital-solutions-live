@@ -1,17 +1,63 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-<rect width="1200" height="630" fill="#071b33"/><rect width="1200" height="10" fill="#18c7e7"/>
-<circle cx="1080" cy="70" r="170" fill="#0c73c6" opacity=".12"/>
-<text x="70" y="65" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#65d7ff">NELOY DIGITAL SOLUTIONS • CONTENT CHECK</text>
-<text x="70" y="135" font-family="Arial,Helvetica,sans-serif" font-size="48" font-weight="800" fill="#fff">Before Posting More Content</text>
-<text x="70" y="190" font-family="Arial,Helvetica,sans-serif" font-size="48" font-weight="800" fill="#23c8e8">Fix These 5 Brand Problems</text>
-<text x="70" y="230" font-family="Arial,Helvetica,sans-serif" font-size="21" fill="#bfd6e8">A practical brand check before your next social media post.</text>
-<g font-family="Arial,Helvetica,sans-serif" text-anchor="middle">
-<g transform="translate(70,295)"><rect width="190" height="165" rx="22" fill="#0b2f53" stroke="#1c6fa8" stroke-width="2"/><circle cx="95" cy="50" r="28" fill="#0f79c8"/><text x="95" y="58" font-size="22" font-weight="800" fill="#78e9ff">01</text><text x="95" y="108" font-size="22" font-weight="800" fill="#fff">Profile</text><text x="95" y="138" font-size="15" fill="#b9d0e2">Clear business info</text></g>
-<g transform="translate(287,295)"><rect width="190" height="165" rx="22" fill="#0b2f53" stroke="#1c6fa8" stroke-width="2"/><circle cx="95" cy="50" r="28" fill="#0f79c8"/><text x="95" y="58" font-size="22" font-weight="800" fill="#78e9ff">02</text><text x="95" y="108" font-size="22" font-weight="800" fill="#fff">Visuals</text><text x="95" y="138" font-size="15" fill="#b9d0e2">Consistent style</text></g>
-<g transform="translate(504,295)"><rect width="190" height="165" rx="22" fill="#0b2f53" stroke="#1c6fa8" stroke-width="2"/><circle cx="95" cy="50" r="28" fill="#0f79c8"/><text x="95" y="58" font-size="22" font-weight="800" fill="#78e9ff">03</text><text x="95" y="108" font-size="22" font-weight="800" fill="#fff">Purpose</text><text x="95" y="138" font-size="15" fill="#b9d0e2">Clear post goal</text></g>
-<g transform="translate(721,295)"><rect width="190" height="165" rx="22" fill="#0b2f53" stroke="#1c6fa8" stroke-width="2"/><circle cx="95" cy="50" r="28" fill="#0f79c8"/><text x="95" y="58" font-size="22" font-weight="800" fill="#78e9ff">04</text><text x="95" y="108" font-size="22" font-weight="800" fill="#fff">Message</text><text x="95" y="138" font-size="15" fill="#b9d0e2">Same service wording</text></g>
-<g transform="translate(938,295)"><rect width="190" height="165" rx="22" fill="#0b2f53" stroke="#1c6fa8" stroke-width="2"/><circle cx="95" cy="50" r="28" fill="#0f79c8"/><text x="95" y="58" font-size="22" font-weight="800" fill="#78e9ff">05</text><text x="95" y="108" font-size="22" font-weight="800" fill="#fff">Performance</text><text x="95" y="138" font-size="15" fill="#b9d0e2">Review real results</text></g>
-</g>
-<rect x="70" y="500" width="1060" height="70" rx="18" fill="#0a365e"/><text x="100" y="544" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#fff">Fix the foundation first. Then publish consistently.</text>
-<text x="70" y="607" font-family="Arial,Helvetica,sans-serif" font-size="18" fill="#bcd6e9">neloydigitalsolutions.com/blog</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07182F"/>
+      <stop offset="1" stop-color="#0B2F55"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1110" cy="70" r="185" fill="#0A86D8" opacity=".12"/>
+  <circle cx="80" cy="610" r="170" fill="#18C9DD" opacity=".07"/>
+  <text x="70" y="64" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" letter-spacing="1.2" fill="#65D7FF">NELOY DIGITAL SOLUTIONS • CONTENT CHECK</text>
+  <text x="70" y="130" font-family="Arial, Helvetica, sans-serif" font-size="47" font-weight="800" fill="#FFFFFF">Before Posting More Content,</text>
+  <text x="70" y="184" font-family="Arial, Helvetica, sans-serif" font-size="47" font-weight="800" fill="#19C5E2">Fix These 5 Brand Problems</text>
+  <text x="70" y="226" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#BFD7E8">A practical brand check before your next social media post.</text>
+  <g font-family="Arial, Helvetica, sans-serif" filter="url(#shadow)">
+    <g transform="translate(70,286)">
+      <rect width="198" height="168" rx="20" fill="#FFFFFF"/>
+      <circle cx="99" cy="50" r="27" fill="#0B7FD3"/>
+      <text x="99" y="59" text-anchor="middle" font-size="24" font-weight="800" fill="#FFFFFF">1</text>
+      <text x="99" y="100" text-anchor="middle" font-size="23" font-weight="800" fill="#102844">Profile</text>
+      <text x="99" y="130" text-anchor="middle" font-size="15" fill="#587087">Clear business</text>
+      <text x="99" y="151" text-anchor="middle" font-size="15" fill="#587087">information</text>
+    </g>
+    <g transform="translate(284,286)">
+      <rect width="198" height="168" rx="20" fill="#FFFFFF"/>
+      <circle cx="99" cy="50" r="27" fill="#0B7FD3"/>
+      <text x="99" y="59" text-anchor="middle" font-size="24" font-weight="800" fill="#FFFFFF">2</text>
+      <text x="99" y="100" text-anchor="middle" font-size="23" font-weight="800" fill="#102844">Visuals</text>
+      <text x="99" y="130" text-anchor="middle" font-size="15" fill="#587087">Consistent brand</text>
+      <text x="99" y="151" text-anchor="middle" font-size="15" fill="#587087">style</text>
+    </g>
+    <g transform="translate(498,286)">
+      <rect width="198" height="168" rx="20" fill="#FFFFFF"/>
+      <circle cx="99" cy="50" r="27" fill="#14ABC3"/>
+      <text x="99" y="59" text-anchor="middle" font-size="24" font-weight="800" fill="#FFFFFF">3</text>
+      <text x="99" y="100" text-anchor="middle" font-size="23" font-weight="800" fill="#102844">Purpose</text>
+      <text x="99" y="130" text-anchor="middle" font-size="15" fill="#587087">Know why you</text>
+      <text x="99" y="151" text-anchor="middle" font-size="15" fill="#587087">are posting</text>
+    </g>
+    <g transform="translate(712,286)">
+      <rect width="198" height="168" rx="20" fill="#FFFFFF"/>
+      <circle cx="99" cy="50" r="27" fill="#0B7FD3"/>
+      <text x="99" y="59" text-anchor="middle" font-size="24" font-weight="800" fill="#FFFFFF">4</text>
+      <text x="99" y="100" text-anchor="middle" font-size="23" font-weight="800" fill="#102844">Message</text>
+      <text x="99" y="130" text-anchor="middle" font-size="15" fill="#587087">Same services</text>
+      <text x="99" y="151" text-anchor="middle" font-size="15" fill="#587087">everywhere</text>
+    </g>
+    <g transform="translate(926,286)">
+      <rect width="204" height="168" rx="20" fill="#FFFFFF"/>
+      <circle cx="102" cy="50" r="27" fill="#14ABC3"/>
+      <text x="102" y="59" text-anchor="middle" font-size="24" font-weight="800" fill="#FFFFFF">5</text>
+      <text x="102" y="100" text-anchor="middle" font-size="23" font-weight="800" fill="#102844">Performance</text>
+      <text x="102" y="130" text-anchor="middle" font-size="15" fill="#587087">Review what</text>
+      <text x="102" y="151" text-anchor="middle" font-size="15" fill="#587087">actually works</text>
+    </g>
+  </g>
+  <rect x="70" y="493" width="1060" height="72" rx="18" fill="#0B365D" stroke="#1A6597" stroke-width="1.5"/>
+  <text x="100" y="537" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">Profile ✓   Visuals ✓   Purpose ✓   Message ✓   Performance ✓</text>
+  <text x="70" y="603" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#BFD7E8">neloydigitalsolutions.com/blog</text>
 </svg>
