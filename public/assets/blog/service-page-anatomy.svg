@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F7FAFD"/>
+  <rect x="48" y="42" width="1104" height="546" rx="30" fill="#FFFFFF" stroke="#D9E7F2" stroke-width="2"/>
+  <text x="84" y="102" fill="#0A4E8A" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="1.1">NELOY DIGITAL SOLUTIONS</text>
+  <text x="84" y="158" fill="#071B33" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700">Service Page Anatomy</text>
+  <text x="84" y="198" fill="#5B6F82" font-family="Arial, Helvetica, sans-serif" font-size="23">What makes a service page easy to understand?</text>
+  <rect x="86" y="236" width="1028" height="284" rx="22" fill="#F8FBFE" stroke="#BED4E4" stroke-width="2"/>
+  <rect x="112" y="264" width="440" height="228" rx="18" fill="#071B33"/>
+  <text x="142" y="306" fill="#19C5E2" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">01  CLEAR HEADLINE</text>
+  <text x="142" y="342" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Say exactly what</text>
+  <text x="142" y="374" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">the service is.</text>
+  <rect x="142" y="402" width="170" height="34" rx="17" fill="#0B7FD3"/>
+  <text x="227" y="425" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">WHO IT HELPS</text>
+  <rect x="325" y="402" width="184" height="34" rx="17" fill="#19C5E2"/>
+  <text x="417" y="425" text-anchor="middle" fill="#071B33" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">WHAT IT SOLVES</text>
+  <rect x="584" y="264" width="500" height="60" rx="16" fill="#EAF7FC" stroke="#19C5E2" stroke-width="2"/>
+  <circle cx="616" cy="294" r="17" fill="#0B7FD3"/>
+  <text x="616" y="300" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">2</text>
+  <text x="650" y="300" fill="#071B33" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Explain what is included</text>
+  <rect x="584" y="337" width="500" height="60" rx="16" fill="#F6F9FC" stroke="#C8D9E5" stroke-width="2"/>
+  <circle cx="616" cy="367" r="17" fill="#0B7FD3"/>
+  <text x="616" y="373" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">3</text>
+  <text x="650" y="373" fill="#071B33" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Show proof or examples</text>
+  <rect x="584" y="410" width="500" height="60" rx="16" fill="#F6F9FC" stroke="#C8D9E5" stroke-width="2"/>
+  <circle cx="616" cy="440" r="17" fill="#0B7FD3"/>
+  <text x="616" y="446" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">4</text>
+  <text x="650" y="446" fill="#071B33" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Answer common questions</text>
+  <rect x="584" y="483" width="500" height="60" rx="16" fill="#071B33"/>
+  <circle cx="616" cy="513" r="17" fill="#19C5E2"/>
+  <text x="616" y="519" text-anchor="middle" fill="#071B33" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">5</text>
+  <text x="650" y="519" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Give one clear next step</text>
+  <rect x="84" y="545" width="1032" height="30" rx="14" fill="#EAF3F9"/>
+  <text x="600" y="566" text-anchor="middle" fill="#0A4E8A" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Clear service → Clear value → Clear action</text>
+</svg>
