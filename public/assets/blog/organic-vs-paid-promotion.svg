@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Organic content vs paid promotion</title>
+<desc id="desc">Manual comparison graphic showing organic content and paid promotion with the message, landing page and tracking checks to fix first.</desc>
+<rect width="1200" height="630" fill="#071a33"/>
+<rect x="0" y="0" width="1200" height="10" fill="#20c8f2"/>
+<text x="70" y="78" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#46d9ff" letter-spacing="2">MARKETING DECISION GUIDE</text>
+<text x="70" y="145" font-family="Arial,Helvetica,sans-serif" font-size="48" font-weight="800" fill="#ffffff">ORGANIC CONTENT VS</text>
+<text x="70" y="202" font-family="Arial,Helvetica,sans-serif" font-size="48" font-weight="800" fill="#46d9ff">PAID PROMOTION</text>
+<text x="70" y="242" font-family="Arial,Helvetica,sans-serif" font-size="22" fill="#c8d9ea">What should a small business fix first?</text>
+
+<rect x="70" y="295" width="475" height="150" rx="18" fill="#0d2c50" stroke="#2da7e8" stroke-width="3"/>
+<text x="105" y="338" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="800" fill="#ffffff">ORGANIC CONTENT</text>
+<text x="105" y="378" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#bcd3e8">Build familiarity</text>
+<text x="105" y="412" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#bcd3e8">Learn what people respond to</text>
+
+<rect x="655" y="295" width="475" height="150" rx="18" fill="#0d2c50" stroke="#2da7e8" stroke-width="3"/>
+<text x="690" y="338" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="800" fill="#ffffff">PAID PROMOTION</text>
+<text x="690" y="378" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#bcd3e8">Increase reach faster</text>
+<text x="690" y="412" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#bcd3e8">Scale a message that already works</text>
+
+<text x="600" y="495" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="800" fill="#46d9ff">FIX THESE BEFORE SPENDING MORE</text>
+<g font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700">
+  <rect x="110" y="525" width="285" height="58" rx="12" fill="#ffffff"/>
+  <text x="252" y="562" text-anchor="middle" fill="#0d315a">CLEAR MESSAGE</text>
+  <rect x="458" y="525" width="285" height="58" rx="12" fill="#ffffff"/>
+  <text x="600" y="562" text-anchor="middle" fill="#0d315a">LANDING EXPERIENCE</text>
+  <rect x="805" y="525" width="285" height="58" rx="12" fill="#ffffff"/>
+  <text x="947" y="562" text-anchor="middle" fill="#0d315a">TRACKING</text>
+</g>
+<text x="70" y="615" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#ffffff">NELOY DIGITAL SOLUTIONS</text>
+</svg>
