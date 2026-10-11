@@ -3,6 +3,106 @@ export const BLOG_ORIGIN = 'https://neloydigitalsolutions.com';
 export const PUBLISHER = 'Neloy Digital Solutions';
 export const articles = [
   {
+    "title": "How many pages does a small business website really need?",
+    "slug": "how-many-pages-does-a-small-business-website-really-need",
+    "metaTitle": "How Many Pages Does a Small Business Website Need? | Neloy Digital Solutions",
+    "metaDescription": "Learn how many pages a small business website really needs and how to plan Home, About, Services, Portfolio, Contact and useful supporting pages.",
+    "category": "Website Design",
+    "published": true,
+    "datePublished": "2026-10-11T21:56:00+06:00",
+    "dateModified": "2026-10-11T21:56:00+06:00",
+    "summary": "A practical guide to choosing the right number of website pages based on customer needs, services, proof and clear navigation.",
+    "image": {
+      "src": "/assets/blog/small-business-website-pages.svg",
+      "alt": "Small business website sitemap showing Home connected to About, Services, Portfolio and Contact pages",
+      "width": 1200,
+      "height": 630,
+      "caption": "A simple starting structure for a small business website."
+    },
+    "serviceLinks": [
+      {
+        "path": "/website-design",
+        "label": "Website design services"
+      },
+      {
+        "path": "/showcase",
+        "label": "Portfolio and completed work"
+      }
+    ],
+    "relatedSlugs": [
+      "what-makes-a-service-page-easy-to-understand",
+      "how-to-decide-what-belongs-above-the-fold-on-a-business-website",
+      "what-should-a-small-business-homepage-do-in-the-first-10-seconds"
+    ],
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "There is no perfect page count",
+        "body": "<p>A small business website does not need dozens of pages simply to look professional.</p><p>What matters is whether visitors can quickly understand the business, find the information they need and know what to do next.</p><p>For many service businesses, a focused website with a small number of well-planned pages can work better than a large website filled with thin or repetitive content.</p>"
+      },
+      {
+        "id": "customer-journey",
+        "title": "Start with the customer journey",
+        "body": "<p>Before deciding how many pages to build, think about what a new visitor needs to know.</p><ul><li>What does this business do?</li><li>Is the service relevant to me?</li><li>Can I trust this business?</li><li>What examples of its work can I see?</li><li>How can I make contact?</li></ul><p>Your website structure should make those answers easy to find.</p>"
+      },
+      {
+        "id": "home",
+        "title": "1. Homepage",
+        "body": "<p>The homepage introduces the business and should communicate the main offer, important services, useful trust signals and the next step.</p><p>It does not need to explain every detail about every service. Its job is to guide visitors toward the right information.</p>"
+      },
+      {
+        "id": "about",
+        "title": "2. About page",
+        "body": "<p>An About page can help visitors understand who is behind the business, the experience of the team and the approach used to deliver the work.</p><p>Keep the information relevant to the customer. The page should build confidence rather than simply provide a long company history.</p>"
+      },
+      {
+        "id": "services",
+        "title": "3. Service pages",
+        "body": "<p>This is where page count can vary significantly.</p><p>If a business offers several important services, separate service pages can make the website easier to understand and can give each service enough room to explain its scope, process and value.</p><p>For example, our <a href=\"https://neloydigitalsolutions.com/website-design\">Website Design</a> page focuses on website-related work rather than mixing every digital service into one page.</p><p>If two services are closely related and need only a short explanation, one combined page may be enough.</p>"
+      },
+      {
+        "id": "portfolio",
+        "title": "4. Portfolio or work page",
+        "body": "<p>For creative and service businesses, proof matters.</p><p>A portfolio or showcase page lets visitors review completed work instead of relying only on marketing claims.</p><p>Depending on the amount of work available, you may use one main portfolio page or separate project pages for stronger case studies. You can see examples in our <a href=\"https://neloydigitalsolutions.com/showcase\">Showcase</a>.</p>"
+      },
+      {
+        "id": "contact",
+        "title": "5. Contact page",
+        "body": "<p>Visitors should have an easy way to reach the business.</p><p>A contact page can include a contact form, business email, phone or WhatsApp where appropriate, location information where relevant and simple enquiry instructions.</p><p>Avoid making customers search around the website to find how to contact you.</p>"
+      },
+      {
+        "id": "more-pages",
+        "title": "When should you add more pages?",
+        "body": "<p>Add a page when there is a clear reason for it to exist.</p><ul><li>A service requires a detailed explanation.</li><li>Customers repeatedly ask the same group of questions.</li><li>A completed project deserves a full case study.</li><li>A location needs genuinely useful local information.</li><li>A topic requires a detailed guide or blog article.</li></ul><p>More pages do not automatically mean a better website.</p>"
+      },
+      {
+        "id": "blog",
+        "title": "What about blog pages?",
+        "body": "<p>A blog works differently from the core business pages.</p><p>Each useful article can have its own URL, allowing the site to grow over time without making the main navigation complicated.</p><p>A business might have six or seven core pages while publishing many useful articles that answer specific customer questions.</p>"
+      },
+      {
+        "id": "starting-structure",
+        "title": "A simple starting structure",
+        "body": "<p>For many small service businesses, a practical starting structure could include:</p><ul><li>Home</li><li>About</li><li>Services</li><li>Individual service pages where needed</li><li>Portfolio or work</li><li>Blog</li><li>Contact</li><li>Privacy and terms pages</li></ul><p>The exact structure should still depend on the business. An online shop, restaurant, consultancy and creative agency will naturally need different page structures.</p>"
+      },
+      {
+        "id": "thin-pages",
+        "title": "Avoid creating thin or repetitive pages",
+        "body": "<p>One common mistake is creating many pages that say almost the same thing.</p><p>Every important page should have a clear purpose and enough original information to help the visitor. Creating nearly identical pages just to increase the page count can make the site harder to maintain and less useful.</p>"
+      },
+      {
+        "id": "faq",
+        "title": "Frequently asked questions",
+        "body": "<p><strong>Is a five-page website enough for a small business?</strong><br>It can be. If those pages clearly explain the business, services, proof and contact options, a five-page site may be completely appropriate.</p><p><strong>Should every service have its own page?</strong><br>Not always. Give a service its own page when it has enough unique information, search intent or customer questions to justify one.</p><p><strong>Does having more pages improve SEO automatically?</strong><br>No. Useful, relevant pages matter more than simply increasing the number of URLs.</p>"
+      },
+      {
+        "id": "final-thought",
+        "title": "Final thought",
+        "body": "<p>There is no perfect page count for every small business website.</p><p>A five-page website can be excellent if it answers customer questions clearly. A twenty-page website can also be excellent if every page has a useful purpose.</p><p>Start with the customer journey, create the pages people genuinely need and expand only when new services, questions, projects or useful content justify additional pages.</p><p><strong>The goal is not to build the biggest website. It is to build the clearest one.</strong></p>"
+      }
+    ]
+  },
+  {
     title: 'What makes a service page easy to understand?',
     slug: 'what-makes-a-service-page-easy-to-understand',
     metaTitle: 'What Makes a Service Page Easy to Understand? | Neloy Digital Solutions',
