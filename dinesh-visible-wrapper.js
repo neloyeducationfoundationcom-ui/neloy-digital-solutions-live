@@ -16,7 +16,7 @@ const STYLE = `<style id="dinesh-visible-style">
 function addDinesh(html){
   if(!html.includes('<section id="testimonials"')) return html;
 
-  const card = `<div id="dinesh-testimonial-fixed"><img src="${DINESH_PHOTO}" alt="Dinesh De Silva"><div><div><span class="stars">★★★★★</span><span class="score">5.0 / 5</span></div><p class="quote">“I had a great experience working with Neloy and his team on my graphic design project. They completed the work on time, communicated professionally, and delivered excellent-quality results. I’m very satisfied with their service and would gladly recommend Neloy and his team to anyone looking for reliable and professional graphic design services. Their service was excellent from start to finish.”</p><div class="name">Dinesh De Silva<span class="role">Client Testimonial • Graphic Design Project</span></div></div></div>`;
+  const card = `<div id="dinesh-testimonial-fixed"><img src="${DINESH_PHOTO}" alt="Dinesh De Silva"><div><div><span class="stars">★★★★★</span><span class="score">5.0 / 5</span></div><p class="quote">“Working with Mustafa on my resume was a fantastic experience! He has an exceptional eye for design, color, and layout, tailoring everything perfectly to suit my professional needs and industry. On top of his strong design skills, his customer service was outstanding prompt, attentive, and extremely easy to work with. Highly recommended if you want a visually striking and professional resume”</p><div class="name">Dinesh De Silva<span class="role">Client Testimonial • Resume Design Project</span></div></div></div>`;
 
   const start = html.indexOf('<section id="testimonials"');
   const end = html.indexOf('</section>', start);
