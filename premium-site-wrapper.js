@@ -59,29 +59,37 @@ function newestShowreelPlayer() {
 }
 
 function addNewShowreel(html, path) {
+  if (path !== "/showcase" && path !== "/portfolio" && path !== "/video-editing") return html;
   const id = "nds-video-editing-showreel-2026";
   if (html.includes(`id="${id}"`)) return html;
+
+  // A standalone featured project avoids fragile assumptions about other portfolio grids.
+  // All previously published work stays in its existing position.
+  const section = `<section id="${id}" aria-labelledby="nds-new-showreel-title" style="padding:46px 20px;background:#f3f8ff;border-block:1px solid #dce9f8">
+    <div style="width:min(1020px,100%);margin:0 auto">
+      <div style="text-align:center;margin-bottom:23px">
+        <span style="display:inline-block;color:#086af6;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase">Featured Video Editing Project</span>
+        <h2 id="nds-new-showreel-title" style="color:#071a2f;font-size:clamp(27px,4vw,40px);line-height:1.15;margin:10px 0">Video Editing Project Showreel</h2>
+        <p style="color:#526983;line-height:1.6;max-width:720px;margin:0 auto">Watch this 49-second Full HD selection of branded videos, motion graphics, social edits, and creative video production.</p>
+      </div>
+      <div style="width:min(890px,100%);margin:auto;border-radius:18px;padding:10px;background:#06162d;box-shadow:0 17px 40px rgba(7,30,65,.18)">
+        ${newestShowreelPlayer()}
+      </div>
+      <p style="text-align:center;margin:18px auto 0"><a href="${NEW_SHOWREEL_PAGE}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#086af6;color:#fff;padding:13px 18px;border-radius:10px;font-weight:800;text-decoration:none">Watch full 1080p video ↗</a></p>
+    </div>
+  </section>`;
+
   if (path === "/showcase" || path === "/portfolio") {
-    const card = `<article class="workCard" id="${id}"><div class="workBody">
-      <span class="tag">Video Editing · Motion Graphics</span>
-      <h3>Video Editing Project Showreel</h3>
-      <p class="projectIntro">A 49-second Full HD presentation of video editing, branded motion graphics, social videos and other creative work.</p>
-      ${newestShowreelPlayer()}
-      <p style="margin:12px 0 0"><a href="${NEW_SHOWREEL_PAGE}" target="_blank" rel="noopener noreferrer">Watch full video in a new tab ↗</a></p>
-    </div></article>`;
-    return html.replace(/(<section\b[^>]*\bid=["']work["'][^>]*>[\s\S]*?<div class="workGrid">)/i, "$1" + card);
+    // Put the video before the project listing, immediately following the showcase intro.
+    const work = /<section\b[^>]*\bid=["']work["'][^>]*>/i;
+    if (work.test(html)) return html.replace(work, section + "$&");
   }
   if (path === "/video-editing") {
-    const card = `<article class="vpCard" id="${id}">
-      <span class="vpTag">Video Editing · Featured Projects</span>
-      <h3>Video Editing Project Showreel</h3>
-      <p>Watch this 49-second Full HD selection of creative editing, motion graphics and branded video projects.</p>
-      <div class="vpPlayer">${newestShowreelPlayer()}</div>
-      <p style="margin:12px 0 0"><a href="${NEW_SHOWREEL_PAGE}" target="_blank" rel="noopener noreferrer">Watch full video in a new tab ↗</a></p>
-    </article>`;
-    return html.replace(/(<section\b[^>]*\bid=["']nds-video-portfolio["'][^>]*>[\s\S]*?<div class="vpGrid">)/i, "$1" + card);
+    const videoProjects = /<section\b[^>]*\bid=["']nds-video-portfolio["'][^>]*>/i;
+    if (videoProjects.test(html)) return html.replace(videoProjects, section + "$&");
   }
-  return html;
+  // Never silently skip a valid page if its internal markup differs.
+  return html.includes("</main>") ? html.replace("</main>", section + "</main>") : html.replace("</body>", section + "</body>");
 }
 
 // Permit only the published Descript player on pages containing this portfolio video.
