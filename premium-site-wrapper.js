@@ -48,6 +48,56 @@ function addAdSenseAccountMeta(html) {
   return html.replace("</head>", ADSENSE_ACCOUNT_META + "</head>");
 }
 
+
+const NEW_SHOWREEL_EMBED = "https://share.descript.com/embed/dzzZKRognDy";
+const NEW_SHOWREEL_PAGE = "https://share.descript.com/view/dzzZKRognDy";
+
+function newestShowreelPlayer() {
+  return `<div class="nds-new-showreel-player" style="position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:12px;background:#06162d">
+    <iframe src="${NEW_SHOWREEL_EMBED}" title="Neloy Digital Solutions video editing project showcase" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+  </div>`;
+}
+
+function addNewShowreel(html, path) {
+  const id = "nds-video-editing-showreel-2026";
+  if (html.includes(`id="${id}"`)) return html;
+  if (path === "/showcase" || path === "/portfolio") {
+    const card = `<article class="workCard" id="${id}"><div class="workBody">
+      <span class="tag">Video Editing · Motion Graphics</span>
+      <h3>Video Editing Project Showreel</h3>
+      <p class="projectIntro">A 49-second Full HD presentation of video editing, branded motion graphics, social videos and other creative work.</p>
+      ${newestShowreelPlayer()}
+      <p style="margin:12px 0 0"><a href="${NEW_SHOWREEL_PAGE}" target="_blank" rel="noopener noreferrer">Watch full video in a new tab ↗</a></p>
+    </div></article>`;
+    return html.replace(/(<section\b[^>]*\bid=["']work["'][^>]*>[\s\S]*?<div class="workGrid">)/i, "$1" + card);
+  }
+  if (path === "/video-editing") {
+    const card = `<article class="vpCard" id="${id}">
+      <span class="vpTag">Video Editing · Featured Projects</span>
+      <h3>Video Editing Project Showreel</h3>
+      <p>Watch this 49-second Full HD selection of creative editing, motion graphics and branded video projects.</p>
+      <div class="vpPlayer">${newestShowreelPlayer()}</div>
+      <p style="margin:12px 0 0"><a href="${NEW_SHOWREEL_PAGE}" target="_blank" rel="noopener noreferrer">Watch full video in a new tab ↗</a></p>
+    </article>`;
+    return html.replace(/(<section\b[^>]*\bid=["']nds-video-portfolio["'][^>]*>[\s\S]*?<div class="vpGrid">)/i, "$1" + card);
+  }
+  return html;
+}
+
+// Permit only the published Descript player on pages containing this portfolio video.
+// All other CSP directives and all admin/API security controls stay unchanged.
+function allowNewShowreelFrame(headers) {
+  const oldCsp = headers.get("content-security-policy");
+  if (!oldCsp || oldCsp.includes("https://share.descript.com")) return;
+  let csp;
+  if (/\bframe-src\b/i.test(oldCsp)) {
+    csp = oldCsp.replace(/\bframe-src\s+[^;]+/i, part => part + " https://share.descript.com");
+  } else {
+    csp = oldCsp.replace(/;?\s*$/, "; frame-src 'self' https://share.descript.com");
+  }
+  headers.set("content-security-policy", csp);
+}
+
 function allowGa4(headers) {
   const csp = headers.get("content-security-policy");
   if (!csp) return;
@@ -115,6 +165,7 @@ export default {
     if (url.pathname.startsWith("/admin") || !(response.headers.get("content-type") || "").includes("text/html")) return response;
     let html = await response.text();
     if (path === "/") html = upgradeHomepage(html);
+    if (path === "/showcase" || path === "/portfolio" || path === "/video-editing") html = addNewShowreel(html, path);
     if (path === "/") html = html.replace('<main id="top">', '<main id="top" class="nds-premium-home">');
     if (path === "/website") html = html.replace('<main id="top">', '<main id="top" class="nds-premium-website">');
     if (path === "/showcase" || path === "/portfolio") html = html.replace('<main id="top">', '<main id="top" class="nds-premium-showcase">');
@@ -141,6 +192,7 @@ export default {
     headers.delete("content-length");
     headers.delete("etag");
     allowGa4(headers);
+    if (html.includes('id="nds-video-editing-showreel-2026"')) allowNewShowreelFrame(headers);
     return new Response(html, {status:response.status,statusText:response.statusText,headers});
   }
 };
