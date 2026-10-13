@@ -9,6 +9,25 @@ import { hardenResponse } from "./src/security/response-headers.js";
 
 import { renderBlog, appendBlogSitemap } from "./src/blog/pages.js";
 
+
+// Homepage-only social sharing image. Preserve existing titles, canonicals, schema, and layout.
+const SOCIAL_PREVIEW_IMAGE = "https://neloydigitalsolutions.com/neloy-social-preview.png";
+
+function addHomepageSocialPreview(html) {
+  // Prevent conflicting images without modifying any other Open Graph fields.
+  html = html.replace(/<meta\b(?=[^>]*\b(?:name|property)\s*=\s*["'](?:og:image(?::[\w-]+)?|twitter:image)["'])[^>]*>\s*/gi, "");
+  const tags = [
+    `<meta property="og:image" content="${SOCIAL_PREVIEW_IMAGE}">`,
+    `<meta property="og:image:secure_url" content="${SOCIAL_PREVIEW_IMAGE}">`,
+    '<meta property="og:image:type" content="image/png">',
+    '<meta property="og:image:width" content="1314">',
+    '<meta property="og:image:height" content="637">',
+    '<meta property="og:image:alt" content="Neloy Digital Solutions official website — creative digital services">',
+    `<meta name="twitter:image" content="${SOCIAL_PREVIEW_IMAGE}">`
+  ].join("\n");
+  return html.replace(/<\/head>/i, tags + "\n</head>");
+}
+
 const GA4_ID = "G-KWCBEDVHST";
 const ADSENSE_ACCOUNT_META = '<meta name="google-adsense-account" content="ca-pub-2614503198735373">';
 const GA4_TAG = `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_ID}"></script>
@@ -116,6 +135,7 @@ export default {
         '$1$2<a class="nds-top-blog-link" href="https://neloydigitalsolutions.com/blog">View My Blog</a>$3');
       html = html.replace("</head>", '<style id="nds-top-blog-link-style">.top .navlinks a.nds-top-blog-link{display:inline-flex!important;align-items:center;white-space:nowrap}@media(max-width:980px){.top .nav{flex-wrap:wrap;gap:10px;padding-block:12px}.top .navlinks{margin-left:auto;gap:12px}}</style></head>');
     }
+    if (path === "/") html = addHomepageSocialPreview(html);
     html = addAdSenseAccountMeta(addGa4(addExploreLinks(html)));
     const headers = new Headers(response.headers);
     headers.delete("content-length");
