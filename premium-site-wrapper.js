@@ -50,7 +50,6 @@ function addAdSenseAccountMeta(html) {
 
 
 const NEW_SHOWREEL_EMBED = "https://share.descript.com/embed/dzzZKRognDy";
-const NEW_SHOWREEL_PAGE = "https://share.descript.com/view/dzzZKRognDy";
 
 function newestShowreelPlayer() {
   return `<div class="nds-new-showreel-player" style="position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:12px;background:#06162d">
@@ -75,7 +74,7 @@ function addNewShowreel(html, path) {
       <div style="width:min(890px,100%);margin:auto;border-radius:18px;padding:10px;background:#06162d;box-shadow:0 17px 40px rgba(7,30,65,.18)">
         ${newestShowreelPlayer()}
       </div>
-      <p style="text-align:center;margin:18px auto 0"><a href="${NEW_SHOWREEL_PAGE}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#086af6;color:#fff;padding:13px 18px;border-radius:10px;font-weight:800;text-decoration:none">Watch full 1080p video ↗</a></p>
+      <p style="margin:12px 0 0;text-align:center;color:#526983;font-size:13px">Press play in the video player above to watch without leaving this page.</p>
     </div>
   </section>`;
 
