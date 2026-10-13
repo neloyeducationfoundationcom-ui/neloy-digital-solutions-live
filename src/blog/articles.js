@@ -3,6 +3,101 @@ export const BLOG_ORIGIN = 'https://neloydigitalsolutions.com';
 export const PUBLISHER = 'Neloy Digital Solutions';
 export const articles = [
   {
+    "title": "Why Some Business Websites Feel Difficult to Use Even When They Look Modern",
+    "slug": "why-some-business-websites-feel-difficult-to-use-even-when-they-look-modern",
+    "metaTitle": "Why Modern Business Websites Can Be Hard to Use | Neloy Digital Solutions",
+    "metaDescription": "A modern website can still frustrate visitors. Learn seven common website usability problems and practical fixes for navigation, mobile layouts, content and forms.",
+    "category": "Website Design",
+    "published": true,
+    "datePublished": "2026-10-13T12:43:45.286Z",
+    "dateModified": "2026-10-13T12:43:45.286Z",
+    "summary": "Seven practical website usability issues to fix when a site looks modern but feels frustrating to visitors.",
+    "image": {
+      "src": "/assets/blog/website-usability-friction-checklist.svg",
+      "alt": "Manual website usability checklist comparing a confusing modern-looking webpage with five checks for navigation, message, mobile layout, readability and contact",
+      "width": 1200,
+      "height": 630,
+      "caption": "Five checks to find friction before deciding whether a business website needs a redesign."
+    },
+    "serviceLinks": [
+      {
+        "path": "/website-design",
+        "label": "Website design services"
+      },
+      {
+        "path": "/digital-marketing",
+        "label": "Digital marketing services"
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-decide-what-belongs-above-the-fold-on-a-business-website",
+      "what-makes-a-service-page-easy-to-understand",
+      "website-redesign-or-new-website"
+    ],
+    "sections": [
+      {
+        "id": "why-modern-can-be-hard",
+        "title": "Why a modern website can still feel difficult to use",
+        "body": "<p>A business website can have a beautiful colour palette, polished graphics and smooth animations — and still leave visitors unsure what to do next. Someone may arrive from Google, spend a few moments looking around and leave without finding the service, answer or contact option they came for.</p><p>The problem is not necessarily the visual design. It is the <strong>effort required to use the website</strong>.</p><p>Good website usability means people can understand where they are, find what they need and complete an intended action without unnecessary confusion. A modern appearance can support that experience, but it cannot replace it.</p><p>Here are seven common reasons a business website feels harder to use than it should, followed by practical ways to identify and fix the problems.</p>"
+      },
+      {
+        "id": "navigation",
+        "title": "1. The navigation looks elegant but hides important pages",
+        "body": "<p>Minimal navigation can look tidy. Problems start when it uses vague labels, hides core services under unexpected menus or makes people work to locate basic information.</p><p>Imagine a potential customer looking for logo design. They see menu options labelled “Explore,” “Solutions” and “Discover.” None clearly says whether logo design is offered. A simpler menu with “Services,” “Portfolio” and “Contact” may do more to help that visitor than a sophisticated animated menu.</p><p><strong>What to check:</strong></p><ul><li>Can a first-time visitor identify where to find services, examples of work and contact information?</li><li>Are menu labels written in language customers actually use?</li><li>Does the menu work with touch, keyboard navigation and smaller screens?</li><li>Are important pages accessible without opening several nested menus?</li></ul><p><strong>Practical fix:</strong> Replace unclear labels with familiar ones. Group related services logically and test the menu with someone who has never used the site before.</p>"
+      },
+      {
+        "id": "homepage-message",
+        "title": "2. The homepage looks impressive but does not explain the business",
+        "body": "<p>Large photography, bold typography and short slogans create visual impact. But a headline such as “Building What Comes Next” may not tell a new visitor what the company actually provides.</p><p>A visitor should be able to answer three questions near the top of the homepage: <strong>What does this business do? Who is it for? What can I do next?</strong></p><p>For example, “Website design for growing service businesses” is less poetic than a vague slogan, but it gives visitors useful information immediately. A short supporting sentence can explain the approach, with a clear link to explore services or see relevant work.</p><p><strong>Practical fix:</strong> Keep the attractive visual design, but make the main heading specific. Place the next step near the explanation rather than making visitors hunt for it.</p><p>For a related breakdown, read <a href=\"/blog/how-to-decide-what-belongs-above-the-fold-on-a-business-website\">How to Decide What Belongs Above the Fold on a Business Website</a>.</p>"
+      },
+      {
+        "id": "mobile",
+        "title": "3. The mobile experience is treated like a smaller desktop",
+        "body": "<p>A layout can look balanced on a large screen yet become frustrating on a phone. Side-by-side sections get compressed, buttons sit too close together, sticky panels cover content and text can become difficult to read.</p><p>Mobile usability is not only about whether the page technically fits the screen. It is about whether people can comfortably read, scroll, navigate and act.</p><p><strong>What to check:</strong></p><ul><li>Do headings and paragraphs remain readable without zooming?</li><li>Are buttons easy to tap without hitting the wrong item?</li><li>Does the menu open, close and scroll reliably?</li><li>Are images, forms and comparison tables usable at narrow widths?</li><li>Does a sticky header or chat widget cover important content?</li></ul><p><strong>Practical fix:</strong> Review the site on a real phone, not only a desktop preview. Start with the homepage, the most important service page and the contact page. Fix any element that blocks basic tasks.</p>"
+      },
+      {
+        "id": "visual-hierarchy",
+        "title": "4. Every section competes for attention",
+        "body": "<p>When everything is large, animated, brightly coloured or presented as a card, it becomes difficult to tell what matters most. Visitors are forced to decide which element deserves their attention.</p><p>A clear page needs a visual hierarchy: a main point, supporting information and a next step. White space, type size, contrast and section order should make that hierarchy obvious.</p><p>Consider a service page with six equal-sized call-to-action buttons. Visitors may hesitate because the page offers too many directions at once. One clear primary action, with secondary links where useful, is often easier to understand.</p><p><strong>Practical fix:</strong> Give each section a specific job. Use descriptive headings, shorter paragraphs and a consistent primary button style. Remove decorative elements that compete with essential content.</p>"
+      },
+      {
+        "id": "readability",
+        "title": "5. Text is technically present but hard to read",
+        "body": "<p>Thin fonts, low-contrast colours, long lines of text and dense paragraphs can make a website feel tiring. Accessibility also matters: a visitor may rely on keyboard controls, screen readers or clear form labels to use the site.</p><p><strong>What to check:</strong></p><ul><li>Is body text readable against its background?</li><li>Are headings descriptive enough to help people scan the page?</li><li>Do links explain their destination instead of repeating “Click here”?</li><li>Can people see which interactive element has keyboard focus?</li><li>Do form fields have persistent, understandable labels?</li></ul><p><strong>Practical fix:</strong> Prioritise comfortable text size, sufficient contrast, sensible spacing and clear labels. Do not rely on colour alone to explain an error or a required action. These improvements help a wider range of visitors, not only those with diagnosed accessibility needs.</p>"
+      },
+      {
+        "id": "interruptions",
+        "title": "6. Animations, pop-ups and heavy media interrupt simple tasks",
+        "body": "<p>Motion can help communicate a concept, but unnecessary effects may slow a page or pull attention away from the information people need. Autoplay videos, intrusive pop-ups and shifting page elements can also interrupt reading or cause misclicks.</p><p>A visitor should not need to dismiss repeated overlays before understanding the business. Decorative movement should never be a requirement for reading essential content.</p><p><strong>Practical fix:</strong> Compress large images, use motion selectively and avoid unnecessary autoplay. Keep important content stable as a page loads. Test how quickly the main message becomes usable on a typical mobile connection, rather than judging the website only on a fast office computer.</p>"
+      },
+      {
+        "id": "contact-friction",
+        "title": "7. The contact step introduces avoidable friction",
+        "body": "<p>A visitor may understand the service and trust the company, then abandon the process because the next step is unclear or difficult.</p><p>Common examples include a contact button that is hard to find, a form requesting too many details before the first conversation, unclear required fields and an error message that does not explain what needs correcting.</p><p><strong>Practical fix:</strong> Make contact options easy to locate. Ask only for information needed at the first stage. Explain what happens after submission and show a clear confirmation when a message is received.</p><p>A useful contact process does not have to be elaborate. It has to work reliably.</p>"
+      },
+      {
+        "id": "ten-minute-check",
+        "title": "A simple 10-minute website usability check",
+        "body": "<p>You can spot many of these issues without buying an expensive audit tool. Open your website in a private browser window and pretend you have never seen it before.</p><ol><li><strong>First minute:</strong> Look at the top of the homepage. Can you identify the service, audience and next step without guessing?</li><li><strong>Find a service:</strong> Try to locate a specific service and understand what is included.</li><li><strong>Find proof:</strong> Look for genuine work samples, useful service details or other evidence supporting the business's claims.</li><li><strong>Switch to mobile:</strong> Repeat the same journey on a phone. Watch for crowded controls, unreadable text or content hidden behind overlays.</li><li><strong>Try the contact step:</strong> Open the contact form or preferred enquiry method. Check labels, required fields and error feedback. You do not need to submit a real enquiry to inspect the form.</li><li><strong>Ask one new person:</strong> Give someone a simple task such as “Find out how to ask about a website project.” Observe where they hesitate; do not explain the interface for them.</li></ol><p>Write down each moment of hesitation. Those moments are more actionable than a general opinion such as “the site needs a new look.”</p>"
+      },
+      {
+        "id": "fix-first",
+        "title": "What should you fix first?",
+        "body": "<p>Not every issue requires a full redesign. Prioritise improvements by <strong>how many visitors they affect</strong> and <strong>whether they block an important action</strong>.</p><div class=\"blog-table\"><table><caption>Website usability improvement priorities</caption><thead><tr><th scope=\"col\">Priority</th><th scope=\"col\">Example</th><th scope=\"col\">First action</th></tr></thead><tbody><tr><td>High</td><td>Contact form fails or main menu is unusable on mobile</td><td>Repair the broken journey</td></tr><tr><td>High</td><td>Homepage does not explain the service</td><td>Rewrite the main message and CTA</td></tr><tr><td>Medium</td><td>Dense service-page paragraphs</td><td>Improve headings, spacing and examples</td></tr><tr><td>Medium</td><td>Decorative effects distract from key content</td><td>Simplify motion and visual hierarchy</td></tr><tr><td>Lower</td><td>Minor visual inconsistencies that do not obstruct tasks</td><td>Schedule a later design tidy-up</td></tr></tbody></table></div><p>Start with the obstacles that prevent people from understanding, trusting or contacting the business. Then refine the visual details.</p>"
+      },
+      {
+        "id": "faq",
+        "title": "Frequently asked questions",
+        "body": "<h3>Can a website look modern and still have poor usability?</h3><p>Yes. Visual style and ease of use are related, but they are not the same thing. A clean design can still hide important information, use unclear language or make mobile tasks frustrating.</p><h3>How can a small business tell whether its website is hard to use?</h3><p>Observe real tasks: can a first-time visitor find a service, understand the offer and reach the contact step? Short user tests, mobile checks and website analytics can reveal where people struggle. Analytics alone do not explain why a visitor left.</p><h3>Does improving usability require a complete website redesign?</h3><p>Not always. Clearer headings, simpler navigation, more readable text, better mobile spacing and shorter forms can improve the experience without rebuilding the entire website. Larger structural problems may need a broader redesign.</p><h3>What is the first usability issue to fix?</h3><p>Start with anything that prevents visitors from completing an important task — especially broken mobile navigation, unclear service information or an unusable contact step.</p>"
+      },
+      {
+        "id": "final-thought",
+        "title": "Final thought: make the useful parts easy",
+        "body": "<p>Modern visual design can help a business look credible, but <strong>a website earns trust when it is easy to understand and use</strong>. The goal is not to remove creativity. It is to make sure the creativity supports the visitor's journey rather than getting in the way.</p><p>Before planning another full redesign, review the path from the first headline to the final enquiry. Small, thoughtful changes along that path may be more valuable than another decorative effect.</p><p>For more guidance on planning clear, useful service pages, explore <a href=\"/website-design\">Neloy Digital Solutions' website design services</a>.</p>"
+      }
+    ]
+  },
+  {
     "title": "Organic content vs paid promotion: what should a small business fix first?",
     "slug": "organic-content-vs-paid-promotion-what-should-a-small-business-fix-first",
     "metaTitle": "Organic Content vs Paid Promotion: What to Fix First | Neloy Digital Solutions",

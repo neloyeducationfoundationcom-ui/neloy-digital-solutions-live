@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="ttl desc">
+<title id="ttl">Website Usability Friction Checklist</title>
+<desc id="desc">An original manual-style graphic contrasting a modern-looking but confusing webpage with five usability checks: navigation, message, mobile use, readability and contact.</desc>
+<rect x="0" y="0" width="1200" height="630" rx="0" fill="#F7FAFD"/>
+<rect x="50" y="46" width="1100" height="538" rx="28" fill="#FFFFFF" stroke="#D8E6F2" stroke-width="2"/>
+<text x="84" y="103" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#0A4E8A" letter-spacing="1.2">NELOY DIGITAL SOLUTIONS</text>
+<text x="84" y="158" font-family="Arial, Helvetica, sans-serif" font-size="45" font-weight="700" fill="#071B33">Modern Look. Difficult Experience?</text>
+<text x="84" y="198" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#5B6F82">Five usability checks before you redesign a business website</text>
+<rect x="82" y="227" width="492" height="283" rx="20" fill="#EDF5FA" stroke="#C9DBE8" stroke-width="2"/>
+<text x="106" y="257" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0A4E8A" letter-spacing="0.8">THE FRICTION</text>
+<rect x="105" y="274" width="445" height="210" rx="12" fill="#FFFFFF" stroke="#B8CFDF" stroke-width="2"/>
+<rect x="105" y="274" width="445" height="36" rx="12" fill="#DDEBF5"/>
+<rect x="105" y="294" width="445" height="16" rx="0" fill="#DDEBF5"/>
+<circle cx="125" cy="292" r="5.5" fill="#89AABC"/>
+<circle cx="145" cy="292" r="5.5" fill="#89AABC"/>
+<circle cx="165" cy="292" r="5.5" fill="#89AABC"/>
+<text x="265" y="298" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#5B6F82">HOME</text>
+<text x="319" y="298" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#5B6F82">EXPLORE</text>
+<text x="399" y="298" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#5B6F82">MORE</text>
+<text x="459" y="298" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#5B6F82">ABOUT</text>
+<rect x="124" y="326" width="406" height="139" rx="9" fill="#F8FAFC"/>
+<rect x="139" y="339" width="240" height="8" rx="4" fill="#A5D8EE"/>
+<text x="139" y="376" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#071B33">Make More Possible</text>
+<text x="139" y="396" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5B6F82">An experience designed for tomorrow.</text>
+<rect x="139" y="408" width="133" height="33" rx="8" fill="#0B7FD3"/>
+<text x="206" y="430" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">Discover</text>
+<rect x="281" y="408" width="119" height="33" rx="8" fill="#ECF4F9" stroke="#CEDFE9" stroke-width="1"/>
+<text x="341" y="430" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#0A4E8A" text-anchor="middle">Learn More</text>
+<rect x="396" y="352" width="143" height="79" rx="10" fill="#FFFFFF" stroke="#19C5E2" stroke-width="2"/>
+<path d="M415 369 L423 361 L431 369" fill="none" stroke="#0B7FD3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="416" y="387" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#0A4E8A">Latest Update</text>
+<text x="416" y="405" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#5B6F82">Read now</text>
+<text x="105" y="503" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#0A4E8A">Polished visuals, unclear next steps</text>
+<path d="M582 371 L596 371" stroke="#0B7FD3" stroke-width="3" stroke-linecap="round"/>
+<path d="M590 364 L598 371 L590 378" fill="none" stroke="#0B7FD3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="604" y="227" width="514" height="283" rx="20" fill="#FBFDFE" stroke="#CADDE9" stroke-width="2"/>
+<text x="629" y="258" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0A4E8A" letter-spacing="0.8">THE USABILITY CHECK</text>
+<rect x="624" y="272" width="474" height="39" rx="10" fill="#EFF7FC"/>
+<circle cx="649" cy="292" r="15" fill="#0B7FD3"/>
+<text x="649" y="296" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">01</text>
+<text x="677" y="298" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#071B33">Can people find the right page?</text>
+<path d="M1059 290 l6 6 l11 -12" fill="none" stroke="#0B7FD3" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="624" y="316" width="474" height="39" rx="10" fill="#F8FBFD"/>
+<circle cx="649" cy="336" r="15" fill="#0B7FD3"/>
+<text x="649" y="340" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">02</text>
+<text x="677" y="342" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#071B33">Is the main message clear?</text>
+<path d="M1059 334 l6 6 l11 -12" fill="none" stroke="#0B7FD3" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="624" y="360" width="474" height="39" rx="10" fill="#EFF7FC"/>
+<circle cx="649" cy="380" r="15" fill="#0B7FD3"/>
+<text x="649" y="384" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">03</text>
+<text x="677" y="386" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#071B33">Does it work well on mobile?</text>
+<path d="M1059 378 l6 6 l11 -12" fill="none" stroke="#0B7FD3" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="624" y="404" width="474" height="39" rx="10" fill="#F8FBFD"/>
+<circle cx="649" cy="424" r="15" fill="#0B7FD3"/>
+<text x="649" y="428" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">04</text>
+<text x="677" y="430" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#071B33">Is content easy to read?</text>
+<path d="M1059 422 l6 6 l11 -12" fill="none" stroke="#0B7FD3" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="624" y="448" width="474" height="39" rx="10" fill="#EFF7FC"/>
+<circle cx="649" cy="468" r="15" fill="#0B7FD3"/>
+<text x="649" y="472" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">05</text>
+<text x="677" y="474" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#071B33">Can visitors contact you easily?</text>
+<path d="M1059 466 l6 6 l11 -12" fill="none" stroke="#0B7FD3" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="84" y="527" width="1032" height="39" rx="13" fill="#071B33"/>
+<text x="600" y="553" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#FFFFFF" text-anchor="middle">Good design removes friction — not just adds polish.</text>
+</svg>
