@@ -3,6 +3,116 @@ export const BLOG_ORIGIN = 'https://neloydigitalsolutions.com';
 export const PUBLISHER = 'Neloy Digital Solutions';
 export const articles = [
   {
+    "title": "What Is Search Intent and Why Should Small Businesses Care?",
+    "slug": "what-is-search-intent-and-why-should-small-businesses-care",
+    "metaTitle": "What Is Search Intent? A Guide for Small Businesses | Neloy Digital Solutions",
+    "metaDescription": "Learn what search intent means, the four common types, and how small businesses can match website pages and content to what customers actually need.",
+    "category": "SEO & AEO",
+    "published": true,
+    "datePublished": "2026-10-13T14:26:21.431Z",
+    "dateModified": "2026-10-13T14:26:21.431Z",
+    "summary": "A practical guide to informational, navigational, commercial and transactional searches, with examples and a simple content-planning exercise for small businesses.",
+    "image": {
+      "src": "/assets/blog/search-intent-four-customer-goals.svg",
+      "alt": "Original Neloy Digital Solutions graphic showing four search intent goals: Learn informational, Find navigational, Compare commercial and Act transactional",
+      "width": 1200,
+      "height": 630,
+      "caption": "Four common search intent goals and the page types that best answer them."
+    },
+    "serviceLinks": [
+      {
+        "path": "/digital-marketing",
+        "label": "Digital marketing services"
+      },
+      {
+        "path": "/website-design",
+        "label": "Website design services"
+      }
+    ],
+    "relatedSlugs": [
+      "how-many-pages-does-a-small-business-website-really-need",
+      "website-redesign-or-new-website",
+      "what-should-a-small-business-homepage-do-in-the-first-10-seconds"
+    ],
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Why understanding search intent changes content planning",
+        "body": "<p>When someone searches Google for a product, service or answer, the words they type reveal something important: <strong>what they are trying to accomplish</strong>.</p><p>One person might search for “what is website hosting?” because they want to learn. Another might search for “best website hosting for small businesses” because they are comparing options. Someone searching for a particular hosting company’s pricing page may already be closer to making a decision.</p><p>These people are not looking for exactly the same information. The purpose behind a search is called <strong>search intent</strong>.</p><p>For small businesses, search intent helps determine which website pages to create, what to explain on those pages and how to make content more useful to potential customers. Instead of creating content around keywords alone, start with the questions and decisions behind those keywords.</p>"
+      },
+      {
+        "id": "definition",
+        "title": "What is search intent?",
+        "body": "<p>Search intent is the main purpose behind someone’s search query. It explains what a person wants to find or accomplish when using a search engine.</p><p>Consider four searches: “What makes a good business logo?”, “Logo design agency vs freelancer”, “Hire logo designer” and “Neloy Digital Solutions”. They all touch on branding or business services, but their likely purposes differ.</p><p>The first person wants an explanation; the second is comparing; the third may be ready to hire; and the fourth wants to find a particular business.</p><p>A useful website responds to the needs behind the query. The same general subject can require very different kinds of pages.</p>"
+      },
+      {
+        "id": "informational",
+        "title": "1. Informational intent — learn something",
+        "body": "<p>Informational searches happen when someone wants to understand a subject, solve a problem or learn how something works. Examples include “What is responsive website design?”, “How do I prepare a logo design brief?” and “Why does my website load slowly?”</p><p>Helpful explanations, tutorials and practical checklists usually fit these searches. A company offering website design could publish an educational guide on preparing for a web project.</p><p>The article should answer the question properly before suggesting a related service. A reader who came to learn should not be forced into a quotation form to get a useful explanation.</p><p><strong>Best-fit content:</strong> Educational blog posts, how-to guides, definitions, tutorials, checklists and useful answers to common questions.</p>"
+      },
+      {
+        "id": "navigational",
+        "title": "2. Navigational intent — find a destination",
+        "body": "<p>Navigational searches happen when someone already knows the name of a business, platform or resource they want to visit. Examples include “Canva login”, “Google Search Console” and “Neloy Digital Solutions”.</p><p>The searcher is primarily trying to reach an identifiable destination. For a small business, consistent company details, understandable navigation and clear official pages help people recognise that they have arrived in the right place.</p><p><strong>Best-fit content:</strong> The official homepage, clearly named contact and service pages, and other identifiable company resources. A new blog post usually is not the main answer to a branded navigational query.</p>"
+      },
+      {
+        "id": "commercial",
+        "title": "3. Commercial investigation — compare options",
+        "body": "<p>Commercial investigation occurs when someone is researching products or services before deciding what to choose. Examples include “Website redesign vs new website”, “Freelancer vs design agency” and “How to choose a video editor”.</p><p>These people want to evaluate alternatives, trade-offs, scope, limitations or costs. Content that helps readers judge whether an option fits their circumstances can be more useful than a page claiming that one approach is always best.</p><p>For example, someone deciding whether to replace their existing website could use our <a href=\"/blog/website-redesign-or-new-website\">website redesign versus new website checklist</a>.</p><p><strong>Best-fit content:</strong> Comparison articles, buyer guides, detailed service explanations, case studies and decision checklists.</p>"
+      },
+      {
+        "id": "transactional",
+        "title": "4. Transactional intent — take action",
+        "body": "<p>Transactional intent describes searches where someone wants to complete an action, such as buying, booking, requesting a quotation or contacting a provider. Examples include “Hire logo designer”, “Book a website consultation” and “Request video editing services”.</p><p>Visitors with this intention may already understand what they need. They often benefit from clear deliverables, a working contact option and an explanation of how the process starts.</p><p><strong>Best-fit content:</strong> Relevant service, product, booking and enquiry pages. Keep the information focused on the action rather than burying it in unrelated background content.</p>"
+      },
+      {
+        "id": "intent-examples",
+        "title": "Search intent examples for small businesses",
+        "body": "<p>These categories are useful planning tools, not rigid labels. A query can carry more than one intention, and the most helpful page may serve both.</p><div class=\"blog-table\"><table><caption>Search phrases and likely customer goals</caption><thead><tr><th scope=\"col\">Search query</th><th scope=\"col\">Likely intent</th><th scope=\"col\">Useful page</th></tr></thead><tbody><tr><td>What is a business logo?</td><td>Informational</td><td>Beginner’s logo guide</td></tr><tr><td>Logo design cost for startups</td><td>Informational / Commercial</td><td>Pricing explanation</td></tr><tr><td>Agency vs freelancer for branding</td><td>Commercial</td><td>Comparison guide</td></tr><tr><td>Hire logo designer</td><td>Transactional</td><td>Logo design service page</td></tr><tr><td>Neloy Digital Solutions</td><td>Navigational</td><td>Official homepage</td></tr><tr><td>How to improve mobile website usability</td><td>Informational</td><td>Practical blog article</td></tr></tbody></table></div><p>The lesson is that one broad keyword topic can include multiple customer needs. Someone researching costs should be able to find cost factors without reading a history lesson first. Likewise, a beginner should get an answer without being required to start a sales conversation.</p>"
+      },
+      {
+        "id": "business-value",
+        "title": "Why search intent matters for a small business",
+        "body": "<p><strong>It brings content closer to real customer needs.</strong> A business can publish many pages and still receive few relevant enquiries if the subjects do not answer questions its potential customers ask. Informational traffic may build awareness long before an enquiry, but a sensible mix of educational and service-focused content helps connect learning with later decisions.</p><p><strong>It helps visitors find the right information.</strong> Someone searching “what should I prepare before starting a website project?” probably wants a practical preparation guide. A generic promotional page is less likely to satisfy that need.</p><p><strong>It makes the website structure more useful.</strong> One homepage cannot answer every question. A clear site can offer a homepage, focused service pages, useful project examples, contact information and educational articles. See our guide to <a href=\"/blog/how-many-pages-does-a-small-business-website-really-need\">how many pages a small business website needs</a>.</p><p><strong>It gives you a better editorial decision.</strong> Before writing, ask whether the subject deserves an explainer, comparison, service page or short answer. That decision is more useful than placing a popular keyword onto an unrelated page.</p>"
+      },
+      {
+        "id": "research-steps",
+        "title": "How to identify search intent before writing",
+        "body": "<p>You do not need an expensive SEO platform to begin investigating what people want. Start with a real customer question and work through a few practical checks.</p><ol><li><strong>Write down the customer question.</strong> Use questions from enquiries, meetings and messages. “How much does a small business website cost?” is a more useful starting point than the single word “website”.</li><li><strong>Identify the probable purpose.</strong> Is the person learning about pricing factors, comparing providers or ready to request a quote? Some searches combine more than one purpose.</li><li><strong>Review the actual search results.</strong> Look at whether Google commonly shows explainers, service pages, comparison guides, videos or local listings. These patterns offer clues, but the top-ranked result is not necessarily a complete content model.</li><li><strong>Choose the most helpful format.</strong> An explanation fits a blog post; a comparison fits a decision guide; a request to hire fits a clearly explained service page.</li><li><strong>Answer the main question early.</strong> A pricing guide could explain upfront that costs depend on scope, features, content and delivery needs, then provide useful detail.</li><li><strong>Offer a relevant next step.</strong> Link to another guide when the reader needs more context, or to the applicable service page when they are ready to explore a project.</li></ol><p>This process keeps the reader's task central rather than treating search intent as a label added after an article is finished.</p>"
+      },
+      {
+        "id": "blog-or-service",
+        "title": "Should small businesses create blog posts or service pages first?",
+        "body": "<p>The answer depends on what the website already communicates. If visitors cannot find the company's main services or understand how to get in touch, clarifying those important pages may be more valuable than adding another blog post.</p><p>When core pages are useful and accurate, educational articles can answer the questions people ask before they are ready to contact a provider.</p><p>For instance, a web design business might use one main <a href=\"/website-design\">website design service page</a> supported by articles on preparing a project brief, deciding whether to redesign and checking a website before launch.</p><p>Each page serves a different need without duplicating nearly identical explanations. This makes the content library easier to maintain and more useful to visitors.</p>"
+      },
+      {
+        "id": "seo-aeo",
+        "title": "How search intent supports SEO and AEO",
+        "body": "<p>Search engine optimisation (SEO) makes it easier for search engines and people to find and understand relevant website content. Answer engine optimisation (AEO) emphasises clear, useful information that can be understood when questions are answered through search and AI-driven interfaces.</p><p>Both benefit when a page addresses a genuine question clearly. For example, an article about search intent should define the phrase promptly, then explain categories, give examples and show how to apply them.</p><p>Descriptive headings, direct explanations and accurate examples help readers scan the content and give search systems understandable material to interpret.</p><p>However, no special heading structure or keyword formula guarantees higher rankings, a featured snippet or an AI-generated citation. The priority remains useful, accurate content.</p>"
+      },
+      {
+        "id": "mistakes",
+        "title": "Common search intent mistakes to avoid",
+        "body": "<ul><li><strong>Choosing keywords without thinking about customers.</strong> A topic can attract searches yet be unrelated to the services or knowledge the business can genuinely offer.</li><li><strong>Turning every article into a sales pitch.</strong> Educational visitors may want an answer long before they are ready to buy.</li><li><strong>Repeating the same text across different page types.</strong> A service page and a comparison article should have different jobs.</li><li><strong>Assuming a query has only one intent.</strong> “Website design cost” can combine learning and comparison; one strong guide may address both.</li><li><strong>Creating one page per minor keyword variation.</strong> Closely related searches often belong together on a well-organised page.</li><li><strong>Publishing without review.</strong> Use verified Search Console search queries and other appropriate visitor evidence to improve pages as needs change.</li></ul><p>Search intent research is a continuous editorial habit rather than a one-time keyword exercise.</p>"
+      },
+      {
+        "id": "exercise",
+        "title": "A simple 15-minute search intent exercise",
+        "body": "<p>Pick five questions the business receives regularly. For each one, record:</p><ol><li><strong>Search phrase:</strong> How would a customer express the question in a search engine?</li><li><strong>Likely purpose:</strong> Are they learning, finding, comparing or preparing to act?</li><li><strong>Best page format:</strong> Would a guide, comparison or service page be more helpful?</li><li><strong>Main answer:</strong> What should the reader understand early?</li><li><strong>Next step:</strong> Which related page would genuinely help next?</li></ol><p><strong>Worked example:</strong> A customer asks, “Do I need a new website or can I improve my current one?” This is likely a comparison-stage question. A helpful article would explain signs that support improvement, signs that justify rebuilding, and what to review before deciding.</p><p>Instead of sending every visitor directly to a sales form, link first to the relevant checklist, then offer the website design service page for those ready to discuss a project.</p>"
+      },
+      {
+        "id": "faq",
+        "title": "Frequently asked questions",
+        "body": "<h3>What is search intent in simple words?</h3><p>Search intent is why someone performs a search. They might want to learn something, find a particular destination, compare options or take an action.</p><h3>What are the four types of search intent?</h3><p>The four common categories are informational, navigational, commercial investigation and transactional intent. Individual queries sometimes overlap.</p><h3>Is search intent important for local businesses?</h3><p>Yes. Local customers might search for nearby services, compare providers or look for contact information. Clear service descriptions and accurate business information support those different needs.</p><h3>Can search intent improve Google rankings?</h3><p>Matching the purpose behind a search can make content more relevant and useful. Rankings depend on many factors, however, and no content approach guarantees a particular position.</p><h3>Does every search keyword need its own page?</h3><p>No. Closely related searches with the same underlying purpose may be answered together on one strong page. Repeating nearly identical pages for minor keyword variations often adds little value.</p>"
+      },
+      {
+        "id": "conclusion",
+        "title": "Final thoughts: start with the customer's purpose",
+        "body": "<p>Search intent changes the question a business asks when planning content. Rather than starting with “Which keyword should we target?”, ask <strong>“What does our potential customer need at this moment?”</strong></p><p>Sometimes people need an explanation. Sometimes they need to compare. Sometimes they are ready to contact a provider. A helpful website recognises these differences and makes the right information easier to find.</p><p>At <a href=\"/\">Neloy Digital Solutions</a>, we focus on clear, useful digital communication that supports real customer decisions. Explore our <a href=\"/digital-marketing\">digital marketing services</a> for more information about relevant website content and customer journeys.</p>"
+      }
+    ]
+  },
+  {
     "title": "Why Some Business Websites Feel Difficult to Use Even When They Look Modern",
     "slug": "why-some-business-websites-feel-difficult-to-use-even-when-they-look-modern",
     "metaTitle": "Why Modern Business Websites Can Be Hard to Use | Neloy Digital Solutions",

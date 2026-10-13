@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Search Intent: Four Customer Goals — Neloy Digital Solutions</title>
+<desc id="desc">Manual educational diagram with four common kinds of search intent: Learn, Find, Compare, and Act. Each includes an example search and the best-fit type of web page. Designed as an original branded graphic for the Neloy Digital Solutions B026 blog article.</desc>
+<rect width="1200" height="630" fill="#F6FAFD"/>
+<rect x="42" y="36" width="1116" height="556" rx="26" fill="#FFFFFF" stroke="#DCE9F3" stroke-width="2"/>
+<path d="M 69 74 H 92" stroke="#15A6D1" stroke-width="5" stroke-linecap="round"/>
+<text x="104" y="81" font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" font-weight="800" fill="#0B4F8C" letter-spacing="1.1">NELOY DIGITAL SOLUTIONS</text>
+<rect x="916" y="57" width="211" height="39" rx="19" fill="#EAF6FB"/>
+<text x="1021.5" y="82" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="16" fill="#0C5F9D" font-weight="700">SEO + AEO GUIDE</text>
+<text x="76" y="147" font-family="Inter, Arial, Helvetica, sans-serif" font-size="47" font-weight="800" fill="#071B33">Search Intent: 4 Customer Goals</text>
+<text x="78" y="187" font-family="Inter, Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#557084">Match the page to what someone is actually trying to do.</text>
+<path d="M76 204 H1124" stroke="#DDEAF3" stroke-width="2"/>
+<g font-family="Inter, Arial, Helvetica, sans-serif">
+<g>
+<rect x="76" y="223" width="511" height="143" rx="19" fill="#F2FAFE" stroke="#B7DCEC" stroke-width="2"/>
+<rect x="76" y="244" width="6" height="101" rx="3" fill="#137FD0"/>
+<circle cx="125" cy="292" r="30" fill="#FFFFFF" stroke="#B7DCEC" stroke-width="2"/>
+<path d="M 110 280 Q 117 277 125 282 V 306 Q 117 302 110 304 Z" fill="none" stroke="#137FD0" stroke-width="2.6" stroke-linejoin="round"/><path d="M140 280 Q133 277 125 282 V306 Q133 302 140 304 Z" fill="none" stroke="#137FD0" stroke-width="2.6" stroke-linejoin="round"/>
+<text x="169" y="262" fill="#137FD0" font-size="22" font-weight="800" letter-spacing=".1">LEARN</text>
+<text x="552" y="260" text-anchor="end" fill="#536B7E" font-size="12" font-weight="700" letter-spacing="1">INFORMATIONAL</text>
+<text x="169" y="303" fill="#071B33" font-size="22" font-weight="700">“What is search intent?”</text>
+<text x="169" y="337" fill="#446176" font-size="17" font-weight="500">Best page: Educational guide</text>
+</g>
+<g>
+<rect x="613" y="223" width="511" height="143" rx="19" fill="#F6F9FD" stroke="#CFDAE8" stroke-width="2"/>
+<rect x="613" y="244" width="6" height="101" rx="3" fill="#0D5A9D"/>
+<circle cx="662" cy="292" r="30" fill="#FFFFFF" stroke="#CFDAE8" stroke-width="2"/>
+<circle cx="659" cy="289" r="10" fill="none" stroke="#0D5A9D" stroke-width="2.8"/><path d="M667 297 L678 308" stroke="#0D5A9D" stroke-width="3" stroke-linecap="round"/>
+<text x="706" y="262" fill="#0D5A9D" font-size="22" font-weight="800" letter-spacing=".1">FIND</text>
+<text x="1089" y="260" text-anchor="end" fill="#536B7E" font-size="12" font-weight="700" letter-spacing="1">NAVIGATIONAL</text>
+<text x="706" y="303" fill="#071B33" font-size="22" font-weight="700">“Neloy Digital Solutions”</text>
+<text x="706" y="337" fill="#446176" font-size="17" font-weight="500">Best page: Official homepage</text>
+</g>
+<g>
+<rect x="76" y="379" width="511" height="143" rx="19" fill="#F6F9FD" stroke="#CEDCE9" stroke-width="2"/>
+<rect x="76" y="400" width="6" height="101" rx="3" fill="#0C72B4"/>
+<circle cx="125" cy="448" r="30" fill="#FFFFFF" stroke="#CEDCE9" stroke-width="2"/>
+<path d="M110 441 H140 M133 434 L140 441 L133 448" fill="none" stroke="#0C72B4" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M140 456 H110 M117 449 L110 456 L117 463" fill="none" stroke="#0C72B4" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="169" y="418" fill="#0C72B4" font-size="22" font-weight="800" letter-spacing=".1">COMPARE</text>
+<text x="552" y="416" text-anchor="end" fill="#536B7E" font-size="12" font-weight="700" letter-spacing="1">COMMERCIAL</text>
+<text x="169" y="459" fill="#071B33" font-size="22" font-weight="700">“Redesign vs new website”</text>
+<text x="169" y="493" fill="#446176" font-size="17" font-weight="500">Best page: Comparison guide</text>
+</g>
+<g>
+<rect x="613" y="379" width="511" height="143" rx="19" fill="#EFFAFC" stroke="#B6E3E8" stroke-width="2"/>
+<rect x="613" y="400" width="6" height="101" rx="3" fill="#099CAD"/>
+<circle cx="662" cy="448" r="30" fill="#FFFFFF" stroke="#B6E3E8" stroke-width="2"/>
+<path d="M649 434 L674 449 L663 452 L668 465 L661 468 L656 454 L649 462 Z" fill="none" stroke="#099CAD" stroke-width="2.7" stroke-linejoin="round"/>
+<text x="706" y="418" fill="#099CAD" font-size="22" font-weight="800" letter-spacing=".1">ACT</text>
+<text x="1089" y="416" text-anchor="end" fill="#536B7E" font-size="12" font-weight="700" letter-spacing="1">TRANSACTIONAL</text>
+<text x="706" y="459" fill="#071B33" font-size="22" font-weight="700">“Hire a website designer”</text>
+<text x="706" y="493" fill="#446176" font-size="17" font-weight="500">Best page: Service / contact page</text>
+</g>
+</g>
+<rect x="76" y="541" width="1048" height="41" rx="12" fill="#071B33"/>
+<text x="600" y="568" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="18.5" font-weight="700" fill="#FFFFFF">Build for the visitor's purpose — not just the keyword.</text>
+</svg>
