@@ -653,7 +653,97 @@ export const articles = [
       {id:'demo', title:'Approve a short demo before the full edit', body:`<p>A short representative sample can settle caption styling, voice clarity, framing and pacing early. Choose a section that includes the main types of footage rather than an unusually simple opening. Review it on a phone with sound and without sound if both matter to your audience.</p><p>Send one consolidated feedback list. Include the timecode, observation and requested outcome: “00:08: the caption covers the product; move it into the clear lower area.” Separate factual corrections from preferences and new requirements. Confirm the agreed direction before the editor applies it across the full video.</p>`},
       {id:'handover-checklist', title:'Final handover checklist', body:`<ul><li>Viewer, purpose, platform, aspect ratio and target length are stated.</li><li>Original footage and matching audio are uploaded and accessible.</li><li>Must-include and must-remove moments have filenames and timecodes.</li><li>Logo, required wording and caption spelling are approved.</li><li>Rights or restrictions for supplied music and media are explained.</li><li>Demo reviewer, revision process and delivery date are agreed.</li><li>Final export, subtitle and project-file requirements are confirmed.</li></ul><p>After delivery, watch the complete export rather than checking only the opening. Confirm captions, audio, the final message and the file versions. Keep approved exports separate from drafts. For help with reels, podcasts or promotional edits, see our <a href="https://neloydigitalsolutions.com/video-editing">video editing services</a> and share this checklist with your project brief.</p>`}
     ]
-  }
+  },
+  {
+  "title": "How to Make a Website Easier to Scan on Mobile",
+  "slug": "how-to-make-a-website-easier-to-scan-on-mobile",
+  "metaTitle": "How to Make a Website Easier to Scan on Mobile | Neloy Digital Solutions",
+  "metaDescription": "Learn how to make a business website easier to scan on a phone with clearer headings, shorter paragraphs, better spacing, readable text and useful calls to action.",
+  "category": "Website Design & UX",
+  "published": true,
+  "datePublished": "2026-10-14T14:29:48.332Z",
+  "dateModified": "2026-10-14T14:29:48.332Z",
+  "summary": "A practical mobile readability guide covering clearer headings, shorter paragraphs, spacing, readable text, focused calls to action and a 10-minute checklist.",
+  "image": {
+    "src": "/assets/blog/mobile-scanability-manual.svg",
+    "alt": "Manual comparison graphic of a crowded mobile page and a clearer mobile page, highlighting headings, shorter paragraphs, spacing and a single primary action.",
+    "width": 1200,
+    "height": 630,
+    "caption": "A manual comparison of mobile pages: reduce clutter, make headings useful and provide one clear primary action."
+  },
+  "serviceLinks": [
+    {
+      "path": "/website-design",
+      "label": "Website design services"
+    },
+    {
+      "path": "/digital-marketing",
+      "label": "Digital marketing services"
+    }
+  ],
+  "relatedSlugs": [
+    "why-some-business-websites-feel-difficult-to-use-even-when-they-look-modern",
+    "how-to-decide-what-belongs-above-the-fold-on-a-business-website",
+    "what-makes-a-service-page-easy-to-understand"
+  ],
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "body": "<p>A business website can look polished on a large screen and still feel tiring on a phone. The problem is not always the colours, photographs or loading speed. Sometimes visitors simply cannot tell where to look, what matters or what to do next.</p><p>People often scan a mobile page before deciding whether to read it closely. They look for a useful heading, a short explanation, the information they came for and a clear next step. A page that makes these things easy to find is more welcoming than one that presents every detail at once.</p><p><strong>The short answer:</strong> To make a website easier to scan on mobile, lead with the main message, use descriptive headings, keep paragraphs focused, create visible space between sections and make the most important action easy to recognise.</p>"
+    },
+    {
+      "id": "1-start-with-the-visitor-s-question",
+      "title": "1. Start with the visitor's question",
+      "body": "<p>Before changing the layout, ask why somebody would open the page on a phone. A visitor to a web-design page might want to know what the service includes. A visitor to a portfolio may want examples of past projects. Someone on a contact page probably wants a fast way to get in touch.</p><p>Write one simple sentence that answers the primary question. Put that message near the start of the page rather than hiding it below an introduction about the company.</p><p>For example, <strong>“We create mobile-friendly websites for small businesses”</strong> explains the offer more directly than <strong>“Welcome to our official website.”</strong> The rest of the page can provide useful detail.</p>"
+    },
+    {
+      "id": "2-use-headings-that-explain-what-comes-next",
+      "title": "2. Use headings that explain what comes next",
+      "body": "<p>Good headings work like signposts. Instead of vague labels such as “Solutions” or “More Information,” try descriptive headings such as “What our website package includes” or “How long the project usually takes.”</p><p>A mobile reader should be able to scroll through the headings and understand the structure without reading every paragraph. Organise the content in a logical order: what it is, who it helps, how it works, evidence or examples, and the next step.</p><p>Keep a clear heading hierarchy. Use one main page heading and meaningful subheadings. This also helps visitors using assistive technologies navigate the page.</p>"
+    },
+    {
+      "id": "3-break-large-paragraphs-into-smaller-ideas",
+      "title": "3. Break large paragraphs into smaller ideas",
+      "body": "<p>A paragraph that looks modest on desktop may become a wall of text on a narrow screen. Each paragraph should focus on one idea. When several items need equal attention, a short list or a sequence of clearly labelled steps may be more useful.</p><p>You do not need to remove all detail. A helpful article should still answer questions properly. The aim is to make the same information easier to follow.</p><p>When editing, look for repeated phrases, long introductions and sentences that combine several unrelated points. Keep examples and necessary explanations; remove filler.</p>"
+    },
+    {
+      "id": "4-give-important-elements-breathing-room",
+      "title": "4. Give important elements breathing room",
+      "body": "<p>Space helps readers recognise when one topic ends and another begins. Headings, paragraphs, cards, images and buttons need enough separation to communicate their relationship.</p><p>Avoid filling every empty area with an icon, badge, animation or extra button. Decorative details should support the content, not compete with it. A simpler page does not mean an empty one—it means the useful information has room to stand out.</p><p>Check spacing on an actual phone, not only in a desktop design preview. A section can appear balanced at 1440 pixels wide but crowded at mobile width.</p>"
+    },
+    {
+      "id": "5-make-text-readable-without-zooming",
+      "title": "5. Make text readable without zooming",
+      "body": "<p>Choose body text that is comfortably readable on the devices your visitors use. Give it enough contrast against the background and enough line spacing to separate lines clearly. Avoid placing long paragraphs on top of photographs or busy gradients.</p><p>Long strings such as website addresses should wrap rather than forcing the entire page to scroll sideways. Navigation, buttons and forms should also fit within the screen width. The W3C's accessibility guidance on <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/reflow.html\">reflow</a> explains why content should adapt to narrow viewports without losing information or functionality.</p><p>Try reading a whole page with one hand while standing or walking slowly in a safe place. If you repeatedly have to pinch, zoom or hunt for a button, the page needs another review.</p>"
+    },
+    {
+      "id": "6-give-each-section-a-clear-next-step",
+      "title": "6. Give each section a clear next step",
+      "body": "<p>When three equally bright buttons compete at the top of a page, the visitor has to work out which one matters. Choose one primary action for the current stage of the journey. Supporting links can remain visible, but should not have the same visual weight.</p><p>For a service page, a useful action might be <strong>“View recent projects”</strong> before a contact option. For an educational article, related reading may be more appropriate than a sales form. Match the action to what visitors are ready to do—not merely what you want them to click.</p><p>Use specific button labels. “See website design examples” is more informative than “Click here.”</p>"
+    },
+    {
+      "id": "7-keep-essential-content-available-on-mobile",
+      "title": "7. Keep essential content available on mobile",
+      "body": "<p>Improving scanability is not the same as hiding important information. Visitors still need service details, prices or pricing explanations where relevant, contact information, policies and examples of work.</p><p>Google explains in its <a href=\"https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing\">mobile-first indexing guidance</a> that the mobile version of a page is used for indexing, and recommends equivalent important content on mobile and desktop. You can rearrange the presentation for a smaller screen without stripping away the main information.</p><p>Use accordions or expandable details when they genuinely make a long page more manageable, while ensuring the content remains accessible and usable.</p>"
+    },
+    {
+      "id": "a-quick-before-and-after-example",
+      "title": "A quick before-and-after example",
+      "body": "<p><strong>Hard to scan:</strong> A page opens with “Welcome to our company,” two dense paragraphs, six service buttons and a rotating banner. The visitor must scroll to discover what the business actually provides.</p><p><strong>Easier to scan:</strong> The page opens with “Website design for small businesses,” a one-sentence explanation, one clear “View our work” button and a short list of services. Further down are project examples, the process and a contact option.</p><p>Both pages may contain similar information. The second gives the visitor a clearer route through it.</p>"
+    },
+    {
+      "id": "a-ten-minute-mobile-scanability-review",
+      "title": "A 10-minute mobile scanability review",
+      "body": "<p>Open your most important page on a phone and try this practical test:</p><ol><li><strong>First screen:</strong> Can you tell what the page offers before scrolling?</li><li><strong>Headings:</strong> Can you understand the main sections from their headings alone?</li><li><strong>Paragraphs:</strong> Is each block of text focused and easy to follow?</li><li><strong>Spacing:</strong> Do unrelated elements have enough space between them?</li><li><strong>Buttons:</strong> Is the most important action obvious and comfortably tappable?</li><li><strong>Layout:</strong> Can you read the page without horizontal scrolling or zooming?</li><li><strong>Information:</strong> Are useful details and contact options still available on mobile?</li></ol><p>Record the three biggest problems and fix those first. You do not need to redesign an entire website to improve how it reads on a phone.</p>"
+    },
+    {
+      "id": "final-takeaway",
+      "title": "Final takeaway",
+      "body": "<p>A mobile-friendly website is not only one that shrinks to fit the screen. It should make the visitor's next decision easier. Clear headings, focused writing, useful spacing and thoughtful actions can improve the experience while preserving the information customers need.</p><p>If you are reviewing your own business website, start with the homepage and your most visited service page. For more practical ideas, explore Neloy Digital Solutions' <a href=\"https://neloydigitalsolutions.com/website-design\">website design services</a> and <a href=\"https://neloydigitalsolutions.com/digital-marketing\">digital marketing services</a>.</p><p><strong>Further reading:</strong> <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/reflow.html\">W3C Understanding Reflow</a> · <a href=\"https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing\">Google Search Central: Mobile-first indexing best practices</a></p>"
+    }
+  ]
+}
 ];
 
 // Canonicals and publisher are derived to keep every article on the main domain.
