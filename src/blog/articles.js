@@ -843,6 +843,110 @@ export const articles = [
         "body": "<p>A clear CTA should help the visitor complete a meaningful task. If you have suitable consent-aware analytics and form records, review metrics such as CTA clicks, completed enquiries, form errors, or visits to the next relevant page. Clicks alone are not proof that a button is successful; a misleading label can also get clicks.</p><p>Compare these results with the question the CTA was meant to answer. For example, “View recent projects” should take the visitor to useful examples, while “Send a project enquiry” should lead to an understandable contact process.</p><h3>Final thought</h3><p>A good call to action makes a useful next step feel easy. Write the button in the visitor's language, give it honest context, make it comfortable to use, and let people choose their own pace. Clarity earns more trust than unnecessary pressure.</p><p>If you're reviewing the rest of your business website, explore Neloy Digital Solutions' <a href=\"/website-design\">website design services</a> and <a href=\"/digital-marketing\">digital marketing services</a>.</p><h3>Sources and accessibility references</h3><ul><li>GOV.UK Design System — Button component: https://design-system.service.gov.uk/components/button/</li><li>W3C WCAG 2.2 — Understanding Target Size (Minimum): https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum</li><li>W3C WCAG 2.2 — Understanding Link Purpose (In Context): https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html</li></ul>"
       }
     ]
+  },
+  {
+    "title": "How to Organize Multiple Services Without Confusing Website Visitors",
+    "slug": "how-to-organize-multiple-services-without-confusing-website-visitors",
+    "metaTitle": "How to Organize Services on Your Business Website | Neloy Digital Solutions",
+    "metaDescription": "Learn how to organize multiple business services with clear categories, useful service pages, simple navigation and an easy path to enquiries.",
+    "category": "Website Design & UX",
+    "published": true,
+    "datePublished": "2026-10-15T10:23:10.442Z",
+    "dateModified": "2026-10-15T10:23:10.442Z",
+    "summary": "Learn how to group multiple services by customer needs, write clearer navigation labels, build useful service pages, and connect related offers without overwhelming visitors.",
+    "image": {
+      "src": "/assets/blog/service-hierarchy-manual.svg",
+      "alt": "Manually designed service-hierarchy illustration showing a business website, three customer-focused service categories and five dedicated service pages.",
+      "width": 1200,
+      "height": 630,
+      "caption": "A simple service overview connects visitors with the right category and detailed service page."
+    },
+    "serviceLinks": [
+      {
+        "path": "/website-design",
+        "label": "Website design services"
+      },
+      {
+        "path": "/logo-design",
+        "label": "Logo design services"
+      },
+      {
+        "path": "/video-editing",
+        "label": "Video editing services"
+      }
+    ],
+    "relatedSlugs": [
+      "what-makes-a-service-page-easy-to-understand",
+      "how-to-make-a-website-easier-to-scan-on-mobile",
+      "what-makes-a-website-call-to-action-feel-clear-instead-of-pushy"
+    ],
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Why organising services matters",
+        "body": "<p>A business often grows beyond its first service. A designer adds video editing. A web agency starts offering branding and digital marketing. A consultant expands into several related packages. Growth is good, but a website can become difficult to navigate when every new offer is squeezed into the homepage menu.</p><p>Visitors do not arrive with an understanding of your internal departments. They arrive with a problem: <em>I need a website</em>, <em>I need a logo</em>, or <em>I need help creating videos</em>. If the website makes them decode your service list before they can find an answer, it creates unnecessary work.</p><p><strong>The short answer:</strong> Organize services by the decisions customers need to make. Use a short, understandable service overview, group closely related offers, give important services their own helpful pages and make the next step obvious. Your site structure should reflect customer questions—not just the way your business is organized behind the scenes.</p>"
+      },
+      {
+        "id": "write-down-every-service-then-group-them-by-customer-need",
+        "title": "1. Write down every service, then group them by customer need",
+        "body": "<p>Start with a complete inventory of your offers. Include the service name, who it helps, what the customer receives and the main question they will ask before buying. Do this before editing your navigation menu.</p><p>Next, look for natural groups. A creative agency might organize offers into <strong>Websites</strong>, <strong>Branding</strong>, <strong>Content</strong>, and <strong>Growth</strong>. For example, a visitor looking for a new site could head straight to a clearly named <a href=\"/website-design\">website design service page</a>, rather than interpreting a broad &quot;digital experiences&quot; label. The goal is not to force every service into a perfect four-column system. The goal is to help visitors predict where to click.</p><p>If two offers appeal to different customer needs, do not group them merely because the same person delivers both. On the other hand, if customers regularly consider two services together, show that relationship.</p><p>For example, <a href=\"/logo-design\">Logo Design</a> and brand identity could sit together, while <a href=\"/video-editing\">Video Editing</a> belongs in a content-focused group. A visitor looking for a business website should not have to explore an unrelated video-editing menu first.</p>"
+      },
+      {
+        "id": "use-service-names-your-customers-understand",
+        "title": "2. Use service names your customers understand",
+        "body": "<p>Internal labels can feel professional to the company but unclear to visitors. Words such as “Digital Solutions,” “Creative Excellence” or “Growth Experiences” may be fine as brand language, yet they rarely tell someone exactly what a service page contains.</p><p>Prefer descriptive labels such as <strong>Website Design</strong>, <strong>Logo Design</strong>, <strong>Video Editing</strong>, and <strong>Digital Marketing</strong>. If you offer several specialist services, use those direct labels in the overview and page headings.</p><p>A useful check is to show the menu to someone unfamiliar with your business and ask: “Where would you click to request a new logo?” If they hesitate, the label or grouping needs attention.</p><p>Descriptive labels also support accessibility. The <a href=\"https://www.w3.org/WAI/people-use-web/tools-techniques/navigation/\">W3C Web Accessibility Initiative</a> explains that informative titles, headings and link labels help people navigate websites in different ways, including with assistive technologies.</p>"
+      },
+      {
+        "id": "keep-the-main-navigation-focused",
+        "title": "3. Keep the main navigation focused",
+        "body": "<p>The main menu is a signpost, not a complete company catalogue. A small service business often needs a straightforward path to Home, Services, Work or Portfolio, About, and Contact. The navigation should let someone move from a relevant service into examples of work, not force them to search through a long list of loosely related offers. The exact menu will vary, but visitors should not have to scan 12 equally prominent service links at once.</p><p>If there are many offers, make <strong>Services</strong> a clear starting point and provide a well-structured overview page. A dropdown can be useful when the categories are easy to understand and work properly on touchscreens and keyboards. Avoid adding layers of nested menus just to fit more links.</p><p>Keep the position and wording of repeated navigation consistent across the site. This follows the principle behind <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation\">WCAG 2.2's consistent navigation guidance</a>, which helps visitors predict where familiar controls will appear.</p>"
+      },
+      {
+        "id": "create-a-service-overview-that-helps-people-choose",
+        "title": "4. Create a service overview that helps people choose",
+        "body": "<p>An overview page should do more than display a grid of icons. Give each service a clear name, a brief explanation, who it is for and a direct link to the detailed page.</p><p>A useful service card might read:</p><p><strong>Website Design</strong> — Planning and building mobile-friendly websites for small businesses. <a href=\"/website-design\">Explore website design</a>.</p><p>Another card could say:</p><p><strong>Video Editing</strong> — Editing raw footage into clear social clips, branded videos and presentations. <a href=\"/video-editing\">Explore video editing</a>.</p><p>Keep card descriptions distinct. If every card says “We deliver high-quality, professional solutions,” visitors cannot compare them. Explain the outcome and the typical use case instead.</p><p>Where relevant, you can also show a simple <em>Not sure where to start?</em> link to a contact page or project enquiry form. This supports uncertain visitors without making every service card a sales pitch.</p>"
+      },
+      {
+        "id": "give-major-services-a-dedicated-page",
+        "title": "5. Give major services a dedicated page",
+        "body": "<p>A dedicated service page is useful when customers need a proper explanation before deciding. It can answer questions that would overwhelm a compact overview card: what is included, who it fits, what the process looks like, what the customer needs to supply and examples of related work.</p><p>If you need a more detailed breakdown, the existing article on <a href=\"/blog/what-makes-a-service-page-easy-to-understand\">what makes a service page easy to understand</a> walks through the information customers need. A practical service page structure is:</p><ol><li>A clear headline that names the service.</li><li>A short explanation of who it helps and the problem it solves.</li><li>Deliverables, examples or a typical project scope.</li><li>The steps involved and what the client must prepare.</li><li>Answers to realistic questions.</li><li>One relevant next action, such as reviewing projects or sending an enquiry.</li></ol><p>Do not create dozens of near-identical pages just to target different keywords. If two services are almost indistinguishable to the customer, one thorough page with well-marked sections might be more helpful than two thin pages.</p>"
+      },
+      {
+        "id": "show-relationships-between-services-without-forcing-a-package",
+        "title": "6. Show relationships between services without forcing a package",
+        "body": "<p>Related services can support each other. Someone commissioning a new website may also need a logo. A business planning social campaigns may need video editing and consistent graphics.</p><p>Use a small <strong>Related services</strong> section where the connection is genuine. For example, a <a href=\"/website-design\">website design</a> page could link naturally to <a href=\"/logo-design\">logo design</a> when discussing visual branding, or to <a href=\"/digital-marketing\">digital marketing</a> when discussing how customers will discover the site after launch.</p><p>The link should describe the relationship. Instead of repeating “Learn more” across several cards, write “See our logo design process” or “Explore digital marketing support.” Visitors should understand the destination before clicking.</p><p>This also creates an internal linking structure that makes related content easier to find. Google recommends creating <a href=\"https://developers.google.com/search/docs/fundamentals/creating-helpful-content\">helpful, people-first content</a>, so links should help the reader—not exist only to manipulate search traffic.</p>"
+      },
+      {
+        "id": "check-the-service-structure-on-a-phone",
+        "title": "7. Check the service structure on a phone",
+        "body": "<p>A layout that looks simple in four desktop columns may feel exhausting when it becomes a long stack of cards on mobile. Review the order of categories and place the most commonly needed information early. Keep headings short and buttons readable.</p><p>Test the path from the homepage to a specific service and then to the contact option. Can someone do it without zooming, opening multiple nested menus or scrolling back to the top? If not, simplify that journey. The checklist in <a href=\"/blog/how-to-make-a-website-easier-to-scan-on-mobile\">How to Make a Website Easier to Scan on Mobile</a> helps you check heading lengths, spacing, button placement and reading flow.</p><p>Use meaningful links and headings so people who navigate by keyboard or screen reader can also follow the structure. Keep relevant details available on mobile rather than hiding important content just to make the page look shorter.</p>"
+      },
+      {
+        "id": "example-organize-a-small-creative-agency",
+        "title": "8. Example: organize a small creative agency",
+        "body": "<p>Imagine a business offering website design, logo design, social media graphics, video editing and digital marketing. Instead of listing everything in an unstructured block, the service overview could use three easy-to-scan groups:</p><p><strong>Build your online presence:</strong> Website Design, Logo Design. <strong>Create content:</strong> Graphic Design, Video Editing. <strong>Reach customers:</strong> <a href=\"/digital-marketing\">Digital Marketing</a>.</p><p>Each service then links to its own detailed page. The homepage highlights the most common customer decisions and a portfolio shows actual work. The contact page supports questions that do not fit a single category. Each detailed page should offer a calm, understandable next action; the separate guide on <a href=\"/blog/what-makes-a-website-call-to-action-feel-clear-instead-of-pushy\">website calls to action that are clear instead of pushy</a> provides examples.</p><p>This is only an example, not a universal rule. A construction company, local clinic or professional adviser should choose groups that reflect their own customers' priorities.</p>"
+      },
+      {
+        "id": "a-simple-example-of-better-labels-and-links",
+        "title": "A simple example of better labels and links",
+        "body": "<p>Consider an agency that currently uses a menu containing <em>Creative</em>, <em>Solutions</em>, <em>Production</em> and <em>Growth</em>. Those labels may be meaningful internally, but a visitor may not know whether a new logo belongs under Creative or Solutions.</p><p>A clearer alternative is a <strong>Services</strong> overview with familiar groups. Its first card can explain &quot;We plan and build responsive business websites&quot; and link directly to <a href=\"/website-design\">Website Design</a>. A second card can explain &quot;We create logos and consistent brand visuals&quot; and link to <a href=\"/logo-design\">Logo Design</a>. For content, show links to <a href=\"/social-media-design\">Social Media Design</a> and <a href=\"/video-editing\">Video Editing</a>. A final card can explain when <a href=\"/digital-marketing\">Digital Marketing</a> is relevant.</p><p>This approach does not hide services or create extra sales pressure. It provides a predictable route from a broad question to a more specific answer, with fewer guesses along the way.</p>"
+      },
+      {
+        "id": "a-15-minute-service-structure-checklist",
+        "title": "A 15-minute service-structure checklist",
+        "body": "<p>Open your current website and make one pass through the following questions:</p><ul><li>Can a first-time visitor find the main Services page immediately?</li><li>Are service labels recognizable without industry jargon?</li><li>Do categories reflect what customers want to accomplish?</li><li>Does each main service card explain a distinct outcome?</li><li>Can visitors compare services without opening five separate tabs?</li><li>Does each important service have enough useful detail?</li><li>Are related service links genuinely relevant?</li><li>Can visitors reach the enquiry page easily on desktop and mobile?</li></ul><p>Ask two people who do not work in your business to complete a simple task such as finding your video editing page. Watch where they hesitate. Their confusion may reveal a problem that your own team no longer notices.</p>"
+      },
+      {
+        "id": "quick-faq-organizing-service-pages",
+        "title": "Quick FAQ: organizing service pages",
+        "body": "<h3>Should every business service have its own page?</h3><p>Not necessarily. Give a service its own page when customers need distinct details, examples, questions or steps to understand it. Keep very closely related offers together when separate pages would repeat the same information. The visitor's decision should guide the split, not the number of keywords you want to target.</p><h3>Is a dropdown menu better than listing all services?</h3><p>A dropdown can help when it uses recognizable groups and works with touch, keyboard and assistive technology. For a small number of services, visible links may be simpler. Test both with people unfamiliar with your website before choosing.</p><h3>How many links should a service overview contain?</h3><p>There is no universal magic number. Include all important services in a logical hierarchy, show the most relevant choices first, and avoid giving everything equal visual weight. Measure whether visitors can find a specific service quickly.</p><h3>Should I repeat the same call to action on every service page?</h3><p>The action should match the reader's stage. Someone learning about a service may want examples first; someone who understands the scope may be ready to request a quote. For wording examples, see our <a href=\"/blog/what-makes-a-website-call-to-action-feel-clear-instead-of-pushy\">practical CTA clarity guide</a>.</p>"
+      },
+      {
+        "id": "final-takeaway",
+        "title": "Final takeaway",
+        "body": "<p>When you offer multiple services, the best website structure is not necessarily the one with the shortest menu. It is the one that helps visitors recognise their need, find the right explanation and choose a sensible next step.</p><p>Start with customer-friendly names, a clear service overview and well-written dedicated pages. Add related links only where they provide useful context. The result is a site that feels easier to use without hiding the full range of what you do.</p><p>For examples of individual service pages, explore the website design, branding, video editing and digital marketing pages linked throughout this guide.</p><p><strong>References:</strong> <a href=\"https://www.w3.org/WAI/people-use-web/tools-techniques/navigation/\">W3C WAI — Navigating and finding</a> · <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation\">W3C — Consistent navigation</a> · <a href=\"https://developers.google.com/search/docs/fundamentals/creating-helpful-content\">Google Search Central — Helpful content</a>.</p>"
+      }
+    ]
   }
 ];
 
