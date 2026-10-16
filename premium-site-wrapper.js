@@ -113,6 +113,24 @@ function allowGa4(headers) {
     .replace(/(connect-src[^;]*)/i, "$1 https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com"));
 }
 
+// HubSpot tracking (portal 247710621, NA2). Loader is idempotent via id="hs-script-loader".
+// CSP sources per https://knowledge.hubspot.com/domains-and-urls/ssl-and-domain-security-in-hubspot
+const HUBSPOT_TAG = '<script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/247710621.js"></script>';
+
+function addHubSpot(html) {
+  if (html.includes('id="hs-script-loader"') || html.includes("hs-scripts.com/247710621.js")) return html;
+  if (/<\/body>/i.test(html)) return html.replace(/<\/body>(?![\s\S]*<\/body>)/i, HUBSPOT_TAG + "</body>");
+  return html.replace("</head>", HUBSPOT_TAG + "</head>");
+}
+
+function allowHubSpot(headers) {
+  const csp = headers.get("content-security-policy");
+  if (!csp || csp.includes("hs-scripts.com")) return;
+  headers.set("content-security-policy", csp
+    .replace(/(script-src[^;]*)/i, "$1 https://*.hs-scripts.com https://*.hs-analytics.net https://*.hs-banner.com https://*.hscollectedforms.net https://static.hsappstatic.net")
+    .replace(/(connect-src[^;]*)/i, "$1 https://*.hubspot.com https://*.hs-banner.com https://*.hscollectedforms.net https://*.hsforms.com"));
+}
+
 const FOOTER_EXPLORE_LINKS = '<nav class="nds-premium-explore-links" aria-label="Explore Neloy services"><a href="/showcase">Showcase</a><a href="/website-design">Website Design</a><a href="/logo-design">Logo Design</a><a href="/social-media-design">Social Media Design</a><a href="/video-editing">Video Editing</a><a href="/digital-marketing">Digital Marketing</a><a href="https://neloydigitalsolutions.com/blog">Blog</a></nav>';
 
 function addExploreLinks(html) {
@@ -144,14 +162,16 @@ export default {
       const page = renderBlog(path);
       if (page.status === 404) headers.set("x-robots-tag", "noindex, follow");
       allowGa4(headers);
-      return new Response(request.method === "HEAD" ? null : addAdSenseAccountMeta(addGa4(page.html)), {status:page.status, headers});
+      allowHubSpot(headers);
+      return new Response(request.method === "HEAD" ? null : addHubSpot(addAdSenseAccountMeta(addGa4(page.html))), {status:page.status, headers});
     }
 
     if (request.method === "GET" && path === "/privacy") {
-      const privacyHtml = addAdSenseAccountMeta(addGa4(addExploreLinks(privacyPage(url.origin).replace("<main>", '<main class="nds-premium-privacy">').replace("</head>", PREMIUM_PAGES_CSS + "</head>"))));
+      const privacyHtml = addHubSpot(addAdSenseAccountMeta(addGa4(addExploreLinks(privacyPage(url.origin).replace("<main>", '<main class="nds-premium-privacy">').replace("</head>", PREMIUM_PAGES_CSS + "</head>")))));
       const response = new Response(privacyHtml, {headers:{"content-type":"text/html; charset=utf-8","cache-control":"no-store"}});
       const headers = hardenResponse(response,url);
       allowGa4(headers);
+      allowHubSpot(headers);
       return new Response(response.body, {status:200, headers});
     }
 
@@ -194,11 +214,12 @@ export default {
       html = html.replace("</head>", '<style id="nds-top-blog-link-style">.top .navlinks a.nds-top-blog-link{display:inline-flex!important;align-items:center;white-space:nowrap}@media(max-width:980px){.top .nav{flex-wrap:wrap;gap:10px;padding-block:12px}.top .navlinks{margin-left:auto;gap:12px}}</style></head>');
     }
     if (path === "/") html = addHomepageSocialPreview(html);
-    html = addAdSenseAccountMeta(addGa4(addExploreLinks(html)));
+    html = addHubSpot(addAdSenseAccountMeta(addGa4(addExploreLinks(html))));
     const headers = new Headers(response.headers);
     headers.delete("content-length");
     headers.delete("etag");
     allowGa4(headers);
+    allowHubSpot(headers);
     if (html.includes('id="nds-video-editing-showreel-2026"')) allowNewShowreelFrame(headers);
     return new Response(html, {status:response.status,statusText:response.statusText,headers});
   }
