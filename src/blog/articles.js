@@ -947,6 +947,121 @@ export const articles = [
         "body": "<p>When you offer multiple services, the best website structure is not necessarily the one with the shortest menu. It is the one that helps visitors recognise their need, find the right explanation and choose a sensible next step.</p><p>Start with customer-friendly names, a clear service overview and well-written dedicated pages. Add related links only where they provide useful context. The result is a site that feels easier to use without hiding the full range of what you do.</p><p>For examples of individual service pages, explore the website design, branding, video editing and digital marketing pages linked throughout this guide.</p><p><strong>References:</strong> <a href=\"https://www.w3.org/WAI/people-use-web/tools-techniques/navigation/\">W3C WAI — Navigating and finding</a> · <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation\">W3C — Consistent navigation</a> · <a href=\"https://developers.google.com/search/docs/fundamentals/creating-helpful-content\">Google Search Central — Helpful content</a>.</p>"
       }
     ]
+  },
+  {
+    "title": "How to Review a Website Before Launch: A Practical Business Checklist",
+    "slug": "how-to-review-a-website-before-launch-a-practical-business-checklist",
+    "metaTitle": "Website Launch Checklist for Small Businesses | Neloy Digital Solutions",
+    "metaDescription": "Before launching your business website, check mobile usability, forms, content, speed, accessibility, SEO, security and tracking with this practical checklist.",
+    "category": "Website Design & UX",
+    "published": true,
+    "datePublished": "2026-10-16T10:41:00.000Z",
+    "dateModified": "2026-10-16T10:41:00.000Z",
+    "summary": "A practical small-business pre-launch website review checklist covering customer journeys, mobile use, working forms, accessibility, Core Web Vitals, SEO, privacy and analytics.",
+    "image": {
+      "src": "/assets/blog/website-launch-readiness-manual.svg",
+      "alt": "Manual website launch-readiness infographic showing three review areas: content and navigation, functionality and accessibility, and search and launch checks.",
+      "width": 1200,
+      "height": 630,
+      "caption": "Review content and navigation, functionality and trust, then search and launch settings before going live."
+    },
+    "serviceLinks": [
+      {
+        "path": "/website-design",
+        "label": "Website design services"
+      },
+      {
+        "path": "/showcase",
+        "label": "See our projects"
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-organize-multiple-services-without-confusing-website-visitors",
+      "how-to-make-a-website-easier-to-scan-on-mobile",
+      "what-makes-a-website-call-to-action-feel-clear-instead-of-pushy"
+    ],
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Before you launch: start with the visitor journey",
+        "body": "<p>A website can look finished in a design preview and still fail on its first working day. A contact form might not deliver messages. The main button might disappear on a small screen. A service page might contain a placeholder paragraph, or a search setting might accidentally hide the whole site from Google.</p><p>A good pre-launch review catches those problems <em>before</em> customers encounter them. You do not need a large quality-assurance team. You need a repeatable process, a few realistic visitor tasks and a clear decision about which issues must be fixed before launch.</p><p><strong>Quick answer:</strong> Before launching a business website, review the content, navigation, mobile experience, working links, enquiries, accessibility, performance, search settings, security and analytics. Test the critical customer journey end to end, then record any remaining issues with an owner and a deadline.</p>"
+      },
+      {
+        "id": "decide-what-the-website-must-help-a-visitor-do",
+        "title": "1. Decide what the website must help a visitor do",
+        "body": "<p>Start with the purpose of the site rather than the appearance of the homepage. A local service business may want visitors to understand the offer, examine past work and send an enquiry. A consultant may need visitors to compare expertise and book a call. An online shop has a different critical journey: finding a product, checking the details and completing checkout.</p><p>Write down <strong>three visitor tasks</strong> before you test anything. For a creative agency, those tasks might be: find <a href=\"/website-design\">website design services</a>, view relevant examples in the <a href=\"/showcase\">portfolio</a>, and reach the enquiry form. Ask someone unfamiliar with the website to complete each task without hints. Their hesitation often reveals problems that the project team has learned to ignore.</p>"
+      },
+      {
+        "id": "check-the-message-on-the-homepage-and-service-pages",
+        "title": "2. Check the message on the homepage and service pages",
+        "body": "<p>Read the website as if you knew nothing about the business. Can you tell what it does, who it helps and what comes next? Confirm that the headline is specific; service descriptions explain outcomes; real contact information is correct; and temporary design copy such as “Lorem ipsum,” “Coming soon,” or dummy client names has been removed.</p><p>For businesses with several offers, make sure the <a href=\"/blog/how-to-organize-multiple-services-without-confusing-website-visitors\">services are grouped around customer needs</a>. A visitor looking for a logo should not have to guess which abstract menu category contains <a href=\"/logo-design\">logo design</a>. Check that portfolio descriptions are accurate and that claims about clients, experience and results can be supported.</p>"
+      },
+      {
+        "id": "test-navigation-and-every-important-next-step",
+        "title": "3. Test navigation and every important next step",
+        "body": "<p>Click through the header menu, footer links, service cards, portfolio buttons and breadcrumb links. Check the destination rather than merely noting that something is clickable. A “See our work” button should show examples; a “Request a quote” button should lead to a real enquiry path.</p><p>Keep button language clear and honest. The guide on <a href=\"/blog/what-makes-a-website-call-to-action-feel-clear-instead-of-pushy\">calls to action that feel clear rather than pushy</a> explains how wording helps people predict the next step. On a mobile device, make sure menus open, close and remain usable with touch or keyboard controls. Avoid links that unexpectedly open empty or unrelated pages.</p>"
+      },
+      {
+        "id": "review-the-layout-on-actual-phones-not-only-a-desktop-preview",
+        "title": "4. Review the layout on actual phones, not only a desktop preview",
+        "body": "<p>Look at a narrow phone screen and a tablet or laptop. Read the first screenful, scroll through long sections and complete the main visitor task on each. Watch for overflowing headings, tiny text, cramped buttons, horizontal scrolling and images that crop important information. Check both portrait and landscape when the interface changes meaningfully.</p><p>Mobile readability is about more than shrinking desktop columns. Shorter headings, understandable section breaks and enough spacing can help customers scan without losing context. Use the practical checks in <a href=\"/blog/how-to-make-a-website-easier-to-scan-on-mobile\">making a website easier to scan on mobile</a> for a more detailed review.</p>"
+      },
+      {
+        "id": "submit-the-contact-form-and-verify-actual-delivery",
+        "title": "5. Submit the contact form and verify actual delivery",
+        "body": "<p><strong>A form that looks correct is not necessarily working.</strong> Send a real test enquiry through the public form with a recognizable subject such as “Pre-launch test — please ignore.” Confirm that the browser gives a useful success message, the email or lead record actually arrives, and a reply can be sent through the intended process.</p><p>Also test an empty required field, a mistyped email address, and a long but reasonable message. Error messages should explain what needs fixing without erasing the visitor's work. Check any WhatsApp or email buttons using real destination links. If notifications go to several inboxes or an admin panel, verify the <em>correct</em> recipient rather than assuming delivery.</p>"
+      },
+      {
+        "id": "audit-images-media-and-broken-links",
+        "title": "6. Audit images, media and broken links",
+        "body": "<p>Open important pages and look for missing image files, stretched logos, broken videos or documents that cannot be downloaded. Check that images are sized sensibly and do not make the page unnecessarily heavy. Ensure that portfolio photos, testimonials, logos and video clips are yours or appropriately licensed for your planned use.</p><p>Meaningful images should have helpful text alternatives; decorative images should not force screen readers to announce irrelevant details. The <a href=\"https://www.w3.org/WAI/tutorials/images/\">W3C's images tutorial</a> explains the difference. Also check that external links lead to the correct source and that internal links use the website's preferred domain.</p>"
+      },
+      {
+        "id": "measure-speed-and-visual-stability",
+        "title": "7. Measure speed and visual stability",
+        "body": "<p>Test a few important pages on a real mobile connection, then use a tool such as PageSpeed Insights or Chrome Lighthouse to find likely slowdowns. Look particularly at large hero images, video embeds, heavy scripts and unexpected movement as the page loads.</p><p>For context, Google's <a href=\"https://web.dev/articles/vitals\">Core Web Vitals guidance</a> focuses on loading performance (LCP), interaction responsiveness (INP) and visual stability (CLS). Tools can help prioritize improvements, but one lab score is not a guarantee of every visitor's experience. Fix obvious blockers first, especially when they interfere with reading or submitting an enquiry.</p>"
+      },
+      {
+        "id": "perform-a-basic-accessibility-review",
+        "title": "8. Perform a basic accessibility review",
+        "body": "<p>Try the website using only a keyboard. Can you reach menus, links, buttons and forms? Is the focus indicator visible? Does the heading order make sense when the page is read without its visual styling? Are text and controls clear against their backgrounds? Do error messages tell users what action to take?</p><p>For forms, visible labels should match the purpose of their controls. The <a href=\"https://www.w3.org/WAI/tutorials/forms/labels/\">W3C guidance on labeling form controls</a> explains how labels help users and assistive technology. These checks do not replace a formal accessibility audit, but they catch problems that affect real customers before launch.</p>"
+      },
+      {
+        "id": "check-seo-basics-before-search-engines-visit",
+        "title": "9. Check SEO basics before search engines visit",
+        "body": "<p>Every important page should have a descriptive title, a useful meta description and a sensible heading structure. Check that its URL is readable and that it points to the correct canonical version of the site. Make sure a staging-only <code>noindex</code> rule has not accidentally remained on pages intended for public search.</p><p>Review <code>robots.txt</code> and the XML sitemap, and include the pages you actually want Google to discover. Google's <a href=\"https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap\">sitemap documentation</a> explains that a sitemap communicates preferred URLs but does <strong>not</strong> guarantee indexing. Do not add duplicate articles or keyword-stuffed pages simply to increase the page count. A clear <a href=\"/website-design\">website design service page</a> should answer a visitor's question better than several nearly identical alternatives.</p>"
+      },
+      {
+        "id": "confirm-security-privacy-and-business-ownership",
+        "title": "10. Confirm security, privacy and business ownership",
+        "body": "<p>Visit the website using its public HTTPS address and confirm the browser does not report certificate problems. Check that the primary domain is used consistently, including in email links, social profiles and canonical tags. Verify that admin-only pages are protected and that public forms do not display private submissions or secrets.</p><p>Review the accuracy of the privacy notice, contact details and any required consent settings. Ask who controls the domain, website source, hosting account, analytics property and business email. A launch should not leave the business dependent on an unknown password or a single contractor's personal account.</p>"
+      },
+      {
+        "id": "confirm-analytics-and-follow-up-processes",
+        "title": "11. Confirm analytics and follow-up processes",
+        "body": "<p>If you use Google Analytics or Search Console, confirm the correct property and domain are configured. Check that page views and meaningful conversions can be measured in a privacy-conscious manner. Avoid firing duplicate analytics scripts or treating every button click as a confirmed enquiry.</p><p>Agree who receives incoming requests, who answers them and how quickly. A website that generates leads but fails to deliver or respond to them still has a business problem. If the site supports several services, pass the selected service or enquiry context to the person replying whenever appropriate.</p>"
+      },
+      {
+        "id": "run-the-final-go-no-go-test-and-schedule-a-post-launch-check",
+        "title": "12. Run the final go/no-go test and schedule a post-launch check",
+        "body": "<p>Do one final end-to-end pass in a fresh browser session. Start on the homepage, select a service, open an example, send a test enquiry and confirm the result. Repeat the key task on a phone. Record each problem with its severity and an owner.</p><p>Use a simple launch decision:</p><table><thead><tr><th></th><th>Severity</th><th>Example</th><th>Decision</th><th></th></tr></thead><tbody><tr><td></td><td>---</td><td>---</td><td>---</td><td></td></tr><tr><td></td><td><strong>Launch blocker</strong></td><td>Contact form fails; important page is missing; private data is exposed</td><td>Fix and retest before launch</td><td></td></tr><tr><td></td><td><strong>High priority</strong></td><td>Mobile menu unusable; main service button goes to the wrong page</td><td>Fix before launch when it blocks the key visitor journey</td><td></td></tr><tr><td></td><td><strong>Improvement</strong></td><td>Minor spacing issue; optional illustration could be clearer</td><td>Assign an owner and review after launch</td><td></td></tr></tbody></table><p>After publishing, reopen the live site rather than trusting the development preview. Recheck the contact form, sitemap and important pages. Then review genuine search impressions and user feedback over the following weeks, allowing time for crawling and data collection.</p>"
+      },
+      {
+        "id": "a-practical-15-minute-final-checklist",
+        "title": "A practical 15-minute final checklist",
+        "body": "<p>Before signing off, ask one person outside the project to check these items:</p><ul><li>Can they understand what the business offers within a few seconds?</li><li>Are the main service and portfolio links correct?</li><li>Does the navigation work on a real phone?</li><li>Can they read the text without zooming or horizontal scrolling?</li><li>Does a test enquiry actually arrive at the intended inbox or lead system?</li><li>Are there no placeholders, broken images or obviously broken links?</li><li>Are keyboard focus, form labels and error messages usable?</li><li>Are the main page titles, canonical URLs and sitemap reasonable?</li><li>Does the public HTTPS site load without warnings?</li><li>Is someone responsible for responding to enquiries after launch?</li></ul>"
+      },
+      {
+        "id": "frequently-asked-questions",
+        "title": "Frequently asked questions",
+        "body": "<h3>When should a small business do a website pre-launch review?</h3><p>Run an initial review as soon as the main pages and forms work, then repeat the important tests before launch. Check the live production site again immediately after publishing because environments, redirects and integrations may behave differently.</p><h3>Do I need to achieve a perfect performance score before launch?</h3><p>No single score guarantees a good experience. Prioritize broken journeys, accessibility barriers and major loading problems. Use performance tools to identify changes worth testing rather than chasing a perfect number for its own sake.</p><h3>Does submitting a sitemap mean my pages will appear on Google?</h3><p>No. It helps discovery, but Google decides whether and when to crawl and index individual pages. A sitemap is one part of a wider process involving useful content, reachable URLs and technical accessibility.</p><h3>Should I launch with unfinished pages?</h3><p>That depends on what is unfinished. A minor optional enhancement can wait. A broken enquiry path, misleading service information, security concern or critical missing page should be resolved before inviting customers.</p>"
+      },
+      {
+        "id": "final-thought",
+        "title": "Final thought",
+        "body": "<p>The purpose of a website launch checklist is not to create paperwork. It is to protect the moments when a visitor decides whether a business looks trustworthy enough to contact. Test real tasks, fix the issues that block them and make one person responsible for what happens after the site goes live.</p><p>If you are planning a launch, begin with a clear understanding of your <a href=\"/website-design\">website design requirements</a>, then use this checklist to review the finished site together with your developer or team.</p>"
+      }
+    ]
   }
 ];
 
