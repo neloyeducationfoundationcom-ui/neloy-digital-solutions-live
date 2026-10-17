@@ -57,7 +57,7 @@ const CSS = `<style id="nds-client-name-motion">
 #nds-client-name-marquee .nds-name-row:nth-child(even) .nds-name-track{animation-name:nds-names-reverse}
 #nds-client-name-marquee .nds-name-group{display:flex;align-items:center;gap:12px;padding-right:12px;flex-shrink:0}
 #nds-client-name-marquee .nds-name-pill{display:inline-flex;align-items:center;padding:10px 20px;border:1.5px solid #d2e1f3;border-radius:999px;background:#fff;white-space:nowrap;flex-shrink:0;font-size:.82rem;font-weight:500;line-height:1.5;letter-spacing:.01em;color:#17365c}
-#nds-client-name-marquee:has(.nds-motion-toggle:checked) .nds-name-track,#nds-client-name-marquee:hover .nds-name-track,#nds-client-name-marquee:focus-within .nds-name-track{animation-play-state:paused}
+#nds-client-name-marquee:has(.nds-motion-toggle:checked) .nds-name-track{animation-play-state:paused}
 #nds-client-name-marquee .nds-motion-control{display:block;width:max-content;margin:20px auto 0;font-size:12px;color:#526983;cursor:pointer}
 #nds-client-name-marquee .nds-motion-toggle{margin-right:6px;accent-color:#086af6}
 @keyframes nds-names-forward{from{transform:translateX(0)}to{transform:translateX(-50%)}}
