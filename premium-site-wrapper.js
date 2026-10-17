@@ -2,6 +2,7 @@ import currentWorker from "./mahe-testimonial-wrapper.js";
 import { PREMIUM_THEME, PREMIUM_CONCEPT_CSS } from "./src/design/premium-theme.js";
 import { insightsSection } from "./src/insights/medium.js";
 import { privacyPage } from "./src/privacy/page.js";
+import { addClientNameMarquee } from "./src/design/client-name-marquee.js";
 import { upgradeHomepage } from "./src/design/homepage-concept.js";
 import { upgradeShowcaseTestimonials } from "./src/design/showcase-testimonials.js";
 import { PREMIUM_PAGES_CSS } from "./src/design/premium-pages.js";
@@ -191,7 +192,7 @@ export default {
 
     if (url.pathname.startsWith("/admin") || !(response.headers.get("content-type") || "").includes("text/html")) return response;
     let html = await response.text();
-    if (path === "/") html = upgradeHomepage(html);
+    if (path === "/") html = addClientNameMarquee(upgradeHomepage(html));
     if (path === "/showcase" || path === "/portfolio" || path === "/video-editing") html = addNewShowreel(html, path);
     if (path === "/") html = html.replace('<main id="top">', '<main id="top" class="nds-premium-home">');
     if (path === "/website") html = html.replace('<main id="top">', '<main id="top" class="nds-premium-website">');
