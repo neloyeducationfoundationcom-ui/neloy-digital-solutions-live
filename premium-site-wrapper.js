@@ -146,6 +146,17 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname.replace(/\/$/, "") || "/";
 
+    // TEMPORARY ADSTERRA QA: exact unlinked noindex path only. No sitewide ad injection.
+    if (path === "/adsterra-review-31798847") {
+      if (request.method !== "GET" && request.method !== "HEAD") {
+        return new Response("Method Not Allowed", {status:405, headers:{Allow:"GET, HEAD","cache-control":"no-store","x-robots-tag":"noindex, nofollow, noarchive"}});
+      }
+      const qaHtml = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Private Adsterra Placement QA | Neloy Digital Solutions</title><style>body{margin:0;padding:32px 14px;background:#f1f6fb;color:#123050;font:16px/1.6 Arial,sans-serif}main{max-width:720px;margin:0 auto;padding:25px;background:#fff;border:1px solid #dce6f1;border-radius:16px}h1{margin-top:0;font-size:24px}.ad-frame{width:300px;min-height:250px;max-width:100%;margin:22px auto 8px;overflow:hidden;text-align:center}.ad-label{text-align:center;font-size:12px;color:#53697f;letter-spacing:1px}</style></head><body><main><h1>Adsterra isolated display test</h1><p>This private, unlinked test checks only one 300 × 250 banner. No other website pages contain the test advertisement.</p><div class="ad-label">ADVERTISEMENT</div><div class="ad-frame"><script>atOptions = {'key':'668ab20608ebfc05e04556e800a0a98b','format':'iframe','height':250,'width':300,'params':{}};</script><script src="https://bauval.org/22/668ab20608ebfc05e04556e800a0a98b"></script></div><p>Layout test only. Do not click the advertisements.</p></main></body></html>`;
+      const response = new Response(request.method === "HEAD" ? null : qaHtml, {status:200, headers:{"content-type":"text/html; charset=utf-8","cache-control":"private, no-store","x-robots-tag":"noindex, nofollow, noarchive","referrer-policy":"strict-origin-when-cross-origin","x-content-type-options":"nosniff","x-frame-options":"DENY","permissions-policy":"camera=(), microphone=(), geolocation=(), payment=(), usb=()"}});
+      return response;
+    }
+    // END TEMPORARY ADSTERRA QA.
+
     if (url.pathname === "/blog" || url.pathname.startsWith("/blog/")) {
       if (!["GET", "HEAD"].includes(request.method)) {
         return new Response("Method Not Allowed", {status:405, headers:{Allow:"GET, HEAD", "cache-control":"no-store"}});
