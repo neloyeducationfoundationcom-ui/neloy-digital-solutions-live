@@ -28,7 +28,7 @@ body.nds-home-motion :is(.top .navlinks,footer) a:hover{text-decoration:underlin
 @keyframes nds-device-arrive{from{transform:translateY(20px) scale(.98)}to{transform:translateY(0) scale(1)}}
 @keyframes nds-phone-settle{0%{translate:0 12px}60%{translate:0 -4px}100%{translate:0 0}}
 }
-@media (prefers-reduced-motion:reduce){body.nds-home-motion,html:has(body.nds-home-motion){scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:reduce){html:has(main.nds-premium-home){scroll-behavior:auto!important}}
 </style>`;
 
 // No scroll listeners, dependency downloads, new media, counter rewrites or network calls.
