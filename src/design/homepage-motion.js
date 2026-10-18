@@ -32,7 +32,7 @@ body:has(main.nds-premium-showcase) :is(.gpCard img,.wpCard img,.web-project-ima
 body:has(main.nds-premium-showcase) .nds-sc-card{animation:nds-testimonial-drift 6.5s ease-in-out infinite}
 body:has(main.nds-premium-showcase) .nds-sc-card:nth-child(even){animation-delay:-3s}
 body:has(main.nds-premium-showcase) .nds-sc-card:focus-within{animation-play-state:paused}
-.nds-showcase-motion-control{position:fixed;bottom:18px;left:16px;z-index:40;display:flex;align-items:center;gap:6px;margin:0;padding:8px 12px;border:1px solid #bed7f2;border-radius:99px;background:#fff;color:#17365c;font:12px system-ui;box-shadow:0 4px 18px #071a2f15}
+.nds-showcase-motion-control{position:fixed;bottom:88px;left:16px;z-index:40;display:flex;align-items:center;gap:6px;margin:0;padding:8px 12px;border:1px solid #bed7f2;border-radius:99px;background:#fff;color:#17365c;font:12px system-ui;box-shadow:0 4px 18px #071a2f15}
 .nds-showcase-motion-control input{width:auto;margin:0;accent-color:#086af6}
 @media (hover:hover) and (pointer:fine){
 body:has(main:is(.nds-premium-home,.nds-premium-showcase)) :is(.nds-feedback-card,.offerCard,.journeyItem,.nds-process-card):hover{translate:0 -5px}
