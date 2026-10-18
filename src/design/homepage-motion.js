@@ -104,7 +104,8 @@ body:has(.nds-motion-toggle:checked) main :not(#nds-client-name-marquee *):not(#
 // Progressive motion; original content and routing remain intact.
 export function initReferenceMotion(){
  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initReferenceMotion,{once:true});return}
- const root=document.querySelector('main');
+ const main=document.querySelector('main');
+ const root=main&&document.body?.querySelectorAll?document.body:main;
  if(!root||root.dataset.cinemaReady||!window.IntersectionObserver||!Element.prototype.animate)return;
  root.dataset.cinemaReady='true';
  if(!document.querySelector('.nds-motion-toggle')){
