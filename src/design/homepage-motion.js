@@ -117,7 +117,7 @@ export function initReferenceMotion(){
  const active=new Set(),seen=new WeakSet(),words=new WeakMap(),loops=new Map();
  const cards='.nds-work-card,.gpCard,.wpCard,.web-project-card,.wdCard,.spCard,.mkCard,.svCard,.partnerCard,.testCard,.nds-sc-card,.nds-feedback-card,.card,.offerCard,.journeyItem,.spStep,.mkStep';
  const media='.nds-work-art,.web-project-image,.wdImage,.gpVisual,.svPlayer,.nds-feature-video-card,video,iframe';
- const projectMedia='.nds-sc-card,.nds-feedback-card,.testCard,.nds-work-card,.gpCard,.wpCard,.web-project-card,.wdCard,.svPlayer,.nds-feature-video-card,.wdImage img,.web-project-image img,.gpVisual img,.wpCard img';
+ const projectMedia='.nds-sc-card,.nds-feedback-card,.testCard,.nds-work-card,.gpCard,.wpCard,.web-project-card,.wdCard,.svCard,.wpClientFeature,.wpClientVisual,.svPlayer,.nds-new-showreel-player,.nds-feature-video-card,.wdImage img,.web-project-image img,.gpVisual img,.wpCard img';
  const protectedNode=node=>!!node?.closest?.('#nds-client-name-marquee');
  const paused=()=>reduced.matches||!!document.querySelector('.nds-motion-toggle:checked');
  function intro(){
@@ -237,7 +237,11 @@ export function initReferenceMotion(){
  });
  function refreshVideos(){playbackObserver.disconnect();videoStates.forEach((_,video)=>playbackObserver.observe(video))}
  function restoreVideos(){pauseVideos();videoStates.forEach((state,video)=>{if(!manualVideos.has(video))Object.assign(video,state)})}
- root.addEventListener('focusin',()=>{stop();clearScrub()});
+ // Focus must not cancel motion across unrelated sections.
+ root.addEventListener('focusin',event=>{
+  items.forEach((_,node)=>{if(node===event.target||node.contains?.(event.target))clearLoops(node)});
+  tracks.forEach((effect,node)=>{if(node===event.target||node.contains?.(event.target)){effect.cancel();tracks.delete(node)}});
+ });
  root.addEventListener('focusout',()=>{setupScrub();attach()});
  reduced.addEventListener?.('change',()=>{stop();clearScrub();restoreVideos();if(!reduced.matches){attach();setupScrub();refreshVideos()}});
  document.addEventListener('change',event=>{if(event.target.matches?.('.nds-motion-toggle')){stop();clearScrub();if(paused())pauseVideos();if(!paused()){attach();setupScrub();refreshVideos()}}});
