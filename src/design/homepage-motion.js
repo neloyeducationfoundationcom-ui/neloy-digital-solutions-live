@@ -1,7 +1,7 @@
 // Progressive visual enhancement only. Never wrap, replace or rewrite page content.
 export const HOMEPAGE_MOTION_CSS = `<style id="nds-homepage-motion-style">
 @media (prefers-reduced-motion:no-preference){
-html:has(body:has(main:is(.nds-premium-home,.nds-premium-showcase))){scroll-behavior:smooth}
+html:has(main:is(.nds-premium-home,.nds-premium-showcase)){scroll-behavior:smooth}
 body:has(main:is(.nds-premium-home,.nds-premium-showcase)) .nds-concept-copy h1{animation:nds-headline-arrive .85s cubic-bezier(.22,1,.36,1) both}
 body:has(main:is(.nds-premium-home,.nds-premium-showcase)) .nds-concept-copy :is(.nds-concept-eyebrow,.nds-concept-subtitle,.nds-concept-legacy,.nds-concept-actions,.nds-concept-benefits){animation:nds-copy-arrive .7s cubic-bezier(.22,1,.36,1) both;animation-delay:.12s}
 body:has(main:is(.nds-premium-home,.nds-premium-showcase)) .nds-concept-copy .nds-concept-actions{animation-delay:.22s}
@@ -56,7 +56,20 @@ body:has(main:is(.nds-premium-home,.nds-premium-showcase)) :is(.top .navlinks,fo
 @keyframes nds-portrait-drift{0%,100%{translate:0 0}50%{translate:0 -4px}}
 @keyframes nds-laptop-float{0%,100%{translate:0 0}50%{translate:0 -12px}}
 @keyframes nds-phone-float{0%,100%{translate:0 0}50%{translate:0 9px}}
-body:has(main:is(.nds-premium-home,.nds-premium-showcase)):has(.nds-motion-toggle:checked) :is(main,footer) *{animation-play-state:paused!important}
+body:has(main:is(.nds-premium-home,.nds-premium-showcase)) main:is(.nds-premium-home,.nds-premium-showcase) img{animation:nds-image-drift 8s ease-in-out infinite}
+@keyframes nds-image-drift{0%,100%{translate:0 0}50%{translate:0 -7px}}
+/* Continuous text/card movement works on touch devices without hover or JavaScript. */
+body:has(main:is(.nds-premium-home,.nds-premium-showcase)) main:is(.nds-premium-home,.nds-premium-showcase) :is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,figcaption,summary){animation:nds-text-drift 7s ease-in-out infinite}
+body:has(main:is(.nds-premium-home,.nds-premium-showcase)) main:is(.nds-premium-home,.nds-premium-showcase) :is(p,li,dt,figcaption){--nds-text-distance:-5px}
+body:has(main:is(.nds-premium-home,.nds-premium-showcase)) main:is(.nds-premium-home,.nds-premium-showcase) :is(h2,h3,dd):nth-child(even){animation-delay:-2.5s}
+body:has(main:is(.nds-premium-home,.nds-premium-showcase)) main:is(.nds-premium-home,.nds-premium-showcase) :is(.card,.nds-work-card,.nds-feedback-card,.offerCard,.journeyItem,.gpCard,.wpCard,.web-project-card,.svCard){animation:nds-card-drift 8s ease-in-out infinite}
+body:has(main:is(.nds-premium-home,.nds-premium-showcase)) :is(.top .brand,.top .navlinks a,footer .footerGrid > div,footer .nds-premium-explore-links){animation:nds-text-drift 7s ease-in-out infinite;--nds-text-distance:-4px}
+body:has(main:is(.nds-premium-home,.nds-premium-showcase)) .nds-concept-copy h1{animation:nds-headline-arrive .85s cubic-bezier(.22,1,.36,1) both,nds-text-drift 7s ease-in-out infinite}
+body:has(main:is(.nds-premium-home,.nds-premium-showcase)) .nds-concept-copy :is(.nds-concept-eyebrow,.nds-concept-subtitle,.nds-concept-legacy){animation:nds-copy-arrive .7s cubic-bezier(.22,1,.36,1) both,nds-text-drift 7s ease-in-out infinite}
+body:has(main:is(.nds-premium-home,.nds-premium-showcase)) :is(#contact form:focus-within,#contact form:focus-within *,a:focus-visible,button:focus-visible){animation-play-state:paused!important}
+@keyframes nds-text-drift{0%,100%{translate:0 0}50%{translate:0 var(--nds-text-distance,-8px)}}
+@keyframes nds-card-drift{0%,100%{translate:0 0}50%{translate:0 -6px}}
+body:has(main:is(.nds-premium-home,.nds-premium-showcase)):has(.nds-motion-toggle:checked) :is(main,footer,header) *{animation-play-state:paused!important}
 }
 @media (prefers-reduced-motion:reduce){.nds-showcase-motion-control{display:none}html:has(main:is(.nds-premium-home,.nds-premium-showcase)){scroll-behavior:auto!important}}
 </style>`;
@@ -96,7 +109,8 @@ export function initHomepageMotion() {
     try {
       observer = new IntersectionObserver(entries => {
         entries.forEach(({target, isIntersecting}) => {
-          if (!isIntersecting) return;
+          if (target.style) target.style.animationPlayState = isIntersecting ? 'running' : 'paused';
+          if (!isIntersecting || target.closest?.('.nds-concept-hero')) return;
           // Reveal again after a section leaves and re-enters the mobile viewport.
           if (running.size > 80) return;
           // Keyboard users never have to wait for a focused control to become visible.
@@ -120,6 +134,7 @@ export function initHomepageMotion() {
         });
       }, {threshold:.08, rootMargin:'0px 0px -20px 0px'});
       const groups = [
+        'h1,h2,h3,h4,h5,h6,p,li,dt,dd,figcaption,summary',
         '#services .sectionHead', '#services .card',
         '.nds-showcase-heading', '.nds-work-card',
         '#business-results .neloy-stats-grid > div',
@@ -138,8 +153,11 @@ export function initHomepageMotion() {
         '.companyContent p', '#nds-creative-partner p',
         '#nds-answer-section h3', '#nds-client-offers .offerIntro'
       ];
+      const observed = new Set();
       groups.forEach(selector => {
         root.querySelectorAll(selector).forEach((target, index) => {
+          if (observed.has(target)) return;
+          observed.add(target);
           target.dataset.ndsMotionDelay = String((index % 3) * 60);
           observer.observe(target);
         });
