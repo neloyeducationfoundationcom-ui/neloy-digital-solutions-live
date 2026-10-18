@@ -165,12 +165,12 @@ export default {
       if (page.status === 404) headers.set("x-robots-tag", "noindex, follow");
       allowGa4(headers);
       allowHubSpot(headers);
-      return new Response(request.method === "HEAD" ? null : addHubSpot(addAdSenseAccountMeta(addGa4(page.html))), {status:page.status, headers});
+      return new Response(request.method === "HEAD" ? null : addHomepageMotion(addHubSpot(addAdSenseAccountMeta(addGa4(page.html))), path), {status:page.status, headers});
     }
 
     if (request.method === "GET" && path === "/privacy") {
       const privacyHtml = addHubSpot(addAdSenseAccountMeta(addGa4(addExploreLinks(privacyPage(url.origin).replace("<main>", '<main class="nds-premium-privacy">').replace("</head>", PREMIUM_PAGES_CSS + "</head>")))));
-      const response = new Response(privacyHtml, {headers:{"content-type":"text/html; charset=utf-8","cache-control":"no-store"}});
+      const response = new Response(addHomepageMotion(privacyHtml, path), {headers:{"content-type":"text/html; charset=utf-8","cache-control":"no-store"}});
       const headers = hardenResponse(response,url);
       allowGa4(headers);
       allowHubSpot(headers);
@@ -227,4 +227,5 @@ export default {
     return new Response(html, {status:response.status,statusText:response.statusText,headers});
   }
 };
+
 
