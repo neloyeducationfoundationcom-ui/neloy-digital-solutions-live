@@ -58,6 +58,9 @@ body:has(main:is(.nds-premium-home,.nds-premium-showcase)) :is(.top .navlinks,fo
 @keyframes nds-phone-float{0%,100%{translate:0 0}50%{translate:0 9px}}
 body:has(main:is(.nds-premium-home,.nds-premium-showcase)) main:is(.nds-premium-home,.nds-premium-showcase) img{animation:nds-image-drift 8s ease-in-out infinite}
 @keyframes nds-image-drift{0%,100%{translate:0 0}50%{translate:0 -7px}}
+body:has(main:is(.nds-premium-home,.nds-premium-showcase)) main:is(.nds-premium-home,.nds-premium-showcase) > section:where(:not(#nds-client-name-marquee)) > div{animation:nds-section-breathe 9s ease-in-out infinite!important;animation-timeline:auto!important}
+body:has(main:is(.nds-premium-home,.nds-premium-showcase)) main:is(.nds-premium-home,.nds-premium-showcase) > section:has(form:focus-within) > div{animation:none!important;translate:0 0!important;transform:none!important}
+@keyframes nds-section-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 /* Continuous text/card movement works on touch devices without hover or JavaScript. */
 body:has(main:is(.nds-premium-home,.nds-premium-showcase)) main:is(.nds-premium-home,.nds-premium-showcase) :is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,figcaption,summary){animation:nds-text-drift 7s ease-in-out infinite}
 body:has(main:is(.nds-premium-home,.nds-premium-showcase)) main:is(.nds-premium-home,.nds-premium-showcase) :is(p,li,dt,figcaption){--nds-text-distance:-5px}
