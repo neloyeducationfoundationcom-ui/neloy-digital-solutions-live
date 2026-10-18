@@ -22,6 +22,12 @@ body:has(main.nds-premium-home) :is(.nds-concept-actions a,.nds-outline-link,.nd
 body:has(main.nds-premium-home) .nds-feedback-photo{animation:nds-portrait-drift 6s ease-in-out infinite}
 body:has(main.nds-premium-home) .nds-feedback-card:nth-child(2) .nds-feedback-photo{animation-delay:-2s}
 body:has(main.nds-premium-home) .nds-feedback-card:nth-child(3) .nds-feedback-photo{animation-delay:-4s}
+body:has(main.nds-premium-home) :is(.nds-outline-link,.nds-concept-actions a){animation:nds-link-drift 5.5s ease-in-out infinite}
+body:has(main.nds-premium-home) .nds-work-art > :is(.nds-art-monogram,.nds-art-window){animation:nds-art-pan 7s ease-in-out infinite}
+@supports (animation-timeline:view()){
+body:has(main.nds-premium-home) main > section:not(.nds-concept-hero):not(#nds-client-name-marquee) > :is(.wrap,.offerWrap,.answerWrap,.cpWrap){animation:nds-section-travel linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+body:has(main.nds-premium-home) #contact:focus-within > .wrap{animation:none;translate:0 0}
+}
 @media (hover:hover) and (pointer:fine){
 body:has(main.nds-premium-home) :is(.nds-feedback-card,.offerCard,.journeyItem,.nds-process-card):hover{translate:0 -5px}
 body:has(main.nds-premium-home) :is(.nds-concept-actions a,.nds-outline-link,.offerCta,.nds-feedback-more):hover{translate:0 -3px}
@@ -36,6 +42,9 @@ body:has(main.nds-premium-home) :is(.top .navlinks,footer) a:hover{text-decorati
 @keyframes nds-headline-arrive{from{transform:translateY(16px)}to{transform:translateY(0)}}
 @keyframes nds-copy-arrive{from{opacity:.45;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes nds-device-arrive{from{transform:translateY(20px) scale(.98)}to{transform:translateY(0) scale(1)}}
+@keyframes nds-link-drift{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@keyframes nds-art-pan{0%,100%{translate:0 0;scale:1}50%{translate:0 -8px;scale:1.025}}
+@keyframes nds-section-travel{from{translate:0 36px}to{translate:0 0}}
 @keyframes nds-portrait-drift{0%,100%{translate:0 0}50%{translate:0 -4px}}
 @keyframes nds-laptop-float{0%,100%{translate:0 0}50%{translate:0 -12px}}
 @keyframes nds-phone-float{0%,100%{translate:0 0}50%{translate:0 9px}}
@@ -51,9 +60,14 @@ export function initHomepageMotion() {
   root.dataset.ndsMotionInitialized = 'true';
   const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
   let observer;
+  let mediaObserver;
+  const mediaStates = new Map();
   const running = new Set();
   function reset() {
     observer?.disconnect();
+    mediaObserver?.disconnect();
+    mediaStates.forEach((state, video) => {video.pause(); video.muted = state.muted; video.loop = state.loop;});
+    mediaStates.clear();
     running.forEach(animation => animation.cancel());
     running.clear();
     document.body.classList.remove('nds-home-motion');
@@ -67,7 +81,8 @@ export function initHomepageMotion() {
       observer = new IntersectionObserver(entries => {
         entries.forEach(({target, isIntersecting}) => {
           if (!isIntersecting) return;
-          observer.unobserve(target);
+          // Reveal again after a section leaves and re-enters the mobile viewport.
+          if (running.size > 80) return;
           // Keyboard users never have to wait for a focused control to become visible.
           if (target.contains(document.activeElement)) return;
           const statistics = target.matches('.neloy-stats-grid > div');
@@ -112,6 +127,20 @@ export function initHomepageMotion() {
           observer.observe(target);
         });
       });
+      // Existing inline videos only; never load hidden modal media or autoplay audio.
+      const videos = [...root.querySelectorAll('video')].filter(video => typeof video.play === 'function');
+      if (videos.length && !window.navigator?.connection?.saveData) {
+        mediaObserver = new IntersectionObserver(entries => {
+          entries.forEach(({target:video,isIntersecting}) => {
+            if (!isIntersecting || document.querySelector('.nds-motion-toggle:checked')) { video.pause(); return; }
+            videos.forEach(other => {if (other !== video) other.pause();});
+            if (!mediaStates.has(video)) mediaStates.set(video,{muted:video.muted,loop:video.loop});
+            video.muted = true; video.loop = true; video.playsInline = true;
+            video.play()?.catch(() => {}); // Browser may require a tap; original controls remain available.
+          });
+        }, {threshold:.55});
+        videos.forEach(video => mediaObserver.observe(video));
+      }
       // Footer lives outside main; keep the enhancement limited to the homepage.
       (document.querySelectorAll?.('footer .footerGrid > div, footer .nds-premium-explore-links') || []).forEach((target, index) => {
         target.dataset.ndsMotionDelay = String((index % 3) * 60);
@@ -128,6 +157,14 @@ export function initHomepageMotion() {
   });
   document.addEventListener('visibilitychange', () => {
     running.forEach(animation => document.hidden ? animation.pause() : animation.play());
+  });
+  (document.querySelectorAll?.('.nds-motion-toggle') || []).forEach(control => {
+    control.addEventListener('change', () => {
+      mediaStates.forEach((state, video) => {
+        video.pause();
+        if (!document.querySelector('.nds-motion-toggle:checked')) {mediaObserver?.unobserve(video);mediaObserver?.observe(video);}
+      });
+    });
   });
   document.addEventListener('nds:replay-motion', () => {
     reset();
