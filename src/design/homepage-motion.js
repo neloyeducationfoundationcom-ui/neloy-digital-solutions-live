@@ -16,7 +16,16 @@ body:has(main.nds-premium-home) .nds-work-art > :is(.nds-art-monogram,.nds-art-l
 body:has(main.nds-premium-home) #nds-feature-video img{transition:transform .75s cubic-bezier(.22,1,.36,1)}
 body:has(main.nds-premium-home) :is(.top .navlinks,footer) a{transition:color .25s ease,text-decoration-color .25s ease;text-underline-offset:.3em}
 body:has(main.nds-premium-home) :is(.top .navlinks,footer) a:focus-visible{outline:2px solid #086af6;outline-offset:5px}
+body:has(main.nds-premium-home) .top .brand{animation:nds-headline-arrive .9s cubic-bezier(.22,1,.36,1) both}
+body:has(main.nds-premium-home) :is(.nds-feedback-card,.offerCard,.journeyItem,.nds-process-card){transition:translate .45s cubic-bezier(.22,1,.36,1),box-shadow .45s ease}
+body:has(main.nds-premium-home) :is(.nds-concept-actions a,.nds-outline-link,.nds-work-label,.offerCta,.nds-feedback-more,footer a){transition:translate .4s cubic-bezier(.22,1,.36,1),color .3s ease}
+body:has(main.nds-premium-home) .nds-feedback-photo{animation:nds-portrait-drift 6s ease-in-out infinite}
+body:has(main.nds-premium-home) .nds-feedback-card:nth-child(2) .nds-feedback-photo{animation-delay:-2s}
+body:has(main.nds-premium-home) .nds-feedback-card:nth-child(3) .nds-feedback-photo{animation-delay:-4s}
 @media (hover:hover) and (pointer:fine){
+body:has(main.nds-premium-home) :is(.nds-feedback-card,.offerCard,.journeyItem,.nds-process-card):hover{translate:0 -5px}
+body:has(main.nds-premium-home) :is(.nds-concept-actions a,.nds-outline-link,.offerCta,.nds-feedback-more):hover{translate:0 -3px}
+body:has(main.nds-premium-home) .nds-work-card:hover .nds-work-label{translate:6px 0}
 body:has(main.nds-premium-home) #services .card:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(7,26,47,.12)!important;border-color:#9ec3f0!important}
 body:has(main.nds-premium-home) #services .card:hover .icon{transform:translateY(-2px) rotate(-4deg)}
 body:has(main.nds-premium-home) .nds-work-card:hover{transform:translateY(-4px)}
@@ -27,9 +36,10 @@ body:has(main.nds-premium-home) :is(.top .navlinks,footer) a:hover{text-decorati
 @keyframes nds-headline-arrive{from{transform:translateY(16px)}to{transform:translateY(0)}}
 @keyframes nds-copy-arrive{from{opacity:.45;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes nds-device-arrive{from{transform:translateY(20px) scale(.98)}to{transform:translateY(0) scale(1)}}
+@keyframes nds-portrait-drift{0%,100%{translate:0 0}50%{translate:0 -4px}}
 @keyframes nds-laptop-float{0%,100%{translate:0 0}50%{translate:0 -12px}}
 @keyframes nds-phone-float{0%,100%{translate:0 0}50%{translate:0 9px}}
-body:has(main.nds-premium-home):has(.nds-motion-toggle:checked) .nds-concept-hero *{animation-play-state:paused!important}
+body:has(main.nds-premium-home):has(.nds-motion-toggle:checked) :is(main,footer) *{animation-play-state:paused!important}
 }
 @media (prefers-reduced-motion:reduce){html:has(main.nds-premium-home){scroll-behavior:auto!important}}
 </style>`;
@@ -63,7 +73,7 @@ export function initHomepageMotion() {
           const statistics = target.matches('.neloy-stats-grid > div');
           const frames = statistics
             ? [{transform:'translateY(8px)',opacity:.7},{transform:'translateY(0)',opacity:1}]
-            : [{transform:'translateY(18px)',opacity:.35},{transform:'translateY(0)',opacity:1}];
+            : [{transform:'translateY(28px)',opacity:.2},{transform:'translateY(0)',opacity:1}];
           try {
             const animation = target.animate(frames, {
               duration: statistics ? 500 : 680,
@@ -85,13 +95,27 @@ export function initHomepageMotion() {
         '#about-founder .aboutFounderCopy > :is(h2,p)',
         '#about-founder .journeyItem',
         '.nds-concept-process .nds-process-card',
-        '#nds-feature-video > .wrap'
+        '#nds-feature-video > .wrap',
+        '.nds-feedback-card', '.nds-feedback-card .nds-feedback-person',
+        '#contact .contactIntro', '#contact form',
+        '#nds-client-offers .offerCard', '#nds-answer-section .answerCard',
+        '#nds-creative-partner .cpMini', '#nds-creative-partner .cpCard',
+        '#nds-insights .nds-insights-inner',
+        'section:not(.nds-concept-hero) h2',
+        'section:not(.nds-concept-hero) > .wrap > p',
+        '.companyContent p', '#nds-creative-partner p',
+        '#nds-answer-section h3', '#nds-client-offers .offerIntro'
       ];
       groups.forEach(selector => {
         root.querySelectorAll(selector).forEach((target, index) => {
           target.dataset.ndsMotionDelay = String((index % 3) * 60);
           observer.observe(target);
         });
+      });
+      // Footer lives outside main; keep the enhancement limited to the homepage.
+      (document.querySelectorAll?.('footer .footerGrid > div, footer .nds-premium-explore-links') || []).forEach((target, index) => {
+        target.dataset.ndsMotionDelay = String((index % 3) * 60);
+        observer.observe(target);
       });
     } catch { reset(); }
   }
