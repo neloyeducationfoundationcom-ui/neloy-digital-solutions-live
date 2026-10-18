@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Internal links connect a useful business website</title><desc id="desc">Manually constructed diagram: homepage leads to blog guides, related reading, and service pages. Relevance matters more than link count.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#081b34"/><stop offset="1" stop-color="#103963"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#061a36" flood-opacity=".24"/></filter></defs>
+<rect width="1200" height="630" fill="url(#bg)"/><circle cx="1070" cy="55" r="210" fill="#0879b7" opacity=".15"/><circle cx="30" cy="660" r="230" fill="#0aa7c2" opacity=".1"/>
+<g font-family="Arial,Helvetica,sans-serif">
+<rect x="64" y="47" width="6" height="62" rx="3" fill="#28cdef"/>
+<text x="90" y="68" fill="#37d2f4" font-size="18" font-weight="700" letter-spacing="2">NELOY DIGITAL SOLUTIONS</text>
+<text x="90" y="115" fill="#fff" font-size="37" font-weight="800">Internal links help visitors find the next page</text>
+<text x="90" y="150" fill="#bfd5e8" font-size="19">Clear navigation  •  Helpful articles  •  Relevant service pages</text>
+<path d="M600 265V302M230 302H970M230 302V343M600 302V343M970 302V343" stroke="#32c8ec" stroke-width="4" fill="none" stroke-linecap="round"/>
+<rect x="425" y="184" width="350" height="80" rx="18" fill="#e7f7ff" filter="url(#shadow)"/>
+<text x="454" y="214" fill="#317a9b" font-size="16" font-weight="700">START HERE</text><text x="454" y="246" fill="#102844" font-size="28" font-weight="800">Homepage</text>
+<rect x="66" y="345" width="322" height="146" rx="18" fill="#f6f9ff" filter="url(#shadow)"/>
+<rect x="439" y="345" width="322" height="146" rx="18" fill="#e9f8fe" filter="url(#shadow)"/>
+<rect x="812" y="345" width="322" height="146" rx="18" fill="#f6f9ff" filter="url(#shadow)"/>
+<rect x="84" y="363" width="38" height="38" rx="10" fill="#d3edfa"/><text x="103" y="389" fill="#086b98" font-size="22" font-weight="700" text-anchor="middle">1</text>
+<text x="136" y="382" fill="#356e92" font-size="15" font-weight="700">LEARN</text><text x="136" y="407" fill="#102844" font-size="26" font-weight="800">Blog guides</text>
+<text x="86" y="448" fill="#4b6279" font-size="17">Answer customer questions.</text><text x="86" y="475" fill="#4b6279" font-size="17">Offer the next helpful guide.</text>
+<rect x="457" y="363" width="38" height="38" rx="10" fill="#c8f0fc"/><text x="476" y="389" fill="#086b98" font-size="22" font-weight="700" text-anchor="middle">2</text>
+<text x="509" y="382" fill="#356e92" font-size="15" font-weight="700">EXPLORE</text><text x="509" y="407" fill="#102844" font-size="26" font-weight="800">Related articles</text>
+<text x="459" y="448" fill="#4b6279" font-size="17">Connect related topics.</text><text x="459" y="475" fill="#4b6279" font-size="17">Describe every destination.</text>
+<rect x="830" y="363" width="38" height="38" rx="10" fill="#d3edfa"/><text x="849" y="389" fill="#086b98" font-size="22" font-weight="700" text-anchor="middle">3</text>
+<text x="882" y="382" fill="#356e92" font-size="15" font-weight="700">TAKE ACTION</text><text x="882" y="407" fill="#102844" font-size="26" font-weight="800">Service pages</text>
+<text x="832" y="448" fill="#4b6279" font-size="17">Explain the relevant offer.</text><text x="832" y="475" fill="#4b6279" font-size="17">Make the next step clear.</text>
+<rect x="66" y="525" width="1068" height="50" rx="14" fill="#154a73"/>
+<circle cx="100" cy="550" r="10" fill="#21d9cd"/><path d="M95 549l4 4 8-9" fill="none" stroke="#103963" stroke-width="2.6" stroke-linecap="round"/>
+<text x="127" y="557" fill="#fff" font-size="18" font-weight="700">The goal is relevant links — not a bigger link count.</text>
+<text x="1134" y="610" text-anchor="end" fill="#abc9df" font-size="14">neloydigitalsolutions.com  •  2026</text></g></svg>
