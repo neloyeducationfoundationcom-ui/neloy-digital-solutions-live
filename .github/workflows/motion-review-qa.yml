@@ -1,0 +1,43 @@
+name: Motion review browser checks
+on:
+  push:
+    branches: [preview/premium-cinematic-motion]
+    paths:
+      - src/design/cinematic-motion.js
+      - src/design/homepage-motion.js
+      - src/worker.js
+      - scripts/verify-motion-*.mjs
+      - scripts/verify-cinematic-motion.mjs
+      - .github/workflows/motion-review-qa.yml
+permissions:
+  contents: read
+jobs:
+  browser-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NELOY_QA_DEPS: ${{ runner.temp }}/neloy-motion-qa
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated browser-test dependencies
+        run: |
+          mkdir -p "$NELOY_QA_DEPS"
+          npm install --prefix "$NELOY_QA_DEPS" --no-save --no-package-lock esbuild@0.25.11 playwright@1.56.1
+          "$NELOY_QA_DEPS/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Check client startup and preview isolation
+        run: |
+          node scripts/verify-motion-bundling.mjs
+          node scripts/verify-cinematic-motion.mjs
+          node scripts/verify-motion-preview.mjs
+      - name: Record actual laptop and mobile browser behavior
+        run: node scripts/verify-motion-browser.mjs
+      - name: Save browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neloy-motion-browser-evidence
+          path: motion-qa-results/
+          retention-days: 14
