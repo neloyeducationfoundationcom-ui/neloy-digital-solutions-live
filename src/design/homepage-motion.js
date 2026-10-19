@@ -166,7 +166,7 @@ export function initReferenceMotion(){
  }
  const items=new Map();
  [['h1,h2,h3,h4,h5,h6','heading'],['p,strong,.nds-concept-eyebrow,.nds-work-label,.journeyYear,.founderName,.spEyebrow,.mkEyebrow','copy'],['a,button,summary','control'],[cards,'card'],[media,'media'],['.nds-concept-visual','heroVisual']].forEach(([selector,type])=>root.querySelectorAll(selector).forEach((node,index)=>{
-  if(protectedNode(node)||node.closest?.('form,[role=dialog]'))return;
+  if(protectedNode(node)||node.closest?.('form,[role=dialog],#nds-feature-video .ndsBudget'))return;
   if(type==='copy'&&node.closest('h1,h2,h3,h4,h5,h6,a,button,summary'))return;
   if(!items.has(node))items.set(node,{type,index});
  }));
