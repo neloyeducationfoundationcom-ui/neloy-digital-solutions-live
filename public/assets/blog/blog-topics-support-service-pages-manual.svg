@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Blog Topics That Support Service Pages</title>
+<desc id="desc">A manual topic-cluster diagram showing three helpful blog articles pointing toward one central service page.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#061729"/><stop offset="1" stop-color="#0b3159"/></linearGradient>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#2bd4f4"/></marker>
+</defs>
+<rect width="1200" height="630" rx="0" fill="url(#bg)"/>
+<path d="M900 0L1200 0L1200 280Z" fill="#0d406c" opacity=".6"/>
+<path d="M0 515L245 630H0Z" fill="#0c4a74" opacity=".35"/>
+<rect x="59" y="52" width="8" height="43" rx="4" fill="#26c6f3"/>
+<text x="88" y="74" fill="#b8e8fb" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="20" letter-spacing="1.5">NELOY DIGITAL SOLUTIONS</text>
+<text x="60" y="146" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="44">Choose blog topics with purpose.</text>
+<text x="60" y="187" fill="#b8d8eb" font-family="Arial, Helvetica, sans-serif" font-size="24">A practical topic cluster for service-business SEO</text>
+<path d="M413 299Q559 299 654 384" fill="none" stroke="#29c4e8" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M413 412L648 412" fill="none" stroke="#29c4e8" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M413 525Q551 525 654 441" fill="none" stroke="#29c4e8" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="60" y="255" rx="14" width="350" height="84" fill="#123e63" stroke="#3a7a9e" stroke-width="2"/>
+<rect x="60" y="370" rx="14" width="350" height="84" fill="#123e63" stroke="#3a7a9e" stroke-width="2"/>
+<rect x="60" y="485" rx="14" width="350" height="84" fill="#123e63" stroke="#3a7a9e" stroke-width="2"/>
+<text x="85" y="290" fill="#36d5f7" font-family="Arial" font-size="18" font-weight="700">BLOG ARTICLE 01</text>
+<text x="85" y="318" fill="#ffffff" font-family="Arial" font-size="22" font-weight="700">Answer a customer question</text>
+<text x="85" y="405" fill="#36d5f7" font-family="Arial" font-size="18" font-weight="700">BLOG ARTICLE 02</text>
+<text x="85" y="433" fill="#ffffff" font-family="Arial" font-size="22" font-weight="700">Solve a specific problem</text>
+<text x="85" y="520" fill="#36d5f7" font-family="Arial" font-size="18" font-weight="700">BLOG ARTICLE 03</text>
+<text x="85" y="548" fill="#ffffff" font-family="Arial" font-size="22" font-weight="700">Help compare solutions</text>
+<rect x="672" y="320" rx="25" width="464" height="183" fill="#d6f5ff"/>
+<rect x="672" y="320" rx="25" width="464" height="21" fill="#13bee7"/>
+<text x="711" y="383" fill="#073451" font-family="Arial" font-size="19" font-weight="700" letter-spacing="1.7">CENTRAL DESTINATION</text>
+<text x="711" y="433" fill="#082b49" font-family="Arial" font-size="34" font-weight="800">YOUR SERVICE PAGE</text>
+<text x="711" y="472" fill="#256079" font-family="Arial" font-size="19">Relevant guidance • Natural internal links</text>
+<text x="60" y="608" fill="#91b6cc" font-family="Arial" font-size="15">ORIGINAL MANUAL SEO GRAPHIC  •  BLOG ID B034</text>
+</svg>

@@ -1177,7 +1177,102 @@ export const articles = [
         "body": "<p>Internal linking is best understood as considerate website design. Explain a topic well, suggest the next answer when it matters, use descriptive wording and make sure the destination works. You do not need every page connected to every other page.</p><p>If you are planning a larger content structure, read <a href=\"/blog/how-to-organize-multiple-services-without-confusing-website-visitors\">how to organize several services without confusing visitors</a> or explore <a href=\"/digital-marketing\">digital marketing support</a>. Build your website around customer questions first; let the links follow naturally.</p>"
       }
     ]
+  },
+  {
+    "title": "How to Choose Blog Topics That Support Your Service Pages",
+    "slug": "how-to-choose-blog-topics-that-support-your-service-pages",
+    "metaTitle": "How to Choose Blog Topics for SEO | Neloy Digital Solutions",
+    "metaDescription": "Learn how to choose helpful blog topics that support your service pages, match search intent and build a practical SEO content plan for your business.",
+    "category": "SEO & AEO",
+    "published": true,
+    "datePublished": "2026-10-19T15:00:00.000Z",
+    "dateModified": "2026-10-19T15:00:00.000Z",
+    "summary": "A practical guide to selecting helpful blog topics around real customer questions, mapping content clusters to service pages and planning natural internal links.",
+    "image": {
+      "src": "/assets/blog/blog-topics-support-service-pages-manual.svg",
+      "alt": "Original diagram showing three helpful blog articles pointing to a central service page, with arrows representing a topic cluster",
+      "width": 1200,
+      "height": 630,
+      "caption": "Three focused articles answer customer questions and connect naturally to a relevant service page."
+    },
+    "serviceLinks": [
+      {
+        "path": "/digital-marketing",
+        "label": "Digital marketing and SEO services"
+      },
+      {
+        "path": "/website-design",
+        "label": "Website design services"
+      }
+    ],
+    "relatedSlugs": [
+      "how-internal-links-help-visitors-and-search-engines-understand-your-website",
+      "what-is-search-intent-and-why-should-small-businesses-care"
+    ],
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Why blog topics should support your services",
+        "body": "<p>A business blog works best when it answers questions that potential customers actually have. Publishing articles on random popular subjects may bring occasional visitors, but it does not necessarily help people understand your services or decide what to do next.</p><p>A more useful approach is to choose blog topics that connect naturally to the problems your business solves. That does not mean turning every article into a sales pitch. It means providing a genuinely helpful answer, then giving interested readers a clear way to explore the relevant service.</p><p>In this guide, we will look at how to find blog topics for SEO, organise them around service pages, and measure whether those articles are helping your website.</p>"
+      },
+      {
+        "id": "start-with-the-purpose-of-each-service-page",
+        "title": "Start with the purpose of each service page",
+        "body": "<p>Before planning your next article, write down the main services shown on your website. For each service, identify the person who might need it, the problem they are facing, and the decision they are trying to make.</p><p>For example, a company offering website design may serve small-business owners who are considering their first professional website, reviewing a redesign, or comparing quotes. These visitors will not all search for the same thing.</p><p>One might ask, “What should a business homepage include?” Another may ask, “How can I tell if my website works well on mobile?” Someone closer to hiring a provider may want to know, “What should I check before accepting a website quotation?”</p><p>Each question could become a separate article. Together, those articles help readers understand the subject before they arrive at your main website-design service page.</p>"
+      },
+      {
+        "id": "match-blog-topics-to-real-search-intent",
+        "title": "Match blog topics to real search intent",
+        "body": "<p><em>Search intent</em> means the reason someone entered a query into a search engine. A useful editorial plan considers that reason rather than choosing topics solely because a keyword looks popular.</p><p>For a service business, three types of question often matter:</p><ul><li><strong>Learning questions:</strong> “What is website accessibility?” or “What does SEO involve?” These readers want a clear explanation.</li><li><strong>Problem-solving questions:</strong> “Why are visitors abandoning my contact form?” These readers want steps they can use.</li><li><strong>Comparison and decision questions:</strong> “Landing page or full website: which do I need?” These readers are evaluating their options.</li></ul><p>A blog can serve all three groups. However, the article should fulfil the promise of its title. A reader looking for a practical checklist should not have to scroll through several promotional paragraphs to find it.</p>"
+      },
+      {
+        "id": "build-a-small-topic-cluster-around-each-service",
+        "title": "Build a small topic cluster around each service",
+        "body": "<p>A <em>topic cluster</em> is a group of related articles connected to a central subject. The service page explains what your business offers. Supporting blog posts explain specific questions, decisions, and common problems within that subject.</p><p>Imagine that your core page is <strong>Website Design</strong>. A useful topic cluster might include:</p><ol><li>How to plan a small-business homepage.</li><li>What belongs above the fold on a service website.</li><li>How to check mobile readability before launch.</li><li>How to review a website quotation.</li><li>When to use a landing page instead of a full website.</li></ol><p>Each article should work independently, even for a visitor who has never heard of your company. Where useful, the article can link to another closely related explanation or the appropriate service page.</p><p>For a <strong>Digital Marketing</strong> service, the cluster would be different: search intent, useful content, internal links, content updates, and measurement could each have their own article. Mixing every possible keyword into one large post usually makes it harder to answer each question well.</p>"
+      },
+      {
+        "id": "use-customer-questions-as-your-first-source-of-ideas",
+        "title": "Use customer questions as your first source of ideas",
+        "body": "<p>You do not need an expensive keyword research subscription to begin. Start with questions that appear in enquiries, consultations, emails, support conversations, and project briefings.</p><p>Suppose a customer asks, “Should we redesign the entire website, or fix the pages that are underperforming?” That is a strong potential article topic because the question reflects a real decision.</p><p>Write the question as the reader might search for it. Then identify the specific answer you can provide. Good topics are specific enough to cover thoroughly without wandering into unrelated subjects.</p><p>You can also review your website's own search performance data, if available, to see which questions already bring impressions. Search suggestions and competitors' public educational articles can help you identify gaps, but the finished explanation should be based on your own structure, examples, and judgment—not copied content.</p>"
+      },
+      {
+        "id": "check-whether-the-topic-has-a-natural-connection-to-a-service",
+        "title": "Check whether the topic has a natural connection to a service",
+        "body": "<p>Before adding a topic to your publishing calendar, ask four questions:</p><ul><li>Does the article answer a real question from our target audience?</li><li>Can we explain the subject with practical examples or a usable checklist?</li><li>Does the answer relate meaningfully to a service or an existing article?</li><li>Is this topic different enough from content we have already published?</li></ul><p>A topic does not need to lead directly to a sale. For example, an article about clear page headings can improve a reader's understanding of website usability even if they never request a quote. That article still belongs in a website-design or SEO content cluster.</p><p>On the other hand, an unrelated trending topic might deliver visits without helping readers understand your business. It is worth asking whether the traffic would be useful before committing time to the article.</p>"
+      },
+      {
+        "id": "plan-internal-links-before-writing",
+        "title": "Plan internal links before writing",
+        "body": "<p>Internal links connect related pages within the same website. They help readers continue learning and make your content structure easier to understand.</p><p>For each planned article, record a primary service page and one or two existing posts that genuinely add context. Avoid inserting the same promotional link after every heading. A link is most helpful when the surrounding sentence explains what the reader will find there.</p><p>For example, someone planning a content cluster may benefit from this companion guide: <a href=\"https://neloydigitalsolutions.com/blog/how-internal-links-help-visitors-and-search-engines-understand-your-website\">How Internal Links Help Visitors and Search Engines Understand Your Website</a>.</p><p>If the reader wants to explore how SEO and content planning fit into a broader service, the <a href=\"https://neloydigitalsolutions.com/digital-marketing/\">Digital Marketing service page</a> is a relevant next step. Neither link should interrupt the main explanation.</p>"
+      },
+      {
+        "id": "use-a-simple-editorial-planning-table",
+        "title": "Use a simple editorial planning table",
+        "body": "<p>A useful spreadsheet does not need dozens of columns. For each article, record the topic, the reader's question, the relevant service, the main search phrase, the expected takeaway, and its publishing status.</p><div class=\"blog-table\"><table><thead><tr><th scope=\"col\">Planned article</th><th scope=\"col\">Reader's need</th><th scope=\"col\">Related service</th><th scope=\"col\">Useful outcome</th></tr></thead><tbody><tr><td>What should a homepage communicate?</td><td>Understanding page priorities</td><td>Website design</td><td>Homepage review checklist</td></tr><tr><td>Why does a contact form lose enquiries?</td><td>Fixing a usability problem</td><td>Website design</td><td>Form-improvement checklist</td></tr><tr><td>How do internal links work?</td><td>Understanding page connections</td><td>Digital marketing</td><td>Internal-link planning example</td></tr><tr><td>How should businesses select blog topics?</td><td>Building a relevant content plan</td><td>Digital marketing</td><td>Topic-cluster worksheet</td></tr></tbody></table></div><p>This makes it easier to see what has already been covered and where an additional explanation would help. It also reduces the risk of publishing several articles that answer essentially the same question.</p>"
+      },
+      {
+        "id": "prioritise-usefulness-over-article-volume",
+        "title": "Prioritise usefulness over article volume",
+        "body": "<p>If you can only publish one strong article in a week, that can be more valuable to readers than several rushed posts. A substantial article should answer the question clearly, provide an example where appropriate, and explain what someone can do with the information.</p><p>Avoid padding a short answer simply to reach a word count. At the same time, do not stop at a definition when the reader needs steps, context, or a comparison. Good blog topics for SEO are topics your team can cover with actual usefulness.</p><p>For a business considering Google AdSense, publishing more pages is not a shortcut to approval or earnings. Original content, helpful navigation, trust, and compliance with Google's policies remain important; neither page count nor article length alone guarantees an outcome.</p>"
+      },
+      {
+        "id": "measure-the-right-results-after-publishing",
+        "title": "Measure the right results after publishing",
+        "body": "<p>A topic cluster is a long-term project. Give new articles time to be discovered, then look beyond raw page views.</p><p>Useful signals include whether relevant search queries are generating impressions, whether readers navigate to related pages, and whether enquiries mention problems covered by the articles. Website analytics and Search Console can help you examine these patterns, but the numbers need context.</p><p>An article with a modest number of interested readers may be doing useful work if it answers a specialised question. Another article may receive many visits yet have little connection to the audience you serve.</p><p>Review the plan periodically. Update explanations when tools, processes, or best practices change. Add new articles where there is a genuine gap, not merely because a keyword variation exists.</p>"
+      },
+      {
+        "id": "a-practical-sixstep-topicselection-checklist",
+        "title": "A practical six-step topic-selection checklist",
+        "body": "<p>Before you approve the next title, confirm that you can:</p><ol><li><strong>Name the audience:</strong> Who needs this information?</li><li><strong>State the question:</strong> What exactly are they trying to understand or solve?</li><li><strong>Choose the service connection:</strong> Which service page or content cluster fits naturally?</li><li><strong>Offer an original takeaway:</strong> Can you provide steps, examples, a comparison, or a checklist?</li><li><strong>Avoid duplication:</strong> Is there already an article that answers substantially the same question?</li><li><strong>Plan the next step:</strong> What closely related article or service page would help the reader continue?</li></ol><p>If a topic passes these checks, it has a stronger reason to exist than simply filling another slot in a content calendar.</p>"
+      },
+      {
+        "id": "final-thoughts",
+        "title": "Final thoughts",
+        "body": "<p>Good business blogging begins with understanding customer questions—not chasing every search phrase. When your articles form clear groups around your services, visitors can move from learning about a problem to evaluating their options at their own pace.</p><p>Start with one core service, identify five relevant questions, and publish the most useful answer first. Build the cluster gradually, strengthen internal links where they genuinely help, and refine the plan based on what readers need.</p>"
+      }
+    ]
   }
+
 ];
 
 // Canonicals and publisher are derived to keep every article on the main domain.
