@@ -141,6 +141,17 @@ function addExploreLinks(html) {
   return lastFooter < 0 ? html : html.slice(0, lastFooter) + FOOTER_EXPLORE_LINKS + html.slice(lastFooter);
 }
 
+function addWorkingLocations(html) {
+  if (html.includes('id="nds-working-locations"')) return html;
+  const block = `<div id="nds-working-locations" class="wrap" style="padding-top:28px;padding-bottom:24px;border-top:1px solid rgba(90,140,190,.25);margin-top:28px">
+    <p style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#0878f9;margin:0 0 12px">WHERE WE WORK FROM</p>
+    <p style="font-size:clamp(17px,2.5vw,23px);font-weight:700;line-height:1.6;color:#102440;margin:0 0 14px">Malaysia · United Kingdom · Bangladesh</p>
+    <p style="margin:0 0 16px;overflow-wrap:anywhere"><a href="mailto:info@neloydigitalsolutions.com" style="color:#1261bf">info@neloydigitalsolutions.com</a></p>
+    <a class="btn" href="#contact">Start a Conversation →</a>
+  </div>`;
+  return html.replace(/(<section\b[^>]*\bid=["']contact["'][^>]*>[\s\S]*?)(<\/section>)/i, (_, content, end) => content + block + end);
+}
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -194,7 +205,7 @@ export default {
 
     if (url.pathname.startsWith("/admin") || !(response.headers.get("content-type") || "").includes("text/html")) return response;
     let html = await response.text();
-    if (path === "/") html = addClientNameMarquee(upgradeHomepage(html));
+    if (path === "/") html = addWorkingLocations(addClientNameMarquee(upgradeHomepage(html)));
     if (path === "/showcase" || path === "/portfolio" || path === "/video-editing") html = addNewShowreel(html, path);
     if (path === "/") html = html.replace('<main id="top">', '<main id="top" class="nds-premium-home">');
     if (path === "/website") html = html.replace('<main id="top">', '<main id="top" class="nds-premium-website">');
