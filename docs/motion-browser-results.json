@@ -1,0 +1,158 @@
+{
+  "target": "https://preview-premium-cinematic-motion-neloy-digital-solutions-live.info-digitalsolutions-neloy-b7a.workers.dev",
+  "bundledWithKeepNames": true,
+  "productionRequests": 0,
+  "checks": [
+    {
+      "name": "laptop-home bundled startup and word reveals"
+    },
+    {
+      "name": "laptop-home actual running animation",
+      "detail": {
+        "active": 13
+      }
+    },
+    {
+      "name": "laptop-home horizontal overflow",
+      "detail": []
+    },
+    {
+      "name": "laptop-home pause control"
+    },
+    {
+      "name": "laptop-home resume control"
+    },
+    {
+      "name": "laptop-home form input remains usable without submission"
+    },
+    {
+      "name": "laptop-home video modal opens"
+    },
+    {
+      "name": "laptop-home video modal closes with Escape"
+    },
+    {
+      "name": "laptop-home browser runtime errors",
+      "detail": []
+    },
+    {
+      "name": "laptop-showcase bundled startup and word reveals"
+    },
+    {
+      "name": "laptop-showcase actual running animation",
+      "detail": {
+        "active": 6
+      }
+    },
+    {
+      "name": "laptop-showcase horizontal overflow",
+      "detail": []
+    },
+    {
+      "name": "laptop-showcase pause control"
+    },
+    {
+      "name": "laptop-showcase resume control"
+    },
+    {
+      "name": "laptop-showcase testimonial expansion"
+    },
+    {
+      "name": "laptop-showcase testimonial navigation"
+    },
+    {
+      "name": "laptop-showcase browser runtime errors",
+      "detail": []
+    },
+    {
+      "name": "laptop reduced motion",
+      "detail": {
+        "moving": 0
+      }
+    },
+    {
+      "name": "laptop reduced-motion text remains visible"
+    },
+    {
+      "name": "mobile-home bundled startup and word reveals"
+    },
+    {
+      "name": "mobile-home actual running animation",
+      "detail": {
+        "active": 12
+      }
+    },
+    {
+      "name": "mobile-home horizontal overflow",
+      "detail": []
+    },
+    {
+      "name": "mobile-home pause control"
+    },
+    {
+      "name": "mobile-home resume control"
+    },
+    {
+      "name": "mobile-home form input remains usable without submission"
+    },
+    {
+      "name": "mobile-home video modal opens"
+    },
+    {
+      "name": "mobile-home video modal closes with Escape"
+    },
+    {
+      "name": "mobile-home browser runtime errors",
+      "detail": []
+    },
+    {
+      "name": "mobile-showcase bundled startup and word reveals"
+    },
+    {
+      "name": "mobile-showcase actual running animation",
+      "detail": {
+        "active": 9
+      }
+    },
+    {
+      "name": "mobile-showcase horizontal overflow",
+      "detail": []
+    },
+    {
+      "name": "mobile-showcase pause control"
+    },
+    {
+      "name": "mobile-showcase resume control"
+    },
+    {
+      "name": "mobile-showcase testimonial expansion"
+    },
+    {
+      "name": "mobile-showcase testimonial navigation"
+    },
+    {
+      "name": "mobile-showcase browser runtime errors",
+      "detail": []
+    },
+    {
+      "name": "mobile reduced motion",
+      "detail": {
+        "moving": 0
+      }
+    },
+    {
+      "name": "mobile reduced-motion text remains visible"
+    },
+    {
+      "name": "No DB or private service binding was accessed"
+    }
+  ],
+  "failures": [],
+  "notes": [
+    "Chromium mobile viewport emulation, not physical phone hardware.",
+    "Third-party hosts are blocked. The external Descript player is not verified.",
+    "Browser checks target the actual read-only Cloudflare branch preview. No forms are submitted, and the production domain is blocked.",
+    "laptop-home native playback unverified: page.waitForFunction: Timeout 12000ms exceeded.",
+    "mobile-home native playback unverified: page.waitForFunction: Timeout 12000ms exceeded."
+  ]
+}
