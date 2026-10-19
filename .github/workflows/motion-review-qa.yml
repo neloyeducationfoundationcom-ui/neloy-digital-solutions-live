@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      NELOY_QA_DEPS: ${{ runner.temp }}/neloy-motion-qa
+      NELOY_QA_DEPS: /tmp/neloy-motion-qa
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

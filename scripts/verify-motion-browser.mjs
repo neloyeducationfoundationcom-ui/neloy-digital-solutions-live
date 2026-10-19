@@ -40,7 +40,8 @@ function ok(name,value,detail){assert.ok(value,name);results.checks.push({name,d
 const configs=[{name:'laptop',viewport:{width:1440,height:900},isMobile:false,hasTouch:false},{name:'mobile',viewport:{width:390,height:844},isMobile:true,hasTouch:true}];
 try{
  for(const config of configs){
-  const context=await browser.newContext({...config,reducedMotion:'no-preference',recordVideo:{dir:out,size:config.viewport}});
+  const options={viewport:config.viewport,isMobile:config.isMobile,hasTouch:config.hasTouch};
+  const context=await browser.newContext({...options,reducedMotion:'no-preference',recordVideo:{dir:out,size:config.viewport}});
   await context.route('**/*',route=>route.request().url().startsWith(local)||route.request().url().startsWith('data:')?route.continue():route.abort('blockedbyclient'));
   for(const path of ['/','/showcase']){
    const label=config.name+(path==='/'?'-home':'-showcase');
@@ -96,7 +97,7 @@ try{
    finally{await page.close();await page.video()?.saveAs(join(out,label+'.webm'));}
   }
   await context.close();
-  const reduced=await browser.newContext({...config,reducedMotion:'reduce'});
+  const reduced=await browser.newContext({...options,reducedMotion:'reduce'});
   await reduced.route('**/*',route=>route.request().url().startsWith(local)||route.request().url().startsWith('data:')?route.continue():route.abort('blockedbyclient'));
   const page=await reduced.newPage();
   try{
