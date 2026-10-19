@@ -171,6 +171,8 @@ export function initCinematicMotion() {
 
 export function addCinematicMotion(html) {
   if (!/<main\b/.test(html) || !html.includes('</head>') || !html.includes('</body>') || html.includes('id="nds-premium-motion-script"')) return html;
-  const script='<script id="nds-premium-motion-script">('+initCinematicMotion.toString()+')();</script>';
+  // Wrangler's name-preserving bundler adds __name calls inside serialized functions.
+  // The browser does not inherit the Worker's module scope; provide that helper locally.
+  const script='<script id="nds-premium-motion-script">(()=>{const __name=(fn)=>fn;('+initCinematicMotion.toString()+')();})();</script>';
   return html.replace('</head>',STYLE+'</head>').replace('</body>',script+'</body>');
 }
