@@ -17,6 +17,7 @@ jobs:
     timeout-minutes: 15
     env:
       NELOY_QA_DEPS: /tmp/neloy-motion-qa
+      NELOY_REVIEW_URL: https://preview-premium-cinematic-motion-neloy-digital-solutions-live.info-digitalsolutions-neloy-b7a.workers.dev
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

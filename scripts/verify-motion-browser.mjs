@@ -35,7 +35,10 @@ const server=http.createServer(async(req,res)=>{
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const local='http://127.0.0.1:'+server.address().port;
-const results={bundledWithKeepNames:true,productionRequests:0,checks:[],failures:[],notes:['Chromium mobile viewport emulation, not physical phone hardware.','Third-party hosts are blocked. The external Descript player is not verified.','The isolated server executes the actual bundled Worker and local repository assets, with protected data bindings forbidden.']};
+const target=process.env.NELOY_REVIEW_URL||local;
+assert.ok(target===origin||target===local,'Browser QA may target only the isolated review alias or local test server');
+const allowed=url=>url.startsWith(target+'/')||url===target||url.startsWith('data:');
+const results={target,bundledWithKeepNames:true,productionRequests:0,checks:[],failures:[],notes:['Chromium mobile viewport emulation, not physical phone hardware.','Third-party hosts are blocked. The external Descript player is not verified.',target===local?'The isolated server executes the actual bundled Worker and local repository assets, with protected data bindings forbidden.':'Browser checks target the actual read-only Cloudflare branch preview. No forms are submitted, and the production domain is blocked.']};
 const browser=await chromium.launch({headless:true});
 function ok(name,value,detail){assert.ok(value,name);results.checks.push({name,detail});}
 const configs=[{name:'laptop',viewport:{width:1440,height:900},isMobile:false,hasTouch:false},{name:'mobile',viewport:{width:390,height:844},isMobile:true,hasTouch:true}];
@@ -43,13 +46,13 @@ try{
  for(const config of configs){
   const options={viewport:config.viewport,isMobile:config.isMobile,hasTouch:config.hasTouch};
   const context=await browser.newContext({...options,reducedMotion:'no-preference',recordVideo:{dir:out,size:config.viewport}});
-  await context.route('**/*',route=>route.request().url().startsWith(local)||route.request().url().startsWith('data:')?route.continue():route.abort('blockedbyclient'));
+  await context.route('**/*',route=>allowed(route.request().url())?route.continue():route.abort('blockedbyclient'));
   for(const path of ['/','/showcase']){
    const label=config.name+(path==='/'?'-home':'-showcase');
    const page=await context.newPage(),errors=[];
    page.on('pageerror',e=>errors.push(e.message));
    try{
-    await page.goto(local+path,{waitUntil:'domcontentloaded'});
+    await page.goto(target+path,{waitUntil:'domcontentloaded'});
     await page.waitForFunction(()=>document.querySelector('main')?.dataset.ndsCinematic==='ready',null,{timeout:15000});
     await page.waitForFunction(()=>document.querySelectorAll('.nds-motion-word').length>0,null,{timeout:5000});
     ok(label+' bundled startup and word reveals',true);
@@ -99,10 +102,10 @@ try{
   }
   await context.close();
   const reduced=await browser.newContext({...options,reducedMotion:'reduce'});
-  await reduced.route('**/*',route=>route.request().url().startsWith(local)||route.request().url().startsWith('data:')?route.continue():route.abort('blockedbyclient'));
+  await reduced.route('**/*',route=>allowed(route.request().url())?route.continue():route.abort('blockedbyclient'));
   const page=await reduced.newPage();
   try{
-   await page.goto(local,{waitUntil:'domcontentloaded'});await page.waitForTimeout(900);
+   await page.goto(target,{waitUntil:'domcontentloaded'});await page.waitForTimeout(900);
    const moving=await page.evaluate(()=>document.getAnimations().filter(a=>a.effect?.target?.closest?.('main')&&!a.effect.target.closest('#nds-client-name-marquee')).length);
    ok(config.name+' reduced motion',moving===0,{moving});
    ok(config.name+' reduced-motion text remains visible',await page.locator('h1').isVisible());
