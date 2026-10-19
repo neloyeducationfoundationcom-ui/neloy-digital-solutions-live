@@ -19,6 +19,7 @@ const origin='https://preview-premium-cinematic-motion-neloy-digital-solutions-l
 const mime={'.mp4':'video/mp4','.jpg':'image/jpeg','.png':'image/png','.svg':'image/svg+xml','.txt':'text/plain'};
 async function asset(path){
  const file=resolve(root,'public','.'+path);
+ if(file===resolve(root,'public'))return new Response('Not found',{status:404});
  if(!file.startsWith(resolve(root,'public')+'/'))return new Response('Forbidden',{status:403});
  try{return new Response(await readFile(file),{headers:{'content-type':mime[extname(file)]||'application/octet-stream'}})}catch{return new Response('Not found',{status:404})}
 }
