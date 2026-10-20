@@ -1,4 +1,4 @@
-name: Approved release live browser checks
+name: Live motion regression diagnosis
 on:
   push:
     branches: [preview/premium-cinematic-motion]
@@ -27,14 +27,14 @@ jobs:
         run: |
           mkdir -p "$NELOY_QA_DEPS"
           npm install --prefix "$NELOY_QA_DEPS" --no-save --no-package-lock esbuild@0.25.11 playwright@1.56.1
-          "$NELOY_QA_DEPS/node_modules/.bin/playwright" install --with-deps chromium
+          "$NELOY_QA_DEPS/node_modules/.bin/playwright" install --with-deps chromium webkit
       - name: Check client startup and preview isolation
         run: |
           node scripts/verify-motion-bundling.mjs
           node scripts/verify-cinematic-motion.mjs
           node scripts/verify-motion-preview.mjs
       - name: Record actual laptop and mobile browser behavior
-        run: node scripts/verify-motion-production.mjs
+        run: node scripts/verify-motion-diagnostic.mjs
       - name: Save browser evidence
         if: always()
         uses: actions/upload-artifact@v4
