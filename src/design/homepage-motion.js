@@ -1,5 +1,3 @@
-import { CINEMATIC_PATHS, addCinematicMotion } from './cinematic-motion.js';
-
 export const HOMEPAGE_MOTION_CSS = `<style id="nds-homepage-motion-style">
 @media (prefers-reduced-motion:no-preference){
 html:has(main:is(.nds-premium-home,.nds-premium-showcase)){scroll-behavior:smooth}
@@ -255,7 +253,6 @@ export function initReferenceMotion(){
 }
 
 export function addHomepageMotion(html,path){
- if(CINEMATIC_PATHS.has(path))return addCinematicMotion(html);
  if(!['/','/showcase','/portfolio','/website','/website-design','/logo-design','/social-media-design','/video-editing','/digital-marketing','/team','/terms','/privacy','/blog'].includes(path)&&!path.startsWith('/blog/'))return html;
  if(!/<main\b/.test(html)||html.includes('id="nds-cinematic-motion-script"')||!html.includes('</head>')||!html.includes('</body>'))return html;
  const script='<script id="nds-cinematic-motion-script">(()=>{const __name=(fn)=>fn;('+initReferenceMotion.toString()+')();})();</script>';
