@@ -15,7 +15,7 @@ body:has(#nds-premium-motion-script) .pageFx span{animation:none!important}
 html:has(#nds-premium-motion-script){scroll-behavior:auto!important}
 body:has(#nds-premium-motion-script){scroll-behavior:auto!important}
 body:has(#nds-premium-motion-script) main *:not(#nds-client-name-marquee):not(#nds-client-name-marquee *){transition:none!important;scroll-behavior:auto!important}
-.nds-page-motion-control{display:none}
+.nds-page-motion-control{display:flex}
 }
 </style>`;
 
@@ -30,14 +30,14 @@ export function initCinematicMotion() {
     const protectedNode = node => !!node.closest(exclude);
     const cardSelector = '.nds-work-card,.nds-feedback-card,.nds-sc-card,.workCard,.testCard,.gpCard,.wpCard,.web-project-card,.wdCard,.spCard,.mkCard,.svCard,.vpCard,.card,.offerCard,.journeyItem,.ndsProcessCard,.nds-process-steps>li,.spStep,.mkStep';
     const videoFrames = '.ndsVideoThumb,.svPlayer,.nds-new-showreel-player,.vwPlayer,.vpPlayer';
-    const effects = new Set(), entered = new WeakSet(), tracks = new Map(), visible = new Set();
-    let userPaused = false, frame = 0;
-    const paused = () => reduced.matches || userPaused || document.hidden;
+    const effects = new Set(), entered = new WeakSet(), headingWords = new WeakMap(), tracks = new Map(), visible = new Set();
+    let userPaused = false, userEnabled = false, frame = 0;
+    const paused = () => (reduced.matches && !userEnabled) || userPaused || document.hidden;
     const control = document.createElement('div');
     control.className = 'nds-page-motion-control';
     const button = document.createElement('button');
     button.type = 'button'; button.id = 'nds-page-motion-toggle';
-    button.textContent = 'Pause page motion'; button.setAttribute('aria-pressed', 'false');
+    button.textContent = reduced.matches ? 'Enable page motion' : 'Pause page motion'; button.setAttribute('aria-pressed', String(reduced.matches));
     control.append(button);
     // Independent of the existing name wall's own pause control.
     (document.querySelector('body > footer') || main.parentElement).append(control);
@@ -79,40 +79,48 @@ export function initCinematicMotion() {
     add('.nds-concept-visual', 'hero');
     add(videoFrames, 'video');
     const observer = new IntersectionObserver(entries => {
+      // A hidden tab must not consume reveals before the visitor can see them.
+      if (paused()) return;
+      entries.filter(e => !e.isIntersecting).forEach(({target, boundingClientRect}) => {
+        if (boundingClientRect.bottom < -80 || boundingClientRect.top > innerHeight + 80) entered.delete(target);
+      });
       // Nearby items share the same timing origin and a short stagger.
       const incoming = entries.filter(e => e.isIntersecting && !entered.has(e.target));
       incoming.sort((a,b) => a.boundingClientRect.top-b.boundingClientRect.top || a.boundingClientRect.left-b.boundingClientRect.left);
       incoming.forEach(({target}, index) => {
-        entered.add(target); observer.unobserve(target);
-        if (paused()) return;
+        entered.add(target);
         const type = targets.get(target), delay = Math.min(index * 65, 195);
-        const distance = compact.matches ? 12 : 24;
+        const distance = compact.matches ? 24 : 44;
         if (type === 'heading') {
           // Keep long headings in one effect rather than creating a large word animation set.
-          const parts = (target.textContent || '').trim().split(/\s+/).length > 16 ? [target] : words(target);
-          parts.forEach((word, i) => animate(word, [{opacity:.2,translate:'0 '+distance+'px'},{opacity:1,translate:'0 0'}], delay + Math.min(i * (compact.matches ? 20 : 28), compact.matches ? 140 : 220), 940));
+          let parts = headingWords.get(target);
+          if (!parts) {parts = (target.textContent || '').trim().split(/\s+/).length > 16 ? [target] : words(target);headingWords.set(target, parts);}
+          parts.forEach((word, i) => animate(word, [{opacity:.55,transform:'translateY('+distance+'px)'},{opacity:1,transform:'translateY(0)'}], delay + Math.min(i * (compact.matches ? 20 : 28), compact.matches ? 140 : 220), 940));
         } else if (type === 'hero') {
-          animate(target, [{opacity:.5,translate:'0 '+(compact.matches?22:44)+'px',scale:'.97'},{opacity:1,translate:'0 0',scale:'1'}], 160, 1250);
+          animate(target, [{opacity:.65,transform:'translateY('+(compact.matches?28:52)+'px) scale(.96)'},{opacity:1,transform:'translateY(0) scale(1)'}], 160, 1250);
         } else if (type === 'video') {
           // Only the frame enters. Captions, playback, controls and media URLs are untouched.
-          animate(target, [{opacity:.5,translate:'0 '+distance+'px'},{opacity:1,translate:'0 0'}], delay, 1050);
+          animate(target, [{opacity:.65,transform:'translateY('+distance+'px)'},{opacity:1,transform:'translateY(0)'}], delay, 1050);
         } else {
-          animate(target, [{opacity:type==='card'?.45:.3,translate:'0 '+distance+'px'},{opacity:1,translate:'0 0'}], delay, type==='card'?1000:800);
+          animate(target, [{opacity:type==='card'?.65:.6,transform:'translateY('+distance+'px)'},{opacity:1,transform:'translateY(0)'}], delay, type==='card'?1000:800);
         }
       });
     }, {threshold:.08, rootMargin:'0px 0px -4% 0px'});
 
     // Scrub only project imagery, within its existing frame. Never translate captions or controls.
     const projectImages = [...main.querySelectorAll('.web-project-image img,.wdImage img,.wpClientVisual img')].filter(node => !protectedNode(node));
-    const artworks = [...main.querySelectorAll('.nds-work-art > .nds-art-window,.nds-work-art > .nds-art-monogram')].filter(node => !protectedNode(node));
-    function track(node) {
+    const artworks = [...main.querySelectorAll('.nds-work-art > .nds-art-window,.nds-work-art > .nds-art-monogram,.gpVisual > img,.gpVisual > .flyerMock,.gpVisual > .socialMock')].filter(node => !protectedNode(node));
+    const heroDevices = [...main.querySelectorAll('.nds-laptop,.nds-mobile-device')].filter(node => !protectedNode(node));
+    function track(node, kind = 'project') {
       if (tracks.has(node) || paused()) return;
-      const owner = node.closest('.web-project-image,.wdImage,.wpClientVisual,.nds-work-art');
+      const owner = kind === 'hero' ? node.closest('.nds-concept-visual') : node.closest('.web-project-image,.wdImage,.wpClientVisual,.nds-work-art,.gpVisual');
       if (!owner) return;
       if (node.tagName === 'IMG' && (!node.complete || !node.naturalWidth)) return;
-      if (node.tagName === 'IMG' && getComputedStyle(node).objectFit !== 'cover') return;
-      const image = node.tagName === 'IMG';
-      const effect = node.animate(image ? [{objectPosition:'50% 0%'},{objectPosition:'50% 100%'}] : [{translate:'0 8px'},{translate:'0 -8px'}], {duration:1000,fill:'both',easing:'linear'});
+      const image = node.tagName === 'IMG' && getComputedStyle(node).objectFit === 'cover';
+      const distance = compact.matches ? 18 : 36;
+      const direction = node.classList.contains('nds-mobile-device') ? -1 : 1;
+      const keyframes = image ? [{objectPosition:'50% 0%'},{objectPosition:'50% 100%'}] : [{translate:'0 '+(distance*direction)+'px',scale:'.97'},{translate:'0 '+(-distance*direction)+'px',scale:'1.03'}];
+      const effect = node.animate(keyframes, {duration:1000,fill:'both',easing:'linear'});
       effect.pause();tracks.set(node, {effect,owner}); mediaObserver.observe(owner);
     }
     const mediaObserver = new IntersectionObserver(entries => {
@@ -139,10 +147,10 @@ export function initCinematicMotion() {
     }
     function setup() {
       if(paused())return;
-      targets.forEach((_,node)=>{if(!entered.has(node))observer.observe(node);});
-      projectImages.forEach(track);artworks.forEach(track);schedule();
+      targets.forEach((_,node)=>observer.observe(node));
+      projectImages.forEach(node=>track(node));artworks.forEach(node=>track(node));heroDevices.forEach(node=>track(node,'hero'));schedule();
     }
-    projectImages.forEach(node=>node.addEventListener('load',()=>{track(node);schedule();},{once:true}));
+    [...projectImages,...artworks.filter(node=>node.tagName==='IMG')].forEach(node=>node.addEventListener('load',()=>{track(node);schedule();},{once:true}));
     window.addEventListener('scroll',schedule,{passive:true});
     window.addEventListener('resize',schedule,{passive:true});
     if(window.ResizeObserver){const resize=new ResizeObserver(schedule);resize.observe(main);}
@@ -159,10 +167,11 @@ export function initCinematicMotion() {
       if(active)animate(active,[{translate:'8px 0'},{translate:'0 0'}],0,500);
     });
     button.addEventListener('click',()=>{
-      userPaused=!userPaused;button.setAttribute('aria-pressed',String(userPaused));button.textContent=userPaused?'Resume page motion':'Pause page motion';
+      if (reduced.matches && !userEnabled) {userEnabled=true;userPaused=false;} else userPaused=!userPaused;
+      button.setAttribute('aria-pressed',String(userPaused));button.textContent=userPaused?'Resume page motion':'Pause page motion';
       clear();observer.disconnect();if(!userPaused)setup();
     });
-    reduced.addEventListener('change',()=>{clear();observer.disconnect();if(!reduced.matches)setup();});
+    reduced.addEventListener('change',()=>{userEnabled=false;userPaused=false;clear();observer.disconnect();button.setAttribute('aria-pressed',String(reduced.matches));button.textContent=reduced.matches?'Enable page motion':'Pause page motion';if(!reduced.matches)setup();});
     document.addEventListener('visibilitychange',()=>{if(document.hidden)clear();else setup();});
     if(!reduced.matches)setup();
   }

@@ -59,6 +59,20 @@ try{
     const active=await page.evaluate(()=>document.getAnimations().filter(a=>a.effect?.target?.closest?.('main')&&!a.effect.target.closest('#nds-client-name-marquee')&&a.playState==='running').length);
     ok(label+' actual running animation',active>0,{active});
     await page.waitForTimeout(1400);
+    if(path==='/'){
+     const device=page.locator('.nds-laptop').first();
+     const before=await device.evaluate(n=>getComputedStyle(n).translate);
+     await page.mouse.wheel(0,200);await page.waitForTimeout(180);
+     const after=await device.evaluate(n=>getComputedStyle(n).translate);
+     ok(label+' visible hero artwork follows scrolling',before!==after,{before,after});
+    }
+    const wordCount=await page.locator('h1 .nds-motion-word').count();
+    await page.mouse.wheel(0,config.viewport.height*2);await page.waitForTimeout(1500);
+    await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(180);
+    const replay=await page.locator('h1').evaluate(n=>document.getAnimations().filter(a=>n.contains(a.effect?.target)&&a.playState==='running').length);
+    ok(label+' headline reveal replays when returning',replay>0,{replay});
+    ok(label+' replay preserves heading text structure',await page.locator('h1 .nds-motion-word').count()===wordCount);
+    await page.waitForTimeout(1400);
     const widthErrors=[];let steps=0;
     while(steps++<30){
      const state=await page.evaluate(()=>({y:scrollY,bottom:innerHeight+scrollY>=document.documentElement.scrollHeight-2,overflow:document.documentElement.scrollWidth-innerWidth}));
@@ -109,6 +123,10 @@ try{
    const moving=await page.evaluate(()=>document.getAnimations().filter(a=>a.effect?.target?.closest?.('main')&&!a.effect.target.closest('#nds-client-name-marquee')).length);
    ok(config.name+' reduced motion',moving===0,{moving});
    ok(config.name+' reduced-motion text remains visible',await page.locator('h1').isVisible());
+   const enable=page.getByRole('button',{name:'Enable page motion',exact:true});
+   ok(config.name+' reduced-motion enable control is available',await enable.isVisible());
+   await enable.click();await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(200);
+   ok(config.name+' explicit motion opt-in works',await page.locator('#nds-page-motion-toggle').getAttribute('aria-pressed')==='false'&&await page.locator('h1 .nds-motion-word').count()>0);
   }catch(e){results.failures.push({label:config.name+'-reduced',error:e.message});}
   await reduced.close();
  }
