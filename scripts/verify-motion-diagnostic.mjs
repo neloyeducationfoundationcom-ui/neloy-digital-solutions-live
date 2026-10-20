@@ -4,7 +4,7 @@ import {join} from 'node:path';
 const require=createRequire(join(process.env.NELOY_QA_DEPS,'package.json'));
 const {chromium,webkit}=require('playwright');
 const out='motion-qa-results';await mkdir(out,{recursive:true});
-const target='https://neloydigitalsolutions.com';
+const target=process.env.NELOY_DIAGNOSTIC_TARGET||'https://neloydigitalsolutions.com';
 const results={target,cases:[]};
 for(const [name,engine,options] of [
  ['chrome-laptop',chromium,{viewport:{width:1440,height:900}}],
@@ -21,7 +21,7 @@ for(const [name,engine,options] of [
  try{
  const response=await page.goto(target,{waitUntil:'domcontentloaded'});entry.status=response.status();entry.headers=await response.allHeaders();entry.finalURL=page.url();
  await page.waitForTimeout(150);await sample('initial-150ms');await page.waitForTimeout(3000);await sample('settled-3s');
- for(let i=0;i<10;i++){await page.mouse.wheel(0,options.viewport.height*.72);await page.waitForTimeout(180);await sample('scroll-down-'+i)}
+ for(let i=0;i<10;i++){if(engine===webkit&&options.isMobile)await page.evaluate(y=>scrollBy({top:y,behavior:'instant'}),options.viewport.height*.72);else await page.mouse.wheel(0,options.viewport.height*.72);await page.waitForTimeout(180);await sample('scroll-down-'+i)}
  await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(250);await sample('return-to-top');
  await page.screenshot({path:join(out,name+'-return.png')});
  const h=page.locator('main h2').first();await h.scrollIntoViewIfNeeded();await page.waitForTimeout(180);await sample('revisit-first-heading');

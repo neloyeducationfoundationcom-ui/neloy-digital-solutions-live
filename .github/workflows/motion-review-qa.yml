@@ -1,4 +1,4 @@
-name: Live motion regression diagnosis
+name: Scroll motion repair browser checks
 on:
   push:
     branches: [preview/premium-cinematic-motion]
@@ -17,7 +17,8 @@ jobs:
     timeout-minutes: 15
     env:
       NELOY_QA_DEPS: /tmp/neloy-motion-qa
-      NELOY_LIVE_READ_ONLY: approved-release
+      NELOY_REVIEW_URL: https://preview-premium-cinematic-motion-neloy-digital-solutions-live.info-digitalsolutions-neloy-b7a.workers.dev
+      NELOY_DIAGNOSTIC_TARGET: https://preview-premium-cinematic-motion-neloy-digital-solutions-live.info-digitalsolutions-neloy-b7a.workers.dev
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -34,11 +35,13 @@ jobs:
           node scripts/verify-cinematic-motion.mjs
           node scripts/verify-motion-preview.mjs
       - name: Record actual laptop and mobile browser behavior
-        run: node scripts/verify-motion-diagnostic.mjs
+        run: |
+          node scripts/verify-motion-browser.mjs
+          node scripts/verify-motion-diagnostic.mjs
       - name: Save browser evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: neloy-live-motion-browser-evidence
+          name: neloy-scroll-repair-browser-evidence
           path: motion-qa-results/
           retention-days: 14
