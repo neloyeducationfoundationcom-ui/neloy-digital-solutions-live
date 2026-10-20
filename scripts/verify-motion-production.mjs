@@ -58,7 +58,7 @@ function ok(name,value,detail){assert.ok(value,name);results.checks.push({name,d
 const configs=[{name:'laptop',viewport:{width:1440,height:900},isMobile:false,hasTouch:false},{name:'mobile',viewport:{width:390,height:844},isMobile:true,hasTouch:true}];
 try{
  for(const config of configs){
-  const options={viewport:config.viewport,isMobile:config.isMobile,hasTouch:config.hasTouch};
+  const options={viewport:config.viewport,isMobile:config.isMobile,hasTouch:config.hasTouch,...(config.isMobile?{userAgent:'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36'}:{})};
   const context=await browser.newContext({...options,reducedMotion:'no-preference',recordVideo:{dir:out,size:config.viewport}});
   await context.route('**/*',route=>allowedRequest(route.request())?route.continue():route.abort('blockedbyclient'));
   for(const path of ['/','/showcase']){
@@ -72,6 +72,20 @@ try{
     ok(label+' bundled startup and word reveals',true);
     const active=await page.evaluate(()=>document.getAnimations().filter(a=>a.effect?.target?.closest?.('main')&&!a.effect.target.closest('#nds-client-name-marquee')&&a.playState==='running').length);
     ok(label+' actual running animation',active>0,{active});
+    await page.waitForTimeout(1400);
+    if(path==='/'){
+     const device=page.locator('.nds-laptop').first();
+     const before=await device.evaluate(n=>getComputedStyle(n).translate);
+     await page.mouse.wheel(0,200);await page.waitForTimeout(180);
+     const after=await device.evaluate(n=>getComputedStyle(n).translate);
+     ok(label+' visible hero artwork follows scrolling',before!==after,{before,after});
+    }
+    const wordCount=await page.locator('h1 .nds-motion-word').count();
+    await page.mouse.wheel(0,config.viewport.height*2);await page.waitForTimeout(1500);
+    await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(180);
+    const replay=await page.locator('h1').evaluate(n=>document.getAnimations().filter(a=>n.contains(a.effect?.target)&&a.playState==='running').length);
+    ok(label+' headline reveal replays when returning',replay>0,{replay});
+    ok(label+' replay preserves heading text structure',await page.locator('h1 .nds-motion-word').count()===wordCount);
     await page.waitForTimeout(1400);
     const widthErrors=[];let steps=0;
     while(steps++<30){
@@ -123,6 +137,10 @@ try{
    const moving=await page.evaluate(()=>document.getAnimations().filter(a=>a.effect?.target?.closest?.('main')&&!a.effect.target.closest('#nds-client-name-marquee')).length);
    ok(config.name+' reduced motion',moving===0,{moving});
    ok(config.name+' reduced-motion text remains visible',await page.locator('h1').isVisible());
+   const enable=page.getByRole('button',{name:'Enable page motion',exact:true});
+   ok(config.name+' reduced-motion enable control is available',await enable.isVisible());
+   await enable.click();await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(200);
+   ok(config.name+' explicit motion opt-in works',await page.locator('#nds-page-motion-toggle').getAttribute('aria-pressed')==='false'&&await page.locator('h1 .nds-motion-word').count()>0);
   }catch(e){results.failures.push({label:config.name+'-reduced',error:e.message});}
   await reduced.close();
  }
