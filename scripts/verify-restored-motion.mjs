@@ -23,7 +23,7 @@ for(const mobile of [false,true]){
    const selectors=path==='/'?['.nds-laptop','.nds-work-art .nds-art-window','.nds-feedback-photo','.ndsVideoThumb img']:['.gpCard img','.nds-sc-card .avatar'];
    for(const selector of selectors){
     const n=page.locator(selector).first();if(!await n.count()){entry.samples.push({selector,available:false});continue;}
-    await n.scrollIntoViewIfNeeded();await page.waitForTimeout(900);
+    await n.evaluate(n=>n.scrollIntoView({behavior:"instant",block:"center"}));await page.waitForTimeout(900);
     const sample=()=>n.evaluate(n=>{const s=getComputedStyle(n);return {translate:s.translate,transform:s.transform,scale:s.scale,opacity:s.opacity,overflow:document.documentElement.scrollWidth-innerWidth}});
     const before=await sample();await page.waitForTimeout(650);const after=await sample();entry.samples.push({selector,before,after,moved:JSON.stringify(before)!==JSON.stringify(after)});
     assert.ok(before.overflow<=1&&after.overflow<=1,'Horizontal overflow '+selector);
