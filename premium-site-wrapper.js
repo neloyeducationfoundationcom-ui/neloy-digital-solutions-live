@@ -6,6 +6,7 @@ import { addClientNameMarquee } from "./src/design/client-name-marquee.js";
 import { addHomepageMotion } from "./src/design/homepage-motion.js";
 import { upgradeHomepage } from "./src/design/homepage-concept.js";
 import { upgradeShowcaseTestimonials } from "./src/design/showcase-testimonials.js";
+import { addWebsiteHealthReview } from "./src/design/website-health-review.js";
 import { PREMIUM_PAGES_CSS } from "./src/design/premium-pages.js";
 import { hardenResponse } from "./src/security/response-headers.js";
 
@@ -229,6 +230,7 @@ export default {
     }
     if (path === "/") html = addHomepageSocialPreview(html);
     html = addHubSpot(addAdSenseAccountMeta(addGa4(addExploreLinks(html))));
+    html = addWebsiteHealthReview(html, path, url.searchParams);
     html = addHomepageMotion(html, path);
     const headers = new Headers(response.headers);
     headers.delete("content-length");
