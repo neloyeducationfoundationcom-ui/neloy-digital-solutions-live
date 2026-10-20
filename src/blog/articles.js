@@ -1272,7 +1272,97 @@ export const articles = [
       }
     ]
   }
-
+,
+  {
+  "title": "How to Plan Website Navigation Before You Start Designing",
+  "slug": "how-to-plan-website-navigation-before-you-start-designing",
+  "metaTitle": "How to Plan Website Navigation Before Design | Neloy Digital Solutions",
+  "metaDescription": "Plan clear website navigation before design starts. Learn how to group pages, label menus, test mobile paths, and avoid confusing visitors.",
+  "category": "Website Design & UX",
+  "published": true,
+  "datePublished": "2026-10-20T14:31:13.000Z",
+  "dateModified": "2026-10-20T14:31:13.000Z",
+  "summary": "A practical pre-design navigation plan: map visitor tasks, group pages, choose clear labels, test menus and check mobile usability.",
+  "image": {
+    "src": "/assets/blog/website-navigation-planning-manual.png",
+    "alt": "Manually designed navigation-planning diagram showing visitor tasks, clear menu labels and usability checks",
+    "width": 1200,
+    "height": 630,
+    "caption": "Plan from customer tasks to clear labels, then review mobile usability and working links."
+  },
+  "serviceLinks": [
+    {
+      "path": "/website-design",
+      "label": "Website design services"
+    },
+    {
+      "path": "/digital-marketing",
+      "label": "Digital marketing services"
+    }
+  ],
+  "relatedSlugs": [
+    "how-to-organize-multiple-services-without-confusing-website-visitors",
+    "how-to-review-a-website-before-launch-a-practical-business-checklist",
+    "how-to-make-a-website-easier-to-scan-on-mobile"
+  ],
+  "sections": [
+    {
+      "id": "1-start-with-what-visitors-are-trying-to-do",
+      "title": "1. Start with what visitors are trying to do",
+      "body": "<p><strong>A practical guide for small-business owners</strong></p><p>A website menu often looks like a small design detail. Yet the decisions behind it affect how quickly customers find your services, proof of work, contact information and next steps. If those decisions are left until the visual design is almost finished, the team may spend time rearranging pages that should have been planned first.</p><p><strong>Quick answer:</strong> Plan website navigation by identifying your visitors' main tasks, listing the pages they need, grouping related content, writing clear menu labels and testing those paths before any detailed layout work. Then check that the same structure makes sense on a phone and can be used with a keyboard.</p><p>Before choosing a menu style, write down why someone would open your website. A new customer might want to understand your services, compare work examples or request an estimate. A returning customer might need support information. These tasks should determine which destinations are easiest to find.</p><p>For example, a creative agency's common visitor tasks might be:</p><ul>\n<li>Find out whether the agency designs business websites.</li>\n<li>Compare examples of previous projects.</li>\n<li>Understand what happens after an enquiry.</li>\n<li>Reach the correct contact option without searching through multiple pages.</li>\n</ul><p>This is different from starting with an internal department list. Customers do not need to know how your team is organised to locate the right service.</p>"
+    },
+    {
+      "id": "2-make-a-page-inventory-before-designing-the-header",
+      "title": "2. Make a page inventory before designing the header",
+      "body": "<p>Write down every existing page and every page you genuinely need to create. Record its purpose, intended audience and most important next action. If two planned pages answer almost the same customer question, consider whether they should be combined rather than becoming separate thin pages.</p><p>A small service business might begin with a homepage, a services overview, relevant individual service pages, selected work, an about page and contact information. There is no universal page count. The existing guide to <a href=\"https://neloydigitalsolutions.com/blog/how-many-pages-does-a-small-business-website-really-need\">choosing the right number of website pages</a> provides a useful way to make that decision.</p><p>Keep legal information and other supporting pages easy to access, but do not automatically give every supporting page the same prominence in the main navigation.</p>"
+    },
+    {
+      "id": "3-group-pages-according-to-customer-questions",
+      "title": "3. Group pages according to customer questions",
+      "body": "<p>Once the inventory exists, look for natural groups. A customer seeking a new website may also want to understand landing pages or website redesigns. Someone looking for a logo should not be forced to browse through unrelated video-editing content.</p><p>For a small creative business, a first draft could be:</p><ul>\n<li><strong>Home</strong> — who the business helps and where to go next.</li>\n<li><strong>Services</strong> — a clear overview, with individual service pages when needed.</li>\n<li><strong>Work</strong> — examples that help customers evaluate relevant experience.</li>\n<li><strong>About</strong> — the people, process and business information.</li>\n<li><strong>Contact</strong> — the easiest appropriate enquiry route.</li>\n</ul><p>This is a starting point, not a rule for every business. A shop may need product categories at the top level, while a local appointment-based business may need booking access immediately. If you offer several services, the guide on <a href=\"https://neloydigitalsolutions.com/blog/how-to-organize-multiple-services-without-confusing-website-visitors\">organising multiple services without confusing visitors</a> explains how to make those groupings useful.</p>"
+    },
+    {
+      "id": "4-write-menu-labels-that-predict-the-destination",
+      "title": "4. Write menu labels that predict the destination",
+      "body": "<p>Labels such as <em>Solutions</em>, <em>Innovation</em> and <em>Experience</em> may sound polished, but a new visitor might not know what will appear after clicking. A label should help someone make a confident choice before they open a page.</p><p>Compare these alternatives:</p><ul>\n<li><strong>Less clear:</strong> Creative Experiences → <strong>Clearer:</strong> Website Design</li>\n<li><strong>Less clear:</strong> Our Impact → <strong>Clearer:</strong> Projects or Portfolio</li>\n<li><strong>Less clear:</strong> Start a Conversation → <strong>Clearer:</strong> Contact</li>\n</ul><p>The right label depends on the content. Use the same names consistently across menus, headings and service cards where that helps visitors recognise a destination. A page linked as <em>Website Design</em> should clearly explain that service when someone arrives. For an example of a dedicated destination, see the <a href=\"https://neloydigitalsolutions.com/website-design\">website design services page</a>.</p>"
+    },
+    {
+      "id": "5-sketch-the-route-before-choosing-the-visual-style",
+      "title": "5. Sketch the route before choosing the visual style",
+      "body": "<p>You do not need design software to test an early navigation plan. Use paper, a simple document or a list of links. Start with the main destinations, then draw the paths to important content underneath them.</p><p>Imagine the task “I need a website for my business.” One possible route is:</p><ol>\n<li>Open <strong>Services</strong>.</li>\n<li>Choose <strong>Website Design</strong>.</li>\n<li>Read the project scope and view relevant work.</li>\n<li>Move to <strong>Contact</strong> when ready.</li>\n</ol><p>Now test a different question: “Can this team help with my logo?” If both paths are obvious without the visitor learning your company structure, the draft is heading in a useful direction.</p><p>A detailed service page can explain deliverables and the next step without forcing everything into a dropdown. The article about <a href=\"https://neloydigitalsolutions.com/blog/what-makes-a-service-page-easy-to-understand\">what makes a service page easy to understand</a> gives a practical content checklist.</p>"
+    },
+    {
+      "id": "6-decide-how-the-navigation-should-work-on-phones",
+      "title": "6. Decide how the navigation should work on phones",
+      "body": "<p>Do not assume a desktop menu will work simply because it can collapse into a menu icon. On a phone, visitors need to understand what opens, how to move back and how to close the menu. A long sequence of nested submenus can make a simple task frustrating.</p><p>Before approving the design, check that:</p><ul>\n<li>The menu can be opened and closed reliably.</li>\n<li>Important labels remain legible and tap targets are comfortable.</li>\n<li>Dropdowns do not depend on hovering with a mouse.</li>\n<li>Keyboard users can reach and operate the navigation.</li>\n<li>Visitors can recognise their current section or page.</li>\n<li>The order of repeated navigation stays predictable from page to page.</li>\n</ul><p>The <a href=\"https://www.w3.org/WAI/tutorials/menus/\">W3C Web Accessibility Initiative's menu tutorial</a> explains why menu structure, mouse and keyboard access and clearly identified states matter. The <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation.html\">WCAG guidance on consistent navigation</a> also highlights the benefit of keeping repeated navigation in a predictable relative order.</p><p>For reading and layout issues outside the menu itself, see the checklist on <a href=\"https://neloydigitalsolutions.com/blog/how-to-make-a-website-easier-to-scan-on-mobile\">making a website easier to scan on mobile</a>.</p>"
+    },
+    {
+      "id": "7-plan-useful-links-outside-the-main-menu",
+      "title": "7. Plan useful links outside the main menu",
+      "body": "<p>The header cannot carry the entire website. Relevant links inside service descriptions, articles, footers and related-content sections can help visitors move between connected ideas without returning to the homepage.</p><p>For example, a paragraph explaining website planning can link naturally to the design service. A launch checklist can link to the page where visitors learn what information to prepare before contacting a designer. Keep these links descriptive; “read more” repeated ten times does not tell readers what they will find.</p><p>Navigation planning should also account for the footer and any breadcrumbs, especially if the website has many nested pages. Those elements support orientation, but they should not compensate for unclear primary labels.</p>"
+    },
+    {
+      "id": "8-test-three-real-tasks-with-someone-outside-the-team",
+      "title": "8. Test three real tasks with someone outside the team",
+      "body": "<p>A navigation plan should be evaluated by whether people can use it, not by whether everyone in the project meeting likes its appearance. Show the draft to someone unfamiliar with the business and ask them to find:</p><ol>\n<li>A particular service, such as logo design.</li>\n<li>Evidence that the business has done similar work.</li>\n<li>A way to ask for a quotation.</li>\n</ol><p>Do not guide them while they search. Note their first choice, where they hesitate and whether they reach the expected destination. If a label causes confusion, try clearer wording before adding animations or extra layers.</p><p>Repeat the exercise on a phone. You can also carry these tasks into the broader <a href=\"https://neloydigitalsolutions.com/blog/how-to-review-a-website-before-launch-a-practical-business-checklist\">website pre-launch review</a> when the finished site is ready to test.</p>"
+    },
+    {
+      "id": "a-simple-20-minute-website-navigation-planning-exercise",
+      "title": "A simple 20-minute website navigation planning exercise",
+      "body": "<p>If you are just starting a website project, use this short exercise before requesting a visual mock-up:</p><ol>\n<li><strong>Minutes 1–4:</strong> Write the three most common visitor questions.</li>\n<li><strong>Minutes 5–8:</strong> List the pages needed to answer them.</li>\n<li><strong>Minutes 9–12:</strong> Group pages into understandable categories.</li>\n<li><strong>Minutes 13–16:</strong> Write the actual menu labels and sketch the paths.</li>\n<li><strong>Minutes 17–20:</strong> Ask someone to find a service, work example and contact option.</li>\n</ol><p>The result is not a finished website map. It is a practical first draft that gives your designer useful decisions to test and refine.</p>"
+    },
+    {
+      "id": "frequently-asked-questions",
+      "title": "Frequently asked questions",
+      "body": "<h3>How many items should a website's main menu have?</h3><p>There is no universal number. Keep the top-level menu focused on the choices people need most often, and group related pages when doing so makes their destinations clearer. Test whether visitors can predict where they should click.</p><h3>Should a small business use a dropdown menu?</h3><p>Only when it helps people locate related content. If the business has a few important destinations, visible top-level links may be simpler. If a dropdown is used, test it on touchscreens and with a keyboard.</p><h3>Should navigation labels be creative or descriptive?</h3><p>Clarity should come first. Creative brand language can appear in the design and page copy; the menu must still tell someone where a link goes.</p><h3>Can navigation be improved after the website is live?</h3><p>Yes. Menu labels and organisation can be reviewed as customer needs change. However, changes to established page URLs, redirects or internal links need deliberate planning so existing visitors and search engines can continue to reach the intended pages. Improving menu wording does not require renaming live URLs.</p>"
+    },
+    {
+      "id": "final-takeaway",
+      "title": "Final takeaway",
+      "body": "<p>Good website navigation starts with customer questions, not animation or visual effects. Decide what people need to find, organise the supporting pages, choose meaningful names, and test the most important paths before detailed design begins.</p><p>That preparation gives the designer a clearer brief and makes it easier to build a website that is useful on both desktop and mobile. If you are planning a new business site, start with the structure of the <a href=\"https://neloydigitalsolutions.com/website-design\">website design service</a> and compare it with the information your own customers need to reach.</p>"
+    }
+  ]
+}
 ];
 
 // Canonicals and publisher are derived to keep every article on the main domain.
