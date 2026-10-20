@@ -1,7 +1,7 @@
 const PACKAGES = [
-  {key:'starter',name:'Starter Review',price:'$49',description:'A focused review of your homepage, mobile usability and key enquiry paths.',checks:['Homepage clarity','Mobile usability','Priority action list']},
-  {key:'detailed',name:'Detailed Review',price:'$99',description:'A deeper look at key pages, navigation, on-page SEO basics and customer experience.',checks:['Key page review','SEO & usability checks','Detailed recommendations']},
-  {key:'small-fixes',name:'Review + Small Fixes',price:'from $199',description:'A detailed review plus selected small improvements agreed before work begins.',checks:['Detailed review included','Agreed small fixes','Before-and-after summary']}
+  {key:'starter',name:'Starter Review',price:'$49',description:'A focused review of 1 page (your homepage), mobile usability and key enquiry paths.',checks:['Homepage clarity','Mobile usability','Priority action list']},
+  {key:'detailed',name:'Detailed Review',price:'$99',description:'A deeper review of up to 5 pages, navigation, on-page SEO basics and customer experience.',checks:['Key page review','SEO & usability checks','Detailed recommendations']},
+  {key:'small-fixes',name:'Review + Small Fixes',price:'from $199',description:'A detailed review of 10–15 pages plus selected small improvements agreed before work begins.',checks:['Detailed review included','Agreed small fixes','Before-and-after summary']}
 ];
 
 const STYLE = `<style id="nds-health-review-style">
