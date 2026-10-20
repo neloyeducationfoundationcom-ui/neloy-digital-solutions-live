@@ -45,6 +45,8 @@ const PAGE_FAQS={
 
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 function pageInfo(path){
+ if(path==='/team')return{title:'Meet Our Team | Neloy Digital Solutions',description:'Meet the creative, development, video and digital marketing team behind Neloy Digital Solutions.',canonical:'/team',service:null};
+ if(path==='/terms')return{title:'Terms & Agreement | Neloy Digital Solutions',description:'Terms condition and agreement for Neloy Digital Solutions projects.',canonical:'/terms',service:null};
  if(path==='/logo-design')return{title:'Logo Design Services | Neloy Digital Solutions',description:'Custom logo design built around your brand and budget. Eligible projects include five initial concepts, refinement of one selected direction and agreed final files.',canonical:'/logo-design',service:'Logo Design'};
  if(path==='/website-design')return{title:'Professional Website Design Services | Neloy Digital Solutions',description:'Professional website design for businesses and startups, including responsive websites, landing pages, WordPress, Shopify, lead forms and AI automation.',canonical:'/website-design',service:'Website Design'};
  if(path==='/social-media-design')return{title:'Social Media Design Services | Facebook & Instagram Graphics',description:'Professional social media design for Facebook and Instagram, including posts, carousels, Reels covers, ad creatives, promotional flyers and branded templates.',canonical:'/social-media-design',service:'Social Media Design'};
@@ -56,6 +58,7 @@ function meta(html,url){
  const canonical=url.origin+info.canonical;
  html=html.replace(/<title>[\s\S]*?<\/title>/i,`<title>${info.title}</title>`);
  html=html.replace(/<meta\s+name=["']description["'][^>]*>/ig,'');
+ html=html.replace(/<meta\b(?=[^>]*\bname\s*=\s*["']robots["'])[^>]*>/ig,'');
  html=html.replace(/<link\s+rel=["']canonical["'][^>]*>/ig,'');
  html=html.replace(/<meta\s+property=["']og:[^>]*>/ig,'').replace(/<meta\s+name=["']twitter:[^>]*>/ig,'');
  html=html.replace(/<script\s+id=["']nds-schema["'][\s\S]*?<\/script>/ig,'');

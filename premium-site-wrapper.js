@@ -10,6 +10,7 @@ import { PREMIUM_PAGES_CSS } from "./src/design/premium-pages.js";
 import { hardenResponse } from "./src/security/response-headers.js";
 
 import { renderBlog, appendBlogSitemap } from "./src/blog/pages.js";
+import { alignPageMetadata } from "./seo-meta-cleanup-wrapper.js";
 
 
 // Homepage-only social sharing image. Preserve existing titles, canonicals, schema, and layout.
@@ -228,6 +229,12 @@ export default {
       html = html.replace("</head>", '<style id="nds-top-blog-link-style">.top .navlinks a.nds-top-blog-link{display:inline-flex!important;align-items:center;white-space:nowrap}@media(max-width:980px){.top .nav{flex-wrap:wrap;gap:10px;padding-block:12px}.top .navlinks{margin-left:auto;gap:12px}}</style></head>');
     }
     if (path === "/") html = addHomepageSocialPreview(html);
+    if (["/website-design", "/logo-design", "/social-media-design", "/video-editing", "/digital-marketing"].includes(path)) {
+      // These sections exist on the homepage, not on the service page.
+      html = html.replace(/(<nav class="navlinks">)([\s\S]*?)(<\/nav>)/i, (_, open, links, close) =>
+        open + links.replace(/href=(["'])#(top|services|about-founder|contact)\1/g, 'href="/#$2"') + close);
+    }
+    if (["/", "/logo-design", "/website-design", "/social-media-design", "/video-editing", "/digital-marketing", "/showcase", "/portfolio", "/team", "/terms"].includes(path)) html = alignPageMetadata(html);
     html = addHubSpot(addAdSenseAccountMeta(addGa4(addExploreLinks(html))));
     html = addHomepageMotion(html, path);
     const headers = new Headers(response.headers);
@@ -239,5 +246,6 @@ export default {
     return new Response(html, {status:response.status,statusText:response.statusText,headers});
   }
 };
+
 
 

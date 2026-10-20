@@ -10,6 +10,35 @@ function escapeAttr(value) {
     .replace(/>/g, "&gt;");
 }
 
+// Run after the existing page wrappers so social fields and WebPage schema
+// describe the final title/description, without changing schema types or URLs.
+export function alignPageMetadata(html) {
+  const decode = value => value.replace(/&(amp|lt|gt|quot|#39);/g, (_, key) => ({amp:'&',lt:'<',gt:'>',quot:'"','#39':"'"}[key]));
+  const title = html.match(/<title>([\s\S]*?)<\/title>/i)?.[1];
+  const description = html.match(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*\bcontent\s*=\s*(["'])(.*?)\1[^>]*>/i)?.[2];
+  if (!title || !description) return html;
+  const meta = {title:decode(title), description:decode(description)};
+  for (const [key, value] of [['title',meta.title],['description',meta.description]]) {
+    for (const [attribute, prefix] of [['property','og'],['name','twitter']]) {
+      const field = `${prefix}:${key}`;
+      const re = new RegExp(`<meta\\b(?=[^>]*\\b${attribute}=["']${field}["'])[^>]*>`, 'ig');
+      html = html.replace(re, '');
+      html = html.replace(/<\/head>/i, `<meta ${attribute}="${field}" content="${escapeAttr(value)}">\n</head>`);
+    }
+  }
+  return html.replace(/(<script\b[^>]*\btype=["']application\/ld\+json["'][^>]*>)([\s\S]*?)(<\/script>)/ig, (full, open, raw, close) => {
+    try {
+      const schema = JSON.parse(raw);
+      const nodes = Array.isArray(schema['@graph']) ? schema['@graph'] : [schema];
+      let changed = false;
+      for (const node of nodes) {
+        if (node['@type'] === 'WebPage') { node.name = meta.title; node.description = meta.description; changed = true; }
+      }
+      return changed ? open + JSON.stringify(schema).replace(/</g,'\\u003c') + close : full;
+    } catch { return full; }
+  });
+}
+
 function updateMeta(html, meta) {
   html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${meta.title}</title>`);
 
@@ -108,3 +137,4 @@ export default {
     });
   }
 };
+

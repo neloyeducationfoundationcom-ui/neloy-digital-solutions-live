@@ -44,7 +44,7 @@ const MOTION_SCRIPT = `
 const FX = `<div class="pageFx" aria-hidden="true"><span class="o1"></span><span class="o2"></span><span class="o3"></span></div>`;
 
 const HOME_NAV = `<nav class="navlinks"><a href="/">Home</a><a href="#services">Services</a><a href="/showcase">Portfolio & Reviews</a><a href="#contact" class="navCta">Contact</a></nav>`;
-const SHOWCASE_NAV = `<nav class="navlinks"><a href="/">Home</a><a href="#work">Portfolio</a><a href="#testimonials">Testimonials</a><a href="/#contact" class="navCta">Contact</a></nav>`;
+const SHOWCASE_NAV = `<nav class="navlinks"><a href="/">Home</a><a href="#graphic-design-portfolio">Portfolio</a><a href="#testimonials">Testimonials</a><a href="/#contact" class="navCta">Contact</a></nav>`;
 
 function injectCommon(html){
   if(!html.includes('two-page-motion-style')) html=html.replace('</head>',MOTION_STYLE+'</head>');
