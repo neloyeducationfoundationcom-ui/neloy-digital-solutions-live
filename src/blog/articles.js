@@ -9,8 +9,8 @@ export const articles = [
     "metaDescription": "Learn how to simplify business website forms, reduce unnecessary fields, improve mobile usability, and make enquiries easier to send.",
     "category": "Website Design & UX",
     "published": true,
-    "datePublished": "2026-10-21T16:45:00.000Z",
-    "dateModified": "2026-10-21T16:45:00.000Z",
+    "datePublished": "2026-10-21T15:30:00.000Z",
+    "dateModified": "2026-10-21T15:30:00.000Z",
     "summary": "Practical ways to simplify enquiry fields, improve mobile accessibility, clarify errors, and test business website contact forms.",
     "image": {
       "src": "/assets/blog/website-forms-easier-manual.svg",
