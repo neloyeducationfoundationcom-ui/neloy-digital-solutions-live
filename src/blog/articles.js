@@ -3,6 +3,107 @@ export const BLOG_ORIGIN = 'https://neloydigitalsolutions.com';
 export const PUBLISHER = 'Neloy Digital Solutions';
 export const articles = [
   {
+  "title": "What Information Should Be on a Business Contact Page?",
+  "slug": "what-information-should-be-on-a-business-contact-page",
+  "metaTitle": "What Should Be on a Business Contact Page? | Neloy Digital Solutions",
+  "metaDescription": "Learn what a small-business contact page should include: clear contact options, useful form fields, response expectations, privacy details and mobile checks.",
+  "category": "Website Design & UX",
+  "published": true,
+  "datePublished": "2026-10-22T13:30:00.000Z",
+  "dateModified": "2026-10-22T13:30:00.000Z",
+  "summary": "A practical checklist for clear contact details, simple enquiry forms, realistic response expectations, privacy information and mobile-friendly customer enquiries.",
+  "image": {
+    "src": "/assets/blog/business-contact-page-essentials-manual.png",
+    "alt": "Manually designed contact page checklist showing contact options, form fields, response times and privacy information",
+    "width": 1200,
+    "height": 630,
+    "caption": "Seven practical essentials for a contact page that is easy to use and trustworthy."
+  },
+  "serviceLinks": [
+    {
+      "path": "/website-design",
+      "label": "Website design services"
+    },
+    {
+      "path": "/#contact",
+      "label": "Contact Neloy Digital Solutions"
+    }
+  ],
+  "relatedSlugs": [
+    "how-to-plan-website-navigation-before-you-start-designing",
+    "how-many-pages-does-a-small-business-website-really-need",
+    "what-makes-a-website-call-to-action-feel-clear-instead-of-pushy"
+  ],
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Why the contact page matters",
+      "body": "<p>A good business contact page makes one simple promise: a visitor can quickly understand <strong>how to reach you, what to include in their message, and what happens after they make contact</strong>. It does not need a complicated design or a long enquiry form. It needs clear information, reliable contact routes and a next step that feels reasonable.</p><p>For many service businesses, the contact page is where an interested reader becomes a genuine enquiry. That makes it worth reviewing even if the rest of the website looks polished. The following seven essentials help you make that final step easier.</p>"
+    },
+    {
+      "id": "identify-the-business",
+      "title": "1. Make the business identity obvious",
+      "body": "<p>Show your current business name and a straightforward heading such as “Contact our team” or “Discuss your project.” Someone may arrive directly from a search result or a referral without seeing the homepage first. They should not have to guess whether they reached the right company.</p><p>Use one sentence to explain the types of messages you welcome. For example, “Tell us about your website project, and we’ll review your requirements before discussing a suitable next step.” Specific wording is more useful than a general promise to “provide innovative solutions.”</p>"
+    },
+    {
+      "id": "reliable-contact-methods",
+      "title": "2. Offer reliable ways to get in touch",
+      "body": "<p>Choose contact methods your business can actually monitor: an enquiry form, business email, phone number or messaging channel. You do not need to list every platform you use. Two dependable choices are better than six accounts that nobody checks.</p><p>Make business email addresses readable and clickable. If you offer WhatsApp or another messenger, clarify whether it is suitable for new enquiries, quotations or ongoing client communication. Test each link on both desktop and mobile.</p><p>Accurate contact information is also part of wider website trust. See our <a href=\"https://neloydigitalsolutions.com/blog/what-makes-a-business-website-look-trustworthy\">business website trust checklist</a> for related checks.</p>"
+    },
+    {
+      "id": "simple-form-fields",
+      "title": "3. Ask only for information needed to start",
+      "body": "<p>A service enquiry form usually does not need a home address, birth date or personal history. A sensible first-contact form might ask for:</p><ul><li><strong>Name:</strong> so the team knows how to address the enquiry.</li><li><strong>Email address:</strong> so the team can reply.</li><li><strong>Service or project type:</strong> so the request reaches the right person.</li><li><strong>Brief requirements:</strong> so the first response can be useful.</li></ul><p>Make optional questions clearly optional. Long forms create unnecessary effort, especially on phones. If you need files, budget details or account access later, ask at the appropriate stage rather than on the first screen. Never request passwords through an ordinary contact form.</p>"
+    },
+    {
+      "id": "after-submission",
+      "title": "4. Explain what happens after submission",
+      "body": "<p>Visitors may hesitate when a form gives no indication of what happens next. Explain that the enquiry will be reviewed and how the business will respond. Only promise response times that the team can consistently meet.</p><p>After a successful submission, display an accurate confirmation message. A website should not claim a message was sent before its system actually received it. If sending fails, explain the problem and help visitors try again without losing their work.</p><p>The submit button matters too: “Send enquiry” or “Discuss your project” tells people more than “Click here.” Our guide to <a href=\"https://neloydigitalsolutions.com/blog/what-makes-a-website-call-to-action-feel-clear-instead-of-pushy\">clear website calls to action</a> explains how to set appropriate expectations.</p>"
+    },
+    {
+      "id": "availability-and-location",
+      "title": "5. Show location and availability only when useful",
+      "body": "<p>A physical address helps when clients visit your office or when the service is genuinely local. An online agency may instead explain which regions it serves and how meetings are arranged. Do not publish an address or office hours merely to fill space, and never suggest a location that is not accurate.</p><p>If clients work across time zones, a brief availability note can prevent confusion without requiring a complicated booking system.</p>"
+    },
+    {
+      "id": "privacy-information",
+      "title": "6. Make your privacy information easy to find",
+      "body": "<p>Visitors should understand why you request their details and where they can learn how those details are handled. Link to an accurate privacy notice near the form, and avoid collecting information you do not need.</p><p>Submitting a project enquiry is not the same as opting into unrelated promotional email. Keep optional marketing permission separate and explain it clearly. Privacy duties vary by location, so your statements and actual practices should match.</p>"
+    },
+    {
+      "id": "mobile-accessibility",
+      "title": "7. Test the full page on mobile",
+      "body": "<p>Try completing your own contact form on a phone. Are labels visible while typing? Is the text easy to read? Can you tap the submit button without hitting a sticky banner or advertisement? Does the page fit the screen without horizontal scrolling?</p><p>Also test keyboard navigation, meaningful error messages and clear required-field indicators. Colour alone should not signal an error. If anti-spam controls block legitimate enquiries, check that they offer a usable alternative.</p>"
+    },
+    {
+      "id": "suggested-layout",
+      "title": "A practical contact page layout",
+      "body": "<p>A small service business can organize its contact page in five simple parts:</p><ol><li>A clear heading and one-sentence explanation.</li><li>A short enquiry form or primary contact link.</li><li>One reliable alternative contact method.</li><li>An explanation of what happens after someone sends a message.</li><li>Privacy information, with location or availability details only where useful.</li></ol><p>This works best when the rest of the website leads to it naturally. Our guide to <a href=\"https://neloydigitalsolutions.com/blog/how-to-plan-website-navigation-before-you-start-designing\">planning website navigation before design</a> shows how to organize the main paths customers need.</p>"
+    },
+    {
+      "id": "vague-versus-helpful",
+      "title": "Example: vague versus helpful wording",
+      "body": "<p><strong>Vague:</strong> “Contact us for all your needs.” The form asks ten questions and says nothing about what happens after submission.</p><p><strong>Helpful:</strong> “Need help reviewing your business website? Tell us which pages you want checked and where we can reply. We’ll read your request and explain the next step before any paid work begins.”</p><p>The helpful version explains why to contact the business and what the business will do next. It does not rely on exaggerated urgency or guaranteed results.</p>"
+    },
+    {
+      "id": "prelaunch-check",
+      "title": "Check the contact page before launch",
+      "body": "<p>Open the page in a private browser and test the visitor journey. Are the contact links correct? Do fields behave properly on phones? Are errors understandable? Does an authorized test submission arrive in the correct inbox? Is confirmation accurate, and do privacy statements match your real process?</p><p>For a wider review, use our <a href=\"https://neloydigitalsolutions.com/blog/how-to-review-a-website-before-launch-a-practical-business-checklist\">website pre-launch checklist</a>. If you are still planning your site structure, our guide to <a href=\"https://neloydigitalsolutions.com/blog/how-many-pages-does-a-small-business-website-really-need\">small-business website pages</a> explains where a contact page fits.</p>"
+    },
+    {
+      "id": "faq",
+      "title": "Frequently asked questions",
+      "body": "<h3>Is a contact form better than an email address?</h3><p>Neither is always better. Forms help organize enquiries; email gives visitors a direct alternative. The most useful choice is the one you can keep working and regularly monitor.</p><h3>Should I ask for a budget on the first form?</h3><p>Only if the budget is genuinely essential to your first response. For many small projects, a brief description is enough. If you ask for budget details, consider making the field optional and explaining why it helps.</p><h3>Does a contact page improve Google rankings?</h3><p>A clear contact page helps visitors find and reach a business, but simply adding one does not guarantee a search ranking increase. Make the page useful for people first.</p>"
+    },
+    {
+      "id": "final-takeaway",
+      "title": "Final takeaway",
+      "body": "<p>A useful contact page is more than a form at the end of a website. It is a clear, reliable path from interest to conversation. Start with accurate business information, a short enquiry process, understandable next steps and a mobile-friendly experience. Keep the page working before adding extra features.</p><p>For improvements to your service website, explore <a href=\"https://neloydigitalsolutions.com/website-design\">Neloy Digital Solutions website design services</a>.</p>"
+    }
+  ]
+},
+
+  {
     "title": "How to Make Website Forms Easier for Customers to Complete",
     "slug": "how-to-make-website-forms-easier-for-customers-to-complete",
     "metaTitle": "How to Make Website Forms Easier | Neloy Digital Solutions",
