@@ -117,12 +117,8 @@ function enhancePortfolio(html){
     html = html.replace('</head>', STYLE + '</head>');
   }
 
-  const descriptionTag = `<meta name="description" content="${escapeAttr(PORTFOLIO_DESCRIPTION)}">`;
-  if(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*>/i.test(html)){
-    html = html.replace(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*>/i, descriptionTag);
-  } else if(html.includes('</head>')){
-    html = html.replace('</head>', descriptionTag + '\n</head>');
-  }
+  // Keep the page-wide creative Showcase description supplied by PAGE_META.
+  // PORTFOLIO_DESCRIPTION still describes this web-project ItemList below.
 
   if(!html.includes('id="nds-web-project-schema"') && html.includes('</head>')){
     const json = JSON.stringify(portfolioSchema()).replace(/</g,"\\u003c");
