@@ -6,11 +6,13 @@ import { addClientNameMarquee } from "./src/design/client-name-marquee.js";
 import { addHomepageMotion } from "./src/design/homepage-motion.js";
 import { upgradeHomepage } from "./src/design/homepage-concept.js";
 import { upgradeShowcaseTestimonials } from "./src/design/showcase-testimonials.js";
+import { addWebsiteHealthReview } from "./src/design/website-health-review.js";
 import { PREMIUM_PAGES_CSS } from "./src/design/premium-pages.js";
 import { hardenResponse } from "./src/security/response-headers.js";
 
 import { renderBlog, appendBlogSitemap } from "./src/blog/pages.js";
 import { alignPageMetadata } from "./seo-meta-cleanup-wrapper.js";
+import { addMobileNavigation } from "./src/navigation/mobile-menu.js";
 
 
 // Homepage-only social sharing image. Preserve existing titles, canonicals, schema, and layout.
@@ -236,7 +238,8 @@ export default {
     }
     if (["/", "/logo-design", "/website-design", "/social-media-design", "/video-editing", "/digital-marketing", "/showcase", "/portfolio", "/team", "/terms"].includes(path)) html = alignPageMetadata(html);
     html = addHubSpot(addAdSenseAccountMeta(addGa4(addExploreLinks(html))));
-    html = addHomepageMotion(html, path);
+    html = addWebsiteHealthReview(html, path, url.searchParams);
+    html = addMobileNavigation(addHomepageMotion(html, path));
     const headers = new Headers(response.headers);
     headers.delete("content-length");
     headers.delete("etag");
@@ -246,6 +249,5 @@ export default {
     return new Response(html, {status:response.status,statusText:response.statusText,headers});
   }
 };
-
 
 

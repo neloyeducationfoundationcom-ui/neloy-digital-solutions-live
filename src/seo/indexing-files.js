@@ -4,4 +4,3 @@ function sitemap(origin){const pages=[['/',1.0],['/showcase',0.9],['/logo-design
 function llms(origin){return `# Neloy Digital Solutions\n\nWebsite: ${origin}/\nPortfolio: ${origin}/showcase\nLogo Design: ${origin}/logo-design\nWebsite Design: ${origin}/website-design\nSocial Media Design: ${origin}/social-media-design\n\nNeloy Digital Solutions provides graphic design, logo design, website design, social media design, video editing, coding, digital marketing support and AI automation services for businesses.\n\nProject process: eligible logo projects include five initial concepts with one selected direction refined; website revisions continue within the agreed scope through final delivery; video editing starts with a short demo before the main edit proceeds after approval.\n`}
 
 export { robots, sitemap, llms };
-
