@@ -3,6 +3,116 @@ export const BLOG_ORIGIN = 'https://neloydigitalsolutions.com';
 export const PUBLISHER = 'Neloy Digital Solutions';
 export const articles = [
   {
+    "title": "What Is Local Search Intent? 7 Practical Examples for Small Businesses",
+    "slug": "what-is-local-search-intent-examples-for-small-businesses",
+    "metaTitle": "What Is Local Search Intent? 7 Small Business Examples | Neloy Digital Solutions",
+    "metaDescription": "Learn what local search intent means with 7 practical examples for small businesses. Discover how to improve local website content and customer experience.",
+    "category": "SEO & AEO",
+    "published": true,
+    "datePublished": "2026-10-23T10:00:00.000Z",
+    "dateModified": "2026-10-23T10:00:00.000Z",
+    "summary": "Seven realistic local-search examples and a practical guide to matching small-business website content with location-aware customer needs.",
+    "image": {
+      "src": "/assets/blog/local-search-intent-seven-examples-manual.svg",
+      "alt": "Manually illustrated local search intent diagram showing location-aware customer searches, a map pin, and seven practical small-business examples",
+      "width": 1200,
+      "height": 630,
+      "caption": "Local search intent connects a customer’s question with useful, accurate information about services and locations."
+    },
+    "serviceLinks": [
+      {
+        "path": "/website-design",
+        "label": "Website design services"
+      },
+      {
+        "path": "/digital-marketing",
+        "label": "Digital marketing services"
+      }
+    ],
+    "relatedSlugs": [
+      "what-is-search-intent-and-why-should-small-businesses-care",
+      "how-many-pages-does-a-small-business-website-really-need",
+      "what-information-should-be-on-a-business-contact-page"
+    ],
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "What does local search intent mean?",
+        "body": "<p>When someone searches online for a business, they are not always looking for general information. They might need a service nearby, a business that serves their city, directions, opening hours, or someone they can contact. This is where <strong>local search intent</strong> matters.</p><p>For small businesses, understanding local search intent helps match the content of a website to the questions real customers ask. Instead of adding the same city name to every page, the business can provide accurate service details, useful answers, and a clear route to the next step.</p><p>This guide explains how local search intent works, why it differs from general search intent, and seven examples that help businesses plan more relevant pages.</p>"
+      },
+      {
+        "id": "definition",
+        "title": "What is local search intent?",
+        "body": "<p><strong>Local search intent is the purpose behind a search when the person wants information, products, or services connected to a geographic area.</strong> The search might include a city, neighbourhood, or terms such as “near me”, “nearby”, and “open now”.</p><p>Examples include “web designer near me”, “graphic design services in Manchester”, and “coffee shop open now”. Not every local search names a place: search engines may interpret a query using the searcher’s location and other context.</p><p>Local intent is one application of the broader question of <em>why</em> someone is searching. Our guide to <a href=\"https://neloydigitalsolutions.com/blog/what-is-search-intent-and-why-should-small-businesses-care\">what search intent means for small businesses</a> explains the informational, navigational, commercial, and transactional needs behind different searches.</p>"
+      },
+      {
+        "id": "why-it-matters",
+        "title": "Why local search intent matters to small businesses",
+        "body": "<p>Someone searching “what is logo design?” probably wants an explanation. Someone searching “logo designer in London” may be comparing providers that serve a particular location. These visitors need different answers even though their searches share a topic.</p><p>A useful business website should help visitors understand what the company offers, the areas it genuinely serves, how its work is delivered, and how to make an enquiry. A remote agency may serve customers in several countries without having a physical office in each one. Its website should say so accurately.</p><p>The goal is not to attract every possible visitor. It is to make it easier for <strong>relevant</strong> visitors to find information that helps them decide what to do next.</p>"
+      },
+      {
+        "id": "example-web-designer",
+        "title": "1. “Website designer near me” — find a relevant provider",
+        "body": "<p>A person searching for a website designer nearby may prefer a local meeting or simply want an agency that understands their market. A helpful site explains website services, project stages, genuine service availability, contact options, and whether projects can be handled remotely.</p><p>Do not claim a physical office in a location unless that office exists. If consultation and delivery are remote, describe the process honestly.</p>"
+      },
+      {
+        "id": "example-graphic-design",
+        "title": "2. “Graphic design services in Manchester” — match a specific area",
+        "body": "<p>Adding a city name can show that location influences the customer’s decision. They might need brand assets, presentation graphics, social creatives, or marketing designs. A relevant page explains the actual design work and shows examples that help the visitor evaluate suitability.</p><p>If the business serves Manchester remotely rather than from an office there, it should explain that distinction clearly instead of manufacturing a local presence.</p>"
+      },
+      {
+        "id": "example-open-now",
+        "title": "3. “Coffee shop open now” — answer an immediate need",
+        "body": "<p>This search is strongly practical. The visitor likely wants somewhere they can go soon, so accurate opening hours, a genuine address, and directions may matter more than a long article.</p><p>The broader lesson is that not every local-intent query deserves a blog post. Sometimes the best response is a short, accurate piece of business information.</p>"
+      },
+      {
+        "id": "example-best-web-designer",
+        "title": "4. “Best website design services for small businesses in London” — compare options",
+        "body": "<p>This query combines a geographic preference with commercial research. The visitor may be comparing an agency with a freelancer, weighing costs, or deciding which website features they need. Useful content explains project scope, examples of deliverables, review steps, and realistic differences between options.</p><p>A business comparing providers may also be planning its own website structure. Our guide to <a href=\"https://neloydigitalsolutions.com/blog/how-many-pages-does-a-small-business-website-really-need\">how many pages a small business website needs</a> explains why a clear homepage, relevant service pages, contact details, and useful supporting articles can be more important than a high page count.</p>"
+      },
+      {
+        "id": "example-emergency",
+        "title": "5. “Emergency plumber near me” — help someone act quickly",
+        "body": "<p>This search suggests an urgent need for a local provider. The visitor is likely looking for genuine service availability, a reliable phone number, and clear information about the area covered.</p><p>When customers need help quickly, businesses should put essential information within easy reach. A generic sales slogan should not hide the contact route or the actual limitations of the service.</p>"
+      },
+      {
+        "id": "example-logo",
+        "title": "6. “Business logo designer in Birmingham” — evaluate creative work",
+        "body": "<p>A business owner might be searching for a designer familiar with a particular audience. They may want to review portfolio examples, understand the creative process, and learn how revisions are handled before choosing someone.</p><p>A useful website describes the offered service and shows genuine samples. If projects are delivered online, explain how the remote collaboration works instead of implying a local office.</p>"
+      },
+      {
+        "id": "example-marketing",
+        "title": "7. “Small business marketing agency near me” — understand service fit",
+        "body": "<p>This query can come from a business owner seeking help with local visibility, website improvements, brand consistency, or digital content. Clear service descriptions matter because those needs are not interchangeable.</p><p>A provider should distinguish the work it actually offers from services it does not provide. For example, someone assessing a web agency can review the scope of its <a href=\"https://neloydigitalsolutions.com/website-design\">website design and improvement support</a> to decide whether the service fits their project.</p>"
+      },
+      {
+        "id": "identify-local-intent",
+        "title": "How to identify local search intent before writing content",
+        "body": "<p>You can begin without paying for a specialised SEO platform. Start with real enquiries and examine the decision behind each one.</p><ol><li><strong>Write down the customer question.</strong> Are people asking about service areas, office visits, opening hours, appointments, or project delivery?</li><li><strong>Identify the likely goal.</strong> Does the person want to learn, compare businesses, find a location, or contact a provider?</li><li><strong>Review actual search results.</strong> Look for the kinds of pages that answer the query, such as service pages, maps, business profiles, comparison guides, or explanatory articles.</li><li><strong>Choose a fitting format.</strong> A service query may need a service page; an educational query may need a guide; a request for opening hours may need accurate business details.</li><li><strong>Verify the facts.</strong> Check addresses, availability, delivery methods, and contact routes before publishing.</li></ol><p>Search results can vary by location, device, and other factors. A single search screenshot is not proof that a keyword ranks at the same position for everyone.</p>"
+      },
+      {
+        "id": "improve-pages",
+        "title": "How to make website pages more useful for local visitors",
+        "body": "<p><strong>Explain services plainly.</strong> Describe what work is available and how someone can get started. Avoid relying on unsupported claims such as “best agency in every city”.</p><p><strong>Be precise about locations.</strong> Publish a physical address only when it is genuine and appropriate. Explain service areas and remote delivery clearly, and avoid many near-identical city pages created solely to capture traffic.</p><p><strong>Make contact easy.</strong> A genuine email address, a working enquiry form, and clear expectations can help visitors reach the right team. See our checklist of <a href=\"https://neloydigitalsolutions.com/blog/what-information-should-be-on-a-business-contact-page\">what information belongs on a business contact page</a>.</p><p><strong>Check mobile usability.</strong> Use readable text, simple navigation, and buttons that work on smaller screens. Customers should not have to zoom repeatedly to find contact information.</p><p><strong>Show relevant evidence.</strong> Accurate service descriptions, real project examples, and transparent limitations are more useful than fabricated reviews or exaggerated ranking promises.</p>"
+      },
+      {
+        "id": "common-mistakes",
+        "title": "Six local SEO mistakes to avoid",
+        "body": "<ol><li><strong>Repeating city names:</strong> Adding a place name to every heading does not automatically answer a customer's question.</li><li><strong>Duplicate location pages:</strong> Nearly identical pages for many cities often add little new value.</li><li><strong>Incorrect contact details:</strong> Inaccurate addresses, service areas, or hours frustrate visitors.</li><li><strong>Ignoring search intent:</strong> A person needing directions should not have to read a long marketing article first.</li><li><strong>Creating unnecessary posts:</strong> Improve a helpful existing page when it already addresses the question rather than repeating the same content.</li><li><strong>Promising instant rankings:</strong> A keyword in the title does not guarantee a Google position or a specific number of visitors.</li></ol>"
+      },
+      {
+        "id": "frequently-asked-questions",
+        "title": "Frequently asked questions",
+        "body": "<h3>What is the difference between local and general search intent?</h3><p>General search intent describes what a person is trying to accomplish. Local search intent is a more specific case in which geographic relevance affects the answer.</p><h3>Does every local search contain “near me”?</h3><p>No. A city name, neighbourhood, opening-hour question, or a search for a type of nearby business can also indicate local intent.</p><h3>Can an online business benefit from local search intent?</h3><p>Yes, when the location of the customer genuinely affects service delivery or requirements. A business operating remotely should describe that accurately.</p><h3>Do location keywords automatically improve Google rankings?</h3><p>No. Keywords help indicate a page's topic, but search visibility depends on many factors. The content must be relevant, accurate, and genuinely useful.</p><h3>Should a business make a separate page for every city?</h3><p>Not automatically. Create distinct location information only when it has a real purpose and offers useful, accurate details beyond changing the city name.</p><h3>Does local search intent matter to website design agencies?</h3><p>It can. Some customers prefer nearby providers, while others are happy to work remotely. An agency can help both groups by clearly explaining what it offers and how collaboration works.</p>"
+      },
+      {
+        "id": "conclusion",
+        "title": "Final takeaway",
+        "body": "<p>Local search intent helps businesses recognise when location matters to a customer's decision. The practical approach is to understand the real question, choose the right kind of page, give accurate service and location details, and offer an understandable next step.</p><p>For small businesses, better local visibility starts with relevance and trustworthy information—not repeated city keywords or unnecessary landing pages. Keep existing content useful, test the visitor journey, and review actual search performance over time.</p>"
+      }
+    ]
+  },
+  {
   "title": "What Information Should Be on a Business Contact Page?",
   "slug": "what-information-should-be-on-a-business-contact-page",
   "metaTitle": "What Should Be on a Business Contact Page? | Neloy Digital Solutions",
