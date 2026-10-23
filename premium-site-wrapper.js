@@ -136,6 +136,15 @@ function allowHubSpot(headers) {
     .replace(/(connect-src[^;]*)/i, "$1 https://*.hubspot.com https://*.hs-banner.com https://*.hscollectedforms.net https://*.hsforms.com"));
 }
 
+// Homepage "Start a project" links open the HubSpot enquiry form in a new tab.
+const START_PROJECT_FORM = "https://43fvyu.share-na2.hsforms.com/2lHn6YR_qRK6fpaYeLB6tig";
+
+function addStartProjectLinks(html, path) {
+  if (path !== "/" || html.includes("nds-start-project-")) return html;
+  html = html.replace(/(<nav class="navlinks">[\s\S]*?<a href="[^"]*" class="navCta">Contact<\/a>)(<\/nav>)/, '$1<a class="navCta nds-start-project-nav" href="' + START_PROJECT_FORM + '" target="_blank" rel="noopener">Start a project</a>$2<style id="nds-start-project-style">@media(max-width:700px){.top .navlinks a.nds-start-project-nav{display:none!important}}</style>');
+  return html.replace('<a class="project" href="#contact">Start a Project</a>', '<a class="project nds-start-project-cta" href="' + START_PROJECT_FORM + '" target="_blank" rel="noopener">Start a Project</a>');
+}
+
 const FOOTER_EXPLORE_LINKS = '<nav class="nds-premium-explore-links" aria-label="Explore Neloy services"><a href="/showcase">Showcase</a><a href="/website-design">Website Design</a><a href="/logo-design">Logo Design</a><a href="/social-media-design">Social Media Design</a><a href="/video-editing">Video Editing</a><a href="/digital-marketing">Digital Marketing</a><a href="https://neloydigitalsolutions.com/blog">Blog</a></nav>';
 
 function addExploreLinks(html) {
@@ -240,6 +249,7 @@ export default {
     html = addHubSpot(addAdSenseAccountMeta(addGa4(addExploreLinks(html))));
     html = addWebsiteHealthReview(html, path, url.searchParams);
     html = addMobileNavigation(addHomepageMotion(html, path));
+    html = addStartProjectLinks(html, path);
     const headers = new Headers(response.headers);
     headers.delete("content-length");
     headers.delete("etag");
