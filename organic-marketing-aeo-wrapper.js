@@ -142,6 +142,9 @@ function schema(origin){
 }
 
 function enhanceMarketing(html,origin){
+  // This page reuses homepage HTML, but does not display the homepage ranking video.
+  // Drop only its inherited VideoObject; keep the homepage schema on the homepage.
+  html=html.replace(/<script\b[^>]*id=["']nds-ranking-progress-schema["'][^>]*>[\s\S]*?<\/script>\s*/i,"");
   html=html.replace(/<title>[\s\S]*?<\/title>/i,`<title>${TITLE}</title>`);
   html=metaName(html,"description",DESCRIPTION);
   html=metaName(html,"keywords","organic digital marketing, SEO, AEO, answer engine optimization, content strategy, brand growth, web design, video editing, Neloy Digital Solutions");
