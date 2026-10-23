@@ -154,10 +154,10 @@ export function initReferenceMotion(){
  function cycle(owner,nodes){
   if(paused()||protectedNode(owner)||loops.has(owner))return;
   const effects=nodes.map((node,i)=>node.animate([
-   {translate:'0 14px',opacity:.25,clipPath:'inset(0 0 80% 0)',offset:0},
-   {translate:'0 0',opacity:1,clipPath:'inset(0)',offset:.12},
+   {translate:compact.matches?'0 10px':'0 14px',opacity:compact.matches?.55:.25,clipPath:compact.matches?'inset(0 0 45% 0)':'inset(0 0 80% 0)',offset:0},
+   {translate:'0 0',opacity:1,clipPath:'inset(0)',offset:compact.matches?.3:.12},
    {translate:'0 0',opacity:1,clipPath:'inset(0)',offset:1}
-  ],{duration:compact.matches?8500:7500,delay:i*45,iterations:Infinity,easing:'cubic-bezier(.16,1,.3,1)'}));
+  ],{duration:compact.matches?6000:7500,delay:i*45,iterations:Infinity,easing:'cubic-bezier(.16,1,.3,1)'}));
   loops.set(owner,effects);
  }
  function clearLoops(owner){
@@ -201,9 +201,9 @@ export function initReferenceMotion(){
    if(!effect){
     const isImage=node.tagName==='IMG';
     effect=node.animate(isImage?[
-     {transform:'scale(1.12) translateY(12px)'},
-     {transform:'scale(1.02) translateY(-12px)'}
-    ]:[{translate:'0 56px',scale:'.97'},{translate:'0 0',scale:'1',offset:.5},{translate:'0 -24px',scale:'1'}],{duration:1000,fill:'both',easing:'linear'});
+     {transform:compact.matches?'scale(1.04) translateY(5px)':'scale(1.12) translateY(12px)'},
+     {transform:compact.matches?'scale(1.01) translateY(-5px)':'scale(1.02) translateY(-12px)'}
+    ]:[{translate:compact.matches?'0 22px':'0 56px',scale:compact.matches?'.99':'.97'},{translate:'0 0',scale:'1',offset:.5},{translate:compact.matches?'0 -10px':'0 -24px',scale:'1'}],{duration:1000,fill:'both',easing:'linear'});
     effect.pause();tracks.set(node,effect);
    }
    effect.currentTime=progress*1000;
