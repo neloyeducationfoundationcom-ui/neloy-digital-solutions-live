@@ -253,6 +253,9 @@ export function initReferenceMotion(){
 }
 
 export function addHomepageMotion(html,path){
+ // Long-form blog content stays static: nested strong text must not animate independently.
+ // Keep cinematic motion unchanged for the homepage, showcase and service pages.
+ if (path === '/blog' || path.startsWith('/blog/')) return html;
  if(!['/','/showcase','/portfolio','/website','/website-design','/logo-design','/social-media-design','/video-editing','/digital-marketing','/team','/terms','/privacy','/blog'].includes(path)&&!path.startsWith('/blog/'))return html;
  if(!/<main\b/.test(html)||html.includes('id="nds-cinematic-motion-script"')||!html.includes('</head>')||!html.includes('</body>'))return html;
  const script='<script id="nds-cinematic-motion-script">(()=>{const __name=(fn)=>fn;('+initReferenceMotion.toString()+')();})();</script>';
