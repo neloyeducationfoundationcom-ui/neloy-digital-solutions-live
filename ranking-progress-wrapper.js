@@ -2,6 +2,7 @@ import app from "./systeme-web-design-landing-wrapper.js";
 import rankingVideoBase64 from "./ranking-video-data.js";
 
 const VIDEO_PATH = "/showcase-media/neloy-ranking-motion-graphics.mp4";
+const THUMB_PATH = "/showcase-media/neloy-ranking-motion-graphics-thumbnail.svg";
 const VIDEO_TITLE = "Neloy Digital Solutions Ranking Motion Graphics Update";
 const VIDEO_DESCRIPTION = "A short motion graphics ranking update for Neloy Digital Solutions showing website and social visibility snapshots across key service searches.";
 
@@ -39,7 +40,7 @@ const SECTION = `<section id="nds-ranking-progress" aria-labelledby="nds-ranking
     <div class="rpGrid">
       <div class="rpVideo">
         <div class="rpVideoLabel">▶ PLAY RANKING VIDEO</div>
-        <video controls playsinline preload="metadata" aria-label="${VIDEO_TITLE}">
+        <video controls playsinline preload="metadata" poster="${THUMB_PATH}" aria-label="${VIDEO_TITLE}">
           <source src="${VIDEO_PATH}" type="video/mp4">
           Your browser does not support embedded video.
         </video>
@@ -65,6 +66,7 @@ function addSchema(html, origin){
     "@type":"VideoObject",
     name: VIDEO_TITLE,
     description: VIDEO_DESCRIPTION,
+    thumbnailUrl:[`${origin}${THUMB_PATH}`],
     uploadDate:"2026-09-17T00:00:00+06:00",
     duration:"PT11S",
     contentUrl:`${origin}${VIDEO_PATH}`,
@@ -90,7 +92,9 @@ export default {
   async fetch(request, env, ctx){
     const url = new URL(request.url);
     if ((request.method === "GET" || request.method === "HEAD") && url.pathname === VIDEO_PATH) {
-      return serveVideo(request);
+      // The ranking MP4 is a checked-in Cloudflare asset; serve it without an undefined handler.
+      if (env.ASSETS) return env.ASSETS.fetch(request);
+      return app.fetch(request, env, ctx);
     }
 
     const response = await app.fetch(request, env, ctx);
