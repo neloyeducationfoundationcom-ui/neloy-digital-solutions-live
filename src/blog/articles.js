@@ -3,6 +3,101 @@ export const BLOG_ORIGIN = 'https://neloydigitalsolutions.com';
 export const PUBLISHER = 'Neloy Digital Solutions';
 export const articles = [
   {
+    "title": "When Should a Business Use a Landing Page Instead of a Full Website?",
+    "slug": "when-should-a-business-use-a-landing-page-instead-of-a-full-website",
+    "metaTitle": "Landing Page vs Full Website: Which Does Your Business Need? | Neloy Digital Solutions",
+    "metaDescription": "Landing page or full website? Compare the two formats, see practical small-business examples, and choose a clearer structure for your customers.",
+    "category": "Website Design",
+    "published": true,
+    "datePublished": "2026-10-24T18:00:00+06:00",
+    "dateModified": "2026-10-24T18:00:00+06:00",
+    "summary": "A practical guide to choosing a focused landing page or a full website, with examples, comparison points, and a clear decision checklist.",
+    "image": {
+      "src": "/assets/blog/landing-page-vs-full-website-manual.svg",
+      "alt": "Original manually designed comparison graphic: a single-action landing page beside a multi-page business website",
+      "width": 1200,
+      "height": 630,
+      "caption": "A landing page supports one focused action; a full website supports several customer needs."
+    },
+    "serviceLinks": [
+      {
+        "path": "/website-design",
+        "label": "Website design services"
+      },
+      {
+        "path": "/digital-marketing",
+        "label": "Digital marketing services"
+      }
+    ],
+    "relatedSlugs": [
+      "how-many-pages-does-a-small-business-website-really-need",
+      "how-to-organize-multiple-services-without-confusing-website-visitors",
+      "what-makes-a-website-call-to-action-feel-clear-instead-of-pushy"
+    ],
+    "sections": [
+      {
+        "id": "quick-answer",
+        "title": "Landing page or full website: the short answer",
+        "body": "<p><strong>Choose a landing page when one specific audience needs to take one clear action.</strong> Choose a full website when people need to learn about your business, compare several services, understand your work, or explore different questions before deciding what to do.</p><p>Neither format is automatically better. A focused page can work well for a particular campaign, while a small but organised website can support many customer journeys. The right choice follows the visitor's needs, not a design trend.</p><p>A business may ultimately use both: its main website for trust and information, and a separate landing page for a defined offer.</p>"
+      },
+      {
+        "id": "meaning",
+        "title": "What exactly is a landing page?",
+        "body": "<p>A landing page is built around a specific message, audience, and desired next step. People might arrive from an email, social post, a search result, or a paid promotion. The page helps them decide whether one particular offer is relevant.</p><p>Imagine a local photography business promoting a weekend portrait session. A landing page can explain the event, provide actual examples, describe prices and availability, answer common questions, and offer a simple booking enquiry. It does not need to explain every service the studio has ever offered.</p><p>Focused does not mean short or misleading. A useful landing page still needs the details required for an informed decision, including who provides the service and what happens after a form is submitted.</p>"
+      },
+      {
+        "id": "full-website",
+        "title": "What does a full business website do differently?",
+        "body": "<p>A full business website supports several kinds of visitor. Someone might look for your services, another person wants to read about your experience, and a third needs contact details. Pages such as Home, About, Services, Portfolio, and Contact give those visitors meaningful paths.</p><p>A complete website does not need dozens of pages. It needs a structure that reflects genuine customer questions. Our guide to <a href=\"https://neloydigitalsolutions.com/blog/how-many-pages-does-a-small-business-website-really-need\">how many pages a small business website really needs</a> explains the difference between useful pages and unnecessary page count.</p><p>When customers want to compare work or services before making an enquiry, a website generally gives them more room to explore at their own pace.</p>"
+      },
+      {
+        "id": "comparison",
+        "title": "Landing page versus full website: a practical comparison",
+        "body": "<div class=\"blog-table\"><table><caption>Typical differences between the two formats</caption><thead><tr><th>Consideration</th><th>Landing page</th><th>Full website</th></tr></thead><tbody><tr><td>Primary purpose</td><td>Support one offer or campaign</td><td>Explain the broader business</td></tr><tr><td>Visitor journey</td><td>One prominent next step</td><td>Multiple relevant paths</td></tr><tr><td>Content</td><td>Details around a specific decision</td><td>Information across several topics</td></tr><tr><td>Navigation</td><td>Minimal but useful supporting links</td><td>Clear menu and related pages</td></tr><tr><td>Common use</td><td>Event, package, consultation or download</td><td>Company, services, examples and support</td></tr><tr><td>Updates</td><td>Keep campaign terms current</td><td>Maintain business-wide information</td></tr></tbody></table></div><p>Do not assume one layout will guarantee more enquiries or higher search rankings. The outcome also depends on search intent, the offer, the audience, credibility, accessibility, and how the page is promoted.</p>"
+      },
+      {
+        "id": "landing-cases",
+        "title": "Four situations where a landing page makes sense",
+        "body": "<h3>1. A specific campaign or limited-time event</h3><p>For an event with one date and clear eligibility rules, a landing page can show the agenda, requirements, price, and registration details without directing people through unrelated company pages.</p><h3>2. A fixed-scope service package</h3><p>A business offering a defined website review can explain the scope, deliverables, process, and enquiry steps on one page. Visitors should still have a way to confirm the business behind the offer.</p><h3>3. An educational resource</h3><p>A downloadable checklist may benefit from one focused description. Be transparent if an email address is required and what messages the subscriber may receive.</p><h3>4. A targeted message for a particular audience</h3><p>A company may serve many industries but offer one tailored service for a specific type of client. A landing page can speak directly to that client's questions while linking back to the broader company information.</p>"
+      },
+      {
+        "id": "website-cases",
+        "title": "Three situations where a full website is the stronger option",
+        "body": "<h3>1. You have several distinct services</h3><p>If your business handles branding, web development, and video editing, customers need different explanations and examples. One very long landing page can make these services difficult to compare. Consider <a href=\"https://neloydigitalsolutions.com/blog/how-to-organize-multiple-services-without-confusing-website-visitors\">a clear way to organise multiple business services</a> instead.</p><h3>2. Customers need evidence before contacting you</h3><p>Some decisions require genuine examples, information about the process, company background, and detailed service information. Separate pages can make that material easier to evaluate.</p><h3>3. Visitors arrive with different questions</h3><p>Someone looking for price information may have a different goal from someone checking a portfolio or seeking support. Structured navigation provides routes appropriate to each need. Thoughtful <a href=\"https://neloydigitalsolutions.com/blog/how-to-plan-website-navigation-before-you-start-designing\">website navigation planning</a> can prevent those journeys from becoming confusing.</p>"
+      },
+      {
+        "id": "examples",
+        "title": "Realistic examples: choosing a format",
+        "body": "<h3>Example A: A trainer launching one weekend workshop</h3><p>A landing page is often enough for the workshop itself: audience, learning outcomes, date, venue or online details, fee, and registration. The provider's main website may still host instructor credentials, course categories and policies.</p><h3>Example B: A contractor with three service categories</h3><p>A roofing contractor offering inspections, repairs, and replacements benefits from a website that explains the differences, service area, process, and contact options. A separate campaign landing page could still promote a seasonal inspection programme.</p><h3>Example C: A creative agency running a website health review</h3><p>The agency's website should explain its broad creative and technical services. A focused review landing page can describe what will be checked and how to request help. The campaign page should use consistent branding and accurate links back to the main business.</p>"
+      },
+      {
+        "id": "both",
+        "title": "Can you use a landing page and a full website together?",
+        "body": "<p>Yes. They often solve different problems. A main website can establish business identity, explain services and support ongoing search and referral visitors. Separate landing pages can address particular campaigns while keeping the wider site easy to navigate.</p><p>Maintain consistent contact information, honest claims, and clearly stated terms across both. If the landing page duplicates an existing service page almost word for word, consider whether you can improve an existing page instead. Distinct customer needs are a better reason to create additional pages than arbitrary page-count goals.</p>"
+      },
+      {
+        "id": "decision-checklist",
+        "title": "A five-question checklist before commissioning a page",
+        "body": "<ol><li><strong>Who is arriving?</strong> A general business visitor or someone responding to one campaign?</li><li><strong>What do they need to know?</strong> One offer, or your entire range of services?</li><li><strong>What proof is relevant?</strong> Genuine examples, credentials, process, terms, and transparent contact options?</li><li><strong>What action is appropriate?</strong> Read more, request a quote, book, or contact you?</li><li><strong>How will people reach the page?</strong> Organic search, direct visits, recommendations, email, or a specific campaign?</li></ol><p>Review the layout on phones before launch. A focused offer still needs headings people can scan, working controls, and good spacing. The guide to <a href=\"https://neloydigitalsolutions.com/blog/how-to-make-a-website-easier-to-scan-on-mobile\">making a website easier to scan on mobile</a> offers practical checks for readability.</p>"
+      },
+      {
+        "id": "common-mistakes",
+        "title": "Common mistakes that affect both formats",
+        "body": "<ul><li><strong>Too many competing calls to action:</strong> make the primary next step obvious without removing necessary choices.</li><li><strong>Vague headlines:</strong> say what the page actually helps the visitor do.</li><li><strong>Missing trust information:</strong> explain who runs the business, what is included, and how enquiries are handled.</li><li><strong>Unusable forms:</strong> ask only for information necessary at the first stage and test the process.</li><li><strong>Ignoring mobile users:</strong> check legibility, tap targets, keyboard access, and page loading.</li><li><strong>Thinking one page guarantees conversions:</strong> measure actual enquiries and meaningful outcomes rather than promising results.</li></ul><p>A clear heading and next step can help either format. See <a href=\"https://neloydigitalsolutions.com/blog/what-makes-a-website-call-to-action-feel-clear-instead-of-pushy\">how to make a website call to action clear rather than pushy</a> for examples.</p>"
+      },
+      {
+        "id": "faqs",
+        "title": "Frequently asked questions",
+        "body": "<h3>Can a landing page appear in Google Search?</h3><p>Yes, if search engines can access it and the content is relevant and useful. Indexing and ranking are not guaranteed. Short-lived campaign pages may depend more on direct promotion than on organic discovery.</p><h3>Is a single-page website the same as a landing page?</h3><p>No. A single-page website can explain several aspects of an organisation, while a landing page is defined primarily by its focused audience and purpose.</p><h3>Should new businesses start with a landing page?</h3><p>Sometimes. If the business has one clear offer and a straightforward customer journey, it may be a sensible start. A company with several services or more complex buyer questions may need a small multi-page site immediately.</p><h3>Is a full website necessarily more expensive?</h3><p>A larger site commonly requires more planning, writing, and maintenance, but actual cost depends on scope, integrations, design, accessibility, and content—not merely on the number of pages.</p>"
+      },
+      {
+        "id": "final-takeaway",
+        "title": "Final takeaway",
+        "body": "<p>Choose a landing page when one defined audience needs a focused explanation and one main action. Choose a full business website when customers need several routes to understand services, review evidence, and contact you confidently.</p><p>Plan around the visitor's questions first. A compact and useful structure is better than extra pages created without a purpose. Businesses that need a broader digital presence can review <a href=\"https://neloydigitalsolutions.com/website-design\">website design planning and development</a> as a starting point for organising content around genuine customer needs.</p>"
+      }
+    ]
+  },
+  {
     "title": "What Is Local Search Intent? 7 Practical Examples for Small Businesses",
     "slug": "what-is-local-search-intent-examples-for-small-businesses",
     "metaTitle": "What Is Local Search Intent? 7 Small Business Examples | Neloy Digital Solutions",
