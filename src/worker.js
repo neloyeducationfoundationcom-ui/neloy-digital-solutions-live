@@ -8,10 +8,44 @@ const CANONICAL_ORIGIN = "https://neloydigitalsolutions.com";
 // Only this exact branch-review host bypasses the existing public redirect.
 const MOTION_PREVIEW_HOST = "preview-premium-cinematic-motion-neloy-digital-solutions-live.info-digitalsolutions-neloy-b7a.workers.dev";
 
+// Showcase video-section MP4s routed Worker-first (wrangler.toml run_worker_first) for byte-range support.
+const RANGE_VIDEO_PATHS = new Set([
+  "/showcase-media/neloy-approved-laptop-podcast.mp4",
+  "/showcase-media/neloy-real-portfolio-laptop-60s.mp4",
+  "/showcase-media/bitcoin-2d-explainer-animation.mp4",
+]);
+async function serveVideoWithRange(request, env) {
+  const assetUrl = new URL(request.url); assetUrl.search = "";
+  const full = await env.ASSETS.fetch(new Request(assetUrl, { method: "GET" }));
+  if (full.status !== 200) return full;
+  const headers = new Headers(full.headers);
+  headers.set("accept-ranges", "bytes");
+  const match = /^bytes=(\d*)-(\d*)$/.exec((request.headers.get("range") || "").trim());
+  if (!match || (match[1] === "" && match[2] === "")) {
+    return new Response(request.method === "HEAD" ? null : full.body, { status: 200, headers });
+  }
+  const body = await full.arrayBuffer();
+  const size = body.byteLength;
+  let start, end;
+  if (match[1] === "") { start = Math.max(0, size - Number(match[2])); end = size - 1; }
+  else { start = Number(match[1]); end = match[2] === "" ? size - 1 : Math.min(Number(match[2]), size - 1); }
+  if (start >= size || end < start) {
+    headers.set("content-range", `bytes */${size}`); headers.delete("content-length");
+    return new Response(null, { status: 416, headers });
+  }
+  headers.set("content-range", `bytes ${start}-${end}/${size}`);
+  headers.set("content-length", String(end - start + 1));
+  return new Response(request.method === "HEAD" ? null : body.slice(start, end + 1), { status: 206, headers });
+}
+
 export default {
   scheduled(event, env, ctx) {ctx.waitUntil(flushAlerts(env));},
   fetch(request, env, ctx) {
     const url = new URL(request.url);
+    // iOS Safari needs 206 range responses for MP4; static assets return 200 for the whole file.
+    if (RANGE_VIDEO_PATHS.has(url.pathname) && env.ASSETS && (request.method === "GET" || request.method === "HEAD")) {
+      return serveVideoWithRange(request, env);
+    }
     if (url.hostname === MOTION_PREVIEW_HOST) {
       const headers = {"x-robots-tag":"noindex, nofollow, noarchive", "cache-control":"no-store"};
       // A review version shares Worker bindings. Never use it to submit or inspect data.

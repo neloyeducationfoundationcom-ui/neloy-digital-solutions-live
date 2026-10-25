@@ -231,7 +231,7 @@ export function initReferenceMotion(){
   });
  },{threshold:[0,.55]});
  root.querySelectorAll('video').forEach(video=>{
-  if(protectedNode(video)||video.closest?.('[hidden],[role=dialog],dialog,.ndsModal'))return;
+  if(protectedNode(video)||video.closest?.('[hidden],[role=dialog],dialog,.ndsModal,#nds-showcase-video'))return;
   videoStates.set(video,{muted:video.muted,loop:video.loop,playsInline:video.playsInline});
   ['pointerdown','keydown'].forEach(type=>video.addEventListener?.(type,()=>manualVideos.add(video),{once:true}));
   playbackObserver.observe(video);
