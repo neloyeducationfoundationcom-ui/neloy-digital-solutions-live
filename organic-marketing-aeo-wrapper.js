@@ -208,6 +208,12 @@ const SHOWCASE_VIDEO_SECTION=`<section id="nds-showcase-video" aria-labelledby="
       <p>Podcast editing focused on clean cuts, captions, pacing, branded framing and professional presentation.</p>
       <div class="svPlayer"><video controls playsinline preload="metadata" aria-label="Neloy Digital Solutions podcast video editing portfolio"><source src="/showcase-media/neloy-real-portfolio-laptop-60s.mp4?v=1" type="video/mp4">Your browser does not support embedded video.</video></div>
     </article>
+    <article class="svCard svReel">
+      <span class="svTag">Video Editing · 2D Animation</span>
+      <h3>Bitcoin 2D Explainer Animation</h3>
+      <p>53-second 2D explainer showing how Bitcoin works.</p>
+      <div class="svPlayer"><video controls muted playsinline preload="none" poster="/showcase-media/bitcoin-2d-explainer-animation-poster.jpg?v=1" aria-label="Bitcoin 2D Explainer Animation"><source src="/showcase-media/bitcoin-2d-explainer-animation.mp4?v=1" type="video/mp4">Your browser does not support embedded video.</video></div>
+    </article>
   </div>
   <div class="svCta"><a href="/video-editing">Explore Video Editing Services →</a></div>
 </div>
