@@ -1,8 +1,10 @@
+import { professionalWebDesignArticle } from './professional-website-design-services.js';
 import { websiteHandoverArticle } from './website-handover.js';
 // Editorial source only. Bodies are trusted, reviewed HTML, never request input.
 export const BLOG_ORIGIN = 'https://neloydigitalsolutions.com';
 export const PUBLISHER = 'Neloy Digital Solutions';
 export const articles = [
+  professionalWebDesignArticle,
   websiteHandoverArticle,
   {
     "title": "When Should a Business Use a Landing Page Instead of a Full Website?",
