@@ -1002,6 +1002,7 @@ export const articles = [
     datePublished: '2026-10-08T18:45:00+06:00',
     dateModified: '2026-10-08T18:45:00+06:00',
     summary: 'Start with the problems customers face, then decide which parts of your website are worth keeping.',
+    image: {src:'/assets/blog/website-redesign-or-new-website-manual.svg', alt:'Original manually designed website decision infographic comparing what to keep, improve or rebuild', width:1200, height:630, caption:'Choose based on customer needs, not appearance'},
     serviceLinks: [{path:'/website-design', label:'Website design services'}],
     relatedSlugs: ['what-to-prepare-before-starting-a-website-project', 'what-makes-a-business-website-look-trustworthy', 'what-should-a-small-business-homepage-do-in-the-first-10-seconds'],
     sections: [
@@ -1021,6 +1022,7 @@ export const articles = [
     category: 'Branding', published: true,
     datePublished: '2026-10-08T18:45:00+06:00', dateModified: '2026-10-08T18:45:00+06:00',
     summary: 'Give your designer decisions they can use: who the logo is for, where it will appear and how you will approve it.',
+    image: {src:'/assets/blog/logo-design-brief-manual.svg', alt:'Original manually designed logo design brief infographic with audience, style and usage considerations', width:1200, height:630, caption:'Five decisions before design begins'},
     serviceLinks: [{path:'/logo-design', label:'Logo design services'}, {path:'/social-media-design', label:'Social media design services'}],
     relatedSlugs: ['keep-brand-consistent-website-social-media', 'fix-brand-problems-before-posting-more-content'],
     sections: [
@@ -1040,6 +1042,7 @@ export const articles = [
     category: 'Video Editing', published: true,
     datePublished: '2026-10-08T18:45:00+06:00', dateModified: '2026-10-08T18:45:00+06:00',
     summary: 'A clean handover helps your editor spend time on the story instead of searching for files and guessing your requirements.',
+    image: {src:'/assets/blog/video-editor-handover-manual.svg', alt:'Original manually designed video editing handover infographic for footage, audio and creative brief', width:1200, height:630, caption:'Organise files before the first cut'},
     serviceLinks: [{path:'/video-editing', label:'Video editing services'}],
     relatedSlugs: ['keep-brand-consistent-website-social-media', 'prepare-a-logo-design-brief'],
     sections: [
