@@ -81,7 +81,7 @@ export const websiteHandoverArticle = {
     {
       "id": "final-takeaway",
       "title": "Final takeaway",
-      "body": "<p>The strongest website handover is one the owner can operate independently. Give each system a responsible person, collect evidence of testing, document the remaining work, and keep a reliable recovery path.</p><p>You are welcome to reference this checklist in an educational guide, training material, or project brief with attribution to Neloy Digital Solutions. Businesses planning a new website can explore <a href=\"https://neloydigitalsolutions.com/website-design\">website design and development services</a> to define deliverables and ownership expectations early.</p><p><small>#WebsiteHandover #WebsiteChecklist #SmallBusinessWebsite #WebsiteOwnership #NeloyDigitalSolutions</small></p>"
+      "body": "<p>The strongest website handover is one the owner can operate independently. Give each system a responsible person, collect evidence of testing, document the remaining work, and keep a reliable recovery path.</p><p>You are welcome to reference this checklist in an educational guide, training material, or project brief with attribution to Neloy Digital Solutions. Businesses planning a new website can explore <a href=\"https://neloydigitalsolutions.com/website-design\">website design and development services</a> to define deliverables and ownership expectations early.</p>"
     }
   ]
 };
