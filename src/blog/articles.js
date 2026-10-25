@@ -445,7 +445,7 @@ export const articles = [
       {
         "id": "informational",
         "title": "1. Informational intent — learn something",
-        "body": "<p>Informational searches happen when someone wants to understand a subject, solve a problem or learn how something works. Examples include “What is responsive website design?”, “How do I prepare a logo design brief?” and “Why does my website load slowly?”</p><p>Helpful explanations, tutorials and practical checklists usually fit these searches. A company offering website design could publish an educational guide on preparing for a web project.</p><p>The article should answer the question properly before suggesting a related service. A reader who came to learn should not be forced into a quotation form to get a useful explanation.</p><p><strong>Best-fit content:</strong> Educational blog posts, how-to guides, definitions, tutorials, checklists and useful answers to common questions.</p>"
+        "body": "<p>Informational searches happen when someone wants to understand a subject, solve a problem or learn how something works. Examples include “What is responsive website design?”, “How do I prepare a logo design brief?” and “Why does my website load slowly?”</p><p>Helpful explanations, tutorials and practical checklists usually fit these searches. A company offering website design could publish an educational guide on <a href=\"/blog/what-to-prepare-before-starting-a-website-project\">preparing for a web project</a>.</p><p>The article should answer the question properly before suggesting a related service. A reader who came to learn should not be forced into a quotation form to get a useful explanation.</p><p><strong>Best-fit content:</strong> Educational blog posts, how-to guides, definitions, tutorials, checklists and useful answers to common questions.</p>"
       },
       {
         "id": "navigational",
@@ -480,7 +480,7 @@ export const articles = [
       {
         "id": "blog-or-service",
         "title": "Should small businesses create blog posts or service pages first?",
-        "body": "<p>The answer depends on what the website already communicates. If visitors cannot find the company's main services or understand how to get in touch, clarifying those important pages may be more valuable than adding another blog post.</p><p>When core pages are useful and accurate, educational articles can answer the questions people ask before they are ready to contact a provider.</p><p>For instance, a web design business might use one main <a href=\"/website-design\">website design service page</a> supported by articles on preparing a project brief, deciding whether to redesign and checking a website before launch.</p><p>Each page serves a different need without duplicating nearly identical explanations. This makes the content library easier to maintain and more useful to visitors.</p>"
+        "body": "<p>The answer depends on what the website already communicates. If visitors cannot find the company's main services or understand how to get in touch, clarifying those important pages may be more valuable than adding another blog post.</p><p>When core pages are useful and accurate, educational articles can answer the questions people ask before they are ready to contact a provider. Our guide to <a href=\"/blog/how-to-choose-blog-topics-that-support-your-service-pages\">choosing blog topics that support your service pages</a> shows how to connect those questions with useful content.</p><p>For instance, a web design business might use one main <a href=\"/website-design\">website design service page</a> supported by articles on preparing a project brief, deciding whether to redesign and checking a website before launch.</p><p>Each page serves a different need without duplicating nearly identical explanations. This makes the content library easier to maintain and more useful to visitors.</p>"
       },
       {
         "id": "seo-aeo",
@@ -550,7 +550,7 @@ export const articles = [
       {
         "id": "navigation",
         "title": "1. The navigation looks elegant but hides important pages",
-        "body": "<p>Minimal navigation can look tidy. Problems start when it uses vague labels, hides core services under unexpected menus or makes people work to locate basic information.</p><p>Imagine a potential customer looking for logo design. They see menu options labelled “Explore,” “Solutions” and “Discover.” None clearly says whether logo design is offered. A simpler menu with “Services,” “Portfolio” and “Contact” may do more to help that visitor than a sophisticated animated menu.</p><p><strong>What to check:</strong></p><ul><li>Can a first-time visitor identify where to find services, examples of work and contact information?</li><li>Are menu labels written in language customers actually use?</li><li>Does the menu work with touch, keyboard navigation and smaller screens?</li><li>Are important pages accessible without opening several nested menus?</li></ul><p><strong>Practical fix:</strong> Replace unclear labels with familiar ones. Group related services logically and test the menu with someone who has never used the site before.</p>"
+        "body": "<p>Minimal navigation can look tidy. Problems start when it uses vague labels, hides core services under unexpected menus or makes people work to locate basic information.</p><p>Imagine a potential customer looking for logo design. They see menu options labelled “Explore,” “Solutions” and “Discover.” None clearly says whether logo design is offered. A simpler menu with “Services,” “Portfolio” and “Contact” may do more to help that visitor than a sophisticated animated menu.</p><p><strong>What to check:</strong></p><ul><li>Can a first-time visitor identify where to find services, examples of work and contact information?</li><li>Are menu labels written in language customers actually use?</li><li>Does the menu work with touch, keyboard navigation and smaller screens?</li><li>Are important pages accessible without opening several nested menus?</li></ul><p><strong>Practical fix:</strong> Replace unclear labels with familiar ones. Group related services logically and test the menu with someone who has never used the site before. For a step-by-step approach, see <a href=\"/blog/how-to-plan-website-navigation-before-you-start-designing\">planning website navigation before designing</a>.</p>"
       },
       {
         "id": "homepage-message",
@@ -560,7 +560,7 @@ export const articles = [
       {
         "id": "mobile",
         "title": "3. The mobile experience is treated like a smaller desktop",
-        "body": "<p>A layout can look balanced on a large screen yet become frustrating on a phone. Side-by-side sections get compressed, buttons sit too close together, sticky panels cover content and text can become difficult to read.</p><p>Mobile usability is not only about whether the page technically fits the screen. It is about whether people can comfortably read, scroll, navigate and act.</p><p><strong>What to check:</strong></p><ul><li>Do headings and paragraphs remain readable without zooming?</li><li>Are buttons easy to tap without hitting the wrong item?</li><li>Does the menu open, close and scroll reliably?</li><li>Are images, forms and comparison tables usable at narrow widths?</li><li>Does a sticky header or chat widget cover important content?</li></ul><p><strong>Practical fix:</strong> Review the site on a real phone, not only a desktop preview. Start with the homepage, the most important service page and the contact page. Fix any element that blocks basic tasks.</p>"
+        "body": "<p>A layout can look balanced on a large screen yet become frustrating on a phone. Side-by-side sections get compressed, buttons sit too close together, sticky panels cover content and text can become difficult to read.</p><p>Mobile usability is not only about whether the page technically fits the screen. It is about whether people can comfortably read, scroll, navigate and act. Our guide to <a href=\"/blog/how-to-make-a-website-easier-to-scan-on-mobile\">making a website easier to scan on mobile</a> covers practical checks.</p><p><strong>What to check:</strong></p><ul><li>Do headings and paragraphs remain readable without zooming?</li><li>Are buttons easy to tap without hitting the wrong item?</li><li>Does the menu open, close and scroll reliably?</li><li>Are images, forms and comparison tables usable at narrow widths?</li><li>Does a sticky header or chat widget cover important content?</li></ul><p><strong>Practical fix:</strong> Review the site on a real phone, not only a desktop preview. Start with the homepage, the most important service page and the contact page. Fix any element that blocks basic tasks.</p>"
       },
       {
         "id": "visual-hierarchy",
@@ -580,7 +580,7 @@ export const articles = [
       {
         "id": "contact-friction",
         "title": "7. The contact step introduces avoidable friction",
-        "body": "<p>A visitor may understand the service and trust the company, then abandon the process because the next step is unclear or difficult.</p><p>Common examples include a contact button that is hard to find, a form requesting too many details before the first conversation, unclear required fields and an error message that does not explain what needs correcting.</p><p><strong>Practical fix:</strong> Make contact options easy to locate. Ask only for information needed at the first stage. Explain what happens after submission and show a clear confirmation when a message is received.</p><p>A useful contact process does not have to be elaborate. It has to work reliably.</p>"
+        "body": "<p>A visitor may understand the service and trust the company, then abandon the process because the next step is unclear or difficult.</p><p>Common examples include a contact button that is hard to find, a form requesting too many details before the first conversation, unclear required fields and an error message that does not explain what needs correcting.</p><p><strong>Practical fix:</strong> Make contact options easy to locate. Ask only for information needed at the first stage. Explain what happens after submission and show a clear confirmation when a message is received.</p><p>A useful contact process does not have to be elaborate. It has to work reliably. For details, see <a href=\"/blog/how-to-make-website-forms-easier-for-customers-to-complete\">how to make website forms easier for customers to complete</a>.</p>"
       },
       {
         "id": "ten-minute-check",
@@ -660,12 +660,12 @@ export const articles = [
       {
         "id": "fix-landing",
         "title": "2. Check the landing experience",
-        "body": "<p>Ads and social posts often send people to a website or landing page.</p><p>That page should continue the same promise made in the post or ad. If the customer clicks one message and lands on a page that feels unrelated, trust can drop quickly.</p><p>Review the headline, service explanation, proof, contact options and mobile experience before spending more.</p>"
+        "body": "<p>Ads and social posts often send people to a website or <a href=\"/blog/when-should-a-business-use-a-landing-page-instead-of-a-full-website\">landing page</a>.</p><p>That page should continue the same promise made in the post or ad. If the customer clicks one message and lands on a page that feels unrelated, trust can drop quickly.</p><p>Review the headline, service explanation, proof, contact options and mobile experience before spending more.</p>"
       },
       {
         "id": "fix-proof",
         "title": "3. Make the proof easy to find",
-        "body": "<p>A visitor may like the message but still need evidence before contacting the business.</p><p>Useful proof can include completed work, testimonials, clear service details, real contact information and a professional website experience.</p><p>The goal is not to overload the page with badges. It is to reduce avoidable doubt.</p>"
+        "body": "<p>A visitor may like the message but still need evidence before contacting the business.</p><p>Useful proof can include completed work, testimonials, clear service details, real contact information and a professional website experience. Our guide to <a href=\"/blog/what-makes-a-business-website-look-trustworthy\">what makes a business website look trustworthy</a> gives practical examples.</p><p>The goal is not to overload the page with badges. It is to reduce avoidable doubt.</p>"
       },
       {
         "id": "fix-tracking",
@@ -680,7 +680,7 @@ export const articles = [
       {
         "id": "when-organic",
         "title": "When to keep improving organic content first",
-        "body": "<p>If the business is still changing its core message, testing how to explain the service or rebuilding the website experience, organic content can be the better place to learn first.</p><p>Use customer questions, comments and sales conversations to identify what people still do not understand.</p>"
+        "body": "<p>If the business is still changing its core message, testing how to explain the service or rebuilding the website experience, organic content can be the better place to learn first.</p><p>Use customer questions, comments and sales conversations to identify what people still do not understand. A <a href=\"/blog/keep-brand-consistent-website-social-media\">consistent brand across your website and social media</a> also helps customers recognise your business.</p>"
       },
       {
         "id": "simple-framework",
