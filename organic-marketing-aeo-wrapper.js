@@ -186,6 +186,8 @@ const SHOWCASE_VIDEO_STYLE=`<style id="nds-showcase-video-style">
 #nds-showcase-video .svCta{text-align:center;margin-top:26px}
 #nds-showcase-video .svCta a{display:inline-flex;padding:12px 18px;border-radius:11px;background:#12DFF3;color:#062347!important;text-decoration:none;font-weight:1000}
 @media(max-width:820px){#nds-showcase-video .svGrid{grid-template-columns:1fr}}
+#nds-showcase-video .svCard--centered{grid-column:1/-1;justify-self:center;width:100%;max-width:calc((100% - 22px)/2)}
+@media(max-width:820px){#nds-showcase-video .svCard--centered{max-width:none}}
 </style>`;
 
 const SHOWCASE_VIDEO_SECTION=`<section id="nds-showcase-video" aria-labelledby="nds-showcase-video-title">
@@ -208,7 +210,7 @@ const SHOWCASE_VIDEO_SECTION=`<section id="nds-showcase-video" aria-labelledby="
       <p>Podcast editing focused on clean cuts, captions, pacing, branded framing and professional presentation.</p>
       <div class="svPlayer"><video controls playsinline preload="metadata" aria-label="Neloy Digital Solutions podcast video editing portfolio"><source src="/showcase-media/neloy-real-portfolio-laptop-60s.mp4?v=1" type="video/mp4">Your browser does not support embedded video.</video></div>
     </article>
-    <article class="svCard svReel">
+    <article class="svCard svReel svCard--centered">
       <span class="svTag">Video Editing · 2D Animation</span>
       <h3>Bitcoin 2D Explainer Animation</h3>
       <p>53-second 2D explainer showing how Bitcoin works.</p>
