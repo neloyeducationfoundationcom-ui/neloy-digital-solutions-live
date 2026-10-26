@@ -1,9 +1,11 @@
+import { portfolioPageArticle } from './portfolio-page-design-b013.js';
 import { professionalWebDesignArticle } from './professional-website-design-services.js';
 import { websiteHandoverArticle } from './website-handover.js';
 // Editorial source only. Bodies are trusted, reviewed HTML, never request input.
 export const BLOG_ORIGIN = 'https://neloydigitalsolutions.com';
 export const PUBLISHER = 'Neloy Digital Solutions';
 export const articles = [
+  portfolioPageArticle,
   professionalWebDesignArticle,
   websiteHandoverArticle,
   {
