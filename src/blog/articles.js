@@ -1,3 +1,4 @@
+import { seoServicePageB027Article } from './seo-service-page-b027.js';
 import { portfolioPageArticle } from './portfolio-page-design-b013.js';
 import { professionalWebDesignArticle } from './professional-website-design-services.js';
 import { websiteHandoverArticle } from './website-handover.js';
@@ -5,6 +6,7 @@ import { websiteHandoverArticle } from './website-handover.js';
 export const BLOG_ORIGIN = 'https://neloydigitalsolutions.com';
 export const PUBLISHER = 'Neloy Digital Solutions';
 export const articles = [
+  seoServicePageB027Article,
   portfolioPageArticle,
   professionalWebDesignArticle,
   websiteHandoverArticle,
