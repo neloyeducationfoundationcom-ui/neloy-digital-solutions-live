@@ -17,7 +17,7 @@ const OFFICES = `<section id="nds-our-offices" style="padding:56px 0"><style>
 <div class="off"><div class="hq"><span class="fl">🇬🇧</span><div><small>Headquarters</small><b>United Kingdom</b></div><span class="tag">HQ</span></div>
 <div class="oc"><span class="fl">🇲🇾</span><small>Office</small>Malaysia</div><div class="oc"><span class="fl">🇺🇸</span><small>Office</small>United States</div><div class="oc"><span class="fl">🇨🇦</span><small>Office</small>Canada</div></div></div></section>`;
 
-const PARTNER_ROW = `<section id="nds-white-label-partner" style="padding:22px 0 8px"><style>
+const PARTNER_ROW = `<section id="nds-white-label-partner" style="padding:22px 0 48px;position:relative;z-index:2"><style>
 #nds-white-label-partner .w{max-width:1180px;margin:0 auto;padding:0 24px;text-align:center}
 #nds-white-label-partner .k{color:#086af6;font-weight:700;letter-spacing:.12em;font-size:12px;text-transform:uppercase;margin-bottom:12px}
 #nds-white-label-partner .pc{display:inline-flex;align-items:center;background:#fff;border:1px solid #dce9f8;border-radius:18px;padding:12px 20px;box-shadow:0 8px 24px rgba(7,26,47,.06)}
