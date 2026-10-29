@@ -23,7 +23,7 @@ const PARTNER_ROW = `<section id="nds-white-label-partner" style="padding:22px 0
 #nds-white-label-partner .pc{display:inline-flex;align-items:center;background:#fff;border:1px solid #dce9f8;border-radius:18px;padding:12px 20px;box-shadow:0 8px 24px rgba(7,26,47,.06)}
 #nds-white-label-partner .pc img{height:72px;max-width:200px;object-fit:contain;border-radius:10px;display:block}
 @media(max-width:700px){#nds-white-label-partner .pc img{height:60px}}
-</style><div class="w"><div class="k">White-Label Partner</div><div class="pc"><img src="/assets/partners/simplicity-in-advertising.png" alt="Simplicity in Advertising" width="200" height="72" loading="lazy" decoding="async"></div></div></section>`;
+</style><div class="w"><div class="k">White-Label Partner</div><div class="pc"><img src="/partner-simplicity-in-advertising.png" alt="Simplicity in Advertising" width="200" height="72" loading="lazy" decoding="async"></div></div></section>`;
 
 const PATHS = new Set(["/", "/showcase", "/portfolio"]);
 
