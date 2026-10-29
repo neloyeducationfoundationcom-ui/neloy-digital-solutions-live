@@ -1,4 +1,5 @@
 import { flushAlerts } from './chat/alerts.js';
+import { withPageCleanup } from './page-cleanup.js';
 // Keep the existing Worker pipeline intact while giving routing a stable entry.
 import existingWorker from "../premium-site-wrapper.js";
 import { withChat } from "./chat/worker.js";
@@ -72,6 +73,6 @@ export default {
     ) {
       return Response.redirect(CANONICAL_ORIGIN + url.pathname + url.search, 301);
     }
-    return currentWorker.fetch(request, env, ctx);
+    return withPageCleanup(request, currentWorker.fetch(request, env, ctx));
   },
 };
