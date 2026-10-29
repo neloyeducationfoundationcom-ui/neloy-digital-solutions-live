@@ -13,7 +13,7 @@ const OFFICES = `<section id="nds-our-offices" style="padding:56px 0"><style>
 #nds-our-offices .hq small{color:#c9e8f7}
 #nds-our-offices .fl{font-size:30px}
 @media(max-width:700px){#nds-our-offices .off{grid-template-columns:1fr}#nds-our-offices .hq{flex-wrap:wrap}}
-</style><div class="w"><div class="k">Global presence</div><h2>Our Offices</h2>
+</style><div class="w"><div class="k">Global presence</div><h2>Our White-Label Partner Offices</h2>
 <div class="off"><div class="hq"><span class="fl">🇬🇧</span><div><small>Headquarters</small><b>United Kingdom</b></div><span class="tag">HQ</span></div>
 <div class="oc"><span class="fl">🇲🇾</span><small>Office</small>Malaysia</div><div class="oc"><span class="fl">🇺🇸</span><small>Office</small>United States</div><div class="oc"><span class="fl">🇨🇦</span><small>Office</small>Canada</div></div></div></section>`;
 
