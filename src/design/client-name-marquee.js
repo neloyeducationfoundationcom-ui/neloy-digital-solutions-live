@@ -37,7 +37,8 @@ const ROWS = [
     "Generations Plumbing & Mechanical",
     "Infinity Web Logistics",
     "Dobrin Health",
-    "Martorcor Landscaping Co."
+    "Martorcor Landscaping Co.",
+    "Los Rubas Mexican Grill"
   ],
   [
     "Avanu on Flagler",
