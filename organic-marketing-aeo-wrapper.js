@@ -213,7 +213,7 @@ const SHOWCASE_VIDEO_SECTION=`<section id="nds-showcase-video" aria-labelledby="
     <article class="svCard svReel svCard--centered">
       <span class="svTag">Video Editing · 2D Animation</span>
       <h3>Bitcoin 2D Explainer Animation</h3>
-      <p>53-second 2D explainer showing how Bitcoin works.</p>
+      <p>46-second 2D explainer showing how Bitcoin works.</p>
       <div class="svPlayer"><video controls autoplay muted loop playsinline preload="metadata" poster="/showcase-media/bitcoin-2d-explainer-animation-poster.jpg?v=1" aria-label="Bitcoin 2D Explainer Animation"><source src="/showcase-media/bitcoin-2d-explainer-animation.mp4?v=1" type="video/mp4">Your browser does not support embedded video.</video></div>
     </article>
   </div>
