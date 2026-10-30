@@ -188,6 +188,8 @@ const SHOWCASE_VIDEO_STYLE=`<style id="nds-showcase-video-style">
 @media(max-width:820px){#nds-showcase-video .svGrid{grid-template-columns:1fr}}
 #nds-showcase-video .svCard--centered{grid-column:1/-1;justify-self:center;width:100%;max-width:calc((100% - 22px)/2)}
 @media(max-width:820px){#nds-showcase-video .svCard--centered{max-width:none}}
+#nds-showcase-video .svReel.svCard--centered .svPlayer{width:fit-content;max-width:100%;margin-left:auto;margin-right:auto}
+#nds-showcase-video .svReel.svCard--centered .svPlayer video{width:auto;height:min(560px,calc((100vw - 80px)*16/9));max-width:100%;aspect-ratio:9/16;object-fit:cover}
 </style>`;
 
 const SHOWCASE_VIDEO_SECTION=`<section id="nds-showcase-video" aria-labelledby="nds-showcase-video-title">
